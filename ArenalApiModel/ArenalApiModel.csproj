@@ -11,6 +11,26 @@
     <Description>Arenal API data model</Description>
     <Copyright>Copyright (C) 2016-2023, SKYWARE Group</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Arenal Data Model</Title>
+    <PackageProjectUrl>https://github.com/SKYWARE-Group/ArenalClient</PackageProjectUrl>
+    <PackageIcon>Assets\logo-128-nuget.png</PackageIcon>
+    <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
+    <PackageTags>Arenal;API;Model</PackageTags>
+    <AssemblyVersion>0.0.1</AssemblyVersion>
+    <Version>0.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Assets\logo-128-nuget.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Assets\model-nuget-readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

@@ -13,4 +13,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ArenalApiModel\ArenalApiModel.csproj" />
+  </ItemGroup>
+
 </Project>
