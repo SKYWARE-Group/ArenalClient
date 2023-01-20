@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <RootNamespace>Skyware.Arenal.Model</RootNamespace>
+    <PackageId>Skyware.Arenal.Model</PackageId>
+    <Authors>Mikhail Kalatchev</Authors>
+    <AssemblyName>Skyware.Arenal.Model</AssemblyName>
+    <Company>SKYWARE Group</Company>
+    <Description>Arenal API data model</Description>
+    <Copyright>Copyright (C) 2016-2023, SKYWARE Group</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+</Project>

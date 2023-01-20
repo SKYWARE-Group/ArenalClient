@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <RootNamespace>Skyware.Arenal.Client</RootNamespace>
+    <PackageId>Skyware.Arenal.Client</PackageId>
+    <Authors>Mikhail Kalatchev</Authors>
+    <AssemblyName>Skyware.Arenal.Model</AssemblyName>
+    <Company>SKYWARE Group</Company>
+    <Description>Arenal Web API Client</Description>
+    <Copyright>Copyright (C) 2016-2023, SKYWARE Group</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+</Project>
