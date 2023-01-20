@@ -1,3 +1,3 @@
 # ArenalClient
 
-This project as a .net data modela and web client for Arenal service.
+This project is a .net data model and web client for Arenal service.
