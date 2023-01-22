@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <RootNamespace>Skyware.Arenal.Model</RootNamespace>
+    <RootNamespace>Skyware.Arenal</RootNamespace>
     <PackageId>Skyware.Arenal.Model</PackageId>
     <Authors>Mikhail Kalatchev</Authors>
     <AssemblyName>Skyware.Arenal.Model</AssemblyName>
