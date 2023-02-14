@@ -5,15 +5,46 @@
 
 This project is a .NET data model and web client for [Arenal](https://awp.skyware-group.com/) service.
 
-## Data Model
+## Order Model
 
 ```mermaid
 erDiagram
-    Order ||--|| Patient : has
-    Order }o--|| Service : Services
-    Order }o--|| LinkedReferral : LinkedReferrals
-    Order }o--|| Sample : Samples
-    Service ||--|| Identifier : has
-    Patient }o--|| Identifier : Identifiers
-    Patient }o--|| Contact : Contacts
+    Order {
+        string ArenalId
+        string PlacerId
+        string PlacerOrderId
+        string ProviderId
+        string ProviderOrderId
+        var other
+    }
+    Identifier {
+        string Authority
+        string Dictionary
+        string Value
+    }
+    Patient {
+        var other
+    }
+    Service {
+        var other
+    }
+    LinkedReferral {
+        var other
+    }
+    Sample {
+        var other
+    }
+    Contact {
+        var other
+    }
+    Order ||--|| Patient : Patient
+    Order ||--o{ Service : Services
+    Order ||--o{ LinkedReferral : LinkedReferrals
+    Order ||--o{ Sample : Samples
+    Service ||--|| Identifier : Id
+    Patient ||--o{ Contact : Contacts
+    Patient ||--o{ Identifier : Identifiers
+    LinkedReferral ||--|| Identifier : Id
+    Sample ||--|| Identifier : TypeId
+    Sample ||--|| Identifier : Id
 ```
