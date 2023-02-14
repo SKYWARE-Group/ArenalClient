@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,7 +6,7 @@
     <RootNamespace>Skyware.Arenal.Client</RootNamespace>
     <PackageId>Skyware.Arenal.Client</PackageId>
     <Authors>Mikhail Kalatchev</Authors>
-    <AssemblyName>Skyware.Arenal.Model</AssemblyName>
+    <AssemblyName>Skyware.Arenal.Client</AssemblyName>
     <Company>SKYWARE Group</Company>
     <Description>Arenal Web API Client</Description>
     <Copyright>Copyright (C) 2016-2023, SKYWARE Group</Copyright>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArenalApiModel\ArenalApiModel.csproj" />
+    <ProjectReference Include="..\ArenalApiModel\Model.csproj" />
   </ItemGroup>
 
 </Project>

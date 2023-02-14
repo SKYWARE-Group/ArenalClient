@@ -20,7 +20,7 @@ namespace Skyware.Arenal.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Date and time the referral will expire
+        /// Date and time the referral will expire.
         /// </summary>
         public DateTime? Expiration { get; set; }
 

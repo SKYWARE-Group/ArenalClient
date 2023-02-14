@@ -8,14 +8,9 @@
     {
 
         /// <summary>
-        /// Coding system for the service identifier such as 'org.loinc', etc.
+        /// Identifier of a ordered service (test).
         /// </summary>
-        public string CodingSystem { get; set; }
-
-        /// <summary>
-        /// Code of the service such as '57021-8' (CBC in LOINC).
-        /// </summary>
-        public string Code { get; set; }
+        public Identifier Id { get; set; }
 
         /// <summary>
         /// Name of the service (optional).

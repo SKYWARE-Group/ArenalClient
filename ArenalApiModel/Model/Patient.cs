@@ -11,21 +11,9 @@ namespace Skyware.Arenal.Model
     {
 
         /// <summary>
-        /// Scheme of the personal identifier such as 'us.ssn' 'bg.egn', 'mk.jmbg', etc.
-        /// Null is used for patients that can't be unidentified with well-known identifier.
+        /// List of <see cref="Identifier"/> (may be empty).
         /// </summary>
-        public string IdScheme { get; set; }
-
-        /// <summary>
-        /// Personal identifier such as ЕГН, ЕМБГ, SSN, etc. 
-        /// Null is used for unidentified patients.
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Placer's identifier of the patient. 
-        /// </summary>
-        public string PlacerId { get; set; }
+        public IEnumerable<Identifier> Identifiers { get; set; }
 
         /// <summary>
         /// Given (first) name of the patient.
@@ -51,7 +39,7 @@ namespace Skyware.Arenal.Model
         /// True if date of birth is exact value, false if is calculated from approximate age.
         /// True by default. If no value is provided, default (true) value will be used.
         /// </summary>
-        public bool? IsDateOfBirthApproximate { get; set; }
+        public bool IsDateOfBirthApproximate { get; set; } = false; 
 
         /// <summary>
         /// True for males, False for females and Null for other/unknown.
@@ -59,9 +47,9 @@ namespace Skyware.Arenal.Model
         public bool? IsMale { get; set; }
 
         /// <summary>
-        /// List of phone numbers of the patient.
+        /// List of phone numbers, emails, etc.
         /// </summary>
-        public IEnumerable<PhoneNumber> PhoneNumbers { get; set; }
+        public IEnumerable<Contact> Contacts { get; set; }
 
     }
 

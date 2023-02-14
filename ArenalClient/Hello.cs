@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Skyware.Arenal.Model;
 
 namespace Skyware.Arenal.Client
 {
-    internal class Hello
+    public class Hello
     {
 
         Order o;
