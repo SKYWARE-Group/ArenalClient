@@ -10,14 +10,9 @@ namespace Skyware.Arenal.Model
     {
 
         /// <summary>
-        /// Identifier of an external system where the referral is stored, such as 'bg.his', etc.
+        /// Identifier in external system.
         /// </summary>
-        public string SystemId { get; set; }
-
-        /// <summary>
-        /// Identifier of the linked referral in the external system such as NRN, etc.
-        /// </summary>
-        public string Id { get; set; }
+        public Identifier Id { get; set; }
 
         /// <summary>
         /// Date and time the referral will expire.

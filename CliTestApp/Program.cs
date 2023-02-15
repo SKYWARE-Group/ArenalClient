@@ -22,7 +22,8 @@ namespace CliTestApp
                     DateOfBirth = new DateTime(1980, 5, 7),
                     IsMale = true
                 },
-                Sevrices = new[] { new Service() { Id = new Identifier() { Authority = "org.loinc", Value = "45685-8" }, Name = "Glucose" } }
+                Sevrices = new[] { new Service() { Id = new Identifier() { Authority = "org.loinc", Value = "45685-8" }, Name = "Glucose" } },
+                LinkedReferrals = new[] { new LinkedReferral() { Id= new Identifier() { Authority = "bg.his", Value = "2023123456F2"} } }
             };
             Console.WriteLine(JsonSerializer.Serialize(
                 o, 
