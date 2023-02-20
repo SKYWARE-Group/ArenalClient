@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Skyware.Arenal.Model
 {
@@ -8,7 +7,7 @@ namespace Skyware.Arenal.Model
     /// <summary>
     /// Represents a shipment of samples from placer to service provider.
     /// </summary>
-    public class SamplesShipment : EntityBase 
+    public class SamplesShipment : EntityBase
     {
 
         /// <summary>

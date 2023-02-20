@@ -51,7 +51,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Patient
         /// </summary>
-        public Patient Patient { get; set; }
+        public Person Patient { get; set; }
 
         /// <summary>
         /// Additional orders or referrals, which are part of his order and ares stored and processed in external systems.
@@ -72,6 +72,11 @@ namespace Skyware.Arenal.Model
         /// Notes from the placer.
         /// </summary>
         public string Notes { get; set; }
+
+        /// <summary>
+        /// Order related files.
+        /// </summary>
+        public IEnumerable<Attachment> Attachments { get; set; }
 
     }
 }

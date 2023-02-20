@@ -5,9 +5,9 @@ namespace Skyware.Arenal.Model
 {
 
     /// <summary>
-    /// Patient, the subject of an order or result.
+    /// Person: patient, doctor, etc.
     /// </summary>
-    public class Patient
+    public class Person
     {
 
         /// <summary>
@@ -16,22 +16,22 @@ namespace Skyware.Arenal.Model
         public IEnumerable<Identifier> Identifiers { get; set; }
 
         /// <summary>
-        /// Given (first) name of the patient.
+        /// Given (first) name of the person.
         /// </summary>
         public string GivenName { get; set; }
 
         /// <summary>
-        /// Middle (second) name of the patient.
+        /// Middle (second) name of the person.
         /// </summary>
         public string MiddleName { get; set; }
 
         /// <summary>
-        /// Family name (surname) of the patient.
+        /// Family name (surname) of the person.
         /// </summary>
         public string FamilyName { get; set; }
 
         /// <summary>
-        /// Date of birth of the patient.
+        /// Date of birth of the person.
         /// </summary>
         public DateTime? DateOfBirth { get; set; }
 
@@ -50,6 +50,11 @@ namespace Skyware.Arenal.Model
         /// List of phone numbers, emails, etc.
         /// </summary>
         public IEnumerable<Contact> Contacts { get; set; }
+
+        /// <summary>
+        /// Order related files.
+        /// </summary>
+        public IEnumerable<Attachment> Attachments { get; set; }
 
     }
 

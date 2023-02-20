@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model
 {
@@ -8,7 +6,7 @@ namespace Skyware.Arenal.Model
     /// <summary>
     /// Service provider, e.g. laboratory.
     /// </summary>
-    public class Provider : EntityBase 
+    public class Organization : EntityBase
     {
 
         /// <summary>
