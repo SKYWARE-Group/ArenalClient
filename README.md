@@ -48,3 +48,18 @@ erDiagram
     Sample ||--|| Identifier : TypeId
     Sample ||--|| Identifier : Id
 ```
+
+## Identifiers
+
+| Authority | Identfier type | Applicable country | Dictionaries | Notes |
+| :---  | :---  | :---  | :---  | :---  |
+| `bg.bma` | УИН | Bulgaria | None | |
+| `bg.brra` | ЕИК | Bulgaria | None | |
+| `bg.grao` | ЕГН | Bulgaria | None | |
+| `bg.his` | ЕГН | Bulgaria | НЗИС номенклатура | Use for test and sample typr identification |
+| `bg.mi` | ЛНЧ | Bulgaria | None |  |
+| `bg.mh` | РЦЗ/РЗИ код | Bulgaria | None | |
+| `bg.nhis` | РЦЗ/РЗИ код | Bulgaria | `prod`, `org` | При речник `prod` - код на изследване, кл. патека и др., при `org` - НЗОК номер на ЛЗ |
+| `org.loinc` | Loinc code | All | HL7 table | Use for test and sample typr identification |
+
+
