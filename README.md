@@ -22,7 +22,7 @@ erDiagram
         string Dictionary
         string Value
     }
-    Patient {
+    Person {
         var other
     }
     Service {
@@ -37,14 +37,31 @@ erDiagram
     Contact {
         var other
     }
-    Order ||--|| Patient : Patient
+    Order ||--|| Person : Patient
     Order ||--o{ Service : Services
     Order ||--o{ LinkedReferral : LinkedReferrals
     Order ||--o{ Sample : Samples
     Service ||--|| Identifier : Id
-    Patient ||--o{ Contact : Contacts
-    Patient ||--o{ Identifier : Identifiers
+    Person ||--o{ Contact : Contacts
+    Person ||--o{ Identifier : Identifiers
     LinkedReferral ||--|| Identifier : Id
     Sample ||--|| Identifier : TypeId
     Sample ||--|| Identifier : Id
 ```
+
+## Identifiers
+
+| Authority | Identfier type | Applicable country | Dictionaries | Notes |
+| :---  | :---  | :---  | :---  | :---  |
+| `bg.bma` | УИН | Bulgaria | None | |
+| `bg.brra` | ЕИК | Bulgaria | None | |
+| `bg.grao` | ЕГН | Bulgaria | None | |
+| `bg.his` | Разни | Bulgaria | Номенклатури:<br>null/empty<br>`CL022`<br>`CL024` | Usage:<br>НРН<br>Ordered test<br>Test result identification |
+| `org.hl7` | HL7 code | All | HL7 tables:<br>`0487` | Usage:<br> Sample type |
+| `bg.mi` | ЛНЧ | Bulgaria | None |  |
+| `bg.mh` | РЦЗ/РЗИ код | Bulgaria | None | |
+| `bg.nhis` | Продукт/ЛЗ | Bulgaria | `prod`, `org` | При речник `prod` - код на изследване, кл. пътека и др., при `org` - НЗОК номер на ЛЗ |
+| `eu.vies` | EU VAT number | EU countries | None | |
+| `org.loinc` | Loinc code | All | None | Use for test identification |
+
+
