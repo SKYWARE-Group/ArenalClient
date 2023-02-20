@@ -22,7 +22,7 @@ erDiagram
         string Dictionary
         string Value
     }
-    Patient {
+    Person {
         var other
     }
     Service {
@@ -37,13 +37,13 @@ erDiagram
     Contact {
         var other
     }
-    Order ||--|| Patient : Patient
+    Order ||--|| Person : Patient
     Order ||--o{ Service : Services
     Order ||--o{ LinkedReferral : LinkedReferrals
     Order ||--o{ Sample : Samples
     Service ||--|| Identifier : Id
-    Patient ||--o{ Contact : Contacts
-    Patient ||--o{ Identifier : Identifiers
+    Person ||--o{ Contact : Contacts
+    Person ||--o{ Identifier : Identifiers
     LinkedReferral ||--|| Identifier : Id
     Sample ||--|| Identifier : TypeId
     Sample ||--|| Identifier : Id
