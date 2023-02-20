@@ -60,6 +60,7 @@ erDiagram
 | `bg.mi` | ЛНЧ | Bulgaria | None |  |
 | `bg.mh` | РЦЗ/РЗИ код | Bulgaria | None | |
 | `bg.nhis` | Продукт/ЛЗ | Bulgaria | `prod`, `org` | При речник `prod` - код на изследване, кл. патека и др., при `org` - НЗОК номер на ЛЗ |
+| `eu.vies` | EU VAT number | EU countries | None | |
 | `org.loinc` | Loinc code | All | HL7 table | Use for test and sample typr identification |
 
 
