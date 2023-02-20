@@ -56,11 +56,12 @@ erDiagram
 | `bg.bma` | УИН | Bulgaria | None | |
 | `bg.brra` | ЕИК | Bulgaria | None | |
 | `bg.grao` | ЕГН | Bulgaria | None | |
-| `bg.his` | ЕГН | Bulgaria | НЗИС номенклатура | Use for test and sample typr identification |
+| `bg.his` | ЕГН | Bulgaria | Номенклатури:<br>`CL022`<br>`CL024` | Use for test and sample typr identification |
+| `org.hl7` | HL7 code | All | HL7 tables:<br>`0487` | Use for sample typre identification |
 | `bg.mi` | ЛНЧ | Bulgaria | None |  |
 | `bg.mh` | РЦЗ/РЗИ код | Bulgaria | None | |
 | `bg.nhis` | Продукт/ЛЗ | Bulgaria | `prod`, `org` | При речник `prod` - код на изследване, кл. патека и др., при `org` - НЗОК номер на ЛЗ |
 | `eu.vies` | EU VAT number | EU countries | None | |
-| `org.loinc` | Loinc code | All | HL7 table | Use for test and sample typr identification |
+| `org.loinc` | Loinc code | All | None | Use for test identification |
 
 
