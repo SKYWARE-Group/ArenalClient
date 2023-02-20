@@ -56,7 +56,7 @@ erDiagram
 | `bg.bma` | УИН | Bulgaria | None | |
 | `bg.brra` | ЕИК | Bulgaria | None | |
 | `bg.grao` | ЕГН | Bulgaria | None | |
-| `bg.his` | ЕГН | Bulgaria | Номенклатури:<br>`CL022`<br>`CL024` | Usage:<br>Ordered test<br>Test result identification |
+| `bg.his` | Разни | Bulgaria | Номенклатури:<br>null/empty<br>`CL022`<br>`CL024` | Usage:<br>НРН<br>Ordered test<br>Test result identification |
 | `org.hl7` | HL7 code | All | HL7 tables:<br>`0487` | Usage:<br> Sample type |
 | `bg.mi` | ЛНЧ | Bulgaria | None |  |
 | `bg.mh` | РЦЗ/РЗИ код | Bulgaria | None | |
