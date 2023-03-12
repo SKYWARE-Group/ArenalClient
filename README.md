@@ -5,4 +5,4 @@
 
 This project is a .NET data model and web client for [Arenal](https://awp.skyware-group.com/) service.
 
-For doxumentation, see [Wiki](https://github.com/SKYWARE-Group/ArenalClient/wiki).
+For documentation, see [Wiki](https://github.com/SKYWARE-Group/ArenalClient/wiki).
