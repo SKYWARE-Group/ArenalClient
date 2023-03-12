@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArenalApiModel\Model.csproj" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArenalClient\WebClient.csproj" />
   </ItemGroup>
 
 </Project>

@@ -27,10 +27,9 @@ namespace Skyware.Arenal.Model
         public const string LOINC = "org.loinc";
 
         /// <summary>
-        /// Any local identifier, not mentioned in other authority.
+        /// Any local (custom) identifier, not mentioned in other authority.
         /// </summary>
         public const string LOCAL = "local";
-
 
     }
 

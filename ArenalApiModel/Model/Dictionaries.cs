@@ -12,9 +12,14 @@ namespace Skyware.Arenal.Model
     {
 
         /// <summary>
-        /// LOINC sample types
+        /// LOINC Sample Types (Table 0487)
         /// </summary>
         public const string LOINC_0487_SampleType = "0487";
+
+        /// <summary>
+        /// LOINC Sample Additives/Preservatives (Table 0371)
+        /// </summary>
+        public const string LOINC_0487_SampleAdditiv = "0371";
 
     }
 

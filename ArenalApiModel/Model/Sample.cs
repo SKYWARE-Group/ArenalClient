@@ -15,6 +15,11 @@ namespace Skyware.Arenal.Model
         public Identifier TypeId { get; set; }
 
         /// <summary>
+        /// Identifier of additive.
+        /// </summary>
+        public Identifier AditiveId { get; set; }
+
+        /// <summary>
         /// Identifier of the sample.
         /// </summary>
         public Identifier Id { get; set; }
@@ -24,6 +29,11 @@ namespace Skyware.Arenal.Model
         /// Optional.
         /// </summary>
         public DateTime? Taken { get; set; }
+
+        /// <summary>
+        /// Notes to the sample.
+        /// </summary>
+        public string Notes { get; set; }
 
     }
 
