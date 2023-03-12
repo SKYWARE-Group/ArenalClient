@@ -46,6 +46,7 @@ erDiagram
     Person ||--o{ Identifier : Identifiers
     LinkedReferral ||--|| Identifier : Id
     Sample ||--|| Identifier : TypeId
+    Sample ||--|| Identifier : AdditiveId
     Sample ||--|| Identifier : Id
 ```
 
