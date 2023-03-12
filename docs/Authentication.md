@@ -6,7 +6,7 @@ Authentication and Authorization in Arenal are compatable with [OpenID Connect](
 
 ## Machine to machine (M2M)
 
-In M2M case, clieant application request [JWT](https://jwt.io/) without interaction with the user and uses it for further interaction with Arenal.
+In M2M case, client application request [JWT](https://jwt.io/) without interaction with the user and uses it for further interaction with Arenal.
 
 ```mermaid
 sequenceDiagram
