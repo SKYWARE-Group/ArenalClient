@@ -37,13 +37,13 @@ namespace CliTestApp
     public class Program
     {
 
-        private TokenResponse? _tokenResponse = null;
+        private static TokenResponse? _tokenResponse = null;
 
         /// <summary>
         /// Demonstrates how to obtain and cache JWT
         /// </summary>
         /// <returns></returns>
-        private async Task<string> GetTokenAsync()
+        private static async Task<string> GetTokenAsync()
         {
             if (_tokenResponse == null)
             {
@@ -62,14 +62,14 @@ namespace CliTestApp
             return _tokenResponse.AccessToken;
         }
 
-        private async Task<Order> PublisOrderAsync(Order order)
+        private static async Task<Order> PublisOrderAsync(Order order)
         {
             using var client = new HttpClient();
             client.SetBearerToken(await GetTokenAsync());
             return await client.CreateOrdersAsync(order);
         }
 
-        async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Order order = new Order()
             {
