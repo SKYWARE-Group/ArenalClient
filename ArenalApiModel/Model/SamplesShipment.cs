@@ -11,6 +11,16 @@ namespace Skyware.Arenal.Model
     {
 
         /// <summary>
+        /// ArenalId of the ordering party.
+        /// </summary>
+        public string PlacerId { get; set; }
+
+        /// <summary>
+        /// ArenalId of a provider to whom the shipment is assigned.
+        /// </summary>
+        public string ProviderId { get; set; }
+
+        /// <summary>
         /// List of <see cref="Identifier"/> (may be empty).
         /// Examples: Carrier (tracker) Id, Sender's Id, etc.
         /// </summary>
@@ -22,9 +32,9 @@ namespace Skyware.Arenal.Model
         public DateTime? Sent { get; set; }
 
         /// <summary>
-        /// ArenalId of a provider to whom the shipment is assigned.
+        /// Notes from the placer.
         /// </summary>
-        public string DestinationId { get; set; }
+        public Note Note { get; set; }
 
     }
 

@@ -19,6 +19,11 @@ namespace Skyware.Arenal.Model
         /// </summary>
         public DateTime? Expiration { get; set; }
 
+        /// <summary>
+        /// Note from the placer
+        /// </summary>
+        public Note Note { get; set; }
+
     }
 
 }

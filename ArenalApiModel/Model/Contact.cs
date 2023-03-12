@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -20,7 +16,6 @@ namespace Skyware.Arenal.Model
         /// Value of the contact, such as 'john@doe.com', etc.
         /// </summary>
         public string Value { get; set; }
-
 
     }
 

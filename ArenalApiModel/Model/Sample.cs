@@ -33,7 +33,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Notes to the sample.
         /// </summary>
-        public string Notes { get; set; }
+        public Note Note { get; set; }
 
     }
 

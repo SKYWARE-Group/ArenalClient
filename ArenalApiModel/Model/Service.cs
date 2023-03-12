@@ -8,14 +8,19 @@
     {
 
         /// <summary>
-        /// Identifier of a ordered service (test).
+        /// Identifier of a ordered examination or service.
         /// </summary>
         public Identifier Id { get; set; }
 
         /// <summary>
-        /// Name of the service (optional).
+        /// Name of the service, according to the placer (optional).
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Notes from the placer.
+        /// </summary>
+        public Note Note { get; set; }
 
     }
 

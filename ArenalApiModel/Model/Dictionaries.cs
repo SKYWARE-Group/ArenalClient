@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -19,7 +15,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// LOINC Sample Additives/Preservatives (Table 0371)
         /// </summary>
-        public const string LOINC_0487_SampleAdditiv = "0371";
+        public const string LOINC_0487_SampleAdditive = "0371";
 
     }
 

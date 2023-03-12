@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -21,6 +16,11 @@ namespace Skyware.Arenal.Model
         /// File name, such as 'Patient234.pdf'.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Note from the placer.
+        /// </summary>
+        public Note Note { get; set; }
 
         /// <summary>
         /// Base64 encoded file content.

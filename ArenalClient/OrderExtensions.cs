@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Net.Http.Json;
-using System.Text.Json.Nodes;
-using System.Text;
 
 namespace Skyware.Arenal.Client
 {
@@ -44,19 +42,18 @@ namespace Skyware.Arenal.Client
             HttpResponseMessage response;
             try
             {
-                response = await client.SendAsync(request, cancellationToken).ConfigureAwait(true);
+                response = await client.SendAsync(request, cancellationToken);
                 return await response.Content.ReadFromJsonAsync<Model.Order[]>();
             }
             catch (Exception ex)
             {
-                //return ProtocolResponse.FromException<TokenResponse>(ex);
+                //TODO: Typed exception here
+                throw ex;
             }
-            return null;
-            //return await ProtocolResponse.FromHttpResponseAsync<TokenResponse>(response).ConfigureAwait();
         }
 
         /// <summary>
-        /// Creates an orders
+        /// Creates an order
         /// </summary>
         /// <param name="client"></param>
         /// <param name="order"></param>
@@ -76,15 +73,14 @@ namespace Skyware.Arenal.Client
             HttpResponseMessage response;
             try
             {
-                response = await client.SendAsync(request, cancellationToken).ConfigureAwait(true);
+                response = await client.SendAsync(request, cancellationToken);
                 return await response.Content.ReadFromJsonAsync<Model.Order>();
             }
             catch (Exception ex)
             {
-                //return ProtocolResponse.FromException<TokenResponse>(ex);
+                //TODO: Typed exception here
+                throw ex;
             }
-            return null;
-            //return await ProtocolResponse.FromHttpResponseAsync<TokenResponse>(response).ConfigureAwait();
         }
 
     }
