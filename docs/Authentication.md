@@ -27,7 +27,6 @@ Example C# code looks like this:
 
 ```c#
 using IdentityModel.Client;
-
 using IdentityModel.Client;
 using Skyware.Arenal.Client;
 using Skyware.Arenal.Model;
