@@ -15,7 +15,7 @@ sequenceDiagram
     participant ARN as Arenal
 
     CONS->>+KC: Request Token
-    KC-->-CONS: Tokn (JWT)
+    KC-->-CONS: Token (JWT)
 
     loop While JWT is valid
         CONS->>+ARN: Action Request
