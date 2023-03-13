@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Skyware.Arenal.Client
 {
 
     /// <summary>
-    /// HttpClient extensions
+    /// HttpClient extensions for accessing Orders
     /// </summary>
     public static class OrderExtensions
     {
@@ -24,12 +25,20 @@ namespace Skyware.Arenal.Client
         public const string SINGLE_ORDER_URL = "https://arenal2.azurewebsites.net/api/order";
 
 
+        private static readonly JsonSerializerOptions _jOpts = new JsonSerializerOptions() { 
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull, 
+            PropertyNameCaseInsensitive = true, 
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase 
+        };
+
         /// <summary>
         /// Retrieves orders
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns>Array of <see cref="Model.Order"/>.</returns>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
         public static async Task<Model.Order[]> GetOrdersAsync(this HttpMessageInvoker client, CancellationToken cancellationToken = default)
         {
 
@@ -38,27 +47,31 @@ namespace Skyware.Arenal.Client
                 RequestUri = new Uri(ORDERS_URL)
             };
             request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
 
-            HttpResponseMessage response;
-            try
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                response = await client.SendAsync(request, cancellationToken);
-                return await response.Content.ReadFromJsonAsync<Model.Order[]>();
+                return await response.Content.ReadFromJsonAsync<Model.Order[]>(cancellationToken: cancellationToken).ConfigureAwait(false);
             }
-            catch (Exception ex)
+            else
             {
-                //TODO: Typed exception here
-                throw ex;
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode),
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
             }
         }
 
         /// <summary>
         /// Creates an order
         /// </summary>
-        /// <param name="client"></param>
-        /// <param name="order"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="order"><see cref="Model.Order"/> to create.</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns>Saved in Arenal <see cref="Model.Order"/>.</returns>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
         public static async Task<Model.Order> CreateOrdersAsync(this HttpMessageInvoker client, Model.Order order, CancellationToken cancellationToken = default)
         {
 
@@ -66,21 +79,24 @@ namespace Skyware.Arenal.Client
             {
                 Method = HttpMethod.Post,
                 RequestUri = new Uri(ORDERS_URL),
-                Content = JsonContent.Create(order, typeof(Model.Order))
+                Content = JsonContent.Create(order, typeof(Model.Order), options: _jOpts)
             };
             request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
 
-            HttpResponseMessage response;
-            try
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                response = await client.SendAsync(request, cancellationToken);
-                return await response.Content.ReadFromJsonAsync<Model.Order>();
-            }
-            catch (Exception ex)
+                return await response.Content.ReadFromJsonAsync<Model.Order>(cancellationToken: cancellationToken).ConfigureAwait(false);
+            } 
+            else
             {
-                //TODO: Typed exception here
-                throw ex;
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode), 
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
             }
+
         }
 
     }

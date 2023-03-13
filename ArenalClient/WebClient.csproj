@@ -18,8 +18,8 @@
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Client</PackageTags>
-    <AssemblyVersion>0.0.4</AssemblyVersion>
-    <Version>0.0.4</Version>
+    <AssemblyVersion>0.0.5</AssemblyVersion>
+    <Version>0.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -8,14 +8,14 @@
     {
 
         /// <summary>
-        /// LOINC Sample Types (Table 0487)
+        /// HL7 Sample Types (Table 0487)
         /// </summary>
-        public const string LOINC_0487_SampleType = "0487";
+        public const string HL7_0487_SampleType = "0487";
 
         /// <summary>
         /// LOINC Sample Additives/Preservatives (Table 0371)
         /// </summary>
-        public const string LOINC_0487_SampleAdditive = "0371";
+        public const string HL7_0487_SampleAdditive = "0371";
 
     }
 
