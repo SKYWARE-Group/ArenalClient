@@ -23,6 +23,11 @@
         public const string LOINC = "org.loinc";
 
         /// <summary>
+        /// H&7 tables
+        /// </summary>
+        public const string HL7 = "org.hl7";
+
+        /// <summary>
         /// Any local (custom) identifier, not mentioned in other authority.
         /// </summary>
         public const string LOCAL = "local";

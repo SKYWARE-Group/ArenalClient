@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
 using Skyware.Arenal.Model;
-using System.Text.Json;
 
 namespace CliTestApp
 {
@@ -13,7 +12,7 @@ namespace CliTestApp
         private static TokenResponse? _tokenResponse = null;
 
         /// <summary>
-        /// Demonstrates how to obtain and cache JWT
+        /// Demonstrates how to obtain and cache JWT.
         /// </summary>
         /// <returns></returns>
         private static async Task GetTokenAsync(IConfiguration cfg)
@@ -71,7 +70,7 @@ namespace CliTestApp
                     GivenName = "Ivan",
                     MiddleName = "Petrov",
                     FamilyName = "Vasilev",
-                    DateOfBirth = new DateTime(1980, 5, 7),
+                    DateOfBirth = new DateTime(1980, 6, 6),
                     IsMale = true,
                     Contacts = new[] {
                         new Contact() { Type = ContactTypes.PHONE, Value = "0888123123" } }
@@ -81,7 +80,7 @@ namespace CliTestApp
                     new Service() { Id = new Identifier() { Authority = Authorities.LOINC, Value = "54347-0" }, Name = "Albumin" } },
                 Samples = new[] {
                     new Sample() {
-                        TypeId = new Identifier() { Authority = Authorities.LOINC, Dictionary = Dictionaries.LOINC_0487_SampleType, Value = "SER" },
+                        TypeId = new Identifier() { Authority = Authorities.HL7, Dictionary = Dictionaries.HL7_0487_SampleType, Value = "SER" },
                         Id = new Identifier() { Authority = Authorities.LOCAL, Value = "S02F25" },
                         Taken = DateTime.Now.AddHours(-2) } },
             };
@@ -93,6 +92,6 @@ namespace CliTestApp
             Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllConstants(typeof(Authorities))));
         }
 
-       
+
     }
 }
