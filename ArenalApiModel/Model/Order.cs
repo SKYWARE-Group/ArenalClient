@@ -62,7 +62,12 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Notes from the placer.
         /// </summary>
-        public Note Note { get; set; }
+        public Note PlacerNote { get; set; }
+
+        /// <summary>
+        /// Notes from the provider.
+        /// </summary>
+        public Note ProviderNote { get; set; }
 
         /// <summary>
         /// Patient

@@ -22,6 +22,25 @@
         /// </summary>
         public Note Note { get; set; }
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Service()
+        {
+
+        }
+
+        /// <summary>
+        /// Instantiates a Service for laboratory examination, coded with Loinc.
+        /// </summary>
+        public Service(string loincCode, string name = null, string note = null)
+        {
+            if (!string.IsNullOrWhiteSpace(loincCode)) Id = new Identifier(Authorities.LOINC, null , loincCode);
+            Name = name;
+            if (!string.IsNullOrWhiteSpace(note)) Note = new Note(note);
+        }
+
+
     }
 
 }

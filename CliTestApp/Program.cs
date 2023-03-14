@@ -76,13 +76,11 @@ namespace CliTestApp
                         new Contact() { Type = ContactTypes.PHONE, Value = "0888123123" } }
                 },
                 Sevrices = new[] {
-                    new Service() { Id = new Identifier() { Authority = Authorities.LOINC, Value = "14749-6" }, Name = "Glucose" },
-                    new Service() { Id = new Identifier() { Authority = Authorities.LOINC, Value = "54347-0" }, Name = "Albumin" } },
-                Samples = new[] {
-                    new Sample() {
-                        TypeId = new Identifier() { Authority = Authorities.HL7, Dictionary = Dictionaries.HL7_0487_SampleType, Value = "SER" },
-                        Id = new Identifier() { Authority = Authorities.LOCAL, Value = "S02F25" },
-                        Taken = DateTime.Now.AddHours(-2) } },
+                    new Service("14749-6", "Glucose"),
+                    new Service("54347-0", "Albumin")},
+                Samples = new[] { 
+                    new Sample("SERUM", null, "S05FT4") }
+
             };
 
         }

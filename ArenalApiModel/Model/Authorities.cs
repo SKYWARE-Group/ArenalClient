@@ -23,6 +23,11 @@
         public const string LOINC = "org.loinc";
 
         /// <summary>
+        /// World Health Organization
+        /// </summary>
+        public const string WHO = "int.who";
+
+        /// <summary>
         /// H&7 tables
         /// </summary>
         public const string HL7 = "org.hl7";
