@@ -23,24 +23,22 @@ namespace Skyware.Arenal.Validation
 
             //Workflow
             RuleFor(x => x.Workflow).
-                Must(x => Helpers.GetAllConstants(typeof(Workflows)).Any(c => c.Equals(x))).
-                WithMessage($"The property '{nameof(Order.Workflow)}' must be among values defined in '{nameof(Workflows)}'.");
-            
+                Must(x => Helpers.GetAllStringConstants(typeof(Workflows)).Any(c => c.Equals(x))).
+                WithMessage($"The property {nameof(Order.Workflow)} must be among values defined in {nameof(Workflows)}.");
+
             //Patient
             RuleFor(x => x.Patient).
+                Cascade(CascadeMode.Stop).
                 NotNull().
-                WithMessage($"{nameof(Order)} must have a {nameof(Order.Patient)}.");
-            When(x => x.Patient != null, () =>
-            {
-                RuleFor(x => x.Patient).SetValidator(new PersonValidator());
-            });
+                WithMessage($"{nameof(Order)} must have a {nameof(Order.Patient)}.").
+                SetValidator(new PatientValidator());
 
             //Services
-            RuleFor(x => x.Sevrices).
+            RuleFor(x => x.Services).
                 NotEmpty().
                 WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.");
-            RuleForEach(x => x.Sevrices).SetValidator(new ServiceValidator());
-            
+            RuleForEach(x => x.Services).SetValidator(new ServiceValidator());
+
             //Samples
             When(x => !string.IsNullOrWhiteSpace(x.Workflow) && x.Workflow.Equals(Workflows.LAB_SPM_ORD), () =>
             {

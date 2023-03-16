@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Transactions;
 
 namespace Skyware.Arenal.Model
 {
@@ -66,9 +67,14 @@ namespace Skyware.Arenal.Model
         public Note ProviderNote { get; set; }
 
         /// <summary>
-        /// Patient
+        /// Ordering doctor.
         /// </summary>
-        public Person Patient { get; set; }
+        public Doctor Doctor { get; set; }
+
+        /// <summary>
+        /// Patient.
+        /// </summary>
+        public Patient Patient { get; set; }
 
         /// <summary>
         /// Additional orders or referrals, which are part of his order and ares stored and processed in external systems.
@@ -76,12 +82,12 @@ namespace Skyware.Arenal.Model
         public IEnumerable<LinkedReferral> LinkedReferrals { get; set; }
 
         /// <summary>
-        /// Array of requested examinations or observations
+        /// Array of requested examinations or observations.
         /// </summary>
-        public IEnumerable<Service> Sevrices { get; set; }
+        public IEnumerable<Service> Services { get; set; }
 
         /// <summary>
-        /// Array of provided samples
+        /// Array of provided samples.
         /// </summary>
         public IEnumerable<Sample> Samples { get; set; }
 
@@ -89,6 +95,24 @@ namespace Skyware.Arenal.Model
         /// Order related files.
         /// </summary>
         public IEnumerable<Attachment> Attachments { get; set; }
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Order() : base() { }
+
+        /// <summary>
+        /// Instantiates minimal valid order.
+        /// </summary>
+        /// <param name="workflow"></param>
+        /// <param name="patient"></param>
+        /// <param name="services"></param>
+        public Order(string workflow, Patient patient, IEnumerable<Service> services) : this() 
+        { 
+            Workflow = workflow;
+            Patient = patient;
+            Services = services;
+        }
 
     }
 }

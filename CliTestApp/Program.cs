@@ -8,6 +8,7 @@ namespace CliTestApp
     public class Program
     {
 
+
         //Holds session-wide JWT
         private static TokenResponse? _tokenResponse = null;
 
@@ -35,6 +36,11 @@ namespace CliTestApp
 
         public static async Task Main(string[] args)
         {
+
+
+            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetStringConstants(typeof(Authorities), typeof(Patient))));
+            return;
+
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -63,7 +69,7 @@ namespace CliTestApp
 
             return new Order()
             {
-                Patient = new Person()
+                Patient = new Patient()
                 {
                     Identifiers = new[] {
                         new Identifier() { Authority = Authorities.BG_GRAO, Value = "8006061234" } },
@@ -75,7 +81,7 @@ namespace CliTestApp
                     Contacts = new[] {
                         new Contact() { Type = ContactTypes.PHONE, Value = "0888123123" } }
                 },
-                Sevrices = new[] {
+                Services = new[] {
                     new Service("14749-6", "Glucose"),
                     new Service("54347-0", "Albumin")},
                 Samples = new[] { 
@@ -87,7 +93,7 @@ namespace CliTestApp
 
         private static void DoConst()
         {
-            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllConstants(typeof(Authorities))));
+            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllStringConstants(typeof(Authorities))));
         }
 
 
