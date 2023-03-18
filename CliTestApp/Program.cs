@@ -8,6 +8,7 @@ namespace CliTestApp
     public class Program
     {
 
+
         //Holds session-wide JWT
         private static TokenResponse? _tokenResponse = null;
 
@@ -24,17 +25,17 @@ namespace CliTestApp
                 _tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
                 {
                     Address = cfg["OpenIdProvider:Address"],
-                    ClientId = cfg["OpenIdProvider:ClientId"],
-                    ClientSecret = cfg["OpenIdProvider:ClientSecret"],
+                    ClientId = cfg["OpenIdProvider:ClientId"], ClientSecret = cfg["OpenIdProvider:ClientSecret"],
                     Scope = cfg["OpenIdProvider:Scope"],
-                    UserName = cfg["OpenIdProvider:Username"],
-                    Password = cfg["OpenIdProvider:Password"]
+                    UserName = cfg["OpenIdProvider:Username"], Password = cfg["OpenIdProvider:Password"]
                 });
             }
         }
 
         public static async Task Main(string[] args)
         {
+
+
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
@@ -63,7 +64,7 @@ namespace CliTestApp
 
             return new Order()
             {
-                Patient = new Person()
+                Patient = new Patient()
                 {
                     Identifiers = new[] {
                         new Identifier() { Authority = Authorities.BG_GRAO, Value = "8006061234" } },
@@ -73,23 +74,21 @@ namespace CliTestApp
                     DateOfBirth = new DateTime(1980, 6, 6),
                     IsMale = true,
                     Contacts = new[] {
-                        new Contact() { Type = ContactTypes.PHONE, Value = "0888123123" } }
+                        new Contact() { Type = ContactTypes.PHONE, Value = "0878123123" } }
                 },
-                Sevrices = new[] {
-                    new Service() { Id = new Identifier() { Authority = Authorities.LOINC, Value = "14749-6" }, Name = "Glucose" },
-                    new Service() { Id = new Identifier() { Authority = Authorities.LOINC, Value = "54347-0" }, Name = "Albumin" } },
-                Samples = new[] {
-                    new Sample() {
-                        TypeId = new Identifier() { Authority = Authorities.HL7, Dictionary = Dictionaries.HL7_0487_SampleType, Value = "SER" },
-                        Id = new Identifier() { Authority = Authorities.LOCAL, Value = "S02F25" },
-                        Taken = DateTime.Now.AddHours(-2) } },
+                Services = new[] {
+                    new Service("14749-6", "Glucose"),
+                    new Service("54347-0", "Albumin")},
+                Samples = new[] { 
+                    new Sample("SERUM", null, "S05FT4") }
+
             };
 
         }
 
         private static void DoConst()
         {
-            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllConstants(typeof(Authorities))));
+            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllStringConstants(typeof(Authorities))));
         }
 
 

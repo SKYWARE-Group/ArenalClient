@@ -18,8 +18,8 @@
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Model</PackageTags>
-    <AssemblyVersion>0.0.5</AssemblyVersion>
-    <Version>0.0.5</Version>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +31,15 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Model\Events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.5.1" />
   </ItemGroup>
 
 </Project>

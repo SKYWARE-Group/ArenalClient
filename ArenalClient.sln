@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "ArenalClient\W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "ArenalApiModel\Model.csproj", "{73469A3B-2EFF-4E1C-83E8-EB58EE5AA8D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTestApp", "CliTestApp\CliTestApp.csproj", "{AB000C57-9FD8-4F03-835A-9E6697E88A67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CliTestApp", "CliTestApp\CliTestApp.csproj", "{AB000C57-9FD8-4F03-835A-9E6697E88A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationTests", "ValidationTests\ValidationTests.csproj", "{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AB000C57-9FD8-4F03-835A-9E6697E88A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB000C57-9FD8-4F03-835A-9E6697E88A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB000C57-9FD8-4F03-835A-9E6697E88A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

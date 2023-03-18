@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model
+﻿using System.Net.Http.Headers;
+
+namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -24,6 +26,24 @@
         /// Mandatory.
         /// </summary>
         public string Value { get; set; }
+
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Identifier()
+        {
+
+        }
+
+        /// <summary>
+        /// Shorthand constructor.
+        /// </summary>
+        public Identifier(string authority, string dictionary, string value) : this()
+        {
+            Authority = authority;
+            Dictionary = dictionary;
+            Value = value;
+        }
 
     }
 
