@@ -25,11 +25,9 @@ namespace CliTestApp
                 _tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
                 {
                     Address = cfg["OpenIdProvider:Address"],
-                    ClientId = cfg["OpenIdProvider:ClientId"],
-                    ClientSecret = cfg["OpenIdProvider:ClientSecret"],
+                    ClientId = cfg["OpenIdProvider:ClientId"], ClientSecret = cfg["OpenIdProvider:ClientSecret"],
                     Scope = cfg["OpenIdProvider:Scope"],
-                    UserName = cfg["OpenIdProvider:Username"],
-                    Password = cfg["OpenIdProvider:Password"]
+                    UserName = cfg["OpenIdProvider:Username"], Password = cfg["OpenIdProvider:Password"]
                 });
             }
         }
@@ -37,9 +35,6 @@ namespace CliTestApp
         public static async Task Main(string[] args)
         {
 
-
-            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetStringConstants(typeof(Authorities), typeof(Patient))));
-            return;
 
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory())
@@ -79,7 +74,7 @@ namespace CliTestApp
                     DateOfBirth = new DateTime(1980, 6, 6),
                     IsMale = true,
                     Contacts = new[] {
-                        new Contact() { Type = ContactTypes.PHONE, Value = "0888123123" } }
+                        new Contact() { Type = ContactTypes.PHONE, Value = "0878123123" } }
                 },
                 Services = new[] {
                     new Service("14749-6", "Glucose"),

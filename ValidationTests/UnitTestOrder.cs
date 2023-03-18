@@ -58,5 +58,22 @@ namespace ValidationTests
             });
         }
 
+
+        /// <summary>
+        /// Valid
+        /// </summary>
+        [Test]
+        public void LabToLab_Order_Ok()
+        {
+            Order order = new(Workflows.LAB_SPM_ORD, new Patient() { FamilyName = "Doe" }, new[] { new Service("14749-6", "Glucose") })
+            {
+                Samples = new[] { new Sample("SERUM", null, "X456TR") }
+            };
+
+            ValidationResult validationResult = new OrderValidator().Validate(order);
+
+            Assert.That(validationResult.IsValid, Is.True );
+        }
+
     }
 }

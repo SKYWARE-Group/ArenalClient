@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Transactions;
 
 namespace Skyware.Arenal.Model
 {
@@ -55,7 +54,7 @@ namespace Skyware.Arenal.Model
         /// Order status, according to <see cref="OrderStatuses"/>.
         /// </summary>
         public string Status { get; set; } = OrderStatuses.FREE;
-        
+
         /// <summary>
         /// Notes from the placer.
         /// </summary>
@@ -107,8 +106,8 @@ namespace Skyware.Arenal.Model
         /// <param name="workflow"></param>
         /// <param name="patient"></param>
         /// <param name="services"></param>
-        public Order(string workflow, Patient patient, IEnumerable<Service> services) : this() 
-        { 
+        public Order(string workflow, Patient patient, IEnumerable<Service> services) : this()
+        {
             Workflow = workflow;
             Patient = patient;
             Services = services;

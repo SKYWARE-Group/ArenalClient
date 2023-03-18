@@ -1,10 +1,10 @@
-﻿namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model.Actions
 {
 
     /// <summary>
     /// Payload for changing status of an <see cref="Order"/>.
     /// </summary>
-    public class OrderStatusEvent
+    public class OrderStatusRequest
     {
 
         /// <summary>
@@ -18,9 +18,9 @@
         public string ProviderId { get; set; }
 
         /// <summary>
-        /// Notes from provider to the placer.
+        /// Note from provider to the placer.
         /// </summary>
-        public string ProviderNote { get; set; }
+        public Note ProviderNote { get; set; }
 
     }
 

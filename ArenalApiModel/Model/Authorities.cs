@@ -54,13 +54,13 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// HL7
         /// </summary>
-        [ArenalUsage(typeof(Sample))]
+        [ArenalUsage(typeof(SampleType))]
         public const string HL7 = "org.hl7";
 
         /// <summary>
         /// Any local (custom) identifier, not mentioned in other authority.
         /// </summary>
-        [ArenalUsage(typeof(Service))]
+        [ArenalUsage(new Type[] { typeof(Service), typeof(Patient), typeof(Sample) })]
         public const string LOCAL = "local";
 
     }

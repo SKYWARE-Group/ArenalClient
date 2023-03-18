@@ -1,9 +1,6 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Skyware.Arenal.Validation
 {
@@ -20,7 +17,7 @@ namespace Skyware.Arenal.Validation
         public IdentifierValidator()
         {
 
-            RuleSet(nameof(Patient), () => 
+            RuleSet(nameof(Patient), () =>
             {
                 RuleFor(x => x.Authority).Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Patient)).Any(a => a == x));
             });
@@ -33,6 +30,16 @@ namespace Skyware.Arenal.Validation
             RuleSet(nameof(Service), () =>
             {
                 RuleFor(x => x.Authority).Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Service)).Any(a => a == x));
+            });
+
+            RuleSet(nameof(Sample), () =>
+            {
+                RuleFor(x => x.Authority).Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Sample)).Any(a => a == x));
+            });
+
+            RuleSet(nameof(SampleType), () =>
+            {
+                RuleFor(x => x.Authority).Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(SampleType)).Any(a => a == x));
             });
 
             RuleFor(x => x.Value).NotEmpty().WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Value)} mustn't be null or empty.");
