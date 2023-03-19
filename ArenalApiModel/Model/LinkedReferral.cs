@@ -12,7 +12,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier in external system.
         /// </summary>
-        public Identifier Id { get; set; }
+        public Identifier Identifier { get; set; }
 
         /// <summary>
         /// Date and time the referral will expire.

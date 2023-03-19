@@ -24,11 +24,11 @@ namespace Skyware.Arenal.Validation
                 .WithMessage($"The property {nameof(Sample.SampleType)} of a {nameof(Sample)} is mandatory.")
                 .SetValidator(new SampleTypeValidator());
 
-            //Id
-            RuleFor(x => x.Id)
+            //ServiceId
+            RuleFor(x => x.SampleId)
                 .Cascade(CascadeMode.Stop)
                 .NotNull()
-                .WithMessage($"The property {nameof(Sample.Id)} of a {nameof(Sample)} is mandatory.")
+                .WithMessage($"The property {nameof(Sample.SampleId)} of a {nameof(Sample)} is mandatory.")
                 .SetValidator(new IdentifierValidator(), new string[] { nameof(Sample), "default" });
 
             //Taken (if set)

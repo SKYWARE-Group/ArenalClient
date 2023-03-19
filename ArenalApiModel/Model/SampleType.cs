@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model
 {
@@ -29,7 +27,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Name of the sample type as it is known by the placer or provider.
         /// </summary>
-        public string Name { get; set; }   
+        public string Name { get; set; }
 
     }
 

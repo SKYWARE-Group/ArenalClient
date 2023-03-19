@@ -38,7 +38,7 @@ namespace ValidationTests
         /// <remarks>
         /// Wrong are:
         ///   Patient (No names)
-        ///   One service (missing Id)
+        ///   One service (missing ServiceId)
         ///   Samples are missing
         /// </remarks>
         [Test]

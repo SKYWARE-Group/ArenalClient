@@ -22,7 +22,7 @@ namespace Skyware.Arenal.Model
 
         /// <summary>
         /// List of <see cref="Identifier"/> (may be empty).
-        /// Examples: Carrier (tracker) Id, Sender's Id, etc.
+        /// Examples: Carrier (tracker) ServiceId, Sender's ServiceId, etc.
         /// </summary>
         public IEnumerable<Identifier> Identifiers { get; set; }
 

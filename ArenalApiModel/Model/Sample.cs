@@ -17,7 +17,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample (barcode).
         /// </summary>
-        public Identifier Id { get; set; }
+        public Identifier SampleId { get; set; }
 
         /// <summary>
         /// Date and time the sample has been taken.
@@ -52,7 +52,7 @@ namespace Skyware.Arenal.Model
                 SampleType.AditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleAdditive, sampleAdditive);
             }
             Taken = taken;
-            if (!string.IsNullOrWhiteSpace(barcode)) Id = new Identifier(Authorities.LOCAL, null, barcode);
+            if (!string.IsNullOrWhiteSpace(barcode)) SampleId = new Identifier(Authorities.LOCAL, null, barcode);
             if (!string.IsNullOrWhiteSpace(note)) Note = new Note(note);
         }
 
