@@ -16,11 +16,11 @@ namespace Skyware.Arenal.Validation
         public ServiceValidator()
         {
 
-            //Id
-            RuleFor(x => x.Id).
+            //ServiceId
+            RuleFor(x => x.ServiceId).
                 Cascade(CascadeMode.Stop).
                 NotNull().
-                WithMessage($"The property {nameof(Service.Id)} of a {nameof(Service)} is mandatory.").
+                WithMessage($"The property {nameof(Service.ServiceId)} of a {nameof(Service)} is mandatory.").
                 SetValidator(new IdentifierValidator(), new string[] { nameof(Service), "default" });
 
         }

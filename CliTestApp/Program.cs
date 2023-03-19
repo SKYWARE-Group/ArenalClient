@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
 using Skyware.Arenal.Model;
+using Skyware.Arenal.Model.Exceptions;
 
 namespace CliTestApp
 {
@@ -25,9 +26,11 @@ namespace CliTestApp
                 _tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
                 {
                     Address = cfg["OpenIdProvider:Address"],
-                    ClientId = cfg["OpenIdProvider:ClientId"], ClientSecret = cfg["OpenIdProvider:ClientSecret"],
+                    ClientId = cfg["OpenIdProvider:ClientId"],
+                    ClientSecret = cfg["OpenIdProvider:ClientSecret"],
                     Scope = cfg["OpenIdProvider:Scope"],
-                    UserName = cfg["OpenIdProvider:Username"], Password = cfg["OpenIdProvider:Password"]
+                    UserName = cfg["OpenIdProvider:Username"],
+                    Password = cfg["OpenIdProvider:Password"]
                 });
             }
         }
@@ -51,8 +54,16 @@ namespace CliTestApp
             //Publish Demo Order
             using var client = new HttpClient();
             client.SetBearerToken(_tokenResponse?.AccessToken);
-            Order respOrd = await client.CreateOrdersAsync(order);
-            Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+            try
+            {
+                Order respOrd = await client.CreateOrdersAsync(order);
+                Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            }
+
 
             //Other interactions with Arenal
 
@@ -62,9 +73,9 @@ namespace CliTestApp
         private static Order GetDemoOrder()
         {
 
-            return new Order()
-            {
-                Patient = new Patient()
+            return new Order(
+                Workflows.LAB_SPM_ORD,
+                new Patient()
                 {
                     Identifiers = new[] {
                         new Identifier() { Authority = Authorities.BG_GRAO, Value = "8006061234" } },
@@ -76,12 +87,12 @@ namespace CliTestApp
                     Contacts = new[] {
                         new Contact() { Type = ContactTypes.PHONE, Value = "0878123123" } }
                 },
-                Services = new[] {
+                new[] {
                     new Service("14749-6", "Glucose"),
-                    new Service("54347-0", "Albumin")},
-                Samples = new[] { 
-                    new Sample("SERUM", null, "S05FT4") }
-
+                    new Service("54347-0", "Albumin")})
+            {
+                Samples = new[] {
+                        new Sample("SERUM", null, "S05FT4") }
             };
 
         }

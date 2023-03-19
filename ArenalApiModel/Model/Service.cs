@@ -10,7 +10,7 @@
         /// <summary>
         /// Identifier of a ordered examination or service.
         /// </summary>
-        public Identifier Id { get; set; }
+        public Identifier ServiceId { get; set; }
 
         /// <summary>
         /// Name of the service, according to the placer (optional).
@@ -35,7 +35,7 @@
         /// </summary>
         public Service(string loincCode, string name = null, string note = null)
         {
-            if (!string.IsNullOrWhiteSpace(loincCode)) Id = new Identifier(Authorities.LOINC, null , loincCode);
+            if (!string.IsNullOrWhiteSpace(loincCode)) ServiceId = new Identifier(Authorities.LOINC, null , loincCode);
             Name = name;
             if (!string.IsNullOrWhiteSpace(note)) Note = new Note(note);
         }

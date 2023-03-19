@@ -17,13 +17,21 @@ namespace Skyware.Arenal.Client
         /// <summary>
         /// All orders endpoint
         /// </summary>
+#if LOCAL_SERVER 
+        public const string ORDERS_URL = "https://localhost:7291/api/orders";
+#else
         public const string ORDERS_URL = "https://arenal2.azurewebsites.net/api/orders";
+#endif
 
         /// <summary>
         /// Single order endpoint (CRUD)
         /// </summary>
-        public const string SINGLE_ORDER_URL = "https://arenal2.azurewebsites.net/api/order";
 
+#if LOCAL_SERVER
+        public const string SINGLE_ORDER_URL = "https://localhost:7291/api/order";
+#else
+        public const string SINGLE_ORDER_URL = "https://arenal2.azurewebsites.net/api/order";
+#endif
 
         private static readonly JsonSerializerOptions _jOpts = new JsonSerializerOptions() { 
             DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull, 
@@ -85,16 +93,16 @@ namespace Skyware.Arenal.Client
             request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
 
             HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<Model.Order>(cancellationToken: cancellationToken).ConfigureAwait(false);
             } 
             else
             {
-                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                string ans = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                if (string.IsNullOrWhiteSpace(ans)) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
                 throw new Model.Exceptions.ArenalException(
-                    ((int)response.StatusCode), 
-                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
+                    ((int)response.StatusCode), JsonSerializer.Deserialize<Model.Exceptions.ArenalError>(ans, _jOpts));
             }
 
         }
