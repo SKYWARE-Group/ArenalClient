@@ -107,6 +107,41 @@ namespace Skyware.Arenal.Client
 
         }
 
+        /// <summary>
+        /// Deletes an order
+        /// </summary>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="order"><see cref="Model.Order"/> to create.</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+        /// <exception cref="NullReferenceException">The order parameter is null or ArenalId of the order is null</exception>
+        public static async Task DeleteOrdersAsync(this HttpMessageInvoker client, Model.Order order, CancellationToken cancellationToken = default)
+        {
+
+            if (order == null) throw new NullReferenceException(nameof(order));
+            if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Delete,
+                RequestUri = new Uri($"{ORDERS_URL}/{order.ArenalId}")
+            };
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode),
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
+            }
+        }
+
+
+
     }
 
 }
