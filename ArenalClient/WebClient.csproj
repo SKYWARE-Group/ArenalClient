@@ -23,11 +23,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants);LOCAL_SERVER</DefineConstants>
+    <DefineConstants>$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Net.Http.Json" Version="7.0.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>

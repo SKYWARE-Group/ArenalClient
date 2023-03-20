@@ -38,23 +38,24 @@ namespace ValidationTests
         /// <remarks>
         /// Wrong are:
         ///   Patient (No names)
-        ///   One service (missing ServiceId)
+        ///   One service (missing Id)
         ///   Samples are missing
         /// </remarks>
         [Test]
         public void LabToLab_Order_NoSvc()
         {
-            Order order = new(Workflows.LAB_SPM_ORD, new Patient(), new[] { new Service("14749-6", "Glucose"), new Service() });
+            Order order = new(Workflows.LAB_SCO, new Patient(), new[] { new Service("14749-6", "Glucose"), new Service() });
 
             ValidationResult validationResult = new OrderValidator().Validate(order);
 
             Assert.Multiple(() =>
             {
                 Assert.That(validationResult.IsValid, Is.False);
-                Assert.That(validationResult.Errors.Count == 3);
+                Assert.That(validationResult.Errors.Count == 4);
                 Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Patient) && x.Severity == FluentValidation.Severity.Error));
                 Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Order.Services)) && x.Severity == FluentValidation.Severity.Error));
                 Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Samples) && x.Severity == FluentValidation.Severity.Error));
+                Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.ProviderId) && x.Severity == FluentValidation.Severity.Error));
             });
         }
 
@@ -65,10 +66,12 @@ namespace ValidationTests
         [Test]
         public void LabToLab_Order_Ok()
         {
-            Order order = new(Workflows.LAB_SPM_ORD, new Patient() { FamilyName = "Doe" }, new[] { new Service("14749-6", "Glucose") })
-            {
-                Samples = new[] { new Sample("SERUM", null, "X456TR") }
-            };
+            Order order = new(
+                Workflows.LAB_SCO,
+                new Patient() { FamilyName = "Doe" },
+                new[] { new Service("14749-6", "Glucose") },
+                new[] { new Sample("SERUM", null, "X456TR") })
+            { ProviderId = "Something" };
 
             ValidationResult validationResult = new OrderValidator().Validate(order);
 
