@@ -106,11 +106,13 @@ namespace Skyware.Arenal.Model
         /// <param name="workflow"></param>
         /// <param name="patient"></param>
         /// <param name="services"></param>
-        public Order(string workflow, Patient patient, IEnumerable<Service> services) : this()
+        /// <param name="samples"></param>
+        public Order(string workflow, Patient patient, IEnumerable<Service> services, IEnumerable<Sample> samples = null) : this()
         {
             Workflow = workflow;
             Patient = patient;
             Services = services;
+            Samples = samples;
         }
 
     }

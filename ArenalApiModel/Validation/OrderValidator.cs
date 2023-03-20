@@ -22,6 +22,12 @@ namespace Skyware.Arenal.Validation
                 Must(x => Helpers.GetAllStringConstants(typeof(Workflows)).Any(c => c.Equals(x))).
                 WithMessage($"The property {nameof(Order.Workflow)} must be among values defined in {nameof(Workflows)}.");
 
+            //ProviderId
+            When(x => !string.IsNullOrWhiteSpace(x.Workflow) && x.Workflow.Equals(Workflows.LAB_SCO), () =>
+            {
+                RuleFor(x => x.ProviderId).NotEmpty().WithMessage($"In workflow '{Workflows.LAB_SCO}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
+            });
+
             //Patient
             RuleFor(x => x.Patient).
                 Cascade(CascadeMode.Stop).
@@ -36,9 +42,9 @@ namespace Skyware.Arenal.Validation
             RuleForEach(x => x.Services).SetValidator(new ServiceValidator());
 
             //Samples
-            When(x => !string.IsNullOrWhiteSpace(x.Workflow) && x.Workflow.Equals(Workflows.LAB_SPM_ORD), () =>
+            When(x => !string.IsNullOrWhiteSpace(x.Workflow) && x.Workflow.Equals(Workflows.LAB_SCO), () =>
             {
-                RuleFor(x => x.Samples).NotEmpty().WithMessage($"In workflow '{Workflows.LAB_SPM_ORD}' {nameof(Order)} must have at least one {nameof(Sample)}.");
+                RuleFor(x => x.Samples).NotEmpty().WithMessage($"In workflow '{Workflows.LAB_SCO}' {nameof(Order)} must have at least one {nameof(Sample)}.");
             });
 
         }

@@ -74,33 +74,20 @@ namespace CliTestApp
         {
 
             return new Order(
-                Workflows.LAB_SPM_ORD,
+                Workflows.LAB_SCO,
                 new Patient()
                 {
-                    Identifiers = new[] {
-                        new Identifier() { Authority = Authorities.BG_GRAO, Value = "8006061234" } },
-                    GivenName = "Ivan",
-                    MiddleName = "Petrov",
-                    FamilyName = "Vasilev",
-                    DateOfBirth = new DateTime(1980, 6, 6),
-                    IsMale = true,
-                    Contacts = new[] {
-                        new Contact() { Type = ContactTypes.PHONE, Value = "0878123123" } }
+                    Identifiers = new[] { new Identifier() { Authority = Authorities.BG_GRAO, Value = "7505051234" } },
+                    GivenName = "Борис", MiddleName = "Иванов", FamilyName = "Хаджийски",
+                    DateOfBirth = new DateTime(1975, 5, 5), IsMale = true,
+                    Contacts = new[] { new Contact() { Type = ContactTypes.PHONE, Value = "0878005006" } }
                 },
-                new[] {
-                    new Service("14749-6", "Glucose"),
-                    new Service("54347-0", "Albumin")})
-            {
-                Samples = new[] {
-                        new Sample("SERUM", null, "S05FT4") }
-            };
+                new[] { new Service("14749-6", "Глюкоза"), },
+                new[] { new Sample("SERUM", null, "S05FT5") }
+            );
 
         }
 
-        private static void DoConst()
-        {
-            Console.WriteLine(string.Join(Environment.NewLine, Helpers.GetAllStringConstants(typeof(Authorities))));
-        }
 
 
     }

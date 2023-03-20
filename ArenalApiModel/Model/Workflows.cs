@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -14,7 +10,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Defines laboratory, specimen-centric orders exchange
         /// </summary>
-        public const string LAB_SPM_ORD = "lab-sco";
+        public const string LAB_SCO = "lab-sco";
 
     }
 

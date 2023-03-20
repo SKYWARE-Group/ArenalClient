@@ -4,7 +4,7 @@ namespace Skyware.Arenal.Model
 {
 
     /// <summary>
-    /// Service provider, e.g. laboratory.
+    /// Arenal participant (Medical Center, Laboratory, Health Insurance Fund, etc.).
     /// </summary>
     public class Organization : EntityBase
     {
@@ -23,6 +23,11 @@ namespace Skyware.Arenal.Model
         /// Short name of the provider or brand name, e.g. 'Precisio'.
         /// </summary>
         public string ShortName { get; set; }
+
+        /// <summary>
+        /// Approved roles in Arenal.
+        /// </summary>
+        public IEnumerable<string> Roles { get; set; }
 
     }
 
