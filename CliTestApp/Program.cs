@@ -51,19 +51,56 @@ namespace CliTestApp
             //Create Demo Order
             Order order = GetDemoOrder();
 
-            //Publish Demo Order
+            ////Publish Demo Order
             using var client = new HttpClient();
+            //client.SetBearerToken(_tokenResponse?.AccessToken);
+            //try
+            //{
+            //    Order respOrd = await client.CreateOrdersAsync(order);
+            //    Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+            //}
+            //catch (ArenalException ex)
+            //{
+            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            //}
+
+            Order readedOrder = null;
+            // Read one
             client.SetBearerToken(_tokenResponse?.AccessToken);
             try
             {
-                Order respOrd = await client.CreateOrdersAsync(order);
-                Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+                readedOrder = await client.GetOrderAsync("AD-O-3");
+                Console.WriteLine($"Order created, ArenalId is: {readedOrder.ArenalId}");
             }
             catch (ArenalException ex)
             {
                 Console.WriteLine($"Error: {ex.CombinedMessage()}");
             }
 
+            // Update
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+            readedOrder.Patient = new Patient() { GivenName = "UpdatedOrder" };
+            try
+            {
+                readedOrder = await client.UpdateOrdersAsync(readedOrder);
+                Console.WriteLine($"Order created, ArenalId is: {readedOrder.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            }
+
+            //delete
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+            try
+            {
+                await client.DeleteOrdersAsync(readedOrder);
+                Console.WriteLine($"Order deleted, ArenalId is: {readedOrder.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            }
 
             //Other interactions with Arenal
 
@@ -78,13 +115,19 @@ namespace CliTestApp
                 new Patient()
                 {
                     Identifiers = new[] { new Identifier() { Authority = Authorities.BG_GRAO, Value = "7505051234" } },
-                    GivenName = "Борис", MiddleName = "Иванов", FamilyName = "Хаджийски",
-                    DateOfBirth = new DateTime(1975, 5, 5), IsMale = true,
+                    GivenName = "Борис",
+                    MiddleName = "Иванов",
+                    FamilyName = "Хаджийски",
+                    DateOfBirth = new DateTime(1975, 5, 5),
+                    IsMale = true,
                     Contacts = new[] { new Contact() { Type = ContactTypes.PHONE, Value = "0878005006" } }
                 },
                 new[] { new Service("14749-6", "Глюкоза"), },
                 new[] { new Sample("SERUM", null, "S05FT5") }
-            );
+            )
+            {
+                ProviderId = "AD-G-2"
+            };
 
         }
 
