@@ -8,12 +8,15 @@ public class Program
 
     static void Main(string[] args)
     {
-        //FilterExpression exp = new();
+        FilterExpression exp1 = new FilterExpression(new Predicate(nameof(Order.Status), ValueComparisons.Equals, OrderStatuses.FREE))
+            .And(new Predicate(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Today.AddDays(-30)));
 
-        Predicate p = new(nameof(Order.Doctor), Predicate.ValueComparisons.Equals, "123");
+        FilterExpression exp2 = new FilterExpression(new Predicate(nameof(Order.Version), ValueComparisons.GreaterThan, 0))
+            .Or(new Predicate(nameof(Order.Workflow), ValueComparisons.Equals, Workflows.LAB_SCO));
 
-        Console.WriteLine(p);
+        exp1.And(exp2);
 
+        Console.WriteLine(exp1);
     }
 
 }

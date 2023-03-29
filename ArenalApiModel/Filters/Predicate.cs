@@ -58,7 +58,7 @@ namespace Skyware.Arenal.Filters
         {
             //TODO: Convert function for operator syntax
             //TODO: Convert value according to underlying type ('string', 5, 5.23, 2023-03-01, 2023-05-05T12:22:30, etc.)
-            return $"({PropertyName},{ValueComparison},{Value})";
+            return $"({PropertyName},{ValueComparison},{PredicateHelper.GetPredicateValue(Value)})";
         }
 
     }

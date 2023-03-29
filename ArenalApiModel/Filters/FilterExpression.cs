@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace Skyware.Arenal.Filters
 {
@@ -42,8 +44,25 @@ namespace Skyware.Arenal.Filters
         /// <returns></returns>
         public override string ToString()
         {
-            return base.ToString();
+            if ((Parts?.Count ?? 0) == 0) return null;
+            return ExpressionToString(Parts);
         }
+
+        private static string ExpressionToString(IList<IExpressionPart> parts)
+        {
+            StringBuilder bld = new StringBuilder();
+            //index 0
+            if (parts[0] is Predicate) bld.Append(parts[0].ToString());
+                else bld.Append(ExpressionToString(((FilterExpression)parts[0]).Parts));
+            //every next index
+            for (int ind = 1; ind < parts.Count; ind++)
+            {
+                if (parts[ind] is Predicate) bld.Append($"{parts[ind].LogicalOperator}{parts[ind]}");
+                else bld.Append($"{parts[ind].LogicalOperator}({ExpressionToString(((FilterExpression)parts[ind]).Parts)})");
+            }
+            return bld.ToString();
+        }
+
 
     }
 
