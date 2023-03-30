@@ -1,7 +1,12 @@
-﻿using Skyware.Arenal.Model;
+﻿using Flurl;
+using Skyware.Arenal.Filters;
+using Skyware.Arenal.Model;
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,20 +24,11 @@ namespace Skyware.Arenal.Client
         /// All orders endpoint
         /// </summary>
 #if LOCAL_SERVER
-        public const string ORDERS_URL = "https://localhost:7291/api/orders";
+        public const string ARENAL_BASE = "https://localhost:7291/";
 #else
-        public const string ORDERS_URL = "https://arenal2.azurewebsites.net/api/orders";
+        public const string ARENAL_BASE = "https://arenal2.azurewebsites.net/";
 #endif
 
-        /// <summary>
-        /// Single order endpoint (CRUD)
-        /// </summary>
-
-#if LOCAL_SERVER
-        public const string SINGLE_ORDER_URL = "https://localhost:7291/api/order";
-#else
-        public const string SINGLE_ORDER_URL = "https://arenal2.azurewebsites.net/api/order";
-#endif
 
         private static readonly JsonSerializerOptions _jOpts = new JsonSerializerOptions()
         {
@@ -45,16 +41,30 @@ namespace Skyware.Arenal.Client
         /// Retrieves orders
         /// </summary>
         /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="filter"></param>
+        /// <param name="offset"></param>
+        /// <param name="limit"></param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
         /// <returns>Array of <see cref="Model.Order"/>.</returns>
         /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
         /// <exception cref="ArgumentNullException">The request or content was null.</exception>
-        public static async Task<Model.Order[]> GetOrdersAsync(this HttpMessageInvoker client, CancellationToken cancellationToken = default)
+        public static async Task<Order[]> GetOrdersAsync(
+            this HttpMessageInvoker client, 
+            Filter filter = null, int? offset = null, int? limit = null, 
+            CancellationToken cancellationToken = default)
         {
+            Url url = ARENAL_BASE
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders");
+
+            if (filter != null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+            if (offset != null && offset > 0) url.SetQueryParam("offset", offset.ToString());
+            if (limit != null && limit > 0) url.SetQueryParam("limit", limit.ToString());
+
 
             HttpRequestMessage request = new HttpRequestMessage
             {
-                RequestUri = new Uri(ORDERS_URL)
+                RequestUri = url.ToUri()
             };
             request.Headers.Add("Accept", "application/json");
             request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
@@ -62,7 +72,7 @@ namespace Skyware.Arenal.Client
             HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return await response.Content.ReadFromJsonAsync<Model.Order[]>(cancellationToken: cancellationToken).ConfigureAwait(false);
+                return await response.Content.ReadFromJsonAsync<Order[]>(cancellationToken: cancellationToken).ConfigureAwait(false);
             }
             else
             {
@@ -82,13 +92,22 @@ namespace Skyware.Arenal.Client
         /// <returns>Array of <see cref="Model.Order"/>.</returns>
         /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
         /// <exception cref="ArgumentNullException">The request or content was null.</exception>
-        public static async Task<Model.Order> GetOrderAsync(this HttpMessageInvoker client, string orderId, CancellationToken cancellationToken = default)
+        public static async Task<Model.Order> GetOrderAsync(
+            this HttpMessageInvoker client, 
+            string orderId, 
+            CancellationToken cancellationToken = default)
         {
             if(string.IsNullOrEmpty(orderId)) throw new ArgumentNullException(nameof(orderId));
 
+            Url url = ARENAL_BASE
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders")
+                .AppendPathSegment(orderId);
+
+
             HttpRequestMessage request = new HttpRequestMessage
             {
-                RequestUri = new Uri($"{ORDERS_URL}/{orderId}")
+                RequestUri = url.ToUri()
             };
             request.Headers.Add("Accept", "application/json");
             request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
@@ -116,13 +135,21 @@ namespace Skyware.Arenal.Client
         /// <returns>Saved in Arenal <see cref="Model.Order"/>.</returns>
         /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
         /// <exception cref="ArgumentNullException">The request or content was null.</exception>
-        public static async Task<Model.Order> CreateOrdersAsync(this HttpMessageInvoker client, Model.Order order, CancellationToken cancellationToken = default)
+        public static async Task<Model.Order> CreateOrdersAsync(
+            this HttpMessageInvoker client, 
+            Order order, 
+            CancellationToken cancellationToken = default)
         {
+
+            Url url = ARENAL_BASE
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders");
+
 
             HttpRequestMessage request = new HttpRequestMessage
             {
                 Method = HttpMethod.Post,
-                RequestUri = new Uri(ORDERS_URL),
+                RequestUri = url.ToUri(),
                 Content = JsonContent.Create(order, typeof(Model.Order), options: _jOpts)
             };
             request.Headers.Add("Accept", "application/json");
@@ -152,16 +179,24 @@ namespace Skyware.Arenal.Client
         /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
         /// <exception cref="ArgumentNullException">The request or content was null.</exception>
         /// <exception cref="NullReferenceException">The order parameter is null or ArenalId of the order is null</exception>
-        public static async Task DeleteOrdersAsync(this HttpMessageInvoker client, Model.Order order, CancellationToken cancellationToken = default)
+        public static async Task DeleteOrdersAsync(
+            this HttpMessageInvoker client, 
+            Order order, 
+            CancellationToken cancellationToken = default)
         {
 
             if (order == null) throw new NullReferenceException(nameof(order));
             if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
+            Url url = ARENAL_BASE
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders")
+                .AppendPathSegment(order.ArenalId);
+
             HttpRequestMessage request = new HttpRequestMessage
             {
                 Method = HttpMethod.Delete,
-                RequestUri = new Uri($"{ORDERS_URL}/{order.ArenalId}")
+                RequestUri = url.ToUri()
             };
             request.Headers.Add("Accept", "application/json");
             request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
@@ -185,16 +220,24 @@ namespace Skyware.Arenal.Client
         /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
         /// <exception cref="ArgumentNullException">The request or content was null.</exception>
         /// <exception cref="NullReferenceException">The order parameter is null or ArenalId of the order is null</exception>
-        public static async Task<Model.Order> UpdateOrdersAsync(this HttpMessageInvoker client, Model.Order order, CancellationToken cancellationToken = default)
+        public static async Task<Model.Order> UpdateOrdersAsync(
+            this HttpMessageInvoker client, 
+            Order order, 
+            CancellationToken cancellationToken = default)
         {
 
             if (order == null) throw new NullReferenceException(nameof(order));
             if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
+            Url url = ARENAL_BASE
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders")
+                .AppendPathSegment(order.ArenalId);
+
             HttpRequestMessage request = new HttpRequestMessage
             {
                 Method = HttpMethod.Put,
-                RequestUri = new Uri($"{ORDERS_URL}/{order.ArenalId}"),
+                RequestUri = url.ToUri(),
                 Content = JsonContent.Create(order, typeof(Model.Order), options: _jOpts)
             };
             request.Headers.Add("Accept", "application/json");

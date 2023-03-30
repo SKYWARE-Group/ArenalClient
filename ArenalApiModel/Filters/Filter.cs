@@ -5,33 +5,50 @@ using System.Text;
 namespace Skyware.Arenal.Filters
 {
 
-    public class FilterExpression : IExpressionPart
+    public class Filter : IFilterPart
     {
 
         /// <summary>
         /// Holds expression parts.
         /// </summary>
-        public List<IExpressionPart> Parts { get; set; } = new List<IExpressionPart>();
+        public List<IFilterPart> Parts { get; set; } = new List<IFilterPart>();
 
-        public FilterExpression() { }
+        public Filter() { }
 
-        public FilterExpression(Predicate predicate) : this()
+        public Filter(Predicate predicate) : this()
         {
             predicate.LogicalOperator = LogicalOperators.And;
             Parts.Add(predicate);
         }
 
+        public Filter(string propertyName, ValueComparisons comparison, object value) : this()
+        {
+            Parts.Add(new Predicate(propertyName, comparison, value));
+        }
+
         /// <inheritdoc/>
         public LogicalOperators LogicalOperator { get; set; } = LogicalOperators.And;
 
-        public FilterExpression And<T>(T value) where T : IExpressionPart
+        public Filter And<T>(T value) where T : IFilterPart
         {
             value.LogicalOperator = LogicalOperators.And;
             Parts.Add(value);
             return this;
         }
 
-        public FilterExpression Or<T>(T value) where T : IExpressionPart
+        public Filter And(string propertyName, ValueComparisons comparison, object value)
+        {
+            Parts.Add(new Predicate(propertyName, comparison, value, LogicalOperators.And));
+            return this;
+        }
+
+        public Filter Or(string propertyName, ValueComparisons comparison, object value)
+        {
+            Parts.Add(new Predicate(propertyName, comparison, value, LogicalOperators.Or));
+            return this;
+        }
+
+        public Filter Or<T>(T value) where T : IFilterPart
         {
             value.LogicalOperator = LogicalOperators.Or;
             Parts.Add(value);
@@ -48,17 +65,17 @@ namespace Skyware.Arenal.Filters
             return ExpressionToString(Parts);
         }
 
-        private static string ExpressionToString(IList<IExpressionPart> parts)
+        private static string ExpressionToString(IList<IFilterPart> parts)
         {
             StringBuilder bld = new StringBuilder();
             //index 0
             if (parts[0] is Predicate) bld.Append(parts[0].ToString());
-                else bld.Append(ExpressionToString(((FilterExpression)parts[0]).Parts));
+                else bld.Append(ExpressionToString(((Filter)parts[0]).Parts));
             //every next index
             for (int ind = 1; ind < parts.Count; ind++)
             {
                 if (parts[ind] is Predicate) bld.Append($"{parts[ind].LogicalOperator}{parts[ind]}");
-                else bld.Append($"{parts[ind].LogicalOperator}({ExpressionToString(((FilterExpression)parts[ind]).Parts)})");
+                else bld.Append($"{parts[ind].LogicalOperator}({ExpressionToString(((Filter)parts[ind]).Parts)})");
             }
             return bld.ToString();
         }

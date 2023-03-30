@@ -9,7 +9,7 @@ namespace Skyware.Arenal.Filters
     /// <summary>
     /// Atomic part of a filter in server and client applications.
     /// </summary>
-    public class Predicate : IExpressionPart
+    public class Predicate : IFilterPart
     {
 
         /// <summary>
