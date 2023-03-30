@@ -41,8 +41,6 @@
 
         #region Laboratory Data
 
-        public Doctor LaboratoryDocotr { g}
-
         #endregion
 
     }
