@@ -6,7 +6,7 @@ namespace Skyware.Arenal.Filters
 {
 
     /// <summary>
-    /// Predicate operators.
+    /// Predicate operators (Unary only).
     /// </summary>
     public enum ValueComparisons : byte
     {
@@ -20,8 +20,6 @@ namespace Skyware.Arenal.Filters
         GreaterThan,
 
         LessThan,
-
-        Between,
 
         //etc.
     }

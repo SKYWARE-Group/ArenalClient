@@ -2,9 +2,9 @@
 {
 
     /// <summary>
-    /// Represent a part of a <see cref="FilterExpression"/>.
+    /// Represent a part of a <see cref="Filter"/>.
     /// </summary>
-    public interface IExpressionPart
+    public interface IFilterPart
     {
 
         /// <summary>
