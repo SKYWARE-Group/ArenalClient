@@ -64,45 +64,45 @@ namespace CliTestApp
             //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
             //}
 
-            Order readedOrder = null;
+            Order? readOrder = null;
             // Read one
             client.SetBearerToken(_tokenResponse?.AccessToken);
             try
             {
-                readedOrder = await client.GetOrderAsync("AD-O-3");
-                Console.WriteLine($"Order created, ArenalId is: {readedOrder.ArenalId}");
+                readOrder = await client.GetOrderAsync("AD-O-A");
+                Console.WriteLine($"Order {readOrder.ArenalId} is retrieved.");
             }
             catch (ArenalException ex)
             {
                 Console.WriteLine($"Error: {ex.CombinedMessage()}");
             }
 
-            // Update
-            client.SetBearerToken(_tokenResponse?.AccessToken);
-            readedOrder.Patient = new Patient() { GivenName = "UpdatedOrder" };
-            try
-            {
-                readedOrder = await client.UpdateOrdersAsync(readedOrder);
-                Console.WriteLine($"Order created, ArenalId is: {readedOrder.ArenalId}");
-            }
-            catch (ArenalException ex)
-            {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
-            }
+            //// Update
+            //client.SetBearerToken(_tokenResponse?.AccessToken);
+            //readOrder.Patient = new Patient() { GivenName = "UpdatedOrder" };
+            //try
+            //{
+            //    readOrder = await client.UpdateOrdersAsync(readOrder);
+            //    Console.WriteLine($"Order created, ArenalId is: {readOrder.ArenalId}");
+            //}
+            //catch (ArenalException ex)
+            //{
+            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            //}
 
-            //delete
-            client.SetBearerToken(_tokenResponse?.AccessToken);
-            try
-            {
-                await client.DeleteOrdersAsync(readedOrder);
-                Console.WriteLine($"Order deleted, ArenalId is: {readedOrder.ArenalId}");
-            }
-            catch (ArenalException ex)
-            {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
-            }
+            ////delete
+            //client.SetBearerToken(_tokenResponse?.AccessToken);
+            //try
+            //{
+            //    await client.DeleteOrdersAsync(readOrder);
+            //    Console.WriteLine($"Order deleted, ArenalId is: {readOrder.ArenalId}");
+            //}
+            //catch (ArenalException ex)
+            //{
+            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
+            //}
 
-            //Other interactions with Arenal
+            ////Other interactions with Arenal
 
         }
 
