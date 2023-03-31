@@ -29,6 +29,12 @@ namespace Skyware.Arenal.Model
         /// </summary>
         public IEnumerable<string> Roles { get; set; }
 
+        /// <summary>
+        /// Base URL where the organization's ARES server.
+        /// Null or empty value means no ARES is implemented.
+        /// </summary>
+        public string AresBase { get; set; }
+
     }
 
 }

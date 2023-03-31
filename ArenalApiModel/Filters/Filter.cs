@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Text;
 
 namespace Skyware.Arenal.Filters
 {
 
+    /// <summary>
+    /// Represents single predicate for filtering results.
+    /// </summary>
     public class Filter : IFilterPart
     {
 
@@ -70,12 +72,12 @@ namespace Skyware.Arenal.Filters
             StringBuilder bld = new StringBuilder();
             //index 0
             if (parts[0] is Predicate) bld.Append(parts[0].ToString());
-                else bld.Append(ExpressionToString(((Filter)parts[0]).Parts));
+            else bld.Append(ExpressionToString(((Filter)parts[0]).Parts));
             //every next index
             for (int ind = 1; ind < parts.Count; ind++)
             {
-                if (parts[ind] is Predicate) bld.Append($"{parts[ind].LogicalOperator}{parts[ind]}");
-                else bld.Append($"{parts[ind].LogicalOperator}({ExpressionToString(((Filter)parts[ind]).Parts)})");
+                if (parts[ind] is Predicate) bld.Append($"{PredicateHelper.GetLogicalOperator(parts[ind].LogicalOperator)}{parts[ind]}");
+                else bld.Append($"{PredicateHelper.GetLogicalOperator(parts[ind].LogicalOperator)}({ExpressionToString(((Filter)parts[ind]).Parts)})");
             }
             return bld.ToString();
         }

@@ -6,9 +6,20 @@
     /// </summary>
     public enum LogicalOperators : byte
     {
+
+        /// <summary>
+        /// Conjunction
+        /// </summary>
+        [FilterKeyword("~and")]
         And,
 
-        Or
+        /// <summary>
+        /// Disjunction
+        /// </summary>
+        [FilterKeyword("~or")]
+        Or,
+
+        //Other?
     }
 
 }

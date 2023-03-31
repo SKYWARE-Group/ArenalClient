@@ -11,17 +11,38 @@ namespace Skyware.Arenal.Filters
     public enum ValueComparisons : byte
     {
 
+        /// <summary>
+        /// Equals
+        /// </summary>
+        [FilterKeyword("eq")]
         Equals,
 
+        /// <summary>
+        /// Not equals
+        /// </summary>
+        [FilterKeyword("ne")]
         NotEquals,
 
+        /// <summary>
+        /// Contains (string)
+        /// </summary>
+        [FilterKeyword("c")]
         Contains,
 
+        /// <summary>
+        /// Less than (int, decimal, date)
+        /// </summary>
+        [FilterKeyword("gt")]
         GreaterThan,
 
+        /// <summary>
+        /// Greater than (int, decimal, date)
+        /// </summary>
+        [FilterKeyword("lt")]
         LessThan,
 
-        //etc.
+        //TODO: Add more comparisons and implement them in PredicateHelper
+
     }
 
 }

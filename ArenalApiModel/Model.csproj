@@ -34,7 +34,6 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Model\Events\" />
   </ItemGroup>
 
   <ItemGroup>

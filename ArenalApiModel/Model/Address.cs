@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Text;
-
-namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model
 {
 
     /// <summary>
@@ -11,6 +6,11 @@ namespace Skyware.Arenal.Model
     /// </summary>
     public class Address
     {
+
+        /// <summary>
+        /// Two-letter country code, according to ISO 3166-1 alpha 2
+        /// </summary>
+        public string CountryCode { get; set; }
 
         /// <summary>
         /// State or Region.

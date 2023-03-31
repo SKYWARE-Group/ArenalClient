@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Text;
-
-namespace Skyware.Arenal.Filters
+﻿namespace Skyware.Arenal.Filters
 {
 
     /// <summary>
@@ -24,8 +19,8 @@ namespace Skyware.Arenal.Filters
         /// <param name="comparison"></param>
         /// <param name="value"></param>
         /// <param name="op"></param>
-        public Predicate(string propertyName, ValueComparisons comparison, object value, LogicalOperators op = LogicalOperators.And ) : this()
-        { 
+        public Predicate(string propertyName, ValueComparisons comparison, object value, LogicalOperators op = LogicalOperators.And) : this()
+        {
             PropertyName = propertyName;
             ValueComparison = comparison;
             Value = value;
@@ -41,7 +36,7 @@ namespace Skyware.Arenal.Filters
         public string PropertyName { get; set; }
 
         /// <summary>
-        /// ValueComparison operator to be applied between property and value.
+        /// Comparison operator to be applied between property and value.
         /// </summary>
         public ValueComparisons ValueComparison { get; set; } = ValueComparisons.Equals;
 
@@ -58,7 +53,7 @@ namespace Skyware.Arenal.Filters
         {
             //TODO: Convert function for operator syntax
             //TODO: Convert value according to underlying type ('string', 5, 5.23, 2023-03-01, 2023-05-05T12:22:30, etc.)
-            return $"({PropertyName},{ValueComparison},{PredicateHelper.GetPredicateValue(Value)})";
+            return $"({PropertyName.ToLower()},{PredicateHelper.GetPredicateComparison(ValueComparison)},{PredicateHelper.GetPredicateValue(Value)})";
         }
 
     }

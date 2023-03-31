@@ -10,7 +10,7 @@
         #region Referral Metadata
 
         /// <summary>
-        /// The bulgarian national reference number for the referral.
+        /// The Bulgarian National Reference Number for the referral.
         /// </summary>
         public string Nrn { get; set; }
 
