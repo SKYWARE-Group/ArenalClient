@@ -1,17 +1,26 @@
 ﻿using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
+using Skyware.Arenal.Discovery;
 using Skyware.Arenal.Model;
+using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
+using System.Diagnostics;
 
 namespace CliTestApp
 {
     public class Program
     {
 
-
         //Holds session-wide JWT
         private static TokenResponse? _tokenResponse = null;
+
+        public static async Task Main(string[] args)
+        {
+
+            await GetFormAsync();
+
+        }
 
         /// <summary>
         /// Demonstrates how to obtain and cache JWT.
@@ -35,9 +44,8 @@ namespace CliTestApp
             }
         }
 
-        public static async Task Main(string[] args)
+        private static async Task DoOrderStuff()
         {
-
 
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory())
@@ -103,9 +111,7 @@ namespace CliTestApp
             //}
 
             ////Other interactions with Arenal
-
         }
-
 
         private static Order GetDemoOrder()
         {
@@ -131,7 +137,43 @@ namespace CliTestApp
 
         }
 
+        private static async Task GetFormAsync()
+        {
+            Compendium comp = new()
+            {
+                ProviderId = "misho",
+                ServiceList = new[]
+                {
+                    new CompendiumEntry() { Name = "Glucose"},
+                    new CompendiumEntry() { Name = "Albumin"},
+                    new CompendiumEntry() { Name = "Cholesterol"},
+                    new CompendiumEntry() { Name = "Phlebotomy"},
+                }
+            };
 
+            using HttpClient client = new();
+            OrderExtensions.BaseAddress = "https://arenal-forms.azurewebsites.net/";
+
+            Stopwatch s = new();
+
+            s.Start();
+            DocumentAnswer ans = await client.GetFormAsync("bg.nhif.lab-referral", comp);
+            s.Stop();
+
+            await Console.Out.WriteLineAsync($"Form is generated in {s.ElapsedMilliseconds}ms.");
+
+            byte[] pdfData = Convert.FromBase64String(ans.Data);
+
+
+            string fn = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "arenal-jasper-demo.pdf");
+            using var fs = new FileStream(fn, FileMode.Create, FileAccess.Write);
+            await fs.WriteAsync(pdfData, 0, pdfData.Length);
+            fs.Flush();
+            fs.Close();
+
+            Process.Start(new ProcessStartInfo() { CreateNoWindow = true, FileName = "cmd.exe", Arguments = $"/C start {fn}" });
+
+        }
 
     }
 }
