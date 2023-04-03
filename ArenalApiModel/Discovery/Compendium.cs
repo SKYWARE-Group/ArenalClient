@@ -6,7 +6,7 @@ namespace Skyware.Arenal.Discovery
     /// <summary>
     /// Service provider compendium (catalog, pricelist)
     /// </summary>
-    public class Cpmpendium
+    public class Compendium
     {
 
         /// <summary>
