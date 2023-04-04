@@ -18,8 +18,8 @@ namespace CliTestApp
         public static async Task Main(string[] args)
         {
 
-            await GetFormAsync();
-            //await DoOrderStuff();
+            //await GetFormAsync();
+            await DoOrderStuff();
 
         }
 
@@ -60,58 +60,66 @@ namespace CliTestApp
             //Create Demo Order
             Order order = GetDemoOrder();
 
-            ////Publish Demo Order
             using var client = new HttpClient();
-            //client.SetBearerToken(_tokenResponse?.AccessToken);
-            //try
-            //{
-            //    Order respOrd = await client.CreateOrdersAsync(order);
-            //    Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
-            //}
-            //catch (ArenalException ex)
-            //{
-            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
-            //}
+            OrderExtensions.BaseAddress = "https://arenal2.azurewebsites.net/";
 
+
+            // Create Order
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+
+            Order? respOrd = null;
+            try
+            {
+                respOrd = await client.CreateOrdersAsync(order);
+                Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            // Read
+            client.SetBearerToken(_tokenResponse?.AccessToken);
             Order? readOrder = null;
-            // Read one
+            try
+            {
+                readOrder = await client.GetOrderAsync(respOrd.ArenalId);
+                Console.WriteLine($"Order {readOrder.ArenalId} is retrieved.");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            // Update
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+            readOrder.Patient = new Patient() { GivenName = "Миленов" };
+            try
+            {
+                readOrder = await client.UpdateOrdersAsync(readOrder);
+                Console.WriteLine($"Order updated, ArenalId is: {readOrder.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            // Delete
             client.SetBearerToken(_tokenResponse?.AccessToken);
             try
             {
-                readOrder = await client.GetOrderAsync("AD-O-A");
-                Console.WriteLine($"Order {readOrder.ArenalId} is retrieved.");
+                await client.DeleteOrdersAsync(readOrder);
+                Console.WriteLine($"Order deleted, ArenalId is: {respOrd.ArenalId}");
             }
             catch (ArenalException ex)
             {
                 Console.WriteLine($"Error: {ex.CombinedMessage()}");
             }
 
-            //// Update
-            //client.SetBearerToken(_tokenResponse?.AccessToken);
-            //readOrder.Patient = new Patient() { GivenName = "UpdatedOrder" };
-            //try
-            //{
-            //    readOrder = await client.UpdateOrdersAsync(readOrder);
-            //    Console.WriteLine($"Order created, ArenalId is: {readOrder.ArenalId}");
-            //}
-            //catch (ArenalException ex)
-            //{
-            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
-            //}
-
-            ////delete
-            //client.SetBearerToken(_tokenResponse?.AccessToken);
-            //try
-            //{
-            //    await client.DeleteOrdersAsync(readOrder);
-            //    Console.WriteLine($"Order deleted, ArenalId is: {readOrder.ArenalId}");
-            //}
-            //catch (ArenalException ex)
-            //{
-            //    Console.WriteLine($"Error: {ex.CombinedMessage()}");
-            //}
-
-            ////Other interactions with Arenal
+            //TODO: Other interactions with Arenal
         }
 
         private static Order GetDemoOrder()
