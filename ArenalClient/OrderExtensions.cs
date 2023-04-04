@@ -296,7 +296,7 @@ namespace Skyware.Arenal.Client
             if (data == null) throw new NullReferenceException(nameof(data));
             if (string.IsNullOrEmpty(reportType)) throw new NullReferenceException(nameof(reportType));
 
-            Url url = ARENAL_BASE
+            Url url = _BaseAddress
                 .AppendPathSegment("api")
                 .AppendPathSegment("forms");
 

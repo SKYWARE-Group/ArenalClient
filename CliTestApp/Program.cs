@@ -19,6 +19,7 @@ namespace CliTestApp
         {
 
             await GetFormAsync();
+            //await DoOrderStuff();
 
         }
 
