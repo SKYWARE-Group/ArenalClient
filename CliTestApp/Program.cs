@@ -3,9 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
 using Skyware.Arenal.Discovery;
 using Skyware.Arenal.Model;
+using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace CliTestApp
 {
@@ -19,8 +21,9 @@ namespace CliTestApp
         {
 
             //await GetFormAsync();
-            await DoOrderStuff();
-
+            //await DoOrderStuff();
+            await DoOrganizationsStuff();
+            //await ChangeOrderStatusDemo();
         }
 
         /// <summary>
@@ -61,7 +64,7 @@ namespace CliTestApp
             Order order = GetDemoOrder();
 
             using var client = new HttpClient();
-            OrderExtensions.BaseAddress = "https://arenal2.azurewebsites.net/";
+            OrderExtensions.BaseAddress = "https://localhost:7291/";
 
 
             // Create Order
@@ -122,6 +125,98 @@ namespace CliTestApp
             //TODO: Other interactions with Arenal
         }
 
+        private static async Task ChangeOrderStatusDemo()
+        {
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            builder.AddUserSecrets<Program>();
+            IConfiguration config = builder.Build();
+
+            //Get JWT
+            await GetTokenAsync(config);
+
+            using var client = new HttpClient();
+            OrderExtensions.BaseAddress = "https://localhost:7291/";
+
+            // Create Order
+            Order changeStatOrder = GetDemoOrder();
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+
+            Order? order = null;
+            try
+            {
+                order = await client.GetOrderAsync("AD-O-L");
+                Console.WriteLine($"Order taken, ArenalId is: {order.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            //Get Organization
+            Organization provider = null;
+            try
+            {
+                provider = await client.GetProviderAsync("AD-G-2");
+                Console.WriteLine($"Organization taken, ArenalId is: {provider.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            OrderStatusRequest statusRequest = GetDemoStatusRequest(provider);
+
+            //Change Status
+            //Order changedStatusOrder = await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest);
+            Order changedStatusOrder = await client.ChangeOrderStatusAsync(order, statusRequest);
+        }
+
+        private static async Task DoOrganizationsStuff()
+        {
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            builder.AddUserSecrets<Program>();
+            IConfiguration config = builder.Build();
+
+            //Get JWT
+            await GetTokenAsync(config);
+
+            using var client = new HttpClient();
+            OrderExtensions.BaseAddress = "https://localhost:7291/";
+
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+            //Get Organization
+            Organization provider = null;
+            try
+            {
+                provider = await client.GetProviderAsync("AD-G-2");
+                Console.WriteLine($"Organization taken, ArenalId is: {provider.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+
+            IEnumerable<Organization> providers = null;
+            try
+            {
+                providers = await client.GetProvidersAsync();
+                foreach (var ctxProvider in providers)
+                    Console.WriteLine($"Organization taken, ArenalId is: {ctxProvider.ArenalId}");
+            }
+            catch (ArenalException ex)
+            {
+                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                return;
+            }
+        }
+
         private static Order GetDemoOrder()
         {
 
@@ -144,6 +239,19 @@ namespace CliTestApp
                 ProviderId = "AD-G-2"
             };
 
+        }
+
+        private static OrderStatusRequest GetDemoStatusRequest(Organization provider)
+        {
+            return new OrderStatusRequest()
+            {
+                NewStatus = OrderStatuses.TAKEN,
+                ProviderNote = new Note()
+                {
+                    Value = "This is demo provider note."
+                },
+                ProviderId = provider.ArenalId
+            };
         }
 
         private static async Task GetFormAsync()

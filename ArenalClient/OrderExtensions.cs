@@ -1,6 +1,7 @@
 ﻿using Flurl;
 using Skyware.Arenal.Filters;
 using Skyware.Arenal.Model;
+using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.DocumentGeneration;
 using System;
 using System.Net;
@@ -49,6 +50,7 @@ namespace Skyware.Arenal.Client
 
         #endregion
 
+        //TODO: CRUD Generic?
         #region Orders
 
         /// <summary>
@@ -272,6 +274,168 @@ namespace Skyware.Arenal.Client
             }
         }
 
+        /// <summary>
+        /// Updates order status
+        /// </summary>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+        /// <param name="statusRequest"><see cref="Model.Actions.OrderStatusRequest"/> description of the action.</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns></returns>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="NullReferenceException">orderId is null or statusRequest is null.</exception>
+        public static async Task<Model.Order> ChangeOrderStatusAsync(
+            this HttpMessageInvoker client,
+            string orderId,
+            OrderStatusRequest statusRequest,
+            CancellationToken cancellationToken = default)
+        {
+
+            if (statusRequest == null) throw new NullReferenceException(nameof(statusRequest));
+            if (string.IsNullOrEmpty(orderId)) throw new NullReferenceException(nameof(orderId));
+
+            Url url = _BaseAddress
+                .AppendPathSegment("api")
+                .AppendPathSegment("orders")
+                .AppendPathSegment(orderId)
+                .AppendPathSegment("status");
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Put,
+                RequestUri = url.ToUri(),
+                Content = JsonContent.Create(statusRequest, typeof(OrderStatusRequest), options: _jOpts)
+            };
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<Order>(cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode),
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
+            }
+        }
+
+        /// <summary>
+        /// Updates order status
+        /// </summary>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+        /// <param name="statusRequest"><see cref="Model.Actions.OrderStatusRequest"/> description of the action.</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+        /// <exception cref="NullReferenceException">Order is null or statusRequest is null.</exception>
+        public static async Task<Model.Order> ChangeOrderStatusAsync(
+            this HttpMessageInvoker client,
+            Order order,
+            OrderStatusRequest statusRequest,
+            CancellationToken cancellationToken = default)
+        {
+            return await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest, cancellationToken);
+        }
+
+        #endregion
+
+        //TODO: CRUD Generic?
+        #region Providers
+
+        /// <summary>
+        /// Retrieves providers
+        /// </summary>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="filter"></param>
+        /// <param name="offset"></param>
+        /// <param name="limit"></param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns>Array of <see cref="Organization"/>.</returns>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+        public static async Task<Organization[]> GetProvidersAsync(
+            this HttpMessageInvoker client,
+            Filter filter = null, int? offset = null, int? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            Url url = _BaseAddress
+                .AppendPathSegment("api")
+                .AppendPathSegment("providers");
+
+            if (filter != null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+            if (offset != null && offset > 0) url.SetQueryParam("offset", offset.ToString());
+            if (limit != null && limit > 0) url.SetQueryParam("limit", limit.ToString());
+
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                RequestUri = url.ToUri()
+            };
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return await response.Content.ReadFromJsonAsync<Organization[]>(cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode),
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
+            }
+        }
+
+        /// <summary>
+        /// Retrieves one provider
+        /// </summary>
+        /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+        /// <param name="providerId">order id to get</param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+        /// <returns>Array of <see cref="Organization"/>.</returns>
+        /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+        /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+        public static async Task<Model.Organization> GetProviderAsync(
+            this HttpMessageInvoker client,
+            string providerId,
+            CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrEmpty(providerId)) throw new ArgumentNullException(nameof(providerId));
+
+            Url url = _BaseAddress
+                .AppendPathSegment("api")
+                .AppendPathSegment("providers")
+                .AppendPathSegment(providerId);
+
+
+            HttpRequestMessage request = new HttpRequestMessage
+            {
+                RequestUri = url.ToUri()
+            };
+            request.Headers.Add("Accept", "application/json");
+            request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return await response.Content.ReadFromJsonAsync<Organization>(cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
+                throw new Model.Exceptions.ArenalException(
+                    ((int)response.StatusCode),
+                    await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
+            }
+        }
+
         #endregion
 
         #region Forms
@@ -332,9 +496,6 @@ namespace Skyware.Arenal.Client
 
             #endregion
 
-
         }
-
-
     }
 }
