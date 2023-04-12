@@ -11,11 +11,6 @@ namespace Skyware.Arenal.Discovery
     {
 
         /// <summary>
-        /// Service offered.
-        /// </summary>
-        public Service Service { get; set; }
-
-        /// <summary>
         /// Official provider's price.
         /// </summary>
         public decimal Price { get; set; }
@@ -24,6 +19,7 @@ namespace Skyware.Arenal.Discovery
         /// Required samples for given service (laboratory).
         /// </summary>
         public IEnumerable<SampleType> ReuiredSampleTypes { get; set; }
+
 
     }
 

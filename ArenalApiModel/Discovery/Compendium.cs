@@ -10,14 +10,19 @@ namespace Skyware.Arenal.Discovery
     {
 
         /// <summary>
-        /// Arenal Id of a provider.
+        /// Arenal Id of the provider.
         /// </summary>
         public string ProviderId { get; set; }
 
         /// <summary>
+        /// Primary currency for this provider.
+        /// </summary>
+        public string Currency { get; set; }
+
+        /// <summary>
         /// List of <see cref="CompendiumEntry"/> provided by this provider.
         /// </summary>
-        public IEnumerable<CompendiumEntry> ServiceList { get; set; }
+        public IEnumerable<CompendiumEntry> Services { get; set; }
 
     }
 

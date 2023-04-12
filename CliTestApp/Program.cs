@@ -259,7 +259,7 @@ namespace CliTestApp
             Compendium comp = new()
             {
                 ProviderId = "misho",
-                ServiceList = new[]
+                Services = new[]
                 {
                     new CompendiumEntry() { Name = "Glucose"},
                     new CompendiumEntry() { Name = "Albumin"},
