@@ -35,6 +35,16 @@ namespace Skyware.Arenal.Model
         /// </summary>
         public string AresBase { get; set; }
 
+        /// <summary>
+        /// Soft delete indicator (false=deleted).
+        /// </summary>
+        public bool IsActive { get; set; } = true;
+
+        /// <summary>
+        /// To list in public catalog or not.
+        /// </summary>
+        public bool ListInCatalog { get; set; } = true;
+
     }
 
 }
