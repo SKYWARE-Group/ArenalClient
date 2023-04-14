@@ -17,9 +17,8 @@
         /// Disjunction
         /// </summary>
         [FilterKeyword("~or")]
-        Or,
+        Or
 
-        //Other?
     }
 
 }

@@ -30,10 +30,46 @@ namespace Skyware.Arenal.Model
         public IEnumerable<string> Roles { get; set; }
 
         /// <summary>
+        /// Registered address of an organization (used for billing)
+        /// </summary>
+        public Address RegisteredAddress { get; set; }
+
+        /// <summary>
+        /// Head office of an organization (used for mailing, shipping, etc.)
+        /// </summary>
+        public Address HeadOffice { get; set; }
+
+        /// <summary>
         /// Base URL where the organization's ARES server.
         /// Null or empty value means no ARES is implemented.
         /// </summary>
         public string AresBase { get; set; }
+
+        /// <summary>
+        /// Soft delete indicator (false=deleted).
+        /// </summary>
+        public bool IsActive { get; set; } = true;
+
+        /// <summary>
+        /// To list in public catalog or not.
+        /// </summary>
+        public bool ListInCatalog { get; set; } = true;
+
+        /// <summary>
+        /// URL to a large logo (256, 512)
+        /// </summary>
+        public string LargeLogoUrl { get; set; }
+
+        /// <summary>
+        /// URL to a medium logo (64, 72, 128)
+        /// </summary>
+        public string MediumLogoUrl { get; set; }
+
+        /// <summary>
+        /// URL to a small logo (16, 32)
+        /// </summary>
+        public string SmallLogoUrl { get; set; }
+
 
     }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Skyware.Arenal.Filters
+﻿namespace Skyware.Arenal.Filters
 {
 
     /// <summary>
@@ -12,21 +8,30 @@ namespace Skyware.Arenal.Filters
     {
 
         /// <summary>
-        /// Equals
+        /// Equals (int, decimal, date, string)
         /// </summary>
+        /// <remarks>
+        /// When comparison is applied to string, it is case-insensitive
+        /// </remarks>
         [FilterKeyword("eq")]
         Equals,
 
         /// <summary>
-        /// Not equals
+        /// Not equals (int, decimal, date, string)
         /// </summary>
+        /// <remarks>
+        /// When comparison is applied to string, it is case-insensitive
+        /// </remarks>
         [FilterKeyword("ne")]
         NotEquals,
 
         /// <summary>
-        /// Contains (string)
+        /// Contains (applies only to string)
         /// </summary>
-        [FilterKeyword("c")]
+        /// <remarks>
+        /// Case-insensitive, with exact match (no placeholders)
+        /// </remarks>
+        [FilterKeyword("cn")]
         Contains,
 
         /// <summary>
@@ -36,12 +41,37 @@ namespace Skyware.Arenal.Filters
         GreaterThan,
 
         /// <summary>
+        /// Less than (int, decimal, date)
+        /// </summary>
+        [FilterKeyword("ge")]
+        GreaterOrEquals,
+
+        /// <summary>
         /// Greater than (int, decimal, date)
         /// </summary>
         [FilterKeyword("lt")]
         LessThan,
 
+        /// <summary>
+        /// Greater than (int, decimal, date)
+        /// </summary>
+        [FilterKeyword("le")]
+        LessOrEquals,
+
+        /// <summary>
+        /// Is (applies only to null as a value)
+        /// </summary>
+        [FilterKeyword("is")]
+        Is,
+
+        /// <summary>
+        /// Is (applies only to null as a value)
+        /// </summary>
+        [FilterKeyword("isnot")]
+        IsNot,
+
         //TODO: Add more comparisons and implement them in PredicateHelper
+        //Candidates: StartsWith, EndsWith, Like, Matches
 
     }
 
