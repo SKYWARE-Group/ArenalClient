@@ -22,8 +22,11 @@ namespace CliTestApp
 
             //await GetFormAsync();
             //await DoOrderStuff();
-            await DoOrganizationsStuff();
+            //await DoOrganizationsStuff();
             //await ChangeOrderStatusDemo();
+
+            await PublisFakeOrders(20, "AD-G-1");
+
         }
 
         /// <summary>
@@ -64,7 +67,7 @@ namespace CliTestApp
             Order order = GetDemoOrder();
 
             using var client = new HttpClient();
-            OrderExtensions.BaseAddress = "https://localhost:7291/";
+            //OrderExtensions.BaseAddress = "https://localhost:7291/";
 
 
             // Create Order
@@ -291,6 +294,42 @@ namespace CliTestApp
             Process.Start(new ProcessStartInfo() { CreateNoWindow = true, FileName = "cmd.exe", Arguments = $"/C start {fn}" });
 
         }
+
+        private static async Task PublisFakeOrders(int numOfOrders, string providerId)
+        {
+
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            builder.AddUserSecrets<Program>();
+            IConfiguration config = builder.Build();
+
+            //Get JWT
+            await GetTokenAsync(config);
+
+            using var client = new HttpClient();
+            //OrderExtensions.BaseAddress = "https://localhost:7291/";
+
+            // Create Order
+            client.SetBearerToken(_tokenResponse?.AccessToken);
+            Order? respOrd = null;
+
+            for (int i = 0; i < numOfOrders; i++)
+            {
+                var o = FakeOrders.Generate(providerId);
+                try
+                {
+                    respOrd = await client.CreateOrdersAsync(o);
+                    Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+                }
+                catch (ArenalException ex)
+                {
+                    Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                }
+            }
+
+        }
+
 
     }
 }

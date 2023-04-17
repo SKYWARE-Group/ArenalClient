@@ -8,7 +8,7 @@
     {
 
         /// <summary>
-        /// Two-letter country code, according to ISO 3166-1 alpha 2
+        /// Two-letter country code, according to ISO 3166-1 alpha 2.
         /// </summary>
         public string CountryCode { get; set; }
 
@@ -28,9 +28,15 @@
         public string PostCode { get; set; }
 
         /// <summary>
-        /// Actual address, e.g. "10 Downing St"
+        /// Actual address, e.g. "10 Downing St".
         /// </summary>
         public string StreetAddress { get; set; }
+
+        /// <summary>
+        /// Geographic location.
+        /// </summary>
+        public GeoCoordinates Coordinates { get; set; }
+
 
     }
 
