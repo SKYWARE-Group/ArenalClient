@@ -19,7 +19,7 @@ public class OrderValidator : AbstractValidator<Order>
     /// <summary>
     /// All workflows, where provider is mandatory
     /// </summary>
-    public static readonly string[] WORKFLOWS_W_PROVIDERS = new[] {Workflows.LAB_SCO }; 
+    public static readonly string[] WORKFLOWS_W_PROVIDERS = new[] {Workflows.LAB_SCO };
 
     /// <summary>
     /// Default constructor.
@@ -36,6 +36,11 @@ public class OrderValidator : AbstractValidator<Order>
         When(x => !string.IsNullOrWhiteSpace(x.Workflow) && WORKFLOWS_W_PROVIDERS.Any(w => w.Equals(x.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
         {
             RuleFor(x => x.ProviderId).NotEmpty().WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
+        });
+
+        //Provider's fields when placing order
+        When (x => x.Status == OrderStatuses.AVAILABLE, () => {
+            RuleFor(x => x.ProviderNote).Null().WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
         });
 
         //Patient (required)

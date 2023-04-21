@@ -49,6 +49,11 @@ public class Service
     /// </summary>
     public int? Rank { get; set; }
 
+    /// <summary>
+    /// List of problems reported by the provider.
+    /// </summary>
+    public IEnumerable<Problem> Problems { get; set; }
+
 
 }
 

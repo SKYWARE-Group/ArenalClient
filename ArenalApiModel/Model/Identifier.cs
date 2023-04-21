@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model;
+﻿using System.Collections.Generic;
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
@@ -34,7 +36,16 @@ public class Identifier
     }
 
     /// <summary>
-    /// Shorthand constructor.
+    /// Creates an object with local authority (no dictionary).
+    /// </summary>
+    public Identifier(string value)
+    {
+        Authority = Authorities.LOCAL;
+        Value = value;
+    }
+
+    /// <summary>
+    /// Creates an object with authority and dictionary.
     /// </summary>
     public Identifier(string authority, string dictionary, string value) : this()
     {

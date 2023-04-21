@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skyware.Arenal.Model.Actions;
+using System;
 using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model;
@@ -55,11 +56,6 @@ public class Order : EntityBase
     /// Date and time when the order is taken or rejected by the provider.
     /// </summary>
     public DateTime? TakenOrRejected { get; set; }
-
-    /// <summary>
-    /// Reason for rejecting of the order<see cref="OrderStatuses.REJECTED"/>
-    /// </summary>
-    public Identifier RejectReason { get; set; }
 
     /// <summary>
     /// Order status, according to <see cref="OrderStatuses"/>.

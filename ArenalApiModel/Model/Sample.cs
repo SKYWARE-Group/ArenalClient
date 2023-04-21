@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model
 {
@@ -29,6 +30,12 @@ namespace Skyware.Arenal.Model
         /// Notes to the sample.
         /// </summary>
         public Note Note { get; set; }
+
+        /// <summary>
+        /// List of problems reported by the provider.
+        /// Preferred coding system is 'org.hl7' with dictionary '0490'
+        /// </summary>
+        public IEnumerable<Problem> Problems { get; set; }
 
         /// <summary>
         /// Default constructor.
