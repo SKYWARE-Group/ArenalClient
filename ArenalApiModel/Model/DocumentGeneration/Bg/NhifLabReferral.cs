@@ -1,48 +1,46 @@
-﻿namespace Skyware.Arenal.Model.DocumentGeneration.Bg
+﻿namespace Skyware.Arenal.Model.DocumentGeneration.Bg;
+
+
+/// <summary>
+/// Nhif Laboratory referral (Бл. № 4 на МЗ/НЗОК)
+/// </summary>
+public class NhifLabReferral
 {
 
+    #region Referral Metadata
+
     /// <summary>
-    /// Nhif Laboratory referral (Бл. № 4 на МЗ/НЗОК)
+    /// The Bulgarian National Reference Number for the referral.
     /// </summary>
-    public class NhifLabReferral
-    {
+    public string Nrn { get; set; }
 
-        #region Referral Metadata
+    /// <summary>
+    /// The LRN number for the referral.
+    /// </summary>
+    public string Lrn { get; set; }
 
-        /// <summary>
-        /// The Bulgarian National Reference Number for the referral.
-        /// </summary>
-        public string Nrn { get; set; }
+    #endregion
 
-        /// <summary>
-        /// The LRN number for the referral.
-        /// </summary>
-        public string Lrn { get; set; }
+    #region Patient Data
 
-        #endregion
+    /// <summary>
+    /// The patient that the referral is targeted to.
+    /// </summary>
+    public Patient Patient { get; set; }
 
-        #region Patient Data
+    #endregion
 
-        /// <summary>
-        /// The patient that the referral is targeted to.
-        /// </summary>
-        public Patient Patient { get; set; }
+    #region Issuer Doctor Data
 
-        #endregion
+    /// <summary>
+    /// The referral issuer's information.
+    /// </summary>
+    public Doctor Issuer { get; set; }
 
-        #region Issuer Doctor Data
+    #endregion
 
-        /// <summary>
-        /// The referral issuer's information.
-        /// </summary>
-        public Doctor Issuer { get; set; }
+    #region Laboratory Data
 
-        #endregion
-
-        #region Laboratory Data
-
-        #endregion
-
-    }
+    #endregion
 
 }

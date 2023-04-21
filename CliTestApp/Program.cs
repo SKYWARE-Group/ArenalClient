@@ -248,12 +248,12 @@ namespace CliTestApp
         {
             return new OrderStatusRequest()
             {
-                NewStatus = OrderStatuses.TAKEN,
+                NewStatus = OrderStatuses.IN_PROGRESS,
                 ProviderNote = new Note()
                 {
                     Value = "This is demo provider note."
                 },
-                ProviderId = provider.ArenalId
+                //ProviderId = provider.ArenalId
             };
         }
 

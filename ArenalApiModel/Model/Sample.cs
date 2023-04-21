@@ -49,7 +49,7 @@ namespace Skyware.Arenal.Model
             if (!string.IsNullOrWhiteSpace(sampleAdditive))
             {
                 if (SampleType is null) SampleType = new SampleType();
-                SampleType.AditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleAdditive, sampleAdditive);
+                SampleType.AdditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleAdditive, sampleAdditive);
             }
             Taken = taken;
             if (!string.IsNullOrWhiteSpace(barcode)) SampleId = new Identifier(Authorities.LOCAL, null, barcode);

@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Skyware.Arenal.Model;
 
-namespace Skyware.Arenal.Model
+
+/// <summary>
+/// Represent a doctor.
+/// </summary>
+public class Doctor : PersonBase
 {
 
     /// <summary>
-    /// Represent a doctor.
+    /// Title, such as D-r, Prof., etc.
     /// </summary>
-    public class Doctor : PersonBase 
-    {
+    public string Title { get; set; }
 
-        /// <summary>
-        /// Title, such as D-r, Prof., etc.
-        /// </summary>
-        public string Title { get; set; }
-
-    }
 }

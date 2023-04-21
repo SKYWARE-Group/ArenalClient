@@ -1,17 +1,21 @@
-﻿namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model;
+
+
+/// <summary>
+/// Constants for Arenal-defined workflows
+/// </summary>
+public class Workflows
 {
 
     /// <summary>
-    /// Constants with Arenal-defined workflows
+    /// Laboratory specimen-centric orders.
     /// </summary>
-    public class Workflows
-    {
+    public const string LAB_SCO = "lab-sco";
 
-        /// <summary>
-        /// Defines laboratory, specimen-centric orders exchange
-        /// </summary>
-        public const string LAB_SCO = "lab-sco";
+    /// <summary>
+    /// Mobile collection point for laboratories.
+    /// </summary>
+    public const string LAB_MCP = "lab-mcp";
 
-    }
 
 }

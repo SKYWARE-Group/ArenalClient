@@ -1,21 +1,20 @@
-﻿namespace Skyware.Arenal.Model.Exceptions
+﻿namespace Skyware.Arenal.Model.Exceptions;
+
+
+/// <summary>
+/// Represents Arenal error.
+/// </summary>
+public class ArenalError
 {
 
     /// <summary>
-    /// Represents Arenal error.
+    /// Status code, according to Arenal specification.
     /// </summary>
-    public class ArenalError
-    {
+    public int StatusCode { get; set; }
 
-        /// <summary>
-        /// Status code, according to Arenal specification.
-        /// </summary>
-        public int StatusCode { get; set; }
+    /// <summary>
+    /// Error description.
+    /// </summary>
+    public string Message { get; set; }
 
-        /// <summary>
-        /// Error description.
-        /// </summary>
-        public string Message { get; set; }
-
-    }
 }

@@ -1,21 +1,20 @@
-﻿namespace Skyware.Arenal.Model
+﻿namespace Skyware.Arenal.Model;
+
+
+/// <summary>
+/// Predefined values for contact types.
+/// </summary>
+public class ContactTypes
 {
 
     /// <summary>
-    /// Predefined values for contact types.
+    /// Email
     /// </summary>
-    public class ContactTypes
-    {
+    public const string EMAIL = "email";
 
-        /// <summary>
-        /// Email
-        /// </summary>
-        public const string EMAIL = "email";
+    /// <summary>
+    /// Phone number
+    /// </summary>
+    public const string PHONE = "phone";
 
-        /// <summary>
-        /// Phone number
-        /// </summary>
-        public const string PHONE = "phone";
-
-    }
 }
