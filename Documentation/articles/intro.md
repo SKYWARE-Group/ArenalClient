@@ -1,0 +1,3 @@
+# Introduction
+
+Arenal is cool.

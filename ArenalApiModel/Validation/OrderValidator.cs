@@ -14,12 +14,12 @@ public class OrderValidator : AbstractValidator<Order>
     /// <summary>
     /// All workflows, where samples must be provided
     /// </summary>
-    public static readonly string[] WORKFLOWS_W_SAMPLES = new[] {Workflows.LAB_SCO };
+    private static readonly string[] WORKFLOWS_W_SAMPLES = new[] {Workflows.LAB_SCO };
 
     /// <summary>
     /// All workflows, where provider is mandatory
     /// </summary>
-    public static readonly string[] WORKFLOWS_W_PROVIDERS = new[] {Workflows.LAB_SCO };
+    private static readonly string[] WORKFLOWS_W_PROVIDERS = new[] {Workflows.LAB_SCO };
 
     /// <summary>
     /// Default constructor.
