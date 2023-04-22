@@ -25,4 +25,17 @@ public class ServiceValidator : AbstractValidator<Service>
 
     }
 
+    /// <summary>
+    /// Validator depending on order status
+    /// </summary>
+    /// <param name="orderStatus"></param>
+    public ServiceValidator(string orderStatus) : this()
+    {
+        //When placed
+        if (orderStatus == OrderStatuses.AVAILABLE)
+            RuleFor(x => x.Problems)
+                .Null()
+                .WithMessage($"When status of {nameof(Order)} is '{OrderStatuses.AVAILABLE}', {nameof(Service.Problems)} of {nameof(Service)} must be null.");
+    }
+
 }

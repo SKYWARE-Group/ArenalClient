@@ -9,7 +9,7 @@ namespace Skyware.Arenal.Model
     /// Represent a problem or discrepancy, connected with a service.
     /// Preferred coding system is 'org.hl7' with dictionary '0490'
     /// </summary>
-    public class SampleProblem : Problem
+    public class SampleProblem
     {
 
         /// <summary>
@@ -18,18 +18,9 @@ namespace Skyware.Arenal.Model
         public string SampleId { get; set; }
 
         /// <summary>
-        /// Default constructor
+        /// The problem object
         /// </summary>
-        public SampleProblem() { }
-
-        /// <summary>
-        /// Instantiates an object with HL7 coded sample problem
-        /// </summary>
-        public SampleProblem(string problemCode, string sampleId) : this()
-        {
-            Identifier = new Identifier("org.lh7", "0490", problemCode);
-            SampleId = sampleId;
-        }
+        public Problem Problem { get; set; }    
 
     }
 

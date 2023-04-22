@@ -17,7 +17,12 @@ public class Dictionaries
     /// <summary>
     /// LOINC Sample Additive/Preservative (Table 0371)
     /// </summary>
-    public const string HL7_0487_SampleAdditive = "0371";
+    public const string HL7_0371_SampleAdditive = "0371";
+
+    /// <summary>
+    /// HL7 Sample Reject Reasons (Table 0490)
+    /// </summary>
+    public const string HL7_0490_SampleRejectReasons = "0490";
 
     /// <summary>
     /// ICD-9

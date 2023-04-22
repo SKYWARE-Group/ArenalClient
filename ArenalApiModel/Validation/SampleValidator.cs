@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
 using System;
+using System.Linq;
 
 namespace Skyware.Arenal.Validation;
 
@@ -37,6 +38,19 @@ public class SampleValidator : AbstractValidator<Sample>
                 Must(d => d.Value <= DateTime.Now).
                 WithMessage($"{nameof(Sample.Taken)} must be before current date."));
 
+    }
+
+    /// <summary>
+    /// Validator depending on order status
+    /// </summary>
+    /// <param name="orderStatus"></param>
+    public SampleValidator(string orderStatus) : this()
+    {
+        //When placed
+        if (orderStatus == OrderStatuses.AVAILABLE)
+            RuleFor(x => x.Problems)
+                .Null()
+                .WithMessage($"When status of {nameof(Order)} is '{OrderStatuses.AVAILABLE}', {nameof(Sample.Problems)} of {nameof(Sample)} must be null.");
     }
 
 }

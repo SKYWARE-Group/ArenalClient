@@ -53,7 +53,7 @@ public class Authorities
     /// <summary>
     /// HL7
     /// </summary>
-    [ArenalUsage(typeof(SampleType))]
+    [ArenalUsage(new Type[] { typeof(SampleType), typeof(Problem) })]
     public const string HL7 = "org.hl7";
 
     /// <summary>

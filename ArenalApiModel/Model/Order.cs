@@ -1,4 +1,6 @@
-﻿using Skyware.Arenal.Model.Actions;
+﻿using FluentValidation.Results;
+using Skyware.Arenal.Model.Actions;
+using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
 
@@ -10,6 +12,8 @@ namespace Skyware.Arenal.Model;
 /// </summary>
 public class Order : EntityBase
 {
+
+    private static readonly OrderValidator _validator = new OrderValidator();
 
     /// <summary>
     /// Identifies Arenal workflow.
@@ -85,22 +89,22 @@ public class Order : EntityBase
     /// <summary>
     /// Additional orders or referrals, which are part of his order and ares stored and processed in external systems.
     /// </summary>
-    public IEnumerable<LinkedReferral> LinkedReferrals { get; set; }
+    public IList<LinkedReferral> LinkedReferrals { get; set; }
 
     /// <summary>
     /// Array of requested examinations or observations.
     /// </summary>
-    public IEnumerable<Service> Services { get; set; }
+    public IList<Service> Services { get; set; }
 
     /// <summary>
     /// Array of provided samples (conditional).
     /// </summary>
-    public IEnumerable<Sample> Samples { get; set; }
+    public IList<Sample> Samples { get; set; }
 
     /// <summary>
     /// Order related files.
     /// </summary>
-    public IEnumerable<Attachment> Attachments { get; set; }
+    public IList<Attachment> Attachments { get; set; }
 
     /// <summary>
     /// Default constructor.
@@ -115,13 +119,78 @@ public class Order : EntityBase
     /// <param name="services"></param>
     /// <param name="samples"></param>
     /// <param name="providerId"></param>
-    public Order(string workflow, Patient patient, IEnumerable<Service> services, IEnumerable<Sample> samples = null, string providerId = null) : this()
+    public Order(string workflow, Patient patient, IList<Service> services = null , IList<Sample> samples = null, string providerId = null) : this()
     {
         Workflow = workflow;
         Patient = patient;
-        Services = services;
-        Samples = samples;
-        ProviderId = providerId;
+        if (services is not null) Services = services;
+        if (samples is not null) Samples = samples;
+        if (!string.IsNullOrWhiteSpace(providerId)) ProviderId = providerId;
+    }
+
+    public Order SetPatient(Patient patient)
+    {
+        Patient = patient;
+        return this;
+    }
+
+    /// <summary>
+    /// Safely adds a <see cref="Sample"/> to the order.
+    /// </summary>
+    /// <param name="sample">A <see cref="Sample"/> to add</param>
+    public Order AddSample(Sample sample)
+    {
+        Samples ??= new List<Sample>();
+        Samples.Add(sample);
+        return this;
+    }
+
+    /// <summary>
+    /// Safely adds a <see cref="Sample"/> to the order.
+    /// </summary>
+    /// <param name="sampleTypeCode"></param>
+    /// <param name="barcode"></param>
+    /// <param name="taken"></param>
+    /// <param name="note"></param>
+    /// <param name="additiveCode"></param>
+    public Order AddSample(string sampleTypeCode, string additiveCode, string barcode, DateTime? taken = null, string note = null)
+    {
+        Samples ??= new List<Sample>();
+        Samples.Add(new Sample(sampleTypeCode, additiveCode, barcode, taken, note));
+        return this;
+    }
+
+    /// <summary>
+    /// Safely adds a <see cref="Service"/> to the order.
+    /// </summary>
+    /// <param name="service">A <see cref="Service"/> to add</param>
+    public Order AddService(Service service)
+    {
+        Services ??= new List<Service>();
+        Services.Add(service);
+        return this;
+    }
+
+    /// <summary>
+    /// Safely adds a <see cref="Service"/> to the order.
+    /// </summary>
+    /// <param name="serviceCode">LOINC code for service to add</param>
+    /// <param name="name">Name of the service to add</param>
+    /// <param name="note">A note to the service</param>
+    public Order AddService(string serviceCode, string name = null, string note = null)
+    {
+        Services ??= new List<Service>();
+        Services.Add(new Service(serviceCode, name, note));
+        return this;
+    }
+
+    /// <summary>
+    /// Validates the order against business logic.
+    /// </summary>
+    /// <returns></returns>
+    public ValidationResult Validate()
+    {
+        return _validator.Validate(this);
     }
 
 }

@@ -4,26 +4,25 @@
     <Position X="4.75" Y="1.75" Width="1.5" />
     <AssociationLine Name="Patient" Type="Skyware.Arenal.Model.Patient" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6.25" Y="3.062" />
-        <Point X="6.625" Y="3.062" />
-        <Point X="6.625" Y="1.655" />
-        <Point X="10.25" Y="1.655" />
+        <Point X="6.25" Y="3.004" />
+        <Point X="6.625" Y="3.004" />
+        <Point X="6.625" Y="1.405" />
+        <Point X="8.25" Y="1.405" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Samples" Type="Skyware.Arenal.Model.Sample" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Samples" Type="Skyware.Arenal.Model.Sample" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="6.25" Y="5" />
-        <Point X="6.625" Y="5" />
-        <Point X="6.625" Y="6.158" />
-        <Point X="10.25" Y="6.158" />
+        <Point X="6.25" Y="4.857" />
+        <Point X="11" Y="4.875" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>oAgAAAAEBCAAABEABBAAAAAAAAAAAAQgAAAAAAAACII=</HashCode>
+      <HashCode>oAgAAAAEBCAAABEABBAAAAAAAAAAAAQgAAABAAAACII=</HashCode>
       <FileName>Model\Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Patient" />
+      <Property Name="Doctor" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Services" />
@@ -31,24 +30,31 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Skyware.Arenal.Model.Patient">
-    <Position X="10.25" Y="0.75" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAEAAAAAAAAAAAAQgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Skyware.Arenal.Model.Service">
-    <Position X="10.25" Y="2.75" Width="1.5" />
+    <Position X="8.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAABACAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAQAEAAAA=</HashCode>
       <FileName>Model\Service.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Skyware.Arenal.Model.Sample">
-    <Position X="10.25" Y="5" Width="1.5" />
+    <Position X="11" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAgAAAEAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAgAQAEAAAQ=</HashCode>
       <FileName>Model\Sample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skyware.Arenal.Model.Doctor">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Doctor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

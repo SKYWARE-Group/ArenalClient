@@ -72,20 +72,23 @@ namespace ValidationTests
             Order order = new(
                 Workflows.LAB_SCO,
                 new Patient() { FamilyName = "Doe" },
-                new[] { new Service("14749-6", "Glucose") },
-                new[] { new Sample("SER", null, "X456TR") })
-            { 
+                new[] {
+                    new Service("14749-6", "Glucose") {
+                        Problems = new[] {
+                            new Problem() { Identifier = new Identifier("Unknown service code.") }
+                        }
+                    }
+                },
+                new[] {
+                    new Sample("SER", null, "X456TR") {
+                        Problems = new[] {
+                            new Problem() { Identifier = new Identifier(Authorities.HL7, "0490", "RB") }
+                        }
+                    }
+                })
+            {
                 ProviderId = "Something",
                 ProviderNote = new Note("Hello"),
-                //SampleProblems = new[] { 
-                //    new SampleProblem("RB", "X456TR"),
-                //},
-                //ServiceProblems = new[] {
-                //    new ServiceProblem() {
-                //        Identifier = new Identifier("0"),
-                //        ServiceId = "14749-6"
-                //    }
-                //}
             };
 
             ValidationResult validationResult = new OrderValidator().Validate(order);
@@ -93,8 +96,10 @@ namespace ValidationTests
             Assert.Multiple(() =>
             {
                 Assert.That(validationResult.IsValid, Is.False);
-                Assert.That(validationResult.Errors, Has.Count.EqualTo(1));
+                Assert.That(validationResult.Errors, Has.Count.EqualTo(3));
                 Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.ProviderNote) && x.Severity == FluentValidation.Severity.Error));
+                Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Order.Services)) && x.Severity == FluentValidation.Severity.Error));
+                Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Order.Samples)) && x.Severity == FluentValidation.Severity.Error));
             });
         }
 
@@ -105,16 +110,13 @@ namespace ValidationTests
         [Test]
         public void LabToLab_Order_Ok()
         {
-            Order order = new(
-                Workflows.LAB_SCO,
-                new Patient() { FamilyName = "Doe" },
-                new[] { new Service("14749-6", "Glucose") },
-                new[] { new Sample("SERUM", null, "X456TR") })
-            { ProviderId = "Something" };
+            Order order = new Patient("John", "Doe")
+                .CreateOrder(Workflows.LAB_SCO, "AD-O-34ER")
+                .AddService("14749-6", "Glucose")
+                .AddSample("SER", null, "X456TR");
 
-            ValidationResult validationResult = new OrderValidator().Validate(order);
-
-            Assert.That(validationResult.IsValid, Is.True );
+            ValidationResult validationResult = order.Validate();
+            Assert.That(validationResult.IsValid, Is.True);
         }
 
     }

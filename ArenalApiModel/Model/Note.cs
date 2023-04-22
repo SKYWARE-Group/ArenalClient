@@ -8,12 +8,12 @@ public class Note
 {
 
     /// <summary>
-    /// Format type
+    /// Formating type. See <seealso cref="NoteTypes"/>.
     /// </summary>
     public string Type { get; set; } = NoteTypes.PLAIN_TEXT;
 
     /// <summary>
-    /// Value of the note
+    /// Value of the note.
     /// </summary>
     public string Value { get; set; }
 
@@ -23,7 +23,7 @@ public class Note
     public Note() { }
 
     /// <summary>
-    /// Shorthand constructor.
+    /// Instantiate object with a plain text note.
     /// </summary>
     /// <param name="note"></param>
     public Note(string note) : this()

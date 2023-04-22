@@ -7,7 +7,6 @@ using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
 using System.Diagnostics;
-using System.Security.Cryptography;
 
 namespace CliTestApp
 {
@@ -236,7 +235,7 @@ namespace CliTestApp
                     Contacts = new[] { new Contact() { Type = ContactTypes.PHONE, Value = "0878005006" } }
                 },
                 new[] { new Service("14749-6", "Глюкоза"), },
-                new[] { new Sample("SERUM", null, "S05FT5") }
+                new[] { new Sample("SER", null, "S05FT5") }
             )
             {
                 ProviderId = "AD-G-2"

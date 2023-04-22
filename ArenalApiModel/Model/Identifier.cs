@@ -10,7 +10,7 @@ public class Identifier
 {
 
     /// <summary>
-    /// Authority/Realm/System of the identifier such as 'us.ssn' 'bg.egn', 'org.loinc', 'org.snomed' etc.
+    /// Authority/Realm/System of the identifier such as 'org.loinc', 'org.snomed' etc.
     /// Mandatory. Use 'local' for your own identifiers.
     /// </summary>
     public string Authority { get; set; }
@@ -36,7 +36,7 @@ public class Identifier
     }
 
     /// <summary>
-    /// Creates an object with local authority (no dictionary).
+    /// Creates an instance with local authority and no dictionary.
     /// </summary>
     public Identifier(string value)
     {

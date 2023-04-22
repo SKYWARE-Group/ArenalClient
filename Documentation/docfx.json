@@ -16,7 +16,8 @@
       "noRestore": true,
       "namespaceLayout": "nested",
       "memberLayout": "samePage",
-      "allowCompilationErrors": false
+      "allowCompilationErrors": false,
+      "shouldSkipMarkup": true
     }
   ],
   "build": {
@@ -29,6 +30,7 @@
       },
       {
         "files": [
+          "about/**.md",
           "articles/**.md",
           "articles/**/toc.yml",
           "toc.yml",
@@ -45,8 +47,8 @@
     ],
     "dest": "_site",
     "globalMetadata": {
-      "_appTitle": "Arenal Model and Client",
-      "_appName": "Arenal Model and Client",
+      "_appTitle": "Arenal Client",
+      "_appName": "Arenal Client",
       "_disableContribution": true
     },
     "globalMetadataFiles": [],

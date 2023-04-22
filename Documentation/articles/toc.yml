@@ -1,2 +1,5 @@
-- name: Introduction
-  href: intro.md
+items:
+- name: Overview
+  href: home.md
+- name: Authentication and Authorization
+  href: auth.md

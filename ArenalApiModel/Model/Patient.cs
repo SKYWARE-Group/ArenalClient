@@ -31,4 +31,19 @@ public class Patient : PersonBase
     /// </summary>
     public IEnumerable<Attachment> Attachments { get; set; }
 
+    public Patient() { }
+
+    public Patient(string givenNme, string familyName, bool? isMale = null, DateTime? born = null) : this() { 
+        GivenName = givenNme;
+        FamilyName = familyName;
+        IsMale = isMale;
+        if (born is not null) DateOfBirth = born;
+    }
+
+    public Order CreateOrder(string wokrflow, string providerId)
+    {
+        return new Order() { Workflow = wokrflow, ProviderId = providerId, Patient = this };
+    }
+
+
 }

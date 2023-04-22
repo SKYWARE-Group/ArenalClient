@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
+using System.IO.Compression;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Skyware.Arenal.Validation;
 
@@ -28,39 +30,48 @@ public class OrderValidator : AbstractValidator<Order>
     {
 
         //Workflow
-        RuleFor(x => x.Workflow).
-            Must(x => Helpers.GetAllStringConstants(typeof(Workflows)).Any(c => c.Equals(x))).
-            WithMessage($"The property {nameof(Order.Workflow)} must be among values defined in {nameof(Workflows)}.");
+        RuleFor(x => x.Workflow)
+            .Must(x => Helpers.GetAllStringConstants(typeof(Workflows))
+            .Any(c => c.Equals(x)))
+            .WithMessage($"The property {nameof(Order.Workflow)} must be among values defined in {nameof(Workflows)}.");
 
         //ProviderId (conditional)
         When(x => !string.IsNullOrWhiteSpace(x.Workflow) && WORKFLOWS_W_PROVIDERS.Any(w => w.Equals(x.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
         {
-            RuleFor(x => x.ProviderId).NotEmpty().WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
+            RuleFor(x => x.ProviderId)
+            .NotEmpty()
+            .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
         });
 
         //Provider's fields when placing order
         When (x => x.Status == OrderStatuses.AVAILABLE, () => {
-            RuleFor(x => x.ProviderNote).Null().WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
+            RuleFor(x => x.ProviderNote)
+            .Null()
+            .WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
         });
 
         //Patient (required)
-        RuleFor(x => x.Patient).
-            Cascade(CascadeMode.Stop).
-            NotNull().
-            WithMessage($"{nameof(Order)} must have a {nameof(Order.Patient)}.").
-            SetValidator(new PatientValidator());
+        RuleFor(x => x.Patient)
+            .Cascade(CascadeMode.Stop)
+            .NotNull()
+            .WithMessage($"{nameof(Order)} must have a {nameof(Order.Patient)}.")
+            .SetValidator(new PatientValidator());
 
         //Services (required and valid)
-        RuleFor(x => x.Services).
-            NotEmpty().
-            WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.");
-        RuleForEach(x => x.Services).SetValidator(new ServiceValidator());
+        RuleFor(x => x.Services)
+            .NotEmpty()
+            .WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.");
+        RuleForEach(x => x.Services).SetValidator(z => new ServiceValidator(z.Status));
 
         //Samples (conditional)
-        When(x => !string.IsNullOrWhiteSpace(x.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(x.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
+        When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(o.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
         {
-            RuleFor(x => x.Samples).NotEmpty().WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have at least one {nameof(Sample)}.");
+            RuleFor(ord => ord.Samples)
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty()
+                .WithMessage(x => $"In workflow '{x.Workflow}' {nameof(Order)} must have at least one {nameof(Sample)}.");
         });
+        RuleForEach(x => x.Samples).SetValidator(z => new SampleValidator(z.Status));
 
     }
 

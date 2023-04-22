@@ -8,22 +8,22 @@ public class NoteTypes
 {
 
     /// <summary>
-    /// Plain text
+    /// Plain text.
     /// </summary>
     public const string PLAIN_TEXT = "txt";
 
     /// <summary>
-    /// Markdown
+    /// Markdown.
     /// </summary>
     public const string MARKDOWN = "md";
 
     /// <summary>
-    /// HTML
+    /// HTML.
     /// </summary>
     public const string HTML = "html";
 
     /// <summary>
-    /// Rich text format
+    /// Rich text format.
     /// </summary>
     public const string RTF = "rtf";
 
