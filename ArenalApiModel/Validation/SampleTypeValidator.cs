@@ -25,13 +25,14 @@ public class SampleTypeValidator : AbstractValidator<SampleType>
         //AdditiveId
         When(x => x.AdditiveId != null, () =>
             RuleFor(x => x.AdditiveId)
-            .SetValidator(new IdentifierValidator(), new string[] { nameof(SampleType), "default" })
+                .SetValidator(new IdentifierValidator(), new string[] { nameof(SampleType), "default" })
         );
 
         //AlternateIdentifiers
         When(x => x.AlternateIdentifiers != null, () =>
             RuleForEach(x => x.AlternateIdentifiers)
-            .SetValidator(new IdentifierValidator(), new string[] { nameof(SampleType), "default" })
+                .SetValidator(new IdentifierValidator(), new string[] { nameof(SampleType), "default" }
+            )
         );
 
     }

@@ -16,12 +16,12 @@ public class OrderValidator : AbstractValidator<Order>
     /// <summary>
     /// All workflows, where samples must be provided
     /// </summary>
-    private static readonly string[] WORKFLOWS_W_SAMPLES = new[] {Workflows.LAB_SCO };
+    private static readonly string[] WORKFLOWS_W_SAMPLES = new[] { Workflows.LAB_SCO, Workflows.LAB_MCP };
 
     /// <summary>
     /// All workflows, where provider is mandatory
     /// </summary>
-    private static readonly string[] WORKFLOWS_W_PROVIDERS = new[] {Workflows.LAB_SCO };
+    private static readonly string[] WORKFLOWS_W_PROVIDERS = new[] { Workflows.LAB_SCO };
 
     /// <summary>
     /// Default constructor.
@@ -39,29 +39,30 @@ public class OrderValidator : AbstractValidator<Order>
         When(x => !string.IsNullOrWhiteSpace(x.Workflow) && WORKFLOWS_W_PROVIDERS.Any(w => w.Equals(x.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
         {
             RuleFor(x => x.ProviderId)
-            .NotEmpty()
-            .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
+                .NotEmpty()
+                .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have {nameof(Order.ProviderId)}.");
         });
 
         //Provider's fields when placing order
         When (x => x.Status == OrderStatuses.AVAILABLE, () => {
             RuleFor(x => x.ProviderNote)
-            .Null()
-            .WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
+                .Null()
+                .WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
         });
 
         //Patient (required)
         RuleFor(x => x.Patient)
             .Cascade(CascadeMode.Stop)
             .NotNull()
-            .WithMessage($"{nameof(Order)} must have a {nameof(Order.Patient)}.")
+            .WithMessage($"{nameof(Order)} must have a non-null {nameof(Order.Patient)}.")
             .SetValidator(new PatientValidator());
 
         //Services (required and valid)
         RuleFor(x => x.Services)
             .NotEmpty()
             .WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.");
-        RuleForEach(x => x.Services).SetValidator(z => new ServiceValidator(z.Status));
+        RuleForEach(x => x.Services)
+            .SetValidator(z => new ServiceValidator(z.Status));
 
         //Samples (conditional)
         When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(o.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
@@ -71,7 +72,8 @@ public class OrderValidator : AbstractValidator<Order>
                 .NotEmpty()
                 .WithMessage(x => $"In workflow '{x.Workflow}' {nameof(Order)} must have at least one {nameof(Sample)}.");
         });
-        RuleForEach(x => x.Samples).SetValidator(z => new SampleValidator(z.Status));
+        RuleForEach(x => x.Samples)
+            .SetValidator(z => new SampleValidator(z.Status));
 
     }
 

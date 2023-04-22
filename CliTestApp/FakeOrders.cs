@@ -261,7 +261,7 @@ namespace CliTestApp
                 patient.IsMale = false;
             }
             patient.DateOfBirth = DateTime.Now.AddYears(-1 * rnd.Next(15, 60)).AddMonths(-1 * rnd.Next(0, 8)).AddDays(-1 * rnd.Next(0, 25));
-            patient.IsDateOfBirthApproximate = false;
+            patient.ExactDoB = false;
 
             int rNumProds = rnd.Next(1, 10);
             List<Product> productsToOrder = new();

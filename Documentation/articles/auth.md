@@ -2,7 +2,7 @@
 
 <img src="/images/open-id-connect.png" width=200px>
 
-Authentication and Authorization in Arenal are compatable with [OpenID Connect](https://openid.net/connect/) protocol.
+Authentication and Authorization in Arenal are based on [OpenID Connect](https://openid.net/connect/) protocol.
 
 ## Machine to machine (M2M)
 

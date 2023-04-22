@@ -33,10 +33,10 @@ public class SampleValidator : AbstractValidator<Sample>
             .SetValidator(new IdentifierValidator(), new string[] { nameof(Sample), "default" });
 
         //Taken (if set)
-        When(x => x.Taken.HasValue,
-            () => RuleFor(x => x.Taken).
-                Must(d => d.Value <= DateTime.Now).
-                WithMessage($"{nameof(Sample.Taken)} must be before current date."));
+        When(x => x.Taken.HasValue, () => RuleFor(x => x.Taken)
+            .Must(d => d.Value <= DateTime.Now)
+            .WithMessage($"{nameof(Sample.Taken)} must be before current date.")
+        );
 
     }
 

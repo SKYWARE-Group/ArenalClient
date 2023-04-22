@@ -17,11 +17,11 @@ public class ServiceValidator : AbstractValidator<Service>
     {
 
         //ServiceId
-        RuleFor(x => x.ServiceId).
-            Cascade(CascadeMode.Stop).
-            NotNull().
-            WithMessage($"The property {nameof(Service.ServiceId)} of a {nameof(Service)} is mandatory.").
-            SetValidator(new IdentifierValidator(), new string[] { nameof(Service), "default" });
+        RuleFor(x => x.ServiceId)
+            .Cascade(CascadeMode.Stop)
+            .NotNull()
+            .WithMessage($"The property {nameof(Service.ServiceId)} of a {nameof(Service)} is mandatory.")
+            .SetValidator(new IdentifierValidator(), new string[] { nameof(Service), "default" });
 
     }
 
@@ -35,7 +35,7 @@ public class ServiceValidator : AbstractValidator<Service>
         if (orderStatus == OrderStatuses.AVAILABLE)
             RuleFor(x => x.Problems)
                 .Null()
-                .WithMessage($"When status of {nameof(Order)} is '{OrderStatuses.AVAILABLE}', {nameof(Service.Problems)} of {nameof(Service)} must be null.");
+                .WithMessage($"When status of {nameof(Order)} is '{OrderStatuses.AVAILABLE}', field {nameof(Service.Problems)} of {nameof(Service)} must be null.");
     }
 
 }

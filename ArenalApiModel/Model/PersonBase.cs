@@ -12,7 +12,7 @@ public abstract class PersonBase
     /// <summary>
     /// List of <see cref="Identifier"/> (may be empty).
     /// </summary>
-    public IEnumerable<Identifier> Identifiers { get; set; }
+    public IList<Identifier> Identifiers { get; set; }
 
     /// <summary>
     /// Given (first) name of the person.
@@ -32,6 +32,7 @@ public abstract class PersonBase
     /// <summary>
     /// List of phone numbers, emails, etc.
     /// </summary>
-    public IEnumerable<Contact> Contacts { get; set; }
+    public IList<Contact> Contacts { get; set; }
+
 
 }
