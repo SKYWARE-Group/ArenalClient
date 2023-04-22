@@ -1,0 +1,3 @@
+# Welcome to Arenal Client documentation
+
+To be replaced...

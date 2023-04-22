@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "Run DocFX",
+            "script": "${workspaceFolder}/pw-script.ps1"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost:8080/_site/index.html",
+            "webRoot": "${workspaceFolder}/_site/"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run and open MS Edge",
+            "configurations": ["Run DocFX", "Launch Edge against localhost"],
+            "preLaunchTask": "Build"
+        }
+    ]
+}

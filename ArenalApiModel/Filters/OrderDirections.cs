@@ -1,24 +1,22 @@
-﻿namespace Skyware.Arenal.Filters
+﻿namespace Skyware.Arenal.Filters;
+
+
+/// <summary>
+/// Order directions in sorting.
+/// </summary>
+public enum OrderDirections : byte
 {
 
     /// <summary>
-    /// Order directions in sorting.
+    /// Ascending
     /// </summary>
-    public enum OrderDirections : byte
-    {
+    [FilterKeyword("asc")]
+    Ascending,
 
-        /// <summary>
-        /// Ascending
-        /// </summary>
-        [FilterKeyword("asc")]
-        Ascending,
-
-        /// <summary>
-        /// Descending
-        /// </summary>
-        [FilterKeyword("desc")]
-        Descending
-
-    }
+    /// <summary>
+    /// Descending
+    /// </summary>
+    [FilterKeyword("desc")]
+    Descending
 
 }

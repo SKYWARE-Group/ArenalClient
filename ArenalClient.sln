@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CliTestApp", "CliTestApp\Cl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationTests", "ValidationTests\ValidationTests.csproj", "{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelCli", "ModelCli\ModelCli.csproj", "{2C26C4F5-81CE-4A78-B0ED-2FC8E782C228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelCli", "ModelCli\ModelCli.csproj", "{2C26C4F5-81CE-4A78-B0ED-2FC8E782C228}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{762141A5-F418-4762-B528-02293B6E2F66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

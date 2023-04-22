@@ -1,29 +1,27 @@
 ﻿using System;
 
-namespace Skyware.Arenal.Model
+namespace Skyware.Arenal.Model;
+
+
+/// <summary>
+/// Reference to a referral or order in an external system.
+/// </summary>
+public class LinkedReferral
 {
 
     /// <summary>
-    /// Reference to a referral or order in an external system.
+    /// Identifier in external system.
     /// </summary>
-    public class LinkedReferral
-    {
+    public Identifier Identifier { get; set; }
 
-        /// <summary>
-        /// Identifier in external system.
-        /// </summary>
-        public Identifier Identifier { get; set; }
+    /// <summary>
+    /// Date and time the referral will expire.
+    /// </summary>
+    public DateTime? Expiration { get; set; }
 
-        /// <summary>
-        /// Date and time the referral will expire.
-        /// </summary>
-        public DateTime? Expiration { get; set; }
-
-        /// <summary>
-        /// Note from the placer
-        /// </summary>
-        public Note Note { get; set; }
-
-    }
+    /// <summary>
+    /// Note from the placer
+    /// </summary>
+    public Note Note { get; set; }
 
 }

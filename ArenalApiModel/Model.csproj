@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <RootNamespace>Skyware.Arenal</RootNamespace>
     <PackageId>Skyware.Arenal.Model</PackageId>
@@ -18,7 +19,7 @@
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Model</PackageTags>
-    <Version>0.2.3</Version>
+    <Version>0.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

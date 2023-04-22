@@ -9,7 +9,7 @@ public class Program
     static void Main(string[] args)
     {
 
-        Filter exp1 = new Filter(nameof(Order.Status), ValueComparisons.Equals, OrderStatuses.FREE)
+        Filter exp1 = new Filter(nameof(Order.Status), ValueComparisons.Equals, OrderStatuses.AVAILABLE)
             .And(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Today.AddDays(-30));
 
         Filter exp2 = new Filter(nameof(Order.Version), ValueComparisons.GreaterThan, 0)

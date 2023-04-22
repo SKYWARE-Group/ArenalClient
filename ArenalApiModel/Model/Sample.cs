@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model
 {
@@ -31,6 +32,12 @@ namespace Skyware.Arenal.Model
         public Note Note { get; set; }
 
         /// <summary>
+        /// List of problems reported by the provider.
+        /// Preferred coding system is 'org.hl7' with dictionary '0490'
+        /// </summary>
+        public IList<Problem> Problems { get; set; }
+
+        /// <summary>
         /// Default constructor.
         /// </summary>
         public Sample() { }
@@ -38,22 +45,50 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Instantiates a Sample with strictly HL7 coded sample type and locally generated barcode.
         /// </summary>
-        /// <param name="sampleType"></param>
-        /// <param name="sampleAdditive"></param>
-        /// <param name="barcode"></param>
-        /// <param name="taken"></param>
-        /// <param name="note"></param>
+        /// <param name="sampleType">HL7 coded sample type, according to HL7 table 0487</param>
+        /// <param name="sampleAdditive">HL7 coded sample additive, according to HL7 table 0371</param>
+        /// <param name="barcode">Barcode value of the sample</param>
+        /// <param name="taken">Date and time when sample is taken</param>
+        /// <param name="note">Plain text note</param>
         public Sample(string sampleType, string sampleAdditive, string barcode, DateTime? taken = null, string note = null) : this()
         {
             if (!string.IsNullOrWhiteSpace(sampleType)) SampleType = new SampleType() { TypeId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleType, sampleType) };
             if (!string.IsNullOrWhiteSpace(sampleAdditive))
             {
                 if (SampleType is null) SampleType = new SampleType();
-                SampleType.AditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleAdditive, sampleAdditive);
+                SampleType.AdditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0371_SampleAdditive, sampleAdditive);
             }
             Taken = taken;
             if (!string.IsNullOrWhiteSpace(barcode)) SampleId = new Identifier(Authorities.LOCAL, null, barcode);
             if (!string.IsNullOrWhiteSpace(note)) Note = new Note(note);
+        }
+
+        /// <summary>
+        /// Safely adds a <see cref="Problem"/> to the sample.
+        /// </summary>
+        /// <param name="problem">A <see cref="Problem"/> to add</param>
+        public Sample AddProblem(Problem problem)
+        {
+            Problems ??= new List<Problem>();
+            Problems.Add(problem);
+            return this;
+        }
+
+        /// <summary>
+        /// Safely adds a HL7 coded <see cref="Problem"/> to the sample with optional note.
+        /// </summary>
+        /// <param name="problemCode">HL7 coded problem (table 0490)</param>
+        /// <param name="note">A note to the problem</param>
+        public Sample AddProblem (string problemCode, string note = null) 
+        {
+            Problems ??= new List<Problem>();
+            Problem p = new()
+            {
+                Identifier = new Identifier() { Authority = Authorities.HL7, Dictionary = Dictionaries.HL7_0490_SampleRejectReasons, Value = problemCode },
+            };
+            if (!string.IsNullOrWhiteSpace(note)) p.Note = new Note(note);
+            Problems.Add(p);
+            return this;
         }
 
     }
