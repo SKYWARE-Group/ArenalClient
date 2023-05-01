@@ -83,6 +83,19 @@ public class Service : IEquatable<Service>
     }
 
     /// <summary>
+    /// Safe method to add an alternate identifier.
+    /// </summary>
+    /// <param name="authority"></param>
+    /// <param name="dictinary"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public Service AddAlternateIdentifier(string authority, string dictinary, string value)
+    {
+        (AlternateIdentifiers ??= new List<Identifier>()).Add(new Identifier(authority, dictinary, value));
+        return this;
+    }
+
+    /// <summary>
     /// Safe method to add a problem.
     /// </summary>
     /// <param name="problem"></param>
@@ -93,6 +106,11 @@ public class Service : IEquatable<Service>
         return this;
     }
 
+    /// <summary>
+    /// Safe method to add a problem.
+    /// </summary>
+    /// <param name="message"></param>
+    /// <returns></returns>
     public Service AddProblem(string message)
     {
         (Problems ??= new List<Problem>()).Add(new Problem(new Identifier("0"), message));

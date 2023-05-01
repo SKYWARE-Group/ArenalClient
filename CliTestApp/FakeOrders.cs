@@ -311,11 +311,15 @@ public static class FakeOrders
     public static Order GetFixedDemoOrder(string? providerId)
     {
         Patient p = new("Борис", "Иванов", true, new DateTime(1975, 5, 5).ToUniversalTime());
-        p.AddIdentifier(Authorities.BG_GRAO, "7505051234");
+        p.AddIdentifier(Authorities.BG_GRAO, "7505051234").AddIdentifier(Authorities.LOCAL, "523647");
         p.AddPhone("0878005006");
 
+        Service svc = new Service("14749-6", "Глюкоза")
+            .AddAlternateIdentifier(Authorities.BG_HIS, Dictionaries.BG_NHIS_CL022, "03-002")
+            .AddAlternateIdentifier(Authorities.BG_HIF, Dictionaries.BG_NHIF_Product, "01.11");
+
         return p.CreateOrder(Workflows.LAB_SCO, providerId)
-            .AddService("14749-6", "Глюкоза")
+            .AddService(svc)
             .AddSample("SER", null, "S05FT9");
 
     }

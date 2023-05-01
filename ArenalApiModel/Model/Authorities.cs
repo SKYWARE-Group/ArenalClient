@@ -40,6 +40,12 @@ public class Authorities
     [AuthorityUsage(new Type[] { typeof(Service), typeof(Patient) })]
     public const string BG_HIS = "bg.his";
 
+    /// <summary>
+    /// Bulgarian National Health Insurance Fund (НЗОК, разни)
+    /// </summary>
+    [AuthorityUsage(new Type[] { typeof(Service) })]
+    public const string BG_HIF = "bg.nhif";
+
     #endregion 
 
     /// <summary>

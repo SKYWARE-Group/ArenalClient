@@ -9,7 +9,10 @@ using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
 using Skyware.Arenal.Tracking;
 using Spectre.Console;
+using Spectre.Console.Json;
 using System.Diagnostics;
+using System.Reflection;
+using System.Text.Json;
 
 namespace CliTestApp;
 
@@ -130,6 +133,15 @@ public class Program
 
         //Create Demo Order
         Order origOrder = FakeOrders.GetFixedDemoOrder("AD-G-1");
+        if (origOrder.Validate().IsValid)
+        {
+            AnsiConsole.MarkupLine($"Generated Order validation: [green]OK[/]");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"Generated Order validation: [red]Failure[/]");
+        }
+        return;
 
         // Create Order as publisher A
         Order? newOrder = null;
@@ -148,6 +160,15 @@ public class Program
             AnsiConsole.WriteException(ex);
             return;
         }
+
+        //Show JSON
+        string newOrderJson = JsonSerializer.Serialize(newOrder, new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+        AnsiConsole.Write(
+            new Panel(new JsonText(newOrderJson))
+                .Header("Newly created Order")
+                .Collapse()
+                .RoundedBorder()
+                .BorderColor(Color.Yellow));
 
         // Read Order as publisher A
         Order? readOrderAsPubA = null;
@@ -180,30 +201,44 @@ public class Program
         }
 
         // Search Order as laboratory A
-        Filter exp1 = new Filter(nameof(Order.Status), ValueComparisons.Equals, OrderStatuses.AVAILABLE)
-            .And(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
-            .And(Predicate.OrderByPidPredicate(newOrder.Patient.Identifiers.First().Value));
-        try
+        Filter[] searchCases = new[]
         {
+            new Filter(nameof(Order.PlacerId), ValueComparisons.Equals, newOrder.PlacerId)
+                .And(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10)),
+            new Filter(nameof(Order.Status), ValueComparisons.Equals, OrderStatuses.AVAILABLE)
+                .And(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(Predicate.OrdersByPid(newOrder.Patient.Identifiers.First().Value)),
+            new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(Predicate.OrdersBySampleId(newOrder.Samples.First().SampleId.Value)),
+            new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.AlternateIdentifiers)}_.{nameof(Identifier.Value)}", ValueComparisons.Equals, "03-002"))
+        };
 
-            Order[] labAfoundOrders = await laboratoryAClient.GetOrdersAsync(exp1);
-            AnsiConsole.MarkupLine($"Search order by PID (as laboratory A): [green]OK[/]");
-            AnsiConsole.MarkupLine($"\t[yellow3_1]where: {exp1}[/]");
-            AnsiConsole.MarkupLine($"\t[yellow3_1]Found orders (as laboratory A): {labAfoundOrders?.Length}[/]");
-            if (labAfoundOrders?.FirstOrDefault() is not null && labAfoundOrders.FirstOrDefault()?.ArenalId == newOrder.ArenalId)
-            {
-                AnsiConsole.MarkupLine($"\t[green]First found order matches previously created one ({newOrder.ArenalId}).[/]");
-            }
-            else
-            {
-                AnsiConsole.MarkupLine($"\t[red]Orders not found or first one does not matches previously created one ({newOrder.ArenalId}).[/]");
-            }
-        }
-        catch (ArenalException ex)
+        for (int i = 0; i < searchCases.Length; i++)
         {
-            AnsiConsole.WriteException(ex);
-            return;
+            try
+            {
+
+                AnsiConsole.MarkupLine($"Search case #{i + 1} (as laboratory A): [green]OK[/]");
+                AnsiConsole.MarkupLine($"\t[yellow3_1]where: {searchCases[i]}[/]");
+                Order[] labAfoundOrders = await laboratoryAClient.GetOrdersAsync(searchCases[i]);
+                AnsiConsole.MarkupLine($"\t[yellow3_1]Found orders (as laboratory A): {labAfoundOrders?.Length}[/]");
+                if (labAfoundOrders?.FirstOrDefault() is not null && labAfoundOrders.FirstOrDefault()?.ArenalId == newOrder.ArenalId)
+                {
+                    AnsiConsole.MarkupLine($"\t[green]First found order matches previously created one ({newOrder.ArenalId}).[/]");
+                }
+                else
+                {
+                    AnsiConsole.MarkupLine($"\t[red]Orders not found or first one does not matches previously created one ({newOrder.ArenalId}).[/]");
+                }
+            }
+            catch (ArenalException ex)
+            {
+                AnsiConsole.WriteException(ex);
+                return;
+            }
         }
+
 
         // Update Order as publisher A
         readOrderAsPubA.Patient = new Patient() { GivenName = "Миленов" };

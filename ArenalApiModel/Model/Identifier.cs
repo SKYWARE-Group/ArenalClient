@@ -1,7 +1,6 @@
 ﻿using FluentValidation.Results;
-using FluentValidation;
-using System;
 using Skyware.Arenal.Validation;
+using System;
 
 namespace Skyware.Arenal.Model;
 
@@ -69,7 +68,7 @@ public class Identifier : IEquatable<Identifier>
     public override int GetHashCode() => $"{Authority.EmptyIfNull().ToLower()}{Dictionary.EmptyIfNull().ToLower()}{Value.EmptyIfNull().ToLower()}".GetHashCode();
 
     /// <inheritdoc/>
-    public static bool operator == (Identifier a, Identifier b) => (a is null && b is null) || (a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
+    public static bool operator ==(Identifier a, Identifier b) => (a is null && b is null) || (a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
 
     /// <inheritdoc/>
     public static bool operator !=(Identifier a, Identifier b) => (a is null && b is not null) || !(a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);

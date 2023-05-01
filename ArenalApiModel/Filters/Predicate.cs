@@ -66,16 +66,27 @@ public class Predicate : IFilterPart
     /// <param name="value"></param>
     /// <param name="comp"></param>
     /// <returns></returns>
-    public static Predicate OrderByPidPredicate(string value, ValueComparisons comp = ValueComparisons.Contains)
-    {
-        return new Predicate()
-        {
+    public static Predicate OrdersByPid(string value, ValueComparisons comp = ValueComparisons.Contains) =>
+        new() {
             PropertyName = $"{nameof(Order.Patient)}.{nameof(Patient.Identifiers)}_.{nameof(Identifier.Value)}",
             ValueComparison = comp,
             Value = value
         };
 
-    }
+    /// <summary>
+    /// Creates predicate for searching orders by sample barcode
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="comp"></param>
+    /// <returns></returns>
+    public static Predicate OrdersBySampleId(string value, ValueComparisons comp = ValueComparisons.Equals) =>
+        new()
+        {
+            PropertyName = $"{nameof(Order.Samples)}_.{nameof(Sample.SampleId)}.{nameof(Identifier.Value)}",
+            ValueComparison = comp,
+            Value = value
+        };
+
 
     #endregion
 
