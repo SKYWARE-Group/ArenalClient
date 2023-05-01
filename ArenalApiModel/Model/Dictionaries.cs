@@ -76,4 +76,27 @@ public class Dictionaries
 
     #endregion
 
+    #region Bulgarian NHIF
+
+    /// <summary>
+    /// Products in Bulgarian NHIF (examination)
+    /// </summary>
+    [DictionaryUsage(Authorities.BG_HIF)]
+    public const string BG_NHIF_Product = "prod";
+
+    /// <summary>
+    /// Medical institutions in Bulgarian NHIF (НЗОК номер)
+    /// </summary>
+    [DictionaryUsage(Authorities.BG_HIF)]
+    public const string BG_NHIF_MedicalInstitution = "org";
+
+    /// <summary>
+    /// Specialties in Bulgarian NHIF (Код на специалност)
+    /// </summary>
+    [DictionaryUsage(Authorities.BG_HIF)]
+    public const string BG_NHIF_Specialty = "spec";
+
+
+    #endregion
+
 }

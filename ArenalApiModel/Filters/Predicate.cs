@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Filters;
+﻿using Skyware.Arenal.Model;
+
+namespace Skyware.Arenal.Filters;
 
 
 /// <summary>
@@ -55,5 +57,37 @@ public class Predicate : IFilterPart
         //TODO: Convert value according to underlying type ('string', 5, 5.23, 2023-03-01, 2023-05-05T12:22:30, etc.)
         return $"({PropertyName.ToLower()},{PredicateHelper.GetPredicateComparison(ValueComparison)},{PredicateHelper.GetPredicateValue(Value)})";
     }
+
+    #region Factory methods
+
+    /// <summary>
+    /// Creates predicate for searching orders by patient's identifier
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="comp"></param>
+    /// <returns></returns>
+    public static Predicate OrdersByPid(string value, ValueComparisons comp = ValueComparisons.Contains) =>
+        new() {
+            PropertyName = $"{nameof(Order.Patient)}.{nameof(Patient.Identifiers)}_.{nameof(Identifier.Value)}",
+            ValueComparison = comp,
+            Value = value
+        };
+
+    /// <summary>
+    /// Creates predicate for searching orders by sample barcode
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="comp"></param>
+    /// <returns></returns>
+    public static Predicate OrdersBySampleId(string value, ValueComparisons comp = ValueComparisons.Equals) =>
+        new()
+        {
+            PropertyName = $"{nameof(Order.Samples)}_.{nameof(Sample.SampleId)}.{nameof(Identifier.Value)}",
+            ValueComparison = comp,
+            Value = value
+        };
+
+
+    #endregion
 
 }
