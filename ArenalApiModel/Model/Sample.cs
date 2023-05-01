@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using FluentValidation;
+using Skyware.Arenal.Validation;
+using System;
 using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model
@@ -9,6 +12,9 @@ namespace Skyware.Arenal.Model
     /// </summary>
     public class Sample
     {
+
+        private static SampleValidator _validator;
+
 
         /// <summary>
         /// Identifier of the sample type.
@@ -21,10 +27,15 @@ namespace Skyware.Arenal.Model
         public Identifier SampleId { get; set; }
 
         /// <summary>
-        /// Date and time the sample has been taken.
+        /// Date and time the sample has been taken (UTC).
         /// Optional.
         /// </summary>
         public DateTime? Taken { get; set; }
+
+        /// <summary>
+        /// Date and time the order was created (Local date and time).
+        /// </summary>
+        public DateTime? LocalTaken => Taken?.ToLocalTime();
 
         /// <summary>
         /// Notes to the sample.
@@ -55,7 +66,7 @@ namespace Skyware.Arenal.Model
             if (!string.IsNullOrWhiteSpace(sampleType)) SampleType = new SampleType() { TypeId = new Identifier(Authorities.HL7, Dictionaries.HL7_0487_SampleType, sampleType) };
             if (!string.IsNullOrWhiteSpace(sampleAdditive))
             {
-                if (SampleType is null) SampleType = new SampleType();
+                SampleType ??= new SampleType();
                 SampleType.AdditiveId = new Identifier(Authorities.HL7, Dictionaries.HL7_0371_SampleAdditive, sampleAdditive);
             }
             Taken = taken;
@@ -82,13 +93,13 @@ namespace Skyware.Arenal.Model
         public Sample AddProblem (string problemCode, string note = null) 
         {
             Problems ??= new List<Problem>();
-            Problem p = new()
-            {
-                Identifier = new Identifier() { Authority = Authorities.HL7, Dictionary = Dictionaries.HL7_0490_SampleRejectReasons, Value = problemCode },
-            };
-            if (!string.IsNullOrWhiteSpace(note)) p.Note = new Note(note);
-            Problems.Add(p);
+            Problems.Add(new(new Identifier(Authorities.HL7, Dictionaries.HL7_0490_SampleRejectReasons, problemCode), note));
             return this;
+        }
+
+        public ValidationResult Validate()
+        {
+            return (_validator ??= new SampleValidator()).Validate(this);
         }
 
     }

@@ -5,7 +5,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <UserSecretsId>7f1204f8-a6e0-4b04-8595-436b229e2cfd</UserSecretsId>
   </PropertyGroup>
 
@@ -13,6 +13,7 @@
     <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+    <PackageReference Include="Spectre.Console" Version="0.46.0" />
   </ItemGroup>
 
   <ItemGroup>

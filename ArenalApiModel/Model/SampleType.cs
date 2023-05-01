@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using FluentValidation.Results;
+using Skyware.Arenal.Validation;
+using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model;
 
@@ -8,6 +10,8 @@ namespace Skyware.Arenal.Model;
 /// </summary>
 public class SampleType
 {
+
+    private static SampleTypeValidator _validator;
 
     /// <summary>
     /// Identifier of the sample type.
@@ -28,5 +32,10 @@ public class SampleType
     /// Name of the sample type as it is known by the placer or provider.
     /// </summary>
     public string Name { get; set; }
+
+    public ValidationResult Validate()
+    {
+        return (_validator ??= new SampleTypeValidator()).Validate(this);
+    }
 
 }

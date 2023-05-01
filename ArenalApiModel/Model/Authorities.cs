@@ -14,52 +14,56 @@ public class Authorities
     /// </summary>
     public const string ARENAL = "arenal";
 
-    /// <summary>
+    #region Bulgaria
+
+/// <summary>
     /// Bulgarian Medical Association (УИН)
     /// </summary>
-    [ArenalUsage(typeof(Doctor))]
+    [AuthorityUsage(typeof(Doctor))]
     public const string BG_BMA = "bg.bma";
 
     /// <summary>
     /// Bulgarian National Identifiers Registry (ЕГН)
     /// </summary>
-    [ArenalUsage(typeof(Patient))]
+    [AuthorityUsage(typeof(Patient))]
     public const string BG_GRAO = "bg.grao";
 
     /// <summary>
     /// Bulgarian Ministry Of Internal (ЛНЧ)
     /// </summary>
-    [ArenalUsage(typeof(Patient))]
+    [AuthorityUsage(typeof(Patient))]
     public const string BG_MI = "bg.mi";
 
     /// <summary>
     /// Bulgarian Health Information System (НЗИС, разни)
     /// </summary>
-    [ArenalUsage(new Type[] { typeof(Service), typeof(Patient) })]
+    [AuthorityUsage(new Type[] { typeof(Service), typeof(Patient) })]
     public const string BG_HIS = "bg.his";
+
+    #endregion 
 
     /// <summary>
     /// LOINC
     /// </summary>
-    [ArenalUsage(typeof(Service))]
+    [AuthorityUsage(typeof(Service))]
     public const string LOINC = "org.loinc";
 
     /// <summary>
     /// World Health Organization
     /// </summary>
-    [ArenalUsage(typeof(Diagnosis))]
+    [AuthorityUsage(typeof(Diagnosis))]
     public const string WHO = "int.who";
 
     /// <summary>
     /// HL7
     /// </summary>
-    [ArenalUsage(new Type[] { typeof(SampleType), typeof(Problem) })]
+    [AuthorityUsage(new Type[] { typeof(SampleType), typeof(Problem) })]
     public const string HL7 = "org.hl7";
 
     /// <summary>
     /// Any local (custom) identifier, not mentioned in other authority.
     /// </summary>
-    [ArenalUsage(new Type[] { typeof(Service), typeof(Patient), typeof(Sample) })]
+    [AuthorityUsage(new Type[] { typeof(Service), typeof(Patient), typeof(Sample) })]
     public const string LOCAL = "local";
 
 }

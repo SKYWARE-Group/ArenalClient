@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using Skyware.Arenal.Validation;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace Skyware.Arenal.Model;
 
@@ -6,8 +11,10 @@ namespace Skyware.Arenal.Model;
 /// <summary>
 /// Service (examination).
 /// </summary>
-public class Service
+public class Service : IEquatable<Service>
 {
+
+    private static ServiceValidator _validator;
 
     /// <summary>
     /// Default constructor.
@@ -17,7 +24,7 @@ public class Service
     /// <summary>
     /// Instantiates a Service for laboratory examination, coded with Loinc.
     /// </summary>
-    public Service(string loincCode, string name = null, string note = null)
+    public Service(string loincCode, string name = null, string note = null) : this()
     {
         if (!string.IsNullOrWhiteSpace(loincCode)) ServiceId = new Identifier(Authorities.LOINC, null, loincCode);
         Name = name;
@@ -32,7 +39,7 @@ public class Service
     /// <summary>
     /// Additional identifiers, not defined in <see cref="ServiceId"/>.
     /// </summary>
-    public IEnumerable<Identifier> AlternateIdentifiers { get; set; }
+    public IList<Identifier> AlternateIdentifiers { get; set; }
 
     /// <summary>
     /// Name of the service, according to the placer (optional).
@@ -52,7 +59,50 @@ public class Service
     /// <summary>
     /// List of problems reported by the provider.
     /// </summary>
-    public IEnumerable<Problem> Problems { get; set; }
+    public IList<Problem> Problems { get; set; }
+
+    /// <summary>
+    /// Services are equal if and only if their primary identifiers are semantically equal.
+    /// </summary>
+    /// <remarks>
+    /// If both primary identifiers are null, services are considered equal.
+    /// </remarks>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public bool Equals(Service other) => other is not null && ServiceId == other.ServiceId;
+
+    /// <summary>
+    /// Safe method to add an alternate identifier.
+    /// </summary>
+    /// <param name="identifier"></param>
+    /// <returns></returns>
+    public Service AddAlternateIdentifier(Identifier identifier)
+    {
+        (AlternateIdentifiers ??= new List<Identifier>()).Add(identifier);
+        return this;
+    }
+
+    /// <summary>
+    /// Safe method to add a problem.
+    /// </summary>
+    /// <param name="problem"></param>
+    /// <returns></returns>
+    public Service AddProblem(Problem problem)
+    {
+        (Problems ??= new List<Problem>()).Add(problem);
+        return this;
+    }
+
+    public Service AddProblem(string message)
+    {
+        (Problems ??= new List<Problem>()).Add(new Problem(new Identifier("0"), message));
+        return this;
+    }
+
+    public ValidationResult Validate()
+    {
+        return (_validator ??= new ServiceValidator()).Validate(this);
+    }
 
 
 }

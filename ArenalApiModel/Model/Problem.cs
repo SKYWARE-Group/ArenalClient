@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model
+﻿using System.Runtime.CompilerServices;
+
+namespace Skyware.Arenal.Model
 {
 
     /// <summary>.
@@ -6,6 +8,25 @@
     /// </summary>
     public class Problem
     {
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Problem() { }
+
+        /// <summary>
+        /// Instantiates a <see cref="Problem"/> wit Id and message.
+        /// </summary>
+        /// <param name="identifier"></param>
+        /// <param name="message"></param>
+        public Problem(Identifier identifier, string message = null) : this ()
+        { 
+            Identifier = identifier;
+            if (!string.IsNullOrEmpty(message))
+            {
+                Note = new Note(message);
+            }
+        }
 
         /// <summary>
         /// Identifier of a problem.

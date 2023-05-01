@@ -73,12 +73,12 @@ public static class OrderExtensions
             .AppendPathSegment("api")
             .AppendPathSegment("orders");
 
-        if (filter != null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
-        if (offset != null && offset > 0) url.SetQueryParam("offset", offset.ToString());
-        if (limit != null && limit > 0) url.SetQueryParam("limit", limit.ToString());
+        if (filter is not null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+        if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
+        if (limit is not null && limit > 0) url.SetQueryParam("limit", limit.ToString());
 
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             RequestUri = url.ToUri()
         };
@@ -121,7 +121,7 @@ public static class OrderExtensions
             .AppendPathSegment(orderId);
 
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             RequestUri = url.ToUri()
         };
@@ -137,7 +137,7 @@ public static class OrderExtensions
         {
             if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
             throw new Model.Exceptions.ArenalException(
-                ((int)response.StatusCode),
+                (int)response.StatusCode,
                 await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
         }
     }
@@ -162,7 +162,7 @@ public static class OrderExtensions
             .AppendPathSegment("orders");
 
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             Method = HttpMethod.Post,
             RequestUri = url.ToUri(),
@@ -181,7 +181,8 @@ public static class OrderExtensions
             string ans = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (string.IsNullOrWhiteSpace(ans)) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
             throw new Model.Exceptions.ArenalException(
-                ((int)response.StatusCode), JsonSerializer.Deserialize<Model.Exceptions.ArenalError>(ans, _jOpts));
+                (int)response.StatusCode, 
+                JsonSerializer.Deserialize<Model.Exceptions.ArenalError>(ans, _jOpts));
         }
 
     }
@@ -201,7 +202,7 @@ public static class OrderExtensions
         CancellationToken cancellationToken = default)
     {
 
-        if (order == null) throw new NullReferenceException(nameof(order));
+        if (order is null) throw new NullReferenceException(nameof(order));
         if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
         Url url = _BaseAddress
@@ -209,7 +210,7 @@ public static class OrderExtensions
             .AppendPathSegment("orders")
             .AppendPathSegment(order.ArenalId);
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             Method = HttpMethod.Delete,
             RequestUri = url.ToUri()
@@ -242,7 +243,7 @@ public static class OrderExtensions
         CancellationToken cancellationToken = default)
     {
 
-        if (order == null) throw new NullReferenceException(nameof(order));
+        if (order is null) throw new NullReferenceException(nameof(order));
         if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
         Url url = _BaseAddress
@@ -250,7 +251,7 @@ public static class OrderExtensions
             .AppendPathSegment("orders")
             .AppendPathSegment(order.ArenalId);
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             Method = HttpMethod.Put,
             RequestUri = url.ToUri(),
@@ -268,7 +269,7 @@ public static class OrderExtensions
         {
             if (string.IsNullOrWhiteSpace(response.Content?.ToString())) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
             throw new Model.Exceptions.ArenalException(
-                ((int)response.StatusCode),
+                (int)response.StatusCode,
                 await response.Content.ReadFromJsonAsync<Model.Exceptions.ArenalError>(_jOpts, cancellationToken).ConfigureAwait(false));
 
         }
@@ -291,7 +292,7 @@ public static class OrderExtensions
         CancellationToken cancellationToken = default)
     {
 
-        if (statusRequest == null) throw new NullReferenceException(nameof(statusRequest));
+        if (statusRequest is null) throw new NullReferenceException(nameof(statusRequest));
         if (string.IsNullOrEmpty(orderId)) throw new NullReferenceException(nameof(orderId));
 
         Url url = _BaseAddress
@@ -300,7 +301,7 @@ public static class OrderExtensions
             .AppendPathSegment(orderId)
             .AppendPathSegment("status");
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             Method = HttpMethod.Put,
             RequestUri = url.ToUri(),
@@ -367,12 +368,12 @@ public static class OrderExtensions
             .AppendPathSegment("api")
             .AppendPathSegment("providers");
 
-        if (filter != null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
-        if (offset != null && offset > 0) url.SetQueryParam("offset", offset.ToString());
-        if (limit != null && limit > 0) url.SetQueryParam("limit", limit.ToString());
+        if (filter is not null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+        if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
+        if (limit is not null && limit > 0) url.SetQueryParam("limit", limit.ToString());
 
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             RequestUri = url.ToUri()
         };
@@ -415,7 +416,7 @@ public static class OrderExtensions
             .AppendPathSegment(providerId);
 
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             RequestUri = url.ToUri()
         };
@@ -464,14 +465,14 @@ public static class OrderExtensions
             .AppendPathSegment("api")
             .AppendPathSegment("forms");
 
-        DocumentRequest docReq = new DocumentRequest()
+        DocumentRequest docReq = new()
         {
             DocumentType = reportType,
             DocumentFormat = "PDF",
             Data = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(JsonSerializer.Serialize(data, _jOpts)))
         };
 
-        HttpRequestMessage request = new HttpRequestMessage
+        HttpRequestMessage request = new()
         {
             Method = HttpMethod.Post,
             RequestUri = url.ToUri(),
