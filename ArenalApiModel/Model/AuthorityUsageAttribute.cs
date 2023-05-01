@@ -8,32 +8,30 @@ namespace Skyware.Arenal.Model;
 /// Meta-data for constant usage
 /// </summary>
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-public class ArenalUsageAttribute : Attribute
+public class AuthorityUsageAttribute : Attribute
 {
-
-    private IEnumerable<Type> _AllowedTypes = new Type[] { };
 
     /// <summary>
     /// Single type usage
     /// </summary>
     /// <param name="target"></param>
-    public ArenalUsageAttribute(Type target)
+    public AuthorityUsageAttribute(Type target)
     {
-        _AllowedTypes = new Type[] { target };
+        AllowedUsage = new Type[] { target };
     }
 
     /// <summary>
     /// Multiple types usage
     /// </summary>
     /// <param name="allowedTypes"></param>
-    public ArenalUsageAttribute(Type[] allowedTypes)
+    public AuthorityUsageAttribute(Type[] allowedTypes)
     {
-        _AllowedTypes = allowedTypes;
+        AllowedUsage = allowedTypes;
     }
 
     /// <summary>
     /// Get allowed types
     /// </summary>
-    public IEnumerable<Type> AllowedUsage { get => _AllowedTypes; }
+    public IEnumerable<Type> AllowedUsage { get; } = new Type[] { };
 
 }

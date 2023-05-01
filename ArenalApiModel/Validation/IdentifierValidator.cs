@@ -21,42 +21,64 @@ public class IdentifierValidator : AbstractValidator<Identifier>
         RuleSet(nameof(Patient), () =>
         {
             RuleFor(x => x.Authority)
-                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Patient)).Any(a => a == x));
+                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Patient)).Any(a => a == x))
+                .WithMessage(x => $"Value '{x.Authority}' for {nameof(Identifier.Authority)} is invalid for object of type {nameof(Patient)}.");
         });
 
         //When Doctor
         RuleSet(nameof(Doctor), () =>
         {
             RuleFor(x => x.Authority)
-                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Doctor)).Any(a => a == x));
+                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Doctor)).Any(a => a == x))
+                .WithMessage(x => $"Value '{x.Authority}' for {nameof(Identifier.Authority)} is invalid for object of type {nameof(Doctor)}.");
         });
 
         //When Service
         RuleSet(nameof(Service), () =>
         {
             RuleFor(x => x.Authority)
-                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Service)).Any(a => a == x));
+                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Service)).Any(a => a == x))
+                .WithMessage(x => $"Value '{x.Authority}' for {nameof(Identifier.Authority)} is invalid for object of type {nameof(Service)}.");
         });
 
         //When Sample
         RuleSet(nameof(Sample), () =>
         {
             RuleFor(x => x.Authority)
-                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Sample)).Any(a => a == x));
+                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(Sample)).Any(a => a == x))
+                .WithMessage(x => $"Value '{x.Authority}' for {nameof(Identifier.Authority)} is invalid for object of type {nameof(Sample)}.");
         });
 
         //When SampleType
         RuleSet(nameof(SampleType), () =>
         {
             RuleFor(x => x.Authority)
-                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(SampleType)).Any(a => a == x));
+                .Must(x => Helpers.GetStringConstants(typeof(Authorities), typeof(SampleType)).Any(a => a == x))
+                .WithMessage(x => $"Value '{x.Authority}' for {nameof(Identifier.Authority)} is invalid for object of type {nameof(SampleType)}.");
         });
 
         //All (default)
         RuleFor(x => x.Value)
+            .Cascade(CascadeMode.Stop)
             .NotNull()
             .NotEmpty()
-            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Value)} must have a non-null and non-empty value.");
+            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Value)} must have a non-null, non-empty value.");
+        RuleFor(x => x.Authority)
+            .Cascade(CascadeMode.Stop)
+            .NotNull()
+            .NotEmpty()
+            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Authority)} must have a non-null, non-empty value.");
+
+        //Dictionary
+        When(i => !string.IsNullOrWhiteSpace(i.Dictionary), () =>
+        {
+            RuleFor(id => id)
+                .Must(x => Helpers.GetStringConstants(typeof(Dictionaries), x.Authority).Any(dict => x.Dictionary == dict))
+                .WithName(nameof(Identifier.Dictionary))
+                .WithMessage(x => $"The value '{x.Dictionary}' isn't allowed for {nameof(Identifier.Authority)} '{x.Authority}'.");
+        });
+
+
     }
 
 }

@@ -6,6 +6,8 @@ using Skyware.Arenal.Model;
 using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
+using Skyware.Arenal.Tracking;
+using Spectre.Console;
 using System.Diagnostics;
 
 namespace CliTestApp
@@ -14,114 +16,157 @@ namespace CliTestApp
     {
 
         //Holds session-wide JWT
-        private static TokenResponse? _tokenResponse = null;
+        private static IConfiguration? _config = null;
 
         public static async Task Main(string[] args)
         {
+            AnsiConsole.Write(new Rule("[bold green]Arenal tests[/]") { Justification = Justify.Left });
+            AnsiConsole.WriteLine();
+            try
+            {
+                BuildConfig();
+                AnsiConsole.MarkupLine("Configuration: [green]OK[/]");
+            }
+            catch (Exception ex)
+            {
+                AnsiConsole.WriteException(ex);
+                return;
+            }
 
             //await GetFormAsync();
-            //await DoOrderStuff();
+            await AnsiConsole
+                .Status()
+                .StartAsync($"Executing {nameof(DoOrderStuff)}", async(ctx) => { 
+                    await DoOrderStuff();
+                });
             //await DoOrganizationsStuff();
             //await ChangeOrderStatusDemo();
 
-            await PublisFakeOrders(20, "AD-G-1");
+            //await PublisFakeOrders(20, "AD-G-1");
+            AnsiConsole.WriteLine();
+            AnsiConsole.WriteLine("The application has finished.");
 
         }
 
         /// <summary>
-        /// Demonstrates how to obtain and cache JWT.
+        /// Demonstrates how to authenticate and JWT.
         /// </summary>
         /// <returns></returns>
-        private static async Task GetTokenAsync(IConfiguration cfg)
+        private static async Task<TokenResponse> GetTokenAsync(HttpClient client, IConfiguration cfg)
         {
-            if (_tokenResponse == null)
+            return await client.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
-                using var client = new HttpClient();
-                //Authenticate
-                _tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
-                {
-                    Address = cfg["OpenIdProvider:Address"],
-                    ClientId = cfg["OpenIdProvider:ClientId"],
-                    ClientSecret = cfg["OpenIdProvider:ClientSecret"],
-                    Scope = cfg["OpenIdProvider:Scope"],
-                    UserName = cfg["OpenIdProvider:Username"],
-                    Password = cfg["OpenIdProvider:Password"]
-                });
-            }
+                Address = cfg["OpenIdProvider:Address"],
+                ClientId = cfg["OpenIdProvider:ClientId"],
+                ClientSecret = cfg["OpenIdProvider:ClientSecret"],
+                Scope = cfg["OpenIdProvider:Scope"],
+                UserName = cfg["OpenIdProvider:Username"],
+                Password = cfg["OpenIdProvider:Password"]
+            });
         }
 
-        private static async Task DoOrderStuff()
+        /// <summary>
+        /// Read appsettings.json and injects user secrets.
+        /// </summary>
+        private static void BuildConfig()
         {
-
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             builder.AddUserSecrets<Program>();
-            IConfiguration config = builder.Build();
+            _config = builder.Build();
+        }
 
-            //Get JWT
-            await GetTokenAsync(config);
-
-            //Create Demo Order
-            Order order = GetDemoOrder();
+        /// <summary>
+        /// CRUD on Orders.
+        /// </summary>
+        /// <returns></returns>
+        private static async Task DoOrderStuff()
+        {
+            AnsiConsole.WriteLine();
+            if (_config == null) { AnsiConsole.MarkupLine("[red]Missing configuration."); return; }
 
             using var client = new HttpClient();
-            //OrderExtensions.BaseAddress = "https://localhost:7291/";
+            TokenResponse? tokenResponse = null;
 
-
-            // Create Order
-            client.SetBearerToken(_tokenResponse?.AccessToken);
-
-            Order? respOrd = null;
+            //Get JWT
             try
             {
-                respOrd = await client.CreateOrdersAsync(order);
-                Console.WriteLine($"Order created, ArenalId is: {respOrd.ArenalId}");
+                tokenResponse = await GetTokenAsync(client, _config);
+                AnsiConsole.MarkupLine("Authentication: [green]OK[/]");
             }
-            catch (ArenalException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                AnsiConsole.WriteException(ex);
                 return;
             }
 
-            // Read
-            client.SetBearerToken(_tokenResponse?.AccessToken);
-            Order? readOrder = null;
+
+            //Create Demo Order
+            Order origOrder = GetDemoOrder();
+
+            OrderExtensions.BaseAddress = "https://localhost:7291/";
+
+
+            // Create Order
+            client.SetBearerToken(tokenResponse?.AccessToken);
+
+            Order? newOrder = null;
             try
             {
-                readOrder = await client.GetOrderAsync(respOrd.ArenalId);
-                Console.WriteLine($"Order {readOrder.ArenalId} is retrieved.");
+                newOrder = await client.CreateOrdersAsync(origOrder);
+                AnsiConsole.MarkupLine($"Order creation: [green]OK[/]");
+                foreach (EntityChange change in origOrder.CompareTo(newOrder, nameof(Order))) {
+                    AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
+                }
             }
             catch (ArenalException ex)
             {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                AnsiConsole.WriteException(ex);
+                return;
+            }
+
+            // Read as publisher
+            Order? readOrder = null;
+            try
+            {
+                readOrder = await client.GetOrderAsync(newOrder.ArenalId);
+                AnsiConsole.MarkupLine($"Order retrieval (as publisher): [green]OK[/]");
+                foreach (EntityChange change in newOrder.CompareTo(readOrder, nameof(Order)))
+                {
+                    AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
+                }
+            }
+            catch (ArenalException ex)
+            {
+                AnsiConsole.WriteException(ex);
                 return;
             }
 
             // Update
-            client.SetBearerToken(_tokenResponse?.AccessToken);
+            client.SetBearerToken(tokenResponse?.AccessToken);
             readOrder.Patient = new Patient() { GivenName = "Миленов" };
             try
             {
                 readOrder = await client.UpdateOrdersAsync(readOrder);
-                Console.WriteLine($"Order updated, ArenalId is: {readOrder.ArenalId}");
+                AnsiConsole.MarkupLine($"Order update: [green]OK[/]");
             }
             catch (ArenalException ex)
             {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                AnsiConsole.WriteException(ex);
                 return;
             }
 
             // Delete
-            client.SetBearerToken(_tokenResponse?.AccessToken);
+            client.SetBearerToken(tokenResponse?.AccessToken);
             try
             {
                 await client.DeleteOrdersAsync(readOrder);
-                Console.WriteLine($"Order deleted, ArenalId is: {respOrd.ArenalId}");
+                AnsiConsole.MarkupLine($"Order deletion: [green]OK[/]");
             }
             catch (ArenalException ex)
             {
-                Console.WriteLine($"Error: {ex.CombinedMessage()}");
+                AnsiConsole.WriteException(ex);
             }
 
             //TODO: Other interactions with Arenal
@@ -129,21 +174,20 @@ namespace CliTestApp
 
         private static async Task ChangeOrderStatusDemo()
         {
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddUserSecrets<Program>();
-            IConfiguration config = builder.Build();
-
-            //Get JWT
-            await GetTokenAsync(config);
+            if (_config == null) { Console.WriteLine("Missing configuration."); return; }
 
             using var client = new HttpClient();
+
+            //Get JWT
+            TokenResponse? tokenResponse = null;
+
+            tokenResponse = await GetTokenAsync(client, _config);
+
             OrderExtensions.BaseAddress = "https://localhost:7291/";
 
             // Create Order
             Order changeStatOrder = GetDemoOrder();
-            client.SetBearerToken(_tokenResponse?.AccessToken);
+            client.SetBearerToken(tokenResponse?.AccessToken);
 
             Order? order = null;
             try
@@ -173,25 +217,24 @@ namespace CliTestApp
             OrderStatusRequest statusRequest = GetDemoStatusRequest(provider);
 
             //Change Status
-            //Order changedStatusOrder = await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest);
+            //Order changedStatusOrder = await client.ChangeOrderStatusAsync(origOrder.ArenalId, statusRequest);
             Order changedStatusOrder = await client.ChangeOrderStatusAsync(order, statusRequest);
         }
 
         private static async Task DoOrganizationsStuff()
         {
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddUserSecrets<Program>();
-            IConfiguration config = builder.Build();
-
-            //Get JWT
-            await GetTokenAsync(config);
+            if (_config == null) { Console.WriteLine("Missing configuration."); return; }
 
             using var client = new HttpClient();
+            TokenResponse? tokenResponse = null;
+
+            //Get JWT
+            tokenResponse = await GetTokenAsync(client, _config);
+
             OrderExtensions.BaseAddress = "https://localhost:7291/";
 
-            client.SetBearerToken(_tokenResponse?.AccessToken);
+
+            tokenResponse = await GetTokenAsync(client, _config);
             //Get Organization
             Organization provider = null;
             try
@@ -230,7 +273,7 @@ namespace CliTestApp
                     GivenName = "Борис",
                     MiddleName = "Иванов",
                     FamilyName = "Хаджийски",
-                    DateOfBirth = new DateTime(1975, 5, 5),
+                    DateOfBirth = new DateTime(1975, 5, 5).ToUniversalTime(),
                     IsMale = true,
                     Contacts = new[] { new Contact() { Type = ContactTypes.PHONE, Value = "0878005006" } }
                 },
@@ -263,10 +306,10 @@ namespace CliTestApp
                 ProviderId = "misho",
                 Services = new[]
                 {
-                    new CompendiumEntry() { Name = "Glucose"},
-                    new CompendiumEntry() { Name = "Albumin"},
-                    new CompendiumEntry() { Name = "Cholesterol"},
-                    new CompendiumEntry() { Name = "Phlebotomy"},
+                    new CompendiumEntry() { Value = "Glucose"},
+                    new CompendiumEntry() { Value = "Albumin"},
+                    new CompendiumEntry() { Value = "Cholesterol"},
+                    new CompendiumEntry() { Value = "Phlebotomy"},
                 }
             };
 
@@ -297,20 +340,19 @@ namespace CliTestApp
         private static async Task PublisFakeOrders(int numOfOrders, string providerId)
         {
 
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddUserSecrets<Program>();
-            IConfiguration config = builder.Build();
-
-            //Get JWT
-            await GetTokenAsync(config);
+            if (_config == null) { Console.WriteLine("Missing configuration."); return; }
 
             using var client = new HttpClient();
+
+            //Get JWT
+            await GetTokenAsync(client, _config);
+
             //OrderExtensions.BaseAddress = "https://localhost:7291/";
 
             // Create Order
-            client.SetBearerToken(_tokenResponse?.AccessToken);
+            TokenResponse? _tokenResponse = null;
+
+            _tokenResponse = await GetTokenAsync(client, _config);
             Order? respOrd = null;
 
             for (int i = 0; i < numOfOrders; i++)

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "ArenalApiModel\Mod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CliTestApp", "CliTestApp\CliTestApp.csproj", "{AB000C57-9FD8-4F03-835A-9E6697E88A67}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidationTests", "ValidationTests\ValidationTests.csproj", "{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelTests", "ValidationTests\ModelTests.csproj", "{00380D24-72E2-46E5-8A0F-D8022FE4BEC1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelCli", "ModelCli\ModelCli.csproj", "{2C26C4F5-81CE-4A78-B0ED-2FC8E782C228}"
 EndProject

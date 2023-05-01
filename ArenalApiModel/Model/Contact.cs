@@ -24,12 +24,6 @@ public class Contact
     /// </summary>
     public Contact() { }
 
-    public Contact(string type, string value) : this()
-    {
-        Type = Type;
-        Value = Value;
-    }
-
     /// <summary>
     /// Shorthand constructor for instantiation with phone number.
     /// </summary>
@@ -37,6 +31,17 @@ public class Contact
     public Contact(string phone) : this()
     {
         Value = phone;
+    }
+
+    /// <summary>
+    /// Convenience constructor
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="value"></param>
+    public Contact(string type, string value) : this()
+    {
+        Type = type;
+        Value = value;
     }
 
 }

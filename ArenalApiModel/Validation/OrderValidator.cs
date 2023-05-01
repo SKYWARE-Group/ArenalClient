@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
-using System.IO.Compression;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Skyware.Arenal.Validation;
 
@@ -44,7 +42,8 @@ public class OrderValidator : AbstractValidator<Order>
         });
 
         //Provider's fields when placing order
-        When (x => x.Status == OrderStatuses.AVAILABLE, () => {
+        When(x => x.Status == OrderStatuses.AVAILABLE, () =>
+        {
             RuleFor(x => x.ProviderNote)
                 .Null()
                 .WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
@@ -59,8 +58,11 @@ public class OrderValidator : AbstractValidator<Order>
 
         //Services (required and valid)
         RuleFor(x => x.Services)
+            .Cascade(CascadeMode.Stop)
             .NotEmpty()
-            .WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.");
+            .WithMessage($"{nameof(Order)} must have at least one {nameof(Service)}.")
+            .Must(s => s.GroupBy(x => x.ServiceId).Any(z => z.Count() == 1))
+            .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
         RuleForEach(x => x.Services)
             .SetValidator(z => new ServiceValidator(z.Status));
 
@@ -74,7 +76,12 @@ public class OrderValidator : AbstractValidator<Order>
         });
         RuleForEach(x => x.Samples)
             .SetValidator(z => new SampleValidator(z.Status));
-
+        When(x => x.Samples is not null, () =>
+        {
+            RuleFor(x => x.Samples)
+            .Must(s => s.GroupBy(z => z.SampleId).Any(c => c.Count() == 1))
+            .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
+        });
     }
 
 }

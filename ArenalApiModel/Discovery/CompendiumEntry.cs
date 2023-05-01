@@ -7,7 +7,7 @@ namespace Skyware.Arenal.Discovery;
 /// <summary>
 /// Pricelist item.
 /// </summary>
-public class CompendiumEntry : Service
+public class CompendiumEntry : Identifier
 {
 
     /// <summary>

@@ -26,7 +26,7 @@ public class Helpers
     }
 
     /// <summary>
-    /// Get constants from a class, applicable to given type usage (see <see cref="ArenalUsageAttribute"/>)
+    /// Get constants from a class, applicable to given type usage (see <see cref="AuthorityUsageAttribute"/>)
     /// </summary>
     /// <param name="type"></param>
     /// <param name="targetUsage"></param>
@@ -39,7 +39,20 @@ public class Helpers
                 fi => fi.IsLiteral && 
                 !fi.IsInitOnly && 
                 fi.FieldType == typeof(string) && 
-                (((ArenalUsageAttribute)fi.GetCustomAttribute(typeof(ArenalUsageAttribute)))?.AllowedUsage?.Any(x => x == targetUsage) ?? false))
+                (((AuthorityUsageAttribute)fi.GetCustomAttribute(typeof(AuthorityUsageAttribute)))?.AllowedUsage?.Any(x => x == targetUsage) ?? false))
+            .Select(f => (string)f.GetRawConstantValue())
+            .ToArray();
+    }
+
+    public static string[] GetStringConstants(Type type, string targetUsage)
+    {
+        return type
+            .GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            .Where(
+                fi => fi.IsLiteral &&
+                !fi.IsInitOnly &&
+                fi.FieldType == typeof(string) &&
+                (((DictionaryUsageAttribute)fi.GetCustomAttribute(typeof(DictionaryUsageAttribute)))?.AllowedUsage?.Any(x => x == targetUsage) ?? false))
             .Select(f => (string)f.GetRawConstantValue())
             .ToArray();
     }

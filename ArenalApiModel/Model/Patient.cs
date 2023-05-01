@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using Skyware.Arenal.Validation;
+using System;
 using System.Collections.Generic;
 
 namespace Skyware.Arenal.Model;
@@ -9,11 +11,18 @@ namespace Skyware.Arenal.Model;
 public class Patient : PersonBase
 {
 
+    private static PatientValidator _validator;
+
     /// <summary>
-    /// Date of birth of the person.
+    /// Date of birth of the person (UTC).
     /// Optional.
     /// </summary>
     public DateTime? DateOfBirth { get; set; }
+
+    /// <summary>
+    /// Date of birth of the person (Local date and time).
+    /// </summary>
+    public DateTime? LocalDateOfBirth => DateOfBirth?.ToLocalTime();
 
     /// <summary>
     /// True if date of birth is exact value, false if is calculated from approximate age.
@@ -88,6 +97,11 @@ public class Patient : PersonBase
     {
         (Identifiers ??= new List<Identifier>()).Add(new Identifier(authority, dictionary, value));
         return this;
+    }
+
+    public ValidationResult Validate()
+    {
+        return (_validator ??= new PatientValidator()).Validate(this);
     }
 
 }

@@ -13,7 +13,7 @@ namespace Skyware.Arenal.Model;
 public class Order : EntityBase
 {
 
-    private static readonly OrderValidator _validator = new OrderValidator();
+    private static OrderValidator _validator;
 
     /// <summary>
     /// Identifies Arenal workflow.
@@ -42,14 +42,24 @@ public class Order : EntityBase
     public string ProviderOrderId { get; set; }
 
     /// <summary>
-    /// Date and time the order was created.
+    /// Date and time the order was created (UTC).
     /// </summary>
-    public DateTime Created { get; set; } = DateTime.Now;
+    public DateTime? Created { get; set; }
 
     /// <summary>
-    /// Date and time the order was last modified.
+    /// Date and time the order was created (Local date and time).
+    /// </summary>
+    public DateTime? LocalCreated { get => Created?.ToLocalTime(); }
+
+    /// <summary>
+    /// Date and time the order was last modified (UTC).
     /// </summary>
     public DateTime? Modified { get; set; }
+
+    /// <summary>
+    /// Date and time the order was last modified (Local date and time).
+    /// </summary>
+    public DateTime? LocalModified { get => Modified?.ToLocalTime(); }
 
     /// <summary>
     /// Version (server generated), starts from 0 and increments on every update from the publisher side.
@@ -57,9 +67,14 @@ public class Order : EntityBase
     public int Version { get; set; } = 0;
 
     /// <summary>
-    /// Date and time when the order is taken or rejected by the provider.
+    /// Date and time when the order is taken or rejected by the provider (UTC).
     /// </summary>
     public DateTime? TakenOrRejected { get; set; }
+
+    /// <summary>
+    /// Date and time when the order is taken or rejected by the provider (Local date and time).
+    /// </summary>
+    public DateTime? LocalTakenOrRejected { get => TakenOrRejected?.ToLocalTime(); }
 
     /// <summary>
     /// Order status, according to <see cref="OrderStatuses"/>.
@@ -92,13 +107,20 @@ public class Order : EntityBase
     public IList<LinkedReferral> LinkedReferrals { get; set; }
 
     /// <summary>
-    /// Array of requested examinations or observations.
+    /// Unique collection of requested examinations or observations.
     /// </summary>
+    /// <remarks>
+    /// Uniqueness is imposed on equality on <see cref="Service.ServiceId"/>.
+    /// See <see cref="Identifier"/> for details.
+    /// </remarks>
     public IList<Service> Services { get; set; }
 
     /// <summary>
-    /// Array of provided samples (conditional).
+    /// Unique collection of provided samples (conditional).
     /// </summary>
+    /// <remarks>
+    /// Uniqueness is imposed on equality on <see cref="Sample.SampleId"/> (the barcode).
+    /// </remarks>
     public IList<Sample> Samples { get; set; }
 
     /// <summary>
@@ -190,7 +212,7 @@ public class Order : EntityBase
     /// <returns></returns>
     public ValidationResult Validate()
     {
-        return _validator.Validate(this);
+        return (_validator ??= new OrderValidator()).Validate(this);
     }
 
 }

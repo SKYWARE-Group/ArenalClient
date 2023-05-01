@@ -15,9 +15,14 @@ public class LinkedReferral
     public Identifier Identifier { get; set; }
 
     /// <summary>
-    /// Date and time the referral will expire.
+    /// Date and time the referral will expire (UTC).
     /// </summary>
     public DateTime? Expiration { get; set; }
+
+    /// <summary>
+    /// Date and time the referral will expire (Local date and time).
+    /// </summary>
+    public DateTime? LocalExpiration { get => Expiration?.ToLocalTime(); }
 
     /// <summary>
     /// Note from the placer

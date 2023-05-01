@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using FluentValidation.Results;
+using FluentValidation;
+using System;
+using Skyware.Arenal.Validation;
 
 namespace Skyware.Arenal.Model;
 
@@ -6,8 +9,9 @@ namespace Skyware.Arenal.Model;
 /// <summary>
 /// Identifier.
 /// </summary>
-public class Identifier
+public class Identifier : IEquatable<Identifier>
 {
+    private static IdentifierValidator _validator;
 
     /// <summary>
     /// Authority/Realm/System of the identifier such as 'org.loinc', 'org.snomed' etc.
@@ -30,15 +34,12 @@ public class Identifier
     /// <summary>
     /// Default constructor.
     /// </summary>
-    public Identifier()
-    {
-
-    }
+    public Identifier() { }
 
     /// <summary>
     /// Creates an instance with local authority and no dictionary.
     /// </summary>
-    public Identifier(string value)
+    public Identifier(string value) : this()
     {
         Authority = Authorities.LOCAL;
         Value = value;
@@ -52,6 +53,36 @@ public class Identifier
         Authority = authority;
         Dictionary = dictionary;
         Value = value;
+    }
+
+    /// <summary>
+    /// Check if two identifiers are semantically equal.
+    /// </summary>
+    /// <remarks>
+    /// If both identifiers are null, they are considered equal.
+    /// </remarks>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public bool Equals(Identifier other) => GetHashCode() == other?.GetHashCode();
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => $"{Authority.EmptyIfNull().ToLower()}{Dictionary.EmptyIfNull().ToLower()}{Value.EmptyIfNull().ToLower()}".GetHashCode();
+
+    /// <inheritdoc/>
+    public static bool operator == (Identifier a, Identifier b) => (a is null && b is null) || (a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
+
+    /// <inheritdoc/>
+    public static bool operator !=(Identifier a, Identifier b) => (a is null && b is not null) || !(a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
+
+    /// <<inheritdoc/>
+    public override bool Equals(object obj)
+    {
+        return this == (Identifier)obj;
+    }
+
+    public ValidationResult Validate()
+    {
+        return (_validator ??= new IdentifierValidator()).Validate(this);
     }
 
 }
