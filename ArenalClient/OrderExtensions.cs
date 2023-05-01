@@ -73,7 +73,7 @@ public static class OrderExtensions
             .AppendPathSegment("api")
             .AppendPathSegment("orders");
 
-        if (filter is not null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+        if (filter is not null) url.SetQueryParam("where", filter.ToString()); //SetQueryParam makes html escape
         if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
         if (limit is not null && limit > 0) url.SetQueryParam("limit", limit.ToString());
 
@@ -368,7 +368,7 @@ public static class OrderExtensions
             .AppendPathSegment("api")
             .AppendPathSegment("providers");
 
-        if (filter is not null) url.SetQueryParam("where", WebUtility.HtmlEncode(filter.ToString()));
+        if (filter is not null) url.SetQueryParam("where", filter.ToString());//SetQueryParam makes html escape
         if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
         if (limit is not null && limit > 0) url.SetQueryParam("limit", limit.ToString());
 

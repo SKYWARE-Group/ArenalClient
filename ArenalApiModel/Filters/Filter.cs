@@ -82,5 +82,4 @@ public class Filter : IFilterPart
         return bld.ToString();
     }
 
-
 }
