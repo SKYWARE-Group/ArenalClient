@@ -141,7 +141,7 @@ public class Order : EntityBase
     /// <param name="services"></param>
     /// <param name="samples"></param>
     /// <param name="providerId"></param>
-    public Order(string workflow, Patient patient, IList<Service> services = null , IList<Sample> samples = null, string providerId = null) : this()
+    public Order(string workflow, string placerId, Patient patient, IList<Service> services = null , IList<Sample> samples = null, string providerId = null) : this()
     {
         Workflow = workflow;
         Patient = patient;

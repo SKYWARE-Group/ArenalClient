@@ -259,7 +259,7 @@ public static class FakeOrders
 
     #endregion
 
-    public static Order Generate(string provierId)
+    public static Order Generate(string placerId, string provierId)
     {
         Random rnd = new();
 
@@ -301,14 +301,14 @@ public static class FakeOrders
             .ToArray();
 
         return new Order(
-            Workflows.LAB_SCO,
+            Workflows.LAB_SCO, placerId,
             patient,
             productsToOrder.Select(p => new Service(p.Code, p.Name)).ToArray(),
             samplesToOrder.Select(s => new Sample(s.Key, null, $"SXA{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}", DateTime.Now.AddMinutes(-1 * rnd.Next(1, 50)))).ToArray(),
             provierId);
     }
 
-    public static Order GetFixedDemoOrder(string? providerId)
+    public static Order GetFixedDemoOrder(string placerId, string? providerId)
     {
         Patient p = new("Борис", "Иванов", true, new DateTime(1975, 5, 5).ToUniversalTime());
         p.AddIdentifier(Authorities.BG_GRAO, "7505051234").AddIdentifier(Authorities.LOCAL, "523647");
@@ -316,9 +316,10 @@ public static class FakeOrders
 
         Service svc = new Service("14749-6", "Глюкоза")
             .AddAlternateIdentifier(Authorities.BG_HIS, Dictionaries.BG_NHIS_CL022, "03-002")
-            .AddAlternateIdentifier(Authorities.BG_HIF, Dictionaries.BG_NHIF_Product, "01.11");
+            .AddAlternateIdentifier(Authorities.BG_HIF, Dictionaries.BG_NHIF_Product, "01.11")
+            .AddAlternateIdentifier(Authorities.LOCAL, null, "0-155");
 
-        return p.CreateOrder(Workflows.LAB_SCO, providerId)
+        return p.CreateOrder(Workflows.LAB_SCO, placerId, providerId)
             .AddService(svc)
             .AddSample("SER", null, "S05FT9");
 

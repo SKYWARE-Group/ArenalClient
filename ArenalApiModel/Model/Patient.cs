@@ -60,8 +60,8 @@ public class Patient : PersonBase
     /// <param name="wokrflow"></param>
     /// <param name="providerId"></param>
     /// <returns></returns>
-    public Order CreateOrder(string wokrflow, string providerId) =>
-        new () { Workflow = wokrflow, ProviderId = providerId, Patient = this };
+    public Order CreateOrder(string wokrflow, string placerId, string providerId) =>
+        new () { Workflow = wokrflow, PlacerId = placerId, ProviderId = providerId, Patient = this };
     
 
     /// <summary>

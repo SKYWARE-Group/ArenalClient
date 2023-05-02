@@ -4,14 +4,12 @@ using Skyware.Arenal.Client;
 using Skyware.Arenal.Discovery;
 using Skyware.Arenal.Filters;
 using Skyware.Arenal.Model;
-using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
 using Skyware.Arenal.Tracking;
 using Spectre.Console;
 using Spectre.Console.Json;
 using System.Diagnostics;
-using System.Reflection;
 using System.Text.Json;
 
 namespace CliTestApp;
@@ -103,17 +101,25 @@ public class Program
 
         using HttpClient pubAClient = new();
         using HttpClient laboratoryAClient = new();
+        using HttpClient pubBClient = new();
+        using HttpClient laboratoryBClient = new();
         TokenResponse? tknRespPubA = null;
+        TokenResponse? tknRespPubB = null;
         TokenResponse? tknRespLabA = null;
+        TokenResponse? tknRespLabB = null;
 
 
         //Authenticate and get JWT
         try
         {
             tknRespPubA = await GetTokenAsync(pubAClient, _config, "PubA");
-            AnsiConsole.MarkupLine("Authentication (publisher A): [green]OK[/]");
-            tknRespLabA = await GetTokenAsync(pubAClient, _config, "LabA");
-            AnsiConsole.MarkupLine("Authentication (laboratory A): [green]OK[/]");
+            AnsiConsole.MarkupLine("Authentication (publisher A, North Health): [green]OK[/]");
+            tknRespPubB = await GetTokenAsync(pubBClient, _config, "PubB");
+            AnsiConsole.MarkupLine("Authentication (publisher B, Vista Vita): [green]OK[/]");
+            tknRespLabA = await GetTokenAsync(laboratoryAClient, _config, "LabA");
+            AnsiConsole.MarkupLine("Authentication (laboratory A, Precisio): [green]OK[/]");
+            tknRespLabB = await GetTokenAsync(laboratoryBClient, _config, "LabB");
+            AnsiConsole.MarkupLine("Authentication (laboratory B, Lab-O-Mat): [green]OK[/]");
         }
         catch (Exception ex)
         {
@@ -123,16 +129,18 @@ public class Program
 
         //Set JWT
         pubAClient.SetBearerToken(tknRespPubA?.AccessToken);
+        pubBClient.SetBearerToken(tknRespPubB?.AccessToken);
         laboratoryAClient.SetBearerToken(tknRespLabA?.AccessToken);
+        laboratoryBClient.SetBearerToken(tknRespLabB?.AccessToken);
 
         //In case of locally running server
         //OrderExtensions.BaseAddress = "https://localhost:7291/";
 
         //Holds created orders
-        List<Order> tempOrders = new List<Order>();
+        List<Order> tempOrders = new();
 
         //Create Demo Order
-        Order origOrder = FakeOrders.GetFixedDemoOrder("AD-G-1");
+        Order origOrder = FakeOrders.GetFixedDemoOrder("AD-G-2", "AD-G-1"); //From North Health To Precisio
         if (origOrder.Validate().IsValid)
         {
             AnsiConsole.MarkupLine($"Generated Order validation: [green]OK[/]");
@@ -141,14 +149,13 @@ public class Program
         {
             AnsiConsole.MarkupLine($"Generated Order validation: [red]Failure[/]");
         }
-        return;
 
-        // Create Order as publisher A
+        //Create Order as publisher A
         Order? newOrder = null;
         try
         {
             newOrder = await pubAClient.CreateOrdersAsync(origOrder);
-            AnsiConsole.MarkupLine($"Order creation (as publisher A): [green]OK[/]");
+            AnsiConsole.MarkupLine($"Order creation (as publisher A North Health to Lab A Precisio): [green]OK[/]");
             foreach (EntityChange change in origOrder.CompareTo(newOrder, nameof(Order)))
             {
                 AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
@@ -162,7 +169,13 @@ public class Program
         }
 
         //Show JSON
-        string newOrderJson = JsonSerializer.Serialize(newOrder, new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+        string newOrderJson = JsonSerializer.Serialize(
+            newOrder,
+            new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            });
         AnsiConsole.Write(
             new Panel(new JsonText(newOrderJson))
                 .Header("Newly created Order")
@@ -170,12 +183,12 @@ public class Program
                 .RoundedBorder()
                 .BorderColor(Color.Yellow));
 
-        // Read Order as publisher A
+        // Read Order as publisher A (North Health)
         Order? readOrderAsPubA = null;
         try
         {
             readOrderAsPubA = await pubAClient.GetOrderAsync(newOrder.ArenalId);
-            AnsiConsole.MarkupLine($"Order retrieval (as publisher A): [green]OK[/]");
+            AnsiConsole.MarkupLine($"Order retrieval (as publisher A, North Health): [green]OK[/]");
             foreach (EntityChange change in newOrder.CompareTo(readOrderAsPubA, nameof(Order)))
             {
                 AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
@@ -187,12 +200,54 @@ public class Program
             return;
         }
 
-        // Read Order as laboratory A
+        // Read Order as publisher B (Vista Vita)
+        Order? readOrderAsPubB = null;
+        try
+        {
+            readOrderAsPubB = await pubBClient.GetOrderAsync(newOrder.ArenalId);
+            AnsiConsole.MarkupLine($"Order retrieval (as publisher B, Vista Vita): [green]OK[/]");
+            if (readOrderAsPubB is not null)
+            {
+                AnsiConsole.MarkupLine($"Order retrieval should fail: [red]Security issue![/]");
+            }
+            foreach (EntityChange change in newOrder.CompareTo(readOrderAsPubA, nameof(Order)))
+            {
+                AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
+            }
+        }
+        catch (ArenalException ex)
+        {
+            AnsiConsole.WriteException(ex);
+            return;
+        }
+
+        // Read Order as laboratory A (Precisio)
         Order? readOrderAsLabA = null;
         try
         {
             readOrderAsLabA = await laboratoryAClient.GetOrderAsync(newOrder.ArenalId);
-            AnsiConsole.MarkupLine($"Order retrieval (as laboratory A): [green]OK[/]");
+            AnsiConsole.MarkupLine($"Order retrieval (as laboratory A, Precisio): [green]OK[/]");
+        }
+        catch (ArenalException ex)
+        {
+            AnsiConsole.WriteException(ex);
+            return;
+        }
+
+        // Read Order as laboratory B (Lab-O-Mat)
+        Order? readOrderAsLabB = null;
+        try
+        {
+            readOrderAsLabB = await laboratoryBClient.GetOrderAsync(newOrder.ArenalId);
+            AnsiConsole.MarkupLine($"Order retrieval (as laboratory B, Lab-O-Mat): [green]OK[/]");
+            if (readOrderAsLabB is not null)
+            {
+                AnsiConsole.MarkupLine($"Order retrieval should fail: [red]Security issue![/]");
+            }
+            foreach (EntityChange change in newOrder.CompareTo(readOrderAsPubA, nameof(Order)))
+            {
+                AnsiConsole.MarkupLine($"\t[deepskyblue1]{change}[/]");
+            }
         }
         catch (ArenalException ex)
         {
@@ -211,7 +266,14 @@ public class Program
             new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
                 .And(Predicate.OrdersBySampleId(newOrder.Samples.First().SampleId.Value)),
             new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
-                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.AlternateIdentifiers)}_.{nameof(Identifier.Value)}", ValueComparisons.Equals, "03-002"))
+                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.ServiceId)}.{nameof(Identifier.Value)}", ValueComparisons.Equals, "14749-6")),
+            new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.AlternateIdentifiers)}_.{nameof(Identifier.Value)}", ValueComparisons.Equals, "03-002")),
+            new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.AlternateIdentifiers)}_.{nameof(Identifier.Value)}", ValueComparisons.Equals, "01.11")),
+            new Filter(nameof(Order.Created), ValueComparisons.GreaterThan, DateTime.Now.ToUniversalTime().AddMinutes(-10))
+                .And(new Predicate($"{nameof(Order.Services)}_.{nameof(Service.AlternateIdentifiers)}_.{nameof(Identifier.Value)}", ValueComparisons.Equals, "0-155"))
+
         };
 
         for (int i = 0; i < searchCases.Length; i++)

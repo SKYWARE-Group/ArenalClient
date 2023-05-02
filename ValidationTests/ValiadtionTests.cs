@@ -117,7 +117,8 @@ public class Tests
         Assert.Multiple(() =>
         {
             Assert.That(validationResult.IsValid, Is.False);
-            Assert.That(validationResult.Errors, Has.Count.EqualTo(3));
+            Assert.That(validationResult.Errors, Has.Count.EqualTo(4));
+            Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.PlacerId) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Workflow) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Patient) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Services) && x.Severity == FluentValidation.Severity.Error));
@@ -129,6 +130,7 @@ public class Tests
     /// </summary>
     /// <remarks>
     /// Wrong are:
+    ///   No placer id
     ///   No provider id
     ///   Patient (No names)
     ///   One service with missing Id
@@ -139,7 +141,7 @@ public class Tests
     {
         
         Order order = new Patient()
-            .CreateOrder(Workflows.LAB_SCO, null)
+            .CreateOrder(Workflows.LAB_SCO, null, null)
             .AddService("14749-6", "Glucose")
             .AddService(new Service());
 
@@ -148,7 +150,8 @@ public class Tests
         Assert.Multiple(() =>
         {
             Assert.That(validationResult.IsValid, Is.False);
-            Assert.That(validationResult.Errors, Has.Count.EqualTo(4));
+            Assert.That(validationResult.Errors, Has.Count.EqualTo(5));
+            Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.PlacerId) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Patient) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Order.Services)) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Samples) && x.Severity == FluentValidation.Severity.Error));
@@ -170,7 +173,7 @@ public class Tests
     {
 
         Order order = new Patient(null, "Doe")
-            .CreateOrder(Workflows.LAB_SCO, "AD-P-1")
+            .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-P-1")
             .AddService("14749-6", "Glucose")
             .AddSample("SER", null, "X456TR");
 
@@ -204,7 +207,7 @@ public class Tests
     public void LabToLab_DuplicateServices()
     {
         Order order = new Patient("John", "Doe")
-            .CreateOrder(Workflows.LAB_SCO, "AD-O-34ER")
+            .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-O-34ER")
             .AddService("14749-6", "Glucose")
             .AddService("14749-6", "Глюкоза")
             .AddSample("SER", null, "X456TR");
@@ -226,7 +229,7 @@ public class Tests
     public void LabToLab_DuplicateSamples()
     {
         Order order = new Patient("John", "Doe")
-            .CreateOrder(Workflows.LAB_SCO, "AD-O-34ER")
+            .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-O-34ER")
             .AddService("14749-6", "Glucose")
             .AddSample("SER", null, "X456TR")
             .AddSample("SER", null, "X456TR");
@@ -238,14 +241,34 @@ public class Tests
     }
 
     /// <summary>
-    /// LAB_SCO: Valid order
+    /// LAB_SCO
     /// </summary>
     /// <remarks>
+    /// Wrong are:
+    ///   Placer and provider are the same
+    /// </remarks>
+    [Test]
+    public void LabToLab_SameProvider()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-G-1")
+            .AddService("14749-6", "Glucose")
+            .AddSample("SER", null, "X456TR");
+
+        ValidationResult validationResult = order.Validate();
+        Assert.That(validationResult.IsValid, Is.False);
+        Assert.That(validationResult.Errors.First().PropertyName ==  nameof(Order.ProviderId));
+        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+    }
+
+    /// <summary>
+    /// LAB_SCO: Valid order
+    /// </summary>
     [Test]
     public void LabToLab_Order_Ok()
     {
         Order order = new Patient("John", "Doe")
-            .CreateOrder(Workflows.LAB_SCO, "AD-O-34ER")
+            .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-O-34ER")
             .AddService("14749-6", "Glucose")
             .AddSample("SER", null, "X456TR");
 
