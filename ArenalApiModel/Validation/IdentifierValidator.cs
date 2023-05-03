@@ -17,6 +17,7 @@ public class IdentifierValidator : AbstractValidator<Identifier>
     public IdentifierValidator()
     {
 
+
         //When Patient
         RuleSet(nameof(Patient), () =>
         {
@@ -62,22 +63,26 @@ public class IdentifierValidator : AbstractValidator<Identifier>
             .Cascade(CascadeMode.Stop)
             .NotNull()
             .NotEmpty()
-            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Value)} must have a non-null, non-empty value.");
+            .MaximumLength(Identifier.VALUE_MAX_LEN)
+            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Value)} must have a non-null, non-empty value, up to {Identifier.VALUE_MAX_LEN} characters.");
         RuleFor(x => x.Authority)
             .Cascade(CascadeMode.Stop)
             .NotNull()
             .NotEmpty()
-            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Authority)} must have a non-null, non-empty value.");
+            .MaximumLength(Identifier.AUTHORITY_MAX_LEN)
+            .WithMessage($"When {nameof(Identifier)} is set, its property {nameof(Identifier.Authority)} must have a non-null, non-empty value, up to {Identifier.AUTHORITY_MAX_LEN} characters.");
 
         //Dictionary
+        //Currently check only against predefined values therefore no length is checked
         When(i => !string.IsNullOrWhiteSpace(i.Dictionary), () =>
         {
             RuleFor(id => id)
+                .Cascade(CascadeMode.Stop)
                 .Must(x => Helpers.GetStringConstants(typeof(Dictionaries), x.Authority).Any(dict => x.Dictionary == dict))
                 .WithName(nameof(Identifier.Dictionary))
                 .WithMessage(x => $"The value '{x.Dictionary}' isn't allowed for {nameof(Identifier.Authority)} '{x.Authority}'.");
-        });
 
+        });
 
     }
 

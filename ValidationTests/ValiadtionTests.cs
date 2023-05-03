@@ -1,4 +1,4 @@
-using FluentValidation.Results;
+ï»¿using FluentValidation.Results;
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Validation;
 
@@ -22,6 +22,8 @@ public class Tests
     [TestCase(null, null, "123", ExpectedResult = false)] //missing authority
     [TestCase(Authorities.HL7, null, null, ExpectedResult = false)] //missing value
     [TestCase(Authorities.HL7, Dictionaries.WHO_Icd10, "SER", ExpectedResult = false)] //wrong dictionary
+    [TestCase("ABCDEFGHIJKLMNOPQRSTO", null, "123", ExpectedResult = false)] //Authority is larger than allowed
+    [TestCase("ABC", null, "ABCDEFGHIJKLMNOPQRSTABCDEFGHIJKLMNOPQRSTABCDEFGHIJKLMNOPQRST", ExpectedResult = false)] //Value is larger than allowed
     public bool IdentifierValidations(string auth, string dict, string value)
     {
         Identifier id = new(auth, dict, value);
@@ -37,18 +39,22 @@ public class Tests
     /// <summary>
     /// Patient validation
     /// </summary>
-    /// <remarks>
-    /// Wrong are:
-    ///   No names
-    /// </remarks>
     [Test]
-    public void Patient_NoNames()
+    [TestCase("a", "b", null, ExpectedResult = true)] //OK
+    [TestCase("ïº¿", "Ò´", null, ExpectedResult = true)] //OK
+    [TestCase(null, null, null, ExpectedResult = false)] //no names at all
+    [TestCase("a", null, null, ExpectedResult = false)] //full name is too short
+    [TestCase("John", null, "1845-01-05", ExpectedResult = false)] //Date of birth is too early
+    [TestCase("John", null, "2050-01-05", ExpectedResult = false)] //Date of birth is too late
+    [TestCase("ABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZ", 
+        null, null, ExpectedResult = false)] //Full name is too long
+    public bool Patient_BasicTests(string given, string family, string dob)
     {
-        Patient pat = new();
-        ValidationResult res1 = pat.Validate();
-        Assert.That(res1.IsValid, Is.False);
-        Assert.That(res1.Errors.First().ErrorMessage.Contains("the names"));
-
+        DateTime? born = null;
+        if (!string.IsNullOrWhiteSpace(dob)) born = DateTime.ParseExact(dob, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+        Patient pat = new(given, family, born: born);
+        ValidationResult res = pat.Validate();
+        return res.IsValid;
     }
 
     /// <summary>
@@ -56,7 +62,27 @@ public class Tests
     /// </summary>
     /// <remarks>
     /// Wrong are:
-    ///   Wrong authority of 1st identifier
+    ///   Number of contacts
+    /// </remarks>
+    [Test]
+    public void Patient_WrongNumContacts()
+    {
+        Patient pat = new("John", "Doe");
+        for (int i =  0; i < PersonBase.MAX_CONTACTS + 1; i++)
+        {
+            pat.AddPhone("123456789");
+        }
+        ValidationResult res = pat.Validate();
+        Assert.That(res.IsValid, Is.False);
+        Assert.That(res.Errors.First().PropertyName == nameof(PersonBase.Contacts));
+    }
+
+    /// <summary>
+    /// Patient validation
+    /// </summary>
+    /// <remarks>
+    /// Wrong are:
+    ///   Wrong authority of 1-st identifier
     /// </remarks>
     [Test]
     public void Patient_WrongIdAuth()
@@ -66,22 +92,6 @@ public class Tests
         ValidationResult res1 = pat.Validate();
         Assert.That(res1.IsValid, Is.False);
         Assert.That(res1.Errors.First().PropertyName.Contains(nameof(Identifier.Authority)));
-    }
-
-    /// <summary>
-    /// Patient validation
-    /// </summary>
-    /// <remarks>
-    /// Wrong are:
-    ///   Date of birth (future date)
-    /// </remarks>
-    [Test]
-    public void Patient_WrongDoB()
-    {
-        Patient pat = new("John", "Doe", true, DateTime.UtcNow.AddDays(1));
-        ValidationResult res1 = pat.Validate();
-        Assert.That(res1.IsValid, Is.False);
-        Assert.That(res1.Errors.First().PropertyName.Contains(nameof(Patient.DateOfBirth)));
     }
 
 
@@ -152,7 +162,7 @@ public class Tests
             Assert.That(validationResult.IsValid, Is.False);
             Assert.That(validationResult.Errors, Has.Count.EqualTo(5));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.PlacerId) && x.Severity == FluentValidation.Severity.Error));
-            Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Patient) && x.Severity == FluentValidation.Severity.Error));
+            Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Patient.FullName)) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName.Contains(nameof(Order.Services)) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.Samples) && x.Severity == FluentValidation.Severity.Error));
             Assert.That(validationResult.Errors.Any(x => x.PropertyName == nameof(Order.ProviderId) && x.Severity == FluentValidation.Severity.Error));
@@ -209,7 +219,7 @@ public class Tests
         Order order = new Patient("John", "Doe")
             .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-O-34ER")
             .AddService("14749-6", "Glucose")
-            .AddService("14749-6", "Ãëþêîçà")
+            .AddService("14749-6", "Ð“Ð»ÑŽÐºÐ¾Ð·Ð°")
             .AddSample("SER", null, "X456TR");
 
         ValidationResult validationResult = order.Validate();
@@ -262,6 +272,27 @@ public class Tests
     }
 
     /// <summary>
+    /// LAB_MCP
+    /// </summary>
+    /// <remarks>
+    /// Wrong are:
+    ///   Provider has value (and shouldn't)
+    /// </remarks>
+    [Test]
+    public void LabToLab_ProviderInMcp()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_MCP, "AD-G-1", "AD-G-1")
+            .AddService("14749-6", "Glucose")
+            .AddSample("SER", null, "X456TR");
+
+        ValidationResult validationResult = order.Validate();
+        Assert.That(validationResult.IsValid, Is.False);
+        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
+        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+    }
+
+    /// <summary>
     /// LAB_SCO: Valid order
     /// </summary>
     [Test]
@@ -269,6 +300,21 @@ public class Tests
     {
         Order order = new Patient("John", "Doe")
             .CreateOrder(Workflows.LAB_SCO, "AD-G-1", "AD-O-34ER")
+            .AddService("14749-6", "Glucose")
+            .AddSample("SER", null, "X456TR");
+
+        ValidationResult validationResult = order.Validate();
+        Assert.That(validationResult.IsValid, Is.True);
+    }
+
+    /// <summary>
+    /// LAB_SCO: Valid order
+    /// </summary>
+    [Test]
+    public void LabToLab_Mcp_Order_Ok()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_MCP, "AD-G-1", null)
             .AddService("14749-6", "Glucose")
             .AddSample("SER", null, "X456TR");
 

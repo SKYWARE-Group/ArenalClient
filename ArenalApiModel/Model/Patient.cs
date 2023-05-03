@@ -14,8 +14,13 @@ public class Patient : PersonBase
     private static PatientValidator _validator;
 
     /// <summary>
-    /// Date of birth of the person (UTC).
-    /// Optional.
+    /// Minimal allowed date of birth of the patient.
+    /// </summary>
+    public  static readonly DateTime MIN_DOB = new DateTime(1900, 1, 1).ToUniversalTime();
+
+    /// <summary>
+    /// Date of birth of the person (UTC). Optional. 
+    /// When provided must be between <see cref="MIN_DOB"/> and current date and time (UTC).
     /// </summary>
     public DateTime? DateOfBirth { get; set; }
 

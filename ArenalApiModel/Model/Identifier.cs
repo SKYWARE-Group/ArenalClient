@@ -10,23 +10,43 @@ namespace Skyware.Arenal.Model;
 /// </summary>
 public class Identifier : IEquatable<Identifier>
 {
+
+    /// <summary>
+    /// Maximum length of <see cref="Authority"/> field.
+    /// </summary>
+    public const int AUTHORITY_MAX_LEN = 20;
+
+    /// <summary>
+    /// Maximum length of <see cref="Dictionary"/> field.
+    /// </summary>
+    public const int DICTIONARY_MAX_LEN = 20;
+
+    /// <summary>
+    /// Maximum length of <see cref="Value"/> field.
+    /// </summary>
+    public const int VALUE_MAX_LEN = 40;
+
+
     private static IdentifierValidator _validator;
 
     /// <summary>
     /// Authority/Realm/System of the identifier such as 'org.loinc', 'org.snomed' etc.
     /// Mandatory. Use 'local' for your own identifiers.
+    /// Up to <see cref="AUTHORITY_MAX_LEN"/> characters.
     /// </summary>
     public string Authority { get; set; }
 
     /// <summary>
     /// Dictionary (value set) for given authority, such as HL7 table number, etc.
     /// Optional.
+    /// Up to <see cref="DICTIONARY_MAX_LEN"/> characters.
     /// </summary>
     public string Dictionary { get; set; }
 
     /// <summary>
     /// Identifier value such as 'ABC-123', 'BLD', etc. 
     /// Mandatory.
+    /// Up to <see cref="VALUE_MAX_LEN"/> characters.
     /// </summary>
     public string Value { get; set; }
 
@@ -73,12 +93,16 @@ public class Identifier : IEquatable<Identifier>
     /// <inheritdoc/>
     public static bool operator !=(Identifier a, Identifier b) => (a is null && b is not null) || !(a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
 
-    /// <<inheritdoc/>
+    /// <inheritdoc/>
     public override bool Equals(object obj)
     {
         return this == (Identifier)obj;
     }
 
+    /// <summary>
+    /// Validates the object against business rules.
+    /// </summary>
+    /// <returns></returns>
     public ValidationResult Validate()
     {
         return (_validator ??= new IdentifierValidator()).Validate(this);

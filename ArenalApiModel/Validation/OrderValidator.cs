@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Skyware.Arenal.Validation;
 
@@ -21,6 +20,8 @@ public class OrderValidator : AbstractValidator<Order>
     /// All workflows, where provider is mandatory
     /// </summary>
     private static readonly string[] WORKFLOWS_W_PROVIDERS = new[] { Workflows.LAB_SCO };
+
+    private static readonly string[] WORKFLOWS_SELF = new[] { Workflows.LAB_MCP };
 
     /// <summary>
     /// Default constructor.
@@ -52,6 +53,12 @@ public class OrderValidator : AbstractValidator<Order>
                 .Must(o => !o.ProviderId.Equals(o.PlacerId, System.StringComparison.InvariantCultureIgnoreCase))
                 .WithName(x => nameof(x.ProviderId))
                 .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} {nameof(Order.ProviderId)} and {nameof(Order.PlacerId)} can't be equal.");
+        });
+        When(x => !string.IsNullOrWhiteSpace(x.Workflow) && WORKFLOWS_SELF.Any(w => w.Equals(x.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
+        {
+            RuleFor(x => x.ProviderId)
+                .Empty()
+                .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have null or empty value for {nameof(Order.ProviderId)}.");
         });
 
         //Provider's fields when placing order
