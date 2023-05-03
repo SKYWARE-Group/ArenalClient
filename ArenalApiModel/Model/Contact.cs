@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model;
+﻿using System.Collections.Generic;
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
@@ -6,6 +8,11 @@
 /// </summary>
 public class Contact
 {
+
+    /// <summary>
+    /// Maximum length of <see cref="Value"/> field.
+    /// </summary>
+    public const int VALUE_MAX_LEN = 80;
 
     /// <summary>
     /// Type of the contact, according to <see cref="ContactTypes"/>.

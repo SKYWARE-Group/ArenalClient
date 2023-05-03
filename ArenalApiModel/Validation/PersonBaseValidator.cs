@@ -25,17 +25,17 @@ public class PersonBaseValidator : AbstractValidator<PersonBase>
             .WithMessage($"{nameof(PersonBase.Identifiers)} must contain unique set of {nameof(Identifier)} (pair {nameof(Identifier.Authority)} and {nameof(Identifier.Dictionary)}).");
         RuleFor(x => x.Identifiers)
             .Must(i => i is null || i.Count() < PersonBase.MAX_IDENTIFIERS)
-            .WithMessage($"Number of {nameof(PersonBase.Identifiers)} must be less than {PersonBase.MAX_IDENTIFIERS}.");
+            .WithMessage($"The number of {nameof(PersonBase.Identifiers)} must be less than {PersonBase.MAX_IDENTIFIERS}.");
 
         //Full name
         RuleFor(x => x.FullName)
             .Length(PersonBase.NAMES_MIN_LEN, PersonBase.NAMES_MAX_LEN)
-            .WithMessage($"Total length of the names of the {nameof(Patient)} must be at least {PersonBase.NAMES_MIN_LEN} characters.");
+            .WithMessage($"Total length of the names of the {nameof(Patient)} must be between {PersonBase.NAMES_MIN_LEN} and {PersonBase.NAMES_MAX_LEN} characters.");
 
         //Contacts (if any)
         RuleFor(x => x.Contacts)
             .Must(i => i is null || i.Count() < PersonBase.MAX_CONTACTS)
-            .WithMessage($"Number of {nameof(PersonBase.Contacts)} must be less than {PersonBase.MAX_CONTACTS}.");
+            .WithMessage($"The number of {nameof(PersonBase.Contacts)} must be less than {PersonBase.MAX_CONTACTS}.");
 
     }
 
