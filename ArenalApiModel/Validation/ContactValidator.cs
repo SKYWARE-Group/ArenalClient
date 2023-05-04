@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Validators;
 using Skyware.Arenal.Filters;
 using Skyware.Arenal.Model;
 
@@ -9,8 +10,10 @@ namespace Skyware.Arenal.Validation;
 /// </summary>
 public class ContactValidator : AbstractValidator<Contact>
 {
+    /// <summary> Regex for email </summary>
+    public const string EMAIL_ADDRESS_FORMAT = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$";
     /// <summary> Regex for phone Number </summary>
-    public const string PHONE_NUMBER_FORMAT = "((\\+|00|)*)([0]*(\\(| |-)*([0-9]{0,3})(\\)| |-)*(-| |)*[0-9]{3})(-| |)*[0-9]{3}(-| |\\(\\))*[0-9]{3}(\\)| |-)*";
+    public const string PHONE_NUMBER_FORMAT = "^(\\+|00|)*([0]{0,1}(\\(| |-|)*[1-9]{0,4}(\\)| |-|\\()*[0-9]{3}(\\)| |-|\\()*[0-9]{3}(\\)| |-|\\()*[0-9]{3}(\\)| |-)*)$";
 
     /// <summary>
     /// Default constructor
@@ -28,7 +31,8 @@ public class ContactValidator : AbstractValidator<Contact>
         When(p => p.Type == ContactTypes.EMAIL, () =>
         {
             RuleFor(p => p.Value)
-                .EmailAddress()
+                .EmailAddress(EmailValidationMode.AspNetCoreCompatible)
+                .Matches(EMAIL_ADDRESS_FORMAT)
                 .WithMessage($"{nameof(Contact)} {nameof(Contact.Value)} with {nameof(Contact.Type)} {ContactTypes.EMAIL} must be valid email address.");
         });
 

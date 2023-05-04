@@ -2,7 +2,7 @@
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Validation;
 
-namespace ValidationTests;
+namespace ModelTests.ValidationTests;
 
 public class Tests
 {
@@ -46,7 +46,7 @@ public class Tests
     [TestCase("a", null, null, ExpectedResult = false)] //full name is too short
     [TestCase("John", null, "1845-01-05", ExpectedResult = false)] //Date of birth is too early
     [TestCase("John", null, "2050-01-05", ExpectedResult = false)] //Date of birth is too late
-    [TestCase("ABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZ", 
+    [TestCase("ABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZABCDEFGHIJKLMNOPQRZSUVWXYZ",
         null, null, ExpectedResult = false)] //Full name is too long
     public bool Patient_BasicTests(string given, string family, string dob)
     {
@@ -68,7 +68,7 @@ public class Tests
     public void Patient_WrongNumContacts()
     {
         Patient pat = new("John", "Doe");
-        for (int i =  0; i < PersonBase.MAX_CONTACTS + 1; i++)
+        for (int i = 0; i < PersonBase.MAX_CONTACTS + 1; i++)
         {
             pat.AddPhone("123456789");
         }
@@ -149,7 +149,7 @@ public class Tests
     [Test]
     public void LabToLab_Order_NoProv_WrongSvc()
     {
-        
+
         Order order = new Patient()
             .CreateOrder(Workflows.LAB_SCO, null, null)
             .AddService("14749-6", "Glucose")
@@ -267,7 +267,7 @@ public class Tests
 
         ValidationResult validationResult = order.Validate();
         Assert.That(validationResult.IsValid, Is.False);
-        Assert.That(validationResult.Errors.First().PropertyName ==  nameof(Order.ProviderId));
+        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
         Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
     }
 
