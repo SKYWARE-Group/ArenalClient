@@ -181,7 +181,7 @@ public static class OrderExtensions
             string ans = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             if (string.IsNullOrWhiteSpace(ans)) throw new Model.Exceptions.ArenalException((int)response.StatusCode, null);
             throw new Model.Exceptions.ArenalException(
-                (int)response.StatusCode, 
+                (int)response.StatusCode,
                 JsonSerializer.Deserialize<Model.Exceptions.ArenalError>(ans, _jOpts));
         }
 
@@ -343,6 +343,52 @@ public static class OrderExtensions
         return await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest, cancellationToken);
     }
 
+
+    /// <summary>
+    /// Takes the order 
+    /// </summary>
+    /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+    /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+    /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+    /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+    /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+    /// <exception cref="NullReferenceException">Order is null or statusRequest is null.</exception>
+    public static async Task<Order> TakeOrderAsync(
+        this HttpMessageInvoker client,
+        Order order,
+        string providerNote = null,
+        CancellationToken cancellationToken = default)
+    {
+        OrderStatusRequest statusRequest = new OrderStatusRequest()
+        {
+            NewStatus = OrderStatuses.IN_PROGRESS,
+            ProviderNote = new Note() { Value = providerNote }
+        };
+        return await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest, cancellationToken);
+    }
+
+    /// <summary>
+    /// Releases the order 
+    /// </summary>
+    /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
+    /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+    /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
+    /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
+    /// <exception cref="ArgumentNullException">The request or content was null.</exception>
+    /// <exception cref="NullReferenceException">Order is null or statusRequest is null.</exception>
+    public static async Task<Order> ReleaseOrderAsync(
+        this HttpMessageInvoker client,
+        Order order,
+        string providerNote = null,
+        CancellationToken cancellationToken = default)
+    {
+        OrderStatusRequest statusRequest = new OrderStatusRequest()
+        {
+            NewStatus = OrderStatuses.AVAILABLE,
+            ProviderNote = new Note() { Value = providerNote }
+        };
+        return await client.ChangeOrderStatusAsync(order.ArenalId, statusRequest, cancellationToken);
+    }
     #endregion
 
     //TODO: CRUD Generic?

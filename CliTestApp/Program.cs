@@ -1,4 +1,5 @@
-﻿using IdentityModel.Client;
+﻿using Flurl.Util;
+using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
 using Skyware.Arenal.Discovery;
@@ -16,7 +17,6 @@ namespace CliTestApp;
 
 public class Program
 {
-
     //Holds session-wide JWT
     private static IConfiguration? _config = null;
 
@@ -36,12 +36,21 @@ public class Program
         }
 
         //await GetFormAsync();
-        await AnsiConsole
-            .Status()
-            .StartAsync($"Executing {nameof(DoOrdersSequence)}", async (ctx) =>
-            {
-                await DoOrdersSequence();
-            });
+       await AnsiConsole
+          .Status()
+          .StartAsync($"Executing {nameof(DoOrdersSequence)}", async (ctx) =>
+          {
+              await DoOrdersSequence();
+          }
+       );
+
+        //await AnsiConsole
+        //    .Status()
+        //    .StartAsync($"Executing {nameof(TakeAndReleseOrder)}", async (ctx) =>
+        //    {
+        //        await TakeAndReleseOrder();
+        //    });
+        
         //await DoOrganizationsStuff();
         //await ChangeOrderStatusDemo();
 
@@ -88,6 +97,133 @@ public class Program
                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
         builder.AddUserSecrets<Program>();
         _config = builder.Build();
+    }
+
+
+    /// <summary>
+    /// CreatesOrder and changes its Status with convenience functions
+    /// </summary>
+    /// <returns></returns>
+    private static async Task TakeAndReleseOrder()
+    {
+        AnsiConsole.WriteLine();
+        if (_config == null) { AnsiConsole.MarkupLine("[red]Missing configuration."); return; }
+
+        using HttpClient publisher = new();
+        using HttpClient laboratory = new();
+
+        TokenResponse? tknPublisher = null;
+        TokenResponse? tknLaboratory = null;
+
+        try
+        {
+            tknPublisher = await GetTokenAsync(publisher, _config, "PubA");
+            AnsiConsole.MarkupLine("Authentication (publisher A, North Health): [green]OK[/]");
+            tknLaboratory = await GetTokenAsync(laboratory, _config, "LabA");
+            AnsiConsole.MarkupLine("Authentication (laboratory A, Precisio): [green]OK[/]");
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.WriteException(ex);
+            return;
+        }
+
+        // local server testing
+        //OrderExtensions.BaseAddress = "https://localhost:7291/";
+
+        publisher.SetBearerToken(tknPublisher?.AccessToken);
+        laboratory.SetBearerToken(tknLaboratory?.AccessToken);
+
+        Order contextOrder = FakeOrders.GetFixedDemoOrder("AD-G-2", "AD-G-1");
+        AnsiConsole.MarkupLine($"Order generated: [green]OK[/]");
+        Order createdOrder = await publisher.CreateOrdersAsync(contextOrder);
+
+        if (createdOrder == null)
+        {
+            AnsiConsole.MarkupLine($"Order published by (publisher A, North Health): [red]Failure[/]");
+            return;
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"Order published by (publisher A, North Health): [green]OK[/]");
+        }
+
+        string createdOrderJson = JsonSerializer.Serialize(
+           createdOrder,
+           new JsonSerializerOptions()
+           {
+               PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+               DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+           });
+        AnsiConsole.Write(
+            new Panel(new JsonText(createdOrderJson))
+                .Header("Newly created Order")
+                .Collapse()
+                .RoundedBorder()
+                .BorderColor(Color.Yellow));
+
+        try
+        {
+            await laboratory.TakeOrderAsync(createdOrder);
+            AnsiConsole.MarkupLine($"Order taken: [green]OK[/]");
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"Order taken: [red]Failure[/]");
+            AnsiConsole.WriteException(ex);
+            return;
+        }
+
+        /// Try to take it again must fail
+        try
+        {
+            await laboratory.TakeOrderAsync(createdOrder);
+            AnsiConsole.MarkupLine($"Try to take taken order by (laboratory A, Precisio) failure: [red]Failure[/]");
+            AnsiConsole.MarkupLine($"Order was taken while was with {OrderStatuses.IN_PROGRESS} Status: [red]");
+            return;
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"Try to take taken order failure: [green]OK[/]");
+        }
+
+        /// Try to release it by publisher A (North Health) while in taken state must fail
+        try
+        {
+            await publisher.ReleaseOrderAsync(createdOrder);
+            AnsiConsole.MarkupLine($"Order released by (publisher A, North Health) must fail: [red]Failure[/]");
+            return;
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"Order released by (publisher A, North Health) must fail: [green]OK[/]");
+        }
+
+        /// Try to release it
+        try
+        {
+            await laboratory.ReleaseOrderAsync(createdOrder);
+            AnsiConsole.MarkupLine($"Order released by (laboratory A, Precisio): [green]OK[/]");
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"Order released by (laboratory A, Precisio): [red]Failure[/]");
+            AnsiConsole.WriteException(ex);
+            return;
+        }
+
+        /// Try to release it again must fail
+        try
+        {
+            await laboratory.ReleaseOrderAsync(createdOrder, "note");
+            AnsiConsole.MarkupLine($"Try to release released order  by (laboratory A, Precisio) failure: [red]Failure[/]");
+            AnsiConsole.MarkupLine($"Order was released while was with {OrderStatuses.AVAILABLE} Status: [red]");
+            return;
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"Try to release released order  by (laboratory A, Precisio) failure: [green]OK[/]");
+        }
     }
 
     /// <summary>
