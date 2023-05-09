@@ -2,6 +2,8 @@
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Validation;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Skyware.Arenal.Validation;
 
@@ -36,6 +38,18 @@ public class PersonBaseValidator : AbstractValidator<PersonBase>
         RuleFor(x => x.Contacts)
             .Must(i => i is null || i.Count() < PersonBase.MAX_CONTACTS)
             .WithMessage($"The number of {nameof(PersonBase.Contacts)} must be less than {PersonBase.MAX_CONTACTS}.");
+
+        //Contacts diff reference and same content
+        RuleFor(x => x.Contacts)
+            .Custom((p, context) =>
+            {
+                if (p is null)
+                    return;
+
+                foreach (Contact contact in p)
+                    if (p.Any(cint => cint != contact && cint.Equals(contact)))
+                        context.AddFailure($"{nameof(PersonBase.Contacts)} can't have duplicates.");
+            });
 
     }
 
