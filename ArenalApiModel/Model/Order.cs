@@ -1,8 +1,8 @@
 ﻿using FluentValidation.Results;
-using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Skyware.Arenal.Model;
 
@@ -18,11 +18,17 @@ public class Order : EntityBase
     /// <summary>
     /// Identifies Arenal workflow.
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Workflow", Name = "Workflow", 
+        Description = "Defines the business logic for this Order. See the documentation for further details about the supported workflows.", 
+        Prompt = "Please, enter a valid Workflow.")]
     public string Workflow { get; set; }
 
     /// <summary>
     /// ArenalId of the ordering party. Set by Arenal.
     /// </summary>
+    [Display(GroupName = "Orderer", ShortName = "Placer Id", Name = "Arenal Id of the orderer",
+        Description = "Identifies the ordering party by its Arenal Id.", 
+        Prompt = "Please, set a valid Orderer.")]
     public string PlacerId { get; set; }
 
     /// <summary>
@@ -44,26 +50,36 @@ public class Order : EntityBase
     /// <summary>
     /// Date and time the order was created (UTC).
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Created", Name = "Date and time (UTC) of placing Order",
+        Description = "Date and time (UTC) when the Order is placed in the Arenal by the Orderer (read only).")]
     public DateTime? Created { get; set; }
 
     /// <summary>
     /// Date and time the order was created (Local date and time).
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Created", Name = "Date and time (local timezone) of placing Order",
+        Description = "Date and time (local timezone) when the Order is placed in the Arenal by the Orderer (read only).")]
     public DateTime? LocalCreated { get => Created?.ToLocalTime(); }
 
     /// <summary>
     /// Date and time the order was last modified (UTC).
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Modified", Name = "Date and time (UTC) the Order was modified",
+        Description = "Date and time (UTC) when the Order is modified by the Orderer (read only).")]
     public DateTime? Modified { get; set; }
 
     /// <summary>
     /// Date and time the order was last modified (Local date and time).
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Modified", Name = "Date and time (local timezone) the Order was modified",
+        Description = "Date and time (local timezone) when the Order is modified by the Orderer (read only).")]
     public DateTime? LocalModified { get => Modified?.ToLocalTime(); }
 
     /// <summary>
     /// Version (server generated), starts from 0 and increments on every update from the publisher side.
     /// </summary>
+    [Display(GroupName = "Header", ShortName = "Version", Name = "Version of the Order",
+        Description = "Version is an integer value which is incremented and every change of the Order, starting at 0 (red only).")]
     public int Version { get; set; } = 0;
 
     /// <summary>
@@ -99,11 +115,15 @@ public class Order : EntityBase
     /// <summary>
     /// Patient.
     /// </summary>
+    [Display(GroupName = "Patient", ShortName = "Patient", Name = "Patient",
+        Description = "Reference to a person who is a subject of services or examinations.")]
     public Patient Patient { get; set; }
 
     /// <summary>
     /// Additional orders or referrals, which are part of his order and ares stored and processed in external systems.
     /// </summary>
+    [Display(GroupName = "References", ShortName = "Linked referrals", Name = "Linked referrals",
+        Description = "References to referrals, placed in an external service.")]
     public IList<LinkedReferral> LinkedReferrals { get; set; }
 
     /// <summary>
@@ -113,6 +133,8 @@ public class Order : EntityBase
     /// Uniqueness is imposed on equality on <see cref="Service.ServiceId"/>.
     /// See <see cref="Identifier"/> for details.
     /// </remarks>
+    [Display(GroupName = "Services", ShortName = "Services", Name = "List of ordered services",
+        Description = "Non empty list of ordered services or examinations.", Prompt = "Please, add at least one service/examination.")]
     public IList<Service> Services { get; set; }
 
     /// <summary>
@@ -121,6 +143,8 @@ public class Order : EntityBase
     /// <remarks>
     /// Uniqueness is imposed on equality on <see cref="Sample.SampleId"/> (the barcode).
     /// </remarks>
+    [Display(GroupName = "Samples", ShortName = "Samples", Name = "List of provided samples",
+        Description = "Non empty, list of unique samples to be analyzed.", Prompt = "Please, add at least one sample.")]
     public IList<Sample> Samples { get; set; }
 
     /// <summary>
@@ -137,11 +161,12 @@ public class Order : EntityBase
     /// Instantiates minimal valid order.
     /// </summary>
     /// <param name="workflow"></param>
+    /// <param name="placerId"></param>
     /// <param name="patient"></param>
     /// <param name="services"></param>
     /// <param name="samples"></param>
     /// <param name="providerId"></param>
-    public Order(string workflow, string placerId, Patient patient, IList<Service> services = null , IList<Sample> samples = null, string providerId = null) : this()
+    public Order(string workflow, string placerId, Patient patient, IList<Service> services = null, IList<Sample> samples = null, string providerId = null) : this()
     {
         Workflow = workflow;
         Patient = patient;
