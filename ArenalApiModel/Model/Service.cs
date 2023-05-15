@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using Skyware.Arenal.Validation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 
@@ -71,6 +72,9 @@ public class Service : IEquatable<Service>
     /// <returns></returns>
     public bool Equals(Service other) => other is not null && ServiceId == other.ServiceId;
 
+    /// <inheritdoc/>
+    public override int GetHashCode() => ServiceId.GetHashCode();
+
     /// <summary>
     /// Safe method to add an alternate identifier.
     /// </summary>
@@ -117,6 +121,10 @@ public class Service : IEquatable<Service>
         return this;
     }
 
+    /// <summary>
+    /// Performs validation against business rules.
+    /// </summary>
+    /// <returns></returns>
     public ValidationResult Validate()
     {
         return (_validator ??= new ServiceValidator()).Validate(this);

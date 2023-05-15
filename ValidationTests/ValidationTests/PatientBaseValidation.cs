@@ -87,9 +87,9 @@ namespace ModelTests.ValidationTests
         }
 
         [Test]
-        public void DublicateEmailContact()
+        public void DuplicateEmailContact()
         {
-            Patient patient = new();
+            Patient patient = new("Jane", "Doe");
             patient.AddEmail("someEmail@test.com")
                    .AddEmail("someEmail@test.com");
 
