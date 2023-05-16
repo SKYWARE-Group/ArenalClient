@@ -25,7 +25,7 @@ public class Contact : IEquatable<Contact>
     /// </summary>
     [Display(GroupName = "Contact", ShortName = "Type", Name = "Type of the provided contact",
         Description = $"Enumerated types of valid contacts like email or phone etc.",
-        Prompt = "Please select contact type from the menu")]
+        Prompt = "Please, select contact type from the menu.")]
     public string Type { get; set; } = ContactTypes.PHONE;
 
     /// <summary>

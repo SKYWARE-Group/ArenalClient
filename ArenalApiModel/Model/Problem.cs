@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Skyware.Arenal.Model
 {
@@ -36,11 +36,16 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Human readable description of a problem.
         /// </summary>
+        [Display(GroupName = "Note", ShortName = "Note", Name = "Note",
+            Description = $"Description of the problem.",
+            Prompt = "Please, enter description note.")]
         public Note Note { get; set; }
 
         /// <summary>
         /// Severity of the problem.
         /// </summary>
+        [Display(GroupName = "Problem", ShortName = "Severity", Name = "Severity",
+            Description = $"Specifies the severity of a problem.")]
         public Severity Severity { get; set; } = Severity.Error;
 
     }

@@ -1,4 +1,8 @@
-﻿namespace Skyware.Arenal.Model;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
@@ -10,16 +14,22 @@ public class Diagnosis
     /// <summary>
     /// The primary (dagger) code of a diagnosis.
     /// </summary>
+    [Display(GroupName = "PrimaryCode", ShortName = "Code", Name = "Primary Code",
+        Description = "Primary code of the diagnosis.")]
     public Identifier PrimaryCode { get; set; }
 
     /// <summary>
     /// The clarification/complication (asterisk) code.
     /// </summary>
+    [Display(GroupName = "Diagnosis", ShortName = "Optional Code", Name = "Optional Code",
+        Description = "Optional code of the diagnosis.")]
     public Identifier OptionalCode { get; set; }
 
     /// <summary>
     /// The diagnosis name, according to local language.
     /// </summary>
+    [Display(GroupName = "Diagnosis", ShortName = "Name", Name = "Diagnosis name",
+        Description = "Name of the diagnosis.")]
     public string Name { get; set; }
 
     /// <summary>

@@ -1,8 +1,8 @@
-﻿using FluentValidation.Results;
-using FluentValidation;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Skyware.Arenal.Model
 {
@@ -19,17 +19,23 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample type.
         /// </summary>
+        [Display(ShortName = "Sample Type", Name = "Sample Type",
+            Description = $"Identifier of the sample type.")]
         public SampleType SampleType { get; set; }
 
         /// <summary>
         /// Identifier of the sample (barcode).
         /// </summary>
+        [Display(ShortName = "Barcode", Name = "Barcode",
+            Description = $"Barcode of the sample.")]
         public Identifier SampleId { get; set; }
 
         /// <summary>
         /// Date and time the sample has been taken (UTC).
         /// Optional.
         /// </summary>
+        [Display(ShortName = "Taken", Name = "Taken date time",
+            Description = $"Date and time the sample has been taken.")]
         public DateTime? Taken { get; set; }
 
         /// <summary>
@@ -40,12 +46,16 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Notes to the sample.
         /// </summary>
+        [Display(ShortName = "", Name = "",
+            Description = $"")]
         public Note Note { get; set; }
 
         /// <summary>
         /// List of problems reported by the provider.
         /// Preferred coding system is 'org.hl7' with dictionary '0490'
         /// </summary>
+        [Display(ShortName = "Problems", Name = "Problems",
+            Description = $"List of problems (Preferred coding system is 'org.hl7' with dictionary '0490').")]
         public IList<Problem> Problems { get; set; }
 
         /// <summary>

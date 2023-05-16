@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace Skyware.Arenal.Model;
 
@@ -7,6 +9,7 @@ namespace Skyware.Arenal.Model;
 /// <summary>
 /// Base class for patients, doctors, etc.
 /// </summary>
+[DisplayColumn(nameof(FamilyName))]
 public abstract class PersonBase
 {
     /// <summary>
@@ -39,16 +42,25 @@ public abstract class PersonBase
     /// <summary>
     /// Given (first) name of the person.
     /// </summary>
+    [Display(ShortName = "Name", Name = "Give name",
+        Description = "Given name of the person.", 
+        Prompt = "Please, enter given (first) name of the person.")]
     public string GivenName { get; set; }
 
     /// <summary>
     /// Middle (second) name of the person.
     /// </summary>
+    [Display(ShortName = "Middle name", Name = "Middle name",
+        Description = "Given name of the person.",
+        Prompt = "Please, enter middle name of the person.")]
     public string MiddleName { get; set; }
 
     /// <summary>
     /// Family name (surname) of the person.
     /// </summary>
+    [Display(ShortName = "Family name", Name = "Family name",
+        Description = "Given name of the person.",
+        Prompt = "Please, enter family name of the person.")]
     public string FamilyName { get; set; }
 
     /// <summary>
@@ -63,6 +75,9 @@ public abstract class PersonBase
     /// <summary>
     /// List of phone numbers, emails, etc.
     /// </summary>
+    [Display(ShortName = "Contacts", Name = "Contacts",
+        Description = "List of contacts added to the person.",
+        Prompt = "Please, add contact to the list.")]
     public IList<Contact> Contacts { get; set; }
 
 
