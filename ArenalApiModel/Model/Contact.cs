@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 namespace Skyware.Arenal.Model;
 
@@ -7,6 +10,7 @@ namespace Skyware.Arenal.Model;
 /// <summary>
 /// Represent a contact info, such as email, phone number, etc.
 /// </summary>
+[DisplayColumn(nameof(Type))]
 public class Contact : IEquatable<Contact>
 {
 
@@ -19,12 +23,17 @@ public class Contact : IEquatable<Contact>
     /// Type of the contact, according to <see cref="ContactTypes"/>.
     /// Required.
     /// </summary>
+    [Display(GroupName = "Contact", ShortName = "Type", Name = "Type of the provided contact",
+        Description = $"Enumerated types of valid contacts like email or phone etc.",
+        Prompt = "Please select contact type from the menu")]
     public string Type { get; set; } = ContactTypes.PHONE;
 
     /// <summary>
     /// Value of the contact, such as 'john@doe.com', etc.
     /// Required.
     /// </summary>
+    [Display(GroupName = "Contact", ShortName = "Value",
+        Description = "Value of the contact like 'john@doe.com' for email, etc.")]
     public string Value { get; set; }
 
     /// <summary>
@@ -60,9 +69,9 @@ public class Contact : IEquatable<Contact>
     /// <returns></returns>
     public bool Equals(Contact other)
     {
-        if(other == null) return false;
+        if (other == null) return false;
 
-        return string.Equals(Type,other.Type,StringComparison.OrdinalIgnoreCase)
+        return string.Equals(Type, other.Type, StringComparison.OrdinalIgnoreCase)
             && string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
     }
 }
