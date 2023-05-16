@@ -1,9 +1,12 @@
-﻿namespace Skyware.Arenal.Model;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
 /// A binary file. 
 /// </summary>
+[DisplayColumn(nameof(Name))]
 public class Attachment
 {
 
@@ -15,11 +18,14 @@ public class Attachment
     /// <summary>
     /// File name, such as 'Patient234.pdf'.
     /// </summary>
+    [Display(GroupName = "Attachment", ShortName = "File", Name = "File name")]
     public string Name { get; set; }
 
     /// <summary>
     /// Note from the placer.
     /// </summary>
+    [Display(GroupName = "Note", ShortName = "Note", Name = "Note",
+        Description = "Note from the uploader of the file.")]
     public Note Note { get; set; }
 
     /// <summary>

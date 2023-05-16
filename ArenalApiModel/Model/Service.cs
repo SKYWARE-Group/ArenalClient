@@ -2,6 +2,9 @@
 using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Skyware.Arenal.Model;
 
@@ -52,21 +55,29 @@ public class Service : IEquatable<Service>
     /// <summary>
     /// Name of the service, according to the placer (optional).
     /// </summary>
+    [Display(ShortName = "Name", Name = "Name",
+        Description = $"Name of the service, according to the placer (optional).")]
     public string Name { get; set; }
 
     /// <summary>
     /// Notes from the placer.
     /// </summary>
+    [Display(ShortName = "Note", Name = "Note",
+        Description = $"Notes from the placer.")]
     public Note Note { get; set; }
 
     /// <summary>
     /// Ordering value, according to the provider's sorting.
     /// </summary>
+    [Display(ShortName = "Rank", Name = "Rank",
+        Description = $"Value for the ordering of the services. (Priority)")]
     public int? Rank { get; set; }
 
     /// <summary>
     /// List of problems reported by the provider.
     /// </summary>
+    [Display(ShortName = "Problems", Name = "Problems",
+        Description = $"Problems reported by the provider.")]
     public IList<Problem> Problems { get; set; }
 
     /// <summary>

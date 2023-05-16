@@ -110,16 +110,22 @@ public class Order : EntityBase
     /// <summary>
     /// Notes from the placer.
     /// </summary>
+    [Display(GroupName = "Placer Note", ShortName = "Note", Name = "Note from the placer.",
+        Description = $"Note provided by the placer of the order.")]
     public Note PlacerNote { get; set; }
 
     /// <summary>
     /// Notes from the provider.
     /// </summary>
+    [Display(GroupName = "Provider Note", ShortName = "Note", Name = "Note from the provider.",
+        Description = $"Note provided by the provider of the order.")]
     public Note ProviderNote { get; set; }
 
     /// <summary>
     /// Ordering doctor.
     /// </summary>
+    [Display(GroupName = "Doctor", ShortName = "Doctor", Name = "Doctor",
+        Description = $"Reference to a doctor who is responsible for ordering the order.")]
     public Doctor Doctor { get; set; }
 
     /// <summary>
