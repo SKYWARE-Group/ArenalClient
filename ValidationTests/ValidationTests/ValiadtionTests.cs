@@ -1,6 +1,8 @@
 ﻿using FluentValidation.Results;
+using Skyware.Arenal;
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Validation;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ModelTests.ValidationTests;
 
@@ -36,7 +38,69 @@ public class Tests
 
     #region Patients
 
-    #endregion 
+    #endregion
+
+    #region Services
+
+    /// <summary>
+    /// Valid service
+    /// </summary>
+    [Test]
+    public void ServiceValid()
+    {
+        Service svc = new("14749-6", "Glucose");
+
+        ValidationResult validationResult = svc.Validate();
+        Assert.That(validationResult.IsValid, Is.True);
+        Assert.That(validationResult.Errors, Has.Count.EqualTo(0));
+    }
+
+    /// <summary>
+    /// Wrong is:
+    ///     Name (too long)
+    /// </summary>
+    [Test]
+    public void ServiceNotValidName()
+    {
+        Service svc = new("14749-6", "Glucose".Repeat(50));
+
+        ValidationResult validationResult = svc.Validate();
+        Assert.That(validationResult.IsValid, Is.False);
+        Assert.That(validationResult.Errors.First().PropertyName == nameof(Service.Name));
+    }
+
+    /// <summary>
+    /// Wrong is:
+    ///     First alternate identifier
+    /// </summary>
+    [Test]
+    public void ServiceRepeatedAltId()
+    {
+        Service svc = new Service("14749-6", "Glucose")
+            .AddAlternateIdentifier("a", "a", "a");
+
+        ValidationResult validationResult = svc.Validate();
+        Assert.That(validationResult.IsValid, Is.False);
+        Assert.That(validationResult.Errors.Any(x => x.PropertyName.StartsWith(nameof(Service.AlternateIdentifiers)) && x.Severity == FluentValidation.Severity.Error));
+    }
+
+
+    [Test]
+    [TestCase("", ExpectedResult = false)] //Empty note, invalid
+    [TestCase("a", ExpectedResult = false)] //Too short note, invalid
+    [TestCase("Note", ExpectedResult = true)] //Valid
+    [TestCase("x", ExpectedResult = false)] //Too long note ('x' will be repeated)
+    public bool ServiceWrongNote(string note)
+    {
+
+        if (!string.IsNullOrEmpty(note) && note == "x") { note = note.Repeat(Note.MAX_LEN + 1); }
+        Service svc = new Service("14749-6", "Glucose") { Note = new(note) };
+
+        ValidationResult validationResult = svc.Validate();
+        return validationResult.IsValid;
+    }
+
+    #endregion
 
     #region Orders
 
@@ -105,7 +169,7 @@ public class Tests
     ///   Publisher adds service problem
     /// </remarks>
     [Test]
-    public void LabToLab_Order_ProviderFileds()
+    public void LabToLab_Order_ProviderFieleds()
     {
 
         Order order = new Patient(null, "Doe")
@@ -149,9 +213,12 @@ public class Tests
             .AddSample("SER", null, "X456TR");
 
         ValidationResult validationResult = order.Validate();
-        Assert.That(validationResult.IsValid, Is.False);
-        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
-        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Services));
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Services));
+        });
     }
 
     /// <summary>
@@ -171,9 +238,12 @@ public class Tests
             .AddSample("SER", null, "X456TR");
 
         ValidationResult validationResult = order.Validate();
-        Assert.That(validationResult.IsValid, Is.False);
-        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
-        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Samples));
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Samples));
+        });
     }
 
     /// <summary>
@@ -192,9 +262,12 @@ public class Tests
             .AddSample("SER", null, "X456TR");
 
         ValidationResult validationResult = order.Validate();
-        Assert.That(validationResult.IsValid, Is.False);
-        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
-        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
+            Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+        });
     }
 
     /// <summary>
@@ -213,9 +286,12 @@ public class Tests
             .AddSample("SER", null, "X456TR");
 
         ValidationResult validationResult = order.Validate();
-        Assert.That(validationResult.IsValid, Is.False);
-        Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
-        Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.ProviderId));
+            Assert.That(validationResult.Errors.First().Severity == FluentValidation.Severity.Error);
+        });
     }
 
     /// <summary>

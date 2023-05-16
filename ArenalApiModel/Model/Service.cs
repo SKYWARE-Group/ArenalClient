@@ -1,10 +1,7 @@
-﻿using FluentValidation;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Skyware.Arenal.Validation;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 
 namespace Skyware.Arenal.Model;
 
@@ -14,6 +11,16 @@ namespace Skyware.Arenal.Model;
 /// </summary>
 public class Service : IEquatable<Service>
 {
+
+    /// <summary>
+    /// Maximum length of the service name.
+    /// </summary>
+    public const int NAME_MAX_LEN = 200;
+
+    /// <summary>
+    /// Maximum allowed number of alternate identifies.
+    /// </summary>
+    public const int ALTERNATE_IDENTIFIERS_MAX = 10;
 
     private static ServiceValidator _validator;
 
@@ -73,7 +80,7 @@ public class Service : IEquatable<Service>
     public bool Equals(Service other) => other is not null && ServiceId == other.ServiceId;
 
     /// <inheritdoc/>
-    public override int GetHashCode() => ServiceId.GetHashCode();
+    public override int GetHashCode() => ServiceId?.GetHashCode() ?? 0;
 
     /// <summary>
     /// Safe method to add an alternate identifier.

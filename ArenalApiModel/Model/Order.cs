@@ -13,6 +13,16 @@ namespace Skyware.Arenal.Model;
 public class Order : EntityBase
 {
 
+    /// <summary>
+    /// Maximum allowed length for local identifiers of the order.
+    /// </summary>
+    public const int MAX_ORDER_LOCAL_ID = 50;
+
+    /// <summary>
+    /// Maximum number of linked referrals.
+    /// </summary>
+    public const int MAX_LINKED_REFERRALS = 15;
+
     private static OrderValidator _validator;
 
     /// <summary>

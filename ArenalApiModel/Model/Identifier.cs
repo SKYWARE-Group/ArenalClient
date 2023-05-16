@@ -94,10 +94,7 @@ public class Identifier : IEquatable<Identifier>
     public static bool operator !=(Identifier a, Identifier b) => (a is null && b is not null) || !(a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
 
     /// <inheritdoc/>
-    public override bool Equals(object obj)
-    {
-        return this == (Identifier)obj;
-    }
+    public override bool Equals(object obj) => this == (Identifier)obj;
 
     /// <summary>
     /// Validates the object against business rules.

@@ -61,22 +61,59 @@ public class OrderValidator : AbstractValidator<Order>
                 .WithMessage(z => $"In workflow '{z.Workflow}' {nameof(Order)} must have null or empty value for {nameof(Order.ProviderId)}.");
         });
 
-        //Provider's fields when placing order
+        // PlacerOrderId
+        RuleFor(x => x.PlacerOrderId)
+            .MaximumLength(Order.MAX_ORDER_LOCAL_ID)
+            .WithMessage($"The length of the {nameof(Order.PlacerOrderId)} must be {Order.MAX_ORDER_LOCAL_ID} or less characters.");
+
+        // ProviderOrderId
+        RuleFor(x => x.ProviderOrderId)
+            .Null()
+                .When(x => x.Status == OrderStatuses.AVAILABLE)
+                .WithMessage($"{nameof(Order.ProviderOrderId)} must be null when {nameof(Order.Status)} is equals to '{OrderStatuses.AVAILABLE}'.")
+            .MaximumLength(Order.MAX_ORDER_LOCAL_ID)
+                .When(x => x.Status != OrderStatuses.AVAILABLE)
+                .WithMessage($"The length of the {nameof(Order.ProviderOrderId)} must be {Order.MAX_ORDER_LOCAL_ID} or less characters.");
+
+
+        // PlacerNote (if presents)
+        RuleFor(x => x.PlacerNote)
+            .SetValidator(new NoteValidator())
+            .When(x => x.PlacerNote is not null);
+
+        //Doctor -----------
+
+        // ProviderNote
         When(x => x.Status == OrderStatuses.AVAILABLE, () =>
         {
+            // When placing order
             RuleFor(x => x.ProviderNote)
                 .Null()
                 .WithMessage($"When {nameof(Order.Status)} is '{OrderStatuses.AVAILABLE}', {nameof(Order.ProviderNote)} must be null.");
+        }).Otherwise(() =>
+        {
+            // When taking/rejecting
+            RuleFor(x => x.ProviderNote)
+                .SetValidator(new NoteValidator())
+                .When(x => x.ProviderNote is not null);
         });
 
-        //Patient (required)
+        // Patient (required)
         RuleFor(x => x.Patient)
             .Cascade(CascadeMode.Stop)
             .NotNull()
             .WithMessage($"{nameof(Order)} must have a non-null {nameof(Order.Patient)}.")
             .SetValidator(new PatientValidator());
 
-        //Services (required and valid)
+        // LinkedReferrals
+        RuleFor(x => x.LinkedReferrals)
+            .Cascade(CascadeMode.Stop)
+            .Must(x => x.Count() <= Order.MAX_LINKED_REFERRALS)
+                .When(x => x.LinkedReferrals is not null)
+                .WithMessage($"{nameof(Order.LinkedReferrals)} must contains maximum {Order.MAX_LINKED_REFERRALS} items.");
+        //TODO: Implement LinkedReferral validator 
+
+        // Services (required and valid)
         RuleFor(x => x.Services)
             .Cascade(CascadeMode.Stop)
             .NotEmpty()
@@ -86,7 +123,7 @@ public class OrderValidator : AbstractValidator<Order>
         RuleForEach(x => x.Services)
             .SetValidator(z => new ServiceValidator(z.Status));
 
-        //Samples (conditional)
+        // Samples (conditional)
         When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(o.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
         {
             RuleFor(ord => ord.Samples)
@@ -99,8 +136,8 @@ public class OrderValidator : AbstractValidator<Order>
         When(x => x.Samples is not null, () =>
         {
             RuleFor(x => x.Samples)
-            .Must(s => s.GroupBy(z => z.SampleId).Any(c => c.Count() == 1))
-            .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
+                .Must(s => s.GroupBy(z => z.SampleId).Any(c => c.Count() == 1))
+                .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
         });
     }
 

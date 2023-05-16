@@ -39,6 +39,7 @@ public class PersonBaseValidator : AbstractValidator<PersonBase>
             .Must(i => i is null || i.Count() < PersonBase.MAX_CONTACTS)
             .WithMessage($"The number of {nameof(PersonBase.Contacts)} must be less than {PersonBase.MAX_CONTACTS}.");
 
+        //Uniqueness of the contacts (if any)
         When(x => x.Contacts is not null, () =>
         {
             RuleFor(x => x)
