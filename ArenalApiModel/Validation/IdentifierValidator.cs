@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿// Ignore Spelling: dict
+
+using FluentValidation;
 using Skyware.Arenal.Model;
 using System.Linq;
 

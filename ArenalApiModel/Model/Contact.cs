@@ -74,4 +74,8 @@ public class Contact : IEquatable<Contact>
         return string.Equals(Type, other.Type, StringComparison.OrdinalIgnoreCase)
             && string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
     }
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => $"{Type.EmptyIfNull().ToLower()}{Value.EmptyIfNull().ToLower()}".GetHashCode();
+
 }

@@ -235,7 +235,7 @@ public class Order : EntityBase
     /// Validates the order against business logic.
     /// </summary>
     /// <returns></returns>
-    public ValidationResult Validate()
+    public FluentValidation.Results.ValidationResult Validate()
     {
         return (_validator ??= new OrderValidator()).Validate(this);
     }

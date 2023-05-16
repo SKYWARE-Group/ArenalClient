@@ -39,17 +39,13 @@ public class PersonBaseValidator : AbstractValidator<PersonBase>
             .Must(i => i is null || i.Count() < PersonBase.MAX_CONTACTS)
             .WithMessage($"The number of {nameof(PersonBase.Contacts)} must be less than {PersonBase.MAX_CONTACTS}.");
 
-        //Contacts diff reference and same content
-        RuleFor(x => x.Contacts)
-            .Custom((p, context) =>
-            {
-                if (p is null)
-                    return;
-
-                foreach (Contact contact in p)
-                    if (p.Any(cint => cint != contact && cint.Equals(contact)))
-                        context.AddFailure($"{nameof(PersonBase.Contacts)} can't have duplicates.");
-            });
+        When(x => x.Contacts is not null, () =>
+        {
+            RuleFor(x => x)
+                .Must(c => c.Contacts.GroupBy(cont => cont).Any(cg => cg.Count() == 1))
+                .WithName(nameof(PersonBase.Contacts))
+                .WithMessage($"{nameof(PersonBase.Contacts)} must contain unique set of {nameof(Contact)}.");
+        });
 
     }
 
