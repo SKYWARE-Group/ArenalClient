@@ -43,6 +43,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="L10n\Address.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Address.resx</DependentUpon>
+    </Compile>
     <Compile Update="L10n\Sample.bg.Designer.cs">
       <DependentUpon>Sample.bg.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -66,6 +71,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="L10n\Address.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Address.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Sample.bg.resx">
       <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
