@@ -63,14 +63,14 @@ public class Order : EntityBase
     [Display(GroupName = nameof(L10n.Order.ProviderGroup), ShortName = nameof(L10n.Order.ProviderOrderShortName), Name = nameof(L10n.Order.ProviderOrderName),
         Description = nameof(L10n.Order.ProviderOrderDescription),
         Prompt = nameof(L10n.Order.ProviderOrderPrompt), ResourceType = typeof(L10n.Order))]
-    public string ProviderOrderId { get; set; } 
+    public string ProviderOrderId { get; set; }
 
     /// <summary>
     /// Date and time the order was created (UTC).
     /// </summary>
     [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.CreatedShortName),
         Name = nameof(L10n.Order.CreatedName),
-        Description = nameof(L10n.Order.CreatedDescription))]
+        Description = nameof(L10n.Order.CreatedDescription), ResourceType = typeof(L10n.Order))]
     public DateTime? Created { get; set; }
 
     /// <summary>
@@ -78,85 +78,111 @@ public class Order : EntityBase
     /// </summary>
     [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.CreatedShortName),
         Name = nameof(L10n.Order.LocalCreatedName),
-        Description = nameof(L10n.Order.LocalCreatedDescription))]
+        Description = nameof(L10n.Order.LocalCreatedDescription), ResourceType = typeof(L10n.Order))]
     public DateTime? LocalCreated { get => Created?.ToLocalTime(); }
 
     /// <summary>
     /// Date and time the order was last modified (UTC).
     /// </summary>
     [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.Modified), Name = nameof(L10n.Order.ModifiedName),
-        Description = nameof(L10n.Order.ModifiedDescription))]
+        Description = nameof(L10n.Order.ModifiedDescription), ResourceType = typeof(L10n.Order))]
     public DateTime? Modified { get; set; }
 
     /// <summary>
     /// Date and time the order was last modified (Local date and time).
     /// </summary>
     [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.Modified), Name = nameof(L10n.Order.LocalModifiedName),
-        Description = nameof(L10n.Order.LocalModifiedDescription))]
-    public DateTime? LocalModified { get => Modified?.ToLocalTime(); } 
+        Description = nameof(L10n.Order.LocalModifiedDescription), ResourceType = typeof(L10n.Order))]
+    public DateTime? LocalModified { get => Modified?.ToLocalTime(); }
 
     /// <summary>
     /// Version (server generated), starts from 0 and increments on every update from the publisher side.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.VersionShortName), 
+    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.VersionShortName),
         Name = nameof(L10n.Order.VersionName),
-        Description = nameof(L10n.Order.VersionDescription))]
+        Description = nameof(L10n.Order.VersionDescription), ResourceType = typeof(L10n.Order))]
     public int Version { get; set; } = 0;
 
     /// <summary>
     /// Date and time when the order is taken or rejected by the provider (UTC).
     /// </summary>
-    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.TakenOrRejectedShortName), 
-    Name = nameof(L10n.Order.TakenOrRejectedName),
-        Description = nameof(L10n.Order.TakenOrRejectedDescription))]
+    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.TakenOrRejectedShortName),
+        Name = nameof(L10n.Order.TakenOrRejectedName),
+        Description = nameof(L10n.Order.TakenOrRejectedDescription), ResourceType = typeof(L10n.Order))]
     public DateTime? TakenOrRejected { get; set; }
 
     /// <summary>
     /// Date and time when the order is taken or rejected by the provider (Local date and time).
     /// </summary>
-    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.TakenOrRejectedShortName),
-    Name = nameof(L10n.Order.TakenOrRejectedName),
-        Description = nameof(L10n.Order.TakenOrRejectedDescription))]
-    public DateTime? LocalTakenOrRejected { get => TakenOrRejected?.ToLocalTime(); } 
+    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.LocalTakenOrRejectedShortName),
+        Name = nameof(L10n.Order.LocalTakenOrRejectedName),
+        Description = nameof(L10n.Order.LocalTakenOrRejectedDescription), ResourceType = typeof(L10n.Order))]
+    public DateTime? LocalTakenOrRejected { get => TakenOrRejected?.ToLocalTime(); }
 
     /// <summary>
     /// Order status, according to <see cref="OrderStatuses"/>.
     /// </summary>
-    public string Status { get; set; } = OrderStatuses.AVAILABLE; //TODO: Display with l10n
+    [Display(GroupName = nameof(L10n.Order.GeneralGroup), 
+        ShortName = nameof(L10n.Order.StatusShortName),
+        Name = nameof(L10n.Order.StatusName),
+        Description = nameof(L10n.Order.StatusDescription),
+        Prompt = nameof(L10n.Order.StatusPrompt), 
+        ResourceType = typeof(L10n.Order))]
+    public string Status { get; set; } = OrderStatuses.AVAILABLE; 
 
     /// <summary>
     /// Notes from the placer.
     /// </summary>
-    [Display(GroupName = "Placer Note", ShortName = "Note", Name = "Note from the placer.",
-        Description = $"Note provided by the placer of the order.")]
+    [Display(GroupName = nameof(L10n.Order.PlacerNoteGroup), 
+        ShortName = nameof(L10n.Order.PlacerNoteShortName),
+        Name = nameof(L10n.Order.PlacerNoteName),
+        Description = nameof(L10n.Order.PlacerNoteDescription),
+        Prompt = nameof(L10n.Order.PlacerNotePrompt),
+        ResourceType = typeof(L10n.Order))]
     public Note PlacerNote { get; set; }
 
     /// <summary>
     /// Notes from the provider.
     /// </summary>
-    [Display(GroupName = "Provider Note", ShortName = "Note", Name = "Note from the provider.",
-        Description = $"Note provided by the provider of the order.")]
+    [Display(GroupName = nameof(L10n.Order.ProviderNoteGroup),
+        ShortName = nameof(L10n.Order.ProviderNoteShortName),
+        Name = nameof(L10n.Order.ProviderNoteName),
+        Description = nameof(L10n.Order.ProviderNoteDescription),
+        Prompt = nameof(L10n.Order.ProviderNotePrompt),
+        ResourceType = typeof(L10n.Order))]
     public Note ProviderNote { get; set; }
 
     /// <summary>
     /// Ordering doctor.
     /// </summary>
-    [Display(GroupName = "Doctor", ShortName = "Doctor", Name = "Doctor",
-        Description = $"Reference to a doctor who is responsible for ordering the order.")]
+    [Display(GroupName = nameof(L10n.Order.DoctorGroupName),
+        ShortName = nameof(L10n.Order.DoctorShortName),
+        Name = nameof(L10n.Order.DoctorName),
+        Description = nameof(L10n.Order.DoctorDescription),
+        Prompt = nameof(L10n.Order.DoctorPrompt),
+        ResourceType = typeof(L10n.Order))]
     public Doctor Doctor { get; set; }
 
     /// <summary>
     /// Patient.
     /// </summary>
-    [Display(GroupName = "Patient", ShortName = "Patient", Name = "Patient",
-        Description = "Reference to a person who is a subject of services or examinations.")]
+    [Display(GroupName = nameof(L10n.Order.PatientGroupName),
+        ShortName = nameof(L10n.Order.PatientShortName),
+        Name = nameof(L10n.Order.PatientName),
+        Description = nameof(L10n.Order.PatientDescription),
+        Prompt = nameof(L10n.Order.PatientPrompt),
+        ResourceType = typeof(L10n.Order))]
     public Patient Patient { get; set; }
 
     /// <summary>
-    /// Additional orders or referrals, which are part of his order and ares stored and processed in external systems.
+    /// Additional orders or referrals, which are part of this order and ares stored and processed in external systems.
     /// </summary>
-    [Display(GroupName = "References", ShortName = "Linked referrals", Name = "Linked referrals",
-        Description = "References to referrals, placed in an external service.")]
+    [Display(GroupName = nameof(L10n.Order.LinkedReferralsGroupName),
+        ShortName = nameof(L10n.Order.LinkedReferralsShortName),
+        Name = nameof(L10n.Order.LinkedReferralsName),
+        Description = nameof(L10n.Order.LinkedReferralsDescription),
+        Prompt = nameof(L10n.Order.LinkedReferralsPrompt),
+        ResourceType = typeof(L10n.Order))]
     public IList<LinkedReferral> LinkedReferrals { get; set; }
 
     /// <summary>
@@ -166,8 +192,12 @@ public class Order : EntityBase
     /// Uniqueness is imposed on equality on <see cref="Service.ServiceId"/>.
     /// See <see cref="Identifier"/> for details.
     /// </remarks>
-    [Display(GroupName = "Services", ShortName = "Services", Name = "List of ordered services",
-        Description = "Non empty list of ordered services or examinations.", Prompt = "Please, add at least one service/examination.")]
+    [Display(GroupName = nameof(L10n.Order.ServicesGroupName),
+        ShortName = nameof(L10n.Order.ServicesShortName),
+        Name = nameof(L10n.Order.ServicesName),
+        Description = nameof(L10n.Order.ServicesDescription),
+        Prompt = nameof(L10n.Order.ServicesPrompt),
+        ResourceType = typeof(L10n.Order))]
     public IList<Service> Services { get; set; }
 
     /// <summary>
@@ -176,14 +206,24 @@ public class Order : EntityBase
     /// <remarks>
     /// Uniqueness is imposed on equality on <see cref="Sample.SampleId"/> (the barcode).
     /// </remarks>
-    [Display(GroupName = "Samples", ShortName = "Samples", Name = "List of provided samples",
-        Description = "Non empty, list of unique samples to be analyzed.", Prompt = "Please, add at least one sample.")]
+    [Display(GroupName = nameof(L10n.Order.SamplesGroupName),
+        ShortName = nameof(L10n.Order.SamplesShortName),
+        Name = nameof(L10n.Order.SamplesName),
+        Description = nameof(L10n.Order.SamplesDescription),
+        Prompt = nameof(L10n.Order.SamplesPrompt),
+        ResourceType = typeof(L10n.Order))]
     public IList<Sample> Samples { get; set; }
 
     /// <summary>
     /// Order related files.
     /// </summary>
-    public IList<Attachment> Attachments { get; set; } //TODO: Display with l10n
+    [Display(GroupName = nameof(L10n.Order.AttachmentsGroupName),
+        ShortName = nameof(L10n.Order.AttachmentsShortName),
+        Name = nameof(L10n.Order.AttachmentsName),
+        Description = nameof(L10n.Order.AttachmentsDescription),
+        Prompt = nameof(L10n.Order.AttachmentsPrompt),
+        ResourceType = typeof(L10n.Order))]
+    public IList<Attachment> Attachments { get; set; }
 
     /// <summary>
     /// Default constructor.

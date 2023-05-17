@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AttachmentsDescription" xml:space="preserve">
+    <value>Допълнения към поръчката напр. файлове, снимки и т.н.</value>
+  </data>
+  <data name="AttachmentsGroupName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
+  <data name="AttachmentsName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
+  <data name="AttachmentsPrompt" xml:space="preserve">
+    <value>Моля, добавете съпътстващите файлове.</value>
+  </data>
+  <data name="AttachmentsShortName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Създадена </value>
   </data>
@@ -129,8 +144,38 @@
   <data name="CreatedShortName" xml:space="preserve">
     <value>Създадена</value>
   </data>
+  <data name="DoctorDescription" xml:space="preserve">
+    <value>Доктор, с когото е свързана поръчката. Поръчител на поръчката.</value>
+  </data>
+  <data name="DoctorGroupName" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
+  <data name="DoctorPrompt" xml:space="preserve">
+    <value>Моля, изберете доктор поръчител на поръчката.</value>
+  </data>
+  <data name="DoctorShortName" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
   <data name="GeneralGroup" xml:space="preserve">
     <value>Общи</value>
+  </data>
+  <data name="LinkedReferralsDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LinkedReferralsGroupName" xml:space="preserve">
+    <value>Допълнителни</value>
+  </data>
+  <data name="LinkedReferralsName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LinkedReferralsPrompt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LinkedReferralsShortName" xml:space="preserve">
+    <value />
   </data>
   <data name="LocalCreatedDescription" xml:space="preserve">
     <value>Дата и час на публикуване (местно време)</value>
@@ -165,6 +210,21 @@
   <data name="OrdererGroup" xml:space="preserve">
     <value>Поръчител</value>
   </data>
+  <data name="PatientDescription" xml:space="preserve">
+    <value>Пациент, свързан с поръчката, обект на изследване.</value>
+  </data>
+  <data name="PatientGroupName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PatientName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PatientPrompt" xml:space="preserve">
+    <value>Моля, изберете пациент.</value>
+  </data>
+  <data name="PatientShortName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
   <data name="PlacerIdDescription" xml:space="preserve">
     <value>Идентифицира поръчващата страна чрез нейния Аренал Ид.</value>
   </data>
@@ -176,6 +236,21 @@
   </data>
   <data name="PlacerIdShortName" xml:space="preserve">
     <value>Ид на поръчител</value>
+  </data>
+  <data name="PlacerNoteDescription" xml:space="preserve">
+    <value>Забележка от поръчителя на поръчката.</value>
+  </data>
+  <data name="PlacerNoteGroup" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="PlacerNoteName" xml:space="preserve">
+    <value>Забележка от поръчител</value>
+  </data>
+  <data name="PlacerNotePrompt" xml:space="preserve">
+    <value>Моля, попълнете забележка, oт поръчител.</value>
+  </data>
+  <data name="PlacerNoteShortName" xml:space="preserve">
+    <value>Забележка</value>
   </data>
   <data name="PlacerOrderDescription" xml:space="preserve">
     <value>Идентификатор от поръчителя на поръчката (незадължителен). Генериран от страна по поръчителя на поръчката.</value>
@@ -204,6 +279,21 @@
   <data name="ProviderIdShortName" xml:space="preserve">
     <value>Ид на доставчик</value>
   </data>
+  <data name="ProviderNoteDescription" xml:space="preserve">
+    <value>Забележка от доставчика на поръчката.</value>
+  </data>
+  <data name="ProviderNoteGroup" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="ProviderNoteName" xml:space="preserve">
+    <value>Забележка от доставчик</value>
+  </data>
+  <data name="ProviderNotePrompt" xml:space="preserve">
+    <value>Моля, попълнете забележка от доставчик.</value>
+  </data>
+  <data name="ProviderNoteShortName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
   <data name="ProviderOrderDescription" xml:space="preserve">
     <value>Идентификатор от изпълнителя на поръчката (незадължителен). Генериран от страна по изпълнителя на поръчката.</value>
   </data>
@@ -215,6 +305,48 @@
   </data>
   <data name="ProviderOrderShortName" xml:space="preserve">
     <value>Идентификатор (доставчик).</value>
+  </data>
+  <data name="SamplesDescription" xml:space="preserve">
+    <value>Списък с проби за изследване. Задължително е да съдържа поне една проба.</value>
+  </data>
+  <data name="SamplesGroupName" xml:space="preserve">
+    <value>Проби</value>
+  </data>
+  <data name="SamplesName" xml:space="preserve">
+    <value>Списъл с проби.</value>
+  </data>
+  <data name="SamplesPrompt" xml:space="preserve">
+    <value>Моля, добавете поне една проба.</value>
+  </data>
+  <data name="SamplesShortName" xml:space="preserve">
+    <value>Проби</value>
+  </data>
+  <data name="ServicesDescription" xml:space="preserve">
+    <value>Списък с поръчани услуги/изследвания. Трябва да съдържа поне едно изследване.</value>
+  </data>
+  <data name="ServicesGroupName" xml:space="preserve">
+    <value>Услуги</value>
+  </data>
+  <data name="ServicesName" xml:space="preserve">
+    <value>Списък с поръчани услуги/изследвания</value>
+  </data>
+  <data name="ServicesPrompt" xml:space="preserve">
+    <value>Моля, добавете поне една услуга или изследване.</value>
+  </data>
+  <data name="ServicesShortName" xml:space="preserve">
+    <value>Услуги/Изследвания</value>
+  </data>
+  <data name="StatusDescription" xml:space="preserve">
+    <value>Статус на поръчката например (Свободна, Отказана и др.)</value>
+  </data>
+  <data name="StatusName" xml:space="preserve">
+    <value>Статус на поръчката</value>
+  </data>
+  <data name="StatusPrompt" xml:space="preserve">
+    <value>Моля, изберете статус на поръчката.</value>
+  </data>
+  <data name="StatusShortName" xml:space="preserve">
+    <value>Статус</value>
   </data>
   <data name="TakenOrRejectedDescription" xml:space="preserve">
     <value>Дата и час, когато поръчката е приета или отказана от прана на доставчика (координирано универсално време).</value>
