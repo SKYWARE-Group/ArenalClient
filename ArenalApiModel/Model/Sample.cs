@@ -1,6 +1,7 @@
 ﻿using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
@@ -19,8 +20,9 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample type.
         /// </summary>
-        [Display(ShortName = "Sample Type", Name = "Sample Type",
-            Description = $"Identifier of the sample type.")]
+        [Display(ShortName = nameof(L10n.Sample.SampleTypeShortName), Name = nameof(L10n.Sample.SampleTypeName),
+            Description = nameof(L10n.Sample.SampleTypeDescription), Prompt = nameof(L10n.Sample.SampleTypePrompt),
+            ResourceType = typeof(L10n.Sample))]
         public SampleType SampleType { get; set; }
 
         /// <summary>

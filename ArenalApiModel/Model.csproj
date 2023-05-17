@@ -43,6 +43,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="L10n\Sample.bg.Designer.cs">
+      <DependentUpon>Sample.bg.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="L10n\Sample.Designer.cs">
+      <DependentUpon>Sample.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="L10n\Order.bg.Designer.cs">
       <DependentUpon>Order.bg.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -56,6 +66,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="L10n\Sample.bg.resx">
+      <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Sample.resx">
+      <LastGenOutput>Sample.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Order.bg.resx">
       <LastGenOutput>Order.bg.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
