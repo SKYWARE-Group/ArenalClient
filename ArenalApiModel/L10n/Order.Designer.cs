@@ -61,11 +61,137 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created.
+        /// </summary>
+        public static string Created {
+            get {
+                return ResourceManager.GetString("Created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (UTC) when the Order is placed in the Arenal by the Orderer (read only)..
+        /// </summary>
+        public static string CreatedDescription {
+            get {
+                return ResourceManager.GetString("CreatedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (UTC) of placing Order.
+        /// </summary>
+        public static string CreatedName {
+            get {
+                return ResourceManager.GetString("CreatedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created.
+        /// </summary>
+        public static string CreatedShortName {
+            get {
+                return ResourceManager.GetString("CreatedShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         public static string GeneralGroup {
             get {
                 return ResourceManager.GetString("GeneralGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (local timezone) of placing Order.
+        /// </summary>
+        public static string LocalCreatedDescription {
+            get {
+                return ResourceManager.GetString("LocalCreatedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (local timezone) of placing Order.
+        /// </summary>
+        public static string LocalCreatedName {
+            get {
+                return ResourceManager.GetString("LocalCreatedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (local timezone) when the Order is modified by the Orderer (read only)..
+        /// </summary>
+        public static string LocalModifiedDescription {
+            get {
+                return ResourceManager.GetString("LocalModifiedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (local timezone) the Order was modified.
+        /// </summary>
+        public static string LocalModifiedName {
+            get {
+                return ResourceManager.GetString("LocalModifiedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time when the order is taken or rejected by the provider (Local time)..
+        /// </summary>
+        public static string LocalTakenOrRejectedDescription {
+            get {
+                return ResourceManager.GetString("LocalTakenOrRejectedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time when order is taken or rejected (Local Time).
+        /// </summary>
+        public static string LocalTakenOrRejectedName {
+            get {
+                return ResourceManager.GetString("LocalTakenOrRejectedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken or rejected (Local Time).
+        /// </summary>
+        public static string LocalTakenOrRejectedShortName {
+            get {
+                return ResourceManager.GetString("LocalTakenOrRejectedShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified.
+        /// </summary>
+        public static string Modified {
+            get {
+                return ResourceManager.GetString("Modified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (UTC) when the Order is modified by the Orderer (read only)..
+        /// </summary>
+        public static string ModifiedDescription {
+            get {
+                return ResourceManager.GetString("ModifiedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time (UTC) the Order was modified.
+        /// </summary>
+        public static string ModifiedName {
+            get {
+                return ResourceManager.GetString("ModifiedName", resourceCulture);
             }
         }
         
@@ -111,6 +237,177 @@ namespace Skyware.Arenal.L10n {
         public static string PlacerIdShortName {
             get {
                 return ResourceManager.GetString("PlacerIdShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placer&apos;s order identifier (optional). This is the identifier generated by the party which places the order..
+        /// </summary>
+        public static string PlacerOrderDescription {
+            get {
+                return ResourceManager.GetString("PlacerOrderDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Id generated by the placer..
+        /// </summary>
+        public static string PlacerOrderName {
+            get {
+                return ResourceManager.GetString("PlacerOrderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, set a valid Order from the placer&apos;s side..
+        /// </summary>
+        public static string PlacerOrderPrompt {
+            get {
+                return ResourceManager.GetString("PlacerOrderPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placer&apos;s order Id.
+        /// </summary>
+        public static string PlacerOrderShortName {
+            get {
+                return ResourceManager.GetString("PlacerOrderShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provider.
+        /// </summary>
+        public static string ProviderGroup {
+            get {
+                return ResourceManager.GetString("ProviderGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ArenalId of the service provider to which this order is intended (conditional)..
+        /// </summary>
+        public static string ProviderIdDescription {
+            get {
+                return ResourceManager.GetString("ProviderIdDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arenal Id of the provider.
+        /// </summary>
+        public static string ProviderIdName {
+            get {
+                return ResourceManager.GetString("ProviderIdName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, set valid Provider..
+        /// </summary>
+        public static string ProviderIdPrompt {
+            get {
+                return ResourceManager.GetString("ProviderIdPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provider Id.
+        /// </summary>
+        public static string ProviderIdShortName {
+            get {
+                return ResourceManager.GetString("ProviderIdShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provider&apos;s order identifier (optional). This is the identifier generated by the party which consumes the order..
+        /// </summary>
+        public static string ProviderOrderDescription {
+            get {
+                return ResourceManager.GetString("ProviderOrderDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order Id generated by the provider..
+        /// </summary>
+        public static string ProviderOrderName {
+            get {
+                return ResourceManager.GetString("ProviderOrderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, set a valid Order from the provider&apos;s side..
+        /// </summary>
+        public static string ProviderOrderPrompt {
+            get {
+                return ResourceManager.GetString("ProviderOrderPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provider&apos;s order id..
+        /// </summary>
+        public static string ProviderOrderShortName {
+            get {
+                return ResourceManager.GetString("ProviderOrderShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time when the order is taken or rejected by the provider (UTC)..
+        /// </summary>
+        public static string TakenOrRejectedDescription {
+            get {
+                return ResourceManager.GetString("TakenOrRejectedDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time when order is taken or rejected.
+        /// </summary>
+        public static string TakenOrRejectedName {
+            get {
+                return ResourceManager.GetString("TakenOrRejectedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken or rejected.
+        /// </summary>
+        public static string TakenOrRejectedShortName {
+            get {
+                return ResourceManager.GetString("TakenOrRejectedShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version is an integer value which is incremented and every change of the Order, starting at 0 (red only)..
+        /// </summary>
+        public static string VersionDescription {
+            get {
+                return ResourceManager.GetString("VersionDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version of the Order.
+        /// </summary>
+        public static string VersionName {
+            get {
+                return ResourceManager.GetString("VersionName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string VersionShortName {
+            get {
+                return ResourceManager.GetString("VersionShortName", resourceCulture);
             }
         }
         

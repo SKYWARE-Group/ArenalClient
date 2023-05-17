@@ -117,8 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Created" xml:space="preserve">
+    <value>Създадена </value>
+  </data>
+  <data name="CreatedDescription" xml:space="preserve">
+    <value>Дата и час на публикуване на поръчката в Аренал от страна на поръчителя.</value>
+  </data>
+  <data name="CreatedName" xml:space="preserve">
+    <value>Дата и час на публикуване.</value>
+  </data>
+  <data name="CreatedShortName" xml:space="preserve">
+    <value>Създадена</value>
+  </data>
   <data name="GeneralGroup" xml:space="preserve">
     <value>Общи</value>
+  </data>
+  <data name="LocalCreatedDescription" xml:space="preserve">
+    <value>Дата и час на публикуване (местно време)</value>
+  </data>
+  <data name="LocalCreatedName" xml:space="preserve">
+    <value>Дата и час на публикуване (местно време)</value>
+  </data>
+  <data name="LocalModifiedDescription" xml:space="preserve">
+    <value>Дата и час на последната промяна в поръчката (местно време).</value>
+  </data>
+  <data name="LocalModifiedName" xml:space="preserve">
+    <value>Дата и час на последна промяна (местно време).</value>
+  </data>
+  <data name="LocalTakenOrRejectedDescription" xml:space="preserve">
+    <value>Дата и час, когато поръчката е приета или отказана от прана на доставчика (местно време).</value>
+  </data>
+  <data name="LocalTakenOrRejectedName" xml:space="preserve">
+    <value>Дата и час на приемане или отказ (местно време)</value>
+  </data>
+  <data name="LocalTakenOrRejectedShortName" xml:space="preserve">
+    <value>Приета или отказана (местно време)</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Промяна</value>
+  </data>
+  <data name="ModifiedDescription" xml:space="preserve">
+    <value>Дата и час на последната промяна в поръчката.</value>
+  </data>
+  <data name="ModifiedName" xml:space="preserve">
+    <value>Дата и час на последна промяна</value>
   </data>
   <data name="OrdererGroup" xml:space="preserve">
     <value>Поръчител</value>
@@ -134,6 +176,63 @@
   </data>
   <data name="PlacerIdShortName" xml:space="preserve">
     <value>Ид на поръчител</value>
+  </data>
+  <data name="PlacerOrderDescription" xml:space="preserve">
+    <value>Идентификатор от поръчителя на поръчката (незадължителен). Генериран от страна по поръчителя на поръчката.</value>
+  </data>
+  <data name="PlacerOrderName" xml:space="preserve">
+    <value>Ид на поръчката, от страна на поръчителя.</value>
+  </data>
+  <data name="PlacerOrderPrompt" xml:space="preserve">
+    <value>Моля, изберете валиден идентификатор поръчката от страна на поръчителя.</value>
+  </data>
+  <data name="PlacerOrderShortName" xml:space="preserve">
+    <value>Идентификатор (поръчител).</value>
+  </data>
+  <data name="ProviderGroup" xml:space="preserve">
+    <value>Доставчик</value>
+  </data>
+  <data name="ProviderIdDescription" xml:space="preserve">
+    <value>Аренал Ид на доставчика на услугата, предназначен на тази поръчка (в зависимост от работния процес).</value>
+  </data>
+  <data name="ProviderIdName" xml:space="preserve">
+    <value>Аренал Ид на доставчик</value>
+  </data>
+  <data name="ProviderIdPrompt" xml:space="preserve">
+    <value>Моля, изберете доставчик.</value>
+  </data>
+  <data name="ProviderIdShortName" xml:space="preserve">
+    <value>Ид на доставчик</value>
+  </data>
+  <data name="ProviderOrderDescription" xml:space="preserve">
+    <value>Идентификатор от изпълнителя на поръчката (незадължителен). Генериран от страна по изпълнителя на поръчката.</value>
+  </data>
+  <data name="ProviderOrderName" xml:space="preserve">
+    <value>Идентификатор генериран от доставчика.</value>
+  </data>
+  <data name="ProviderOrderPrompt" xml:space="preserve">
+    <value>Моля, изберете валиден идентификатор поръчката от страна на доставчика.</value>
+  </data>
+  <data name="ProviderOrderShortName" xml:space="preserve">
+    <value>Идентификатор (доставчик).</value>
+  </data>
+  <data name="TakenOrRejectedDescription" xml:space="preserve">
+    <value>Дата и час, когато поръчката е приета или отказана от прана на доставчика (координирано универсално време).</value>
+  </data>
+  <data name="TakenOrRejectedName" xml:space="preserve">
+    <value>Дата и час на приемане или отказ</value>
+  </data>
+  <data name="TakenOrRejectedShortName" xml:space="preserve">
+    <value>Приета или отказана</value>
+  </data>
+  <data name="VersionDescription" xml:space="preserve">
+    <value>Цяло число, което се инкрементира всеки път когато има промяна в поръчката, започва от 0, само за четене.</value>
+  </data>
+  <data name="VersionName" xml:space="preserve">
+    <value>Версия на поръчката</value>
+  </data>
+  <data name="VersionShortName" xml:space="preserve">
+    <value>Версия</value>
   </data>
   <data name="WorkflowDescription" xml:space="preserve">
     <value>Определя правилата за Поръчка според работния процес. Вижте документацията за поддържаните работни процеси.</value>
