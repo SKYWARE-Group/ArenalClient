@@ -48,8 +48,8 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Notes to the sample.
         /// </summary>
-        [Display(ShortName = "", Name = "",
-            Description = $"")]
+        [Display(ShortName = "Note", Name = "Note",
+            Description = $"Note to the sample, such as 'Sample may be contaminated, do not use for virology.'")]
         public Note Note { get; set; }
 
         /// <summary>
@@ -92,8 +92,7 @@ namespace Skyware.Arenal.Model
         /// <param name="problem">A <see cref="Problem"/> to add</param>
         public Sample AddProblem(Problem problem)
         {
-            Problems ??= new List<Problem>();
-            Problems.Add(problem);
+            (Problems ??= new List<Problem>()).Add(problem);
             return this;
         }
 
@@ -104,8 +103,7 @@ namespace Skyware.Arenal.Model
         /// <param name="note">A note to the problem</param>
         public Sample AddProblem (string problemCode, string note = null) 
         {
-            Problems ??= new List<Problem>();
-            Problems.Add(new(new Identifier(Authorities.HL7, Dictionaries.HL7_0490_SampleRejectReasons, problemCode), note));
+            (Problems ??= new List<Problem>()).Add(new(new Identifier(Authorities.HL7, Dictionaries.HL7_0490_SampleRejectReasons, problemCode), note));
             return this;
         }
 
