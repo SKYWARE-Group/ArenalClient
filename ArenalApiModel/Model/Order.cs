@@ -1,5 +1,4 @@
-﻿using FluentValidation.Results;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,17 +27,17 @@ public class Order : EntityBase
     /// <summary>
     /// Identifies Arenal workflow.
     /// </summary>
-    [Display(GroupName = "Header", ShortName = "Workflow", Name = "Workflow", 
-        Description = "Defines the business logic for this Order. See the documentation for further details about the supported workflows.", 
-        Prompt = "Please, enter a valid Workflow.")]
+    [Display(GroupName = nameof(L10n.Order.GeneralGroup), ShortName = nameof(L10n.Order.WorkflowShortName), Name = nameof(L10n.Order.WorkflowName),
+        Description = nameof(L10n.Order.WorkflowDescription),
+        Prompt = nameof(L10n.Order.WorkflowPrompt), ResourceType = typeof(L10n.Order))]
     public string Workflow { get; set; }
 
     /// <summary>
     /// ArenalId of the ordering party. Set by Arenal.
     /// </summary>
-    [Display(GroupName = "Orderer", ShortName = "Placer Id", Name = "Arenal Id of the orderer",
-        Description = "Identifies the ordering party by its Arenal Id.", 
-        Prompt = "Please, set a valid Orderer.")]
+    [Display(GroupName = nameof(L10n.Order.OrdererGroup), ShortName = nameof(L10n.Order.PlacerIdShortName), Name = nameof(L10n.Order.PlacerIdName),
+        Description = nameof(L10n.Order.PlacerIdDescription),
+        Prompt = nameof(L10n.Order.PlacerIdPrompt), ResourceType = typeof(L10n.Order))]
     public string PlacerId { get; set; }
 
     /// <summary>
@@ -191,6 +190,11 @@ public class Order : EntityBase
         if (!string.IsNullOrWhiteSpace(providerId)) ProviderId = providerId;
     }
 
+    /// <summary>
+    /// Convenience method for setting <see cref="Order.Patient"/> property.
+    /// </summary>
+    /// <param name="patient"></param>
+    /// <returns></returns>
     public Order SetPatient(Patient patient)
     {
         Patient = patient;

@@ -1,8 +1,7 @@
-﻿using FluentValidation.Results;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 using ValidationResult = FluentValidation.Results.ValidationResult;
 
