@@ -133,15 +133,15 @@
     <value>Type</value>
   </data>
   <data name="ContactValueDescription" xml:space="preserve">
-    <value />
+    <value>Value of the contact according to the selected type. </value>
   </data>
   <data name="ContactValueName" xml:space="preserve">
-    <value />
+    <value>Value</value>
   </data>
   <data name="ContactValuePrompt" xml:space="preserve">
     <value>Please, add value of the contact.</value>
   </data>
   <data name="ContactValueShortName" xml:space="preserve">
-    <value />
+    <value>Value</value>
   </data>
 </root>

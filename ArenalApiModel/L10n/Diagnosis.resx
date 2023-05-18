@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="NameDescription" xml:space="preserve">
+    <value>Please, set diagnosis name.</value>
+  </data>
+  <data name="NameGroupName" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="NameName" xml:space="preserve">
+    <value>Diagnosis name</value>
+  </data>
+  <data name="NamePrompt" xml:space="preserve">
+    <value>The diagnosis name, according to local language.</value>
+  </data>
+  <data name="NameShortName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="OptionalCodeDescription" xml:space="preserve">
+    <value>The clarification/complication (asterisk) code.</value>
+  </data>
+  <data name="OptionalCodeGroupName" xml:space="preserve">
+    <value>Optional Code</value>
+  </data>
+  <data name="OptionalCodeName" xml:space="preserve">
+    <value>Optional Code</value>
+  </data>
+  <data name="OptionalCodeShortName" xml:space="preserve">
+    <value>Optional Code</value>
+  </data>
   <data name="PrimaryCodeDescription" xml:space="preserve">
     <value>The primary (dagger) code of a diagnosis.</value>
   </data>

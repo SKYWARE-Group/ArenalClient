@@ -121,39 +121,39 @@
     <value>Моля, изберете име на диагнозата.</value>
   </data>
   <data name="NameGroupName" xml:space="preserve">
-    <value />
+    <value>Диагноза</value>
   </data>
   <data name="NameName" xml:space="preserve">
-    <value />
+    <value>Наименование на диагнозата</value>
   </data>
   <data name="NamePrompt" xml:space="preserve">
     <value>Наименование на диагнозата, според местния език.</value>
   </data>
   <data name="NameShortName" xml:space="preserve">
-    <value />
+    <value>Диагноза</value>
   </data>
   <data name="OptionalCodeDescription" xml:space="preserve">
-    <value />
+    <value>Кодът за пояснение/усложнение.</value>
   </data>
   <data name="OptionalCodeGroupName" xml:space="preserve">
-    <value />
+    <value>Допълнителен код</value>
   </data>
   <data name="OptionalCodeName" xml:space="preserve">
-    <value />
+    <value>Код за пояснение</value>
   </data>
   <data name="OptionalCodeShortName" xml:space="preserve">
-    <value />
+    <value>Код за пояснение</value>
   </data>
   <data name="PrimaryCodeDescription" xml:space="preserve">
-    <value />
+    <value>Основният код на диагнозата.</value>
   </data>
   <data name="PrimaryCodeGroupName" xml:space="preserve">
-    <value />
+    <value>Код</value>
   </data>
   <data name="PrimaryCodeName" xml:space="preserve">
-    <value />
+    <value>Основен код на диагнозата</value>
   </data>
   <data name="PrimaryCodeShortName" xml:space="preserve">
-    <value />
+    <value>Основен код</value>
   </data>
 </root>

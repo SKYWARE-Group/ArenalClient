@@ -130,7 +130,7 @@
     <value>File</value>
   </data>
   <data name="NoteDescription" xml:space="preserve">
-    <value>Note associated with the file.</value>
+    <value>Note from the uploader of the file associated with the file.</value>
   </data>
   <data name="NoteGroupName" xml:space="preserve">
     <value>Note</value>
