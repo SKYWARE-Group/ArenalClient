@@ -14,22 +14,32 @@ public class Diagnosis
     /// <summary>
     /// The primary (dagger) code of a diagnosis.
     /// </summary>
-    [Display(GroupName = "PrimaryCode", ShortName = "Code", Name = "Primary Code",
-        Description = "Primary code of the diagnosis.")]
+    [Display(GroupName = nameof(L10n.Diagnosis.PrimaryCodeGroupName),
+        ShortName = nameof(L10n.Diagnosis.PrimaryCodeShortName),
+        Name = nameof(L10n.Diagnosis.PrimaryCodeName),
+        Description = nameof(L10n.Diagnosis.PrimaryCodeDescription),
+        ResourceType = typeof(L10n.Diagnosis))]
     public Identifier PrimaryCode { get; set; }
 
     /// <summary>
     /// The clarification/complication (asterisk) code.
     /// </summary>
-    [Display(GroupName = "Diagnosis", ShortName = "Optional Code", Name = "Optional Code",
-        Description = "Optional code of the diagnosis.")]
+    [Display(GroupName = nameof(L10n.Diagnosis.OptionalCodeGroupName),
+        ShortName = nameof(L10n.Diagnosis.OptionalCodeShortName),
+        Name = nameof(L10n.Diagnosis.OptionalCodeName),
+        Description = nameof(L10n.Diagnosis.OptionalCodeDescription),
+        ResourceType = typeof(L10n.Diagnosis))]
     public Identifier OptionalCode { get; set; }
 
     /// <summary>
     /// The diagnosis name, according to local language.
     /// </summary>
-    [Display(GroupName = "Diagnosis", ShortName = "Name", Name = "Diagnosis name",
-        Description = "Name of the diagnosis.")]
+    [Display(GroupName = nameof(L10n.Diagnosis.NameGroupName),
+        ShortName = nameof(L10n.Diagnosis.NameShortName),
+        Name = nameof(L10n.Diagnosis.NameName),
+        Description = nameof(L10n.Diagnosis.NameDescription),
+        Prompt = nameof(L10n.Diagnosis.NamePrompt),
+        ResourceType = typeof(L10n.Diagnosis))]
     public string Name { get; set; }
 
     /// <summary>

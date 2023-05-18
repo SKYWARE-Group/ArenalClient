@@ -14,9 +14,12 @@ public class Doctor : PersonBase
     /// <summary>
     /// Title, such as D-r, Prof., etc.
     /// </summary>
-    [Display(GroupName = "Doctor", ShortName = "Title", Name = "Title",
-        Description = $"Enumerated types of doctor titles, such as D-r, Prof. etc.",
-        Prompt = "Please, select title from the menu.")]
+    [Display(GroupName = nameof(L10n.Doctor.DocotrGroupName),
+        ShortName = nameof(L10n.Doctor.DoctorShortName),
+        Name = nameof(L10n.Doctor.DoctorName),
+        Description = nameof(L10n.Doctor.DoctorDescription),
+        Prompt = nameof(L10n.Doctor.DoctorPrompt),
+        ResourceType = typeof(L10n.Doctor))]
     public string Title { get; set; }
 
 }

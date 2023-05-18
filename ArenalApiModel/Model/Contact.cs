@@ -23,17 +23,24 @@ public class Contact : IEquatable<Contact>
     /// Type of the contact, according to <see cref="ContactTypes"/>.
     /// Required.
     /// </summary>
-    [Display(GroupName = "Contact", ShortName = "Type", Name = "Type of the provided contact",
-        Description = $"Enumerated types of valid contacts like email or phone etc.",
-        Prompt = "Please, select contact type from the menu.")]
+    [Display(GroupName = nameof(L10n.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.ContactTypeShortName),
+        Name = nameof(L10n.Contact.ContactTypeName),
+        Description = nameof(L10n.Contact.ContactTypeDescription),
+        Prompt = nameof(L10n.Contact.ContactTypePrompt),
+        ResourceType = typeof(L10n.Contact))]
     public string Type { get; set; } = ContactTypes.PHONE;
 
     /// <summary>
     /// Value of the contact, such as 'john@doe.com', etc.
     /// Required.
     /// </summary>
-    [Display(GroupName = "Contact", ShortName = "Value",
-        Description = "Value of the contact like 'john@doe.com' for email, etc.")]
+    [Display(GroupName = nameof(L10n.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.ContactValueShortName),
+        Name = nameof(L10n.Contact.ContactValueName),
+        Description = nameof(L10n.Contact.ContactValueDescription),
+        Prompt = nameof(L10n.Contact.ContactValuePrompt),
+        ResourceType = typeof(L10n.Contact))]
     public string Value { get; set; }
 
     /// <summary>
