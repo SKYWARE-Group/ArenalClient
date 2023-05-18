@@ -24,17 +24,23 @@ public class Note
     /// <summary>
     /// Formating type, amongst <seealso cref="NoteTypes"/>.
     /// </summary>
-    [Display(GroupName = "Contact", ShortName = "Type", Name = "Type of the provided contact",
-        Description = $"Enumerated types of different note types like plain text, rtf, html etc.",
-        Prompt = "Please, select contact type from the menu.")]
+    [Display(GroupName = nameof(L10n.Note.TypeGroupName),
+        ShortName = nameof(L10n.Note.TypeShortName),
+        Name = nameof(L10n.Note.TypeName),
+        Description = nameof(L10n.Note.TypeDescription),
+        Prompt = nameof(L10n.Note.TypePrompt),
+        ResourceType = typeof(L10n.Note))]
     public string Type { get; set; } = NoteTypes.PLAIN_TEXT;
 
     /// <summary>
     /// Value of the note. Length must be between <see cref="MIN_LEN"/> and <see cref="MAX_LEN"/>.
     /// </summary>
-    [Display(GroupName = "Note", ShortName = "Content", Name = "Note Content",
-        Description = $"Content of the note.",
-        Prompt = "Please, enter note text to be placed.")]
+    [Display(GroupName = nameof(L10n.Note.ValueGroupName),
+        ShortName = nameof(L10n.Note.ValueShortName),
+        Name = nameof(L10n.Note.ValueName),
+        Description = nameof(L10n.Note.ValueDescription),
+        Prompt = nameof(L10n.Note.ValuePrompt),
+        ResourceType = typeof(L10n.Note))]
     public string Value { get; set; }
 
     /// <summary>

@@ -68,6 +68,26 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Doctor.resx</DependentUpon>
     </Compile>
+    <Compile Update="L10n\Identifier.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Identifier.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\LinkedReferral.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LinkedReferral.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Note.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Note.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Organization.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Organization.resx</DependentUpon>
+    </Compile>
     <Compile Update="L10n\Sample.bg.Designer.cs">
       <DependentUpon>Sample.bg.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -113,6 +133,22 @@
     <EmbeddedResource Update="L10n\Doctor.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Doctor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Identifier.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Identifier.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\LinkedReferral.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LinkedReferral.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Note.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Note.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Organization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Organization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\Sample.bg.resx">
       <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>

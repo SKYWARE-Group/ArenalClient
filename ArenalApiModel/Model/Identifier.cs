@@ -1,6 +1,9 @@
 ﻿using FluentValidation.Results;
 using Skyware.Arenal.Validation;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 namespace Skyware.Arenal.Model;
 
@@ -34,13 +37,25 @@ public class Identifier : IEquatable<Identifier>
     /// Mandatory. Use 'local' for your own identifiers.
     /// Up to <see cref="AUTHORITY_MAX_LEN"/> characters.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Identifier.AuthorityGroupName),
+        ShortName = nameof(L10n.Identifier.AuthorityShortName),
+        Name = nameof(L10n.Identifier.AuthorityName),
+        Description = nameof(L10n.Identifier.AuthorityDescription),
+        Prompt = nameof(L10n.Identifier.AuthorityPrompt),
+        ResourceType = typeof(L10n.Identifier))]
     public string Authority { get; set; }
 
     /// <summary>
     /// Dictionary (value set) for given authority, such as HL7 table number, etc.
     /// Optional.
     /// Up to <see cref="DICTIONARY_MAX_LEN"/> characters.
-    /// </summary>
+    /// </summary> 
+    [Display(GroupName = nameof(L10n.Identifier.DictionaryGroupName),
+        ShortName = nameof(L10n.Identifier.DictionaryShortName),
+        Name = nameof(L10n.Identifier.DictionaryName),
+        Description = nameof(L10n.Identifier.DictionaryDescription),
+        Prompt = nameof(L10n.Identifier.DictionaryPrompt),
+        ResourceType = typeof(L10n.Identifier))]
     public string Dictionary { get; set; }
 
     /// <summary>
@@ -48,6 +63,12 @@ public class Identifier : IEquatable<Identifier>
     /// Mandatory.
     /// Up to <see cref="VALUE_MAX_LEN"/> characters.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Identifier.ValueGroupName),
+        ShortName = nameof(L10n.Identifier.ValueShortName),
+        Name = nameof(L10n.Identifier.ValueName),
+        Description = nameof(L10n.Identifier.ValueDescription),
+        Prompt = nameof(L10n.Identifier.ValuePrompt),
+        ResourceType = typeof(L10n.Identifier))]
     public string Value { get; set; }
 
     /// <summary>
