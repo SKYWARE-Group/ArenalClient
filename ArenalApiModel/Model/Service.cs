@@ -44,39 +44,63 @@ public class Service : IEquatable<Service>
     /// <summary>
     /// Identifier of a ordered examination or service.
     /// </summary>
+    [Display(ShortName = nameof(L10n.Service.ServiceIdShortName),
+        Name = nameof(L10n.Service.ServiceIdName),
+        Description = nameof(L10n.Service.ServiceIdDescription),
+        Prompt = nameof(L10n.Service.ServiceIdPrompt),
+        ResourceType = typeof(L10n.Service))]
     public Identifier ServiceId { get; set; }
 
     /// <summary>
     /// Additional identifiers, not defined in <see cref="ServiceId"/>.
     /// </summary>
+    [Display(ShortName = nameof(L10n.Service.AlternateIdentifiersShortName),
+        Name = nameof(L10n.Service.AlternateIdentifiersName),
+        Description = nameof(L10n.Service.AlternateIdentifiersDescription),
+        Prompt = nameof(L10n.Service.AlternateIdentifiersPrompt),
+        ResourceType = typeof(L10n.Service))]
     public IList<Identifier> AlternateIdentifiers { get; set; }
 
     /// <summary>
     /// Name of the service, according to the placer (optional).
     /// </summary>
-    [Display(ShortName = "Name", Name = "Name",
-        Description = $"Name of the service, according to the placer (optional).")]
+    [Display(ShortName = nameof(L10n.Service.NameShortName),
+        Name = nameof(L10n.Service.NameName),
+        Description = nameof(L10n.Service.NameDescription),
+        Prompt = nameof(L10n.Service.NamePrompt),
+        ResourceType = typeof(L10n.Service))]
     public string Name { get; set; }
 
     /// <summary>
     /// Notes from the placer.
     /// </summary>
-    [Display(ShortName = "Note", Name = "Note",
-        Description = $"Notes from the placer.")]
+    [Display(GroupName = nameof(L10n.Service.NoteGroupName),
+            ShortName = nameof(L10n.Service.NoteShortName),
+            Name = nameof(L10n.Service.NoteName),
+            Description = nameof(L10n.Service.NoteDescription),
+            Prompt = nameof(L10n.Service.NotePrompt),
+            ResourceType = typeof(L10n.Service))]
     public Note Note { get; set; }
 
     /// <summary>
     /// Ordering value, according to the provider's sorting.
     /// </summary>
-    [Display(ShortName = "Rank", Name = "Rank",
-        Description = $"Value for the ordering of the services. (Priority)")]
+    [Display(GroupName = nameof(L10n.Service.RankGroupName),
+            ShortName = nameof(L10n.Service.RankShortName),
+            Name = nameof(L10n.Service.RankName),
+            Description = nameof(L10n.Service.RankDescription),
+            Prompt = nameof(L10n.Service.RankPrompt),
+            ResourceType = typeof(L10n.Service))]
     public int? Rank { get; set; }
 
     /// <summary>
     /// List of problems reported by the provider.
     /// </summary>
-    [Display(ShortName = "Problems", Name = "Problems",
-        Description = $"Problems reported by the provider.")]
+    [Display(GroupName = nameof(L10n.Service.ProblemsGroupName),
+            ShortName = nameof(L10n.Service.ProblemsShortName),
+            Name = nameof(L10n.Service.ProblemsName),
+            Description = nameof(L10n.Service.ProblemsDescription),
+            ResourceType = typeof(L10n.Service))]
     public IList<Problem> Problems { get; set; }
 
     /// <summary>

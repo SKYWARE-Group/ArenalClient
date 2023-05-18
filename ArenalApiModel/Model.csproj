@@ -133,6 +133,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SampleType.resx</DependentUpon>
     </Compile>
+    <Compile Update="L10n\Service.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Service.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\ServiceLocation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceLocation.resx</DependentUpon>
+    </Compile>
     <Compile Update="L10n\ServiceProblem.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -215,6 +225,14 @@
     <EmbeddedResource Update="L10n\SampleType.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SampleType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Service.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Service.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceLocation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ServiceLocation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\ServiceProblem.resx">
       <Generator>ResXFileCodeGenerator</Generator>
