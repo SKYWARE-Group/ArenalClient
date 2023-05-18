@@ -71,8 +71,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="L10n\Address.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Address.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Address.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\Sample.bg.resx">

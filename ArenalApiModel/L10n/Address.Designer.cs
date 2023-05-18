@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Address {
+    public class Address {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Address", typeof(Address).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string AddressGroupName {
+        public static string AddressGroupName {
             get {
                 return ResourceManager.GetString("AddressGroupName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to City/Town.
         /// </summary>
-        internal static string CityName {
+        public static string CityName {
             get {
                 return ResourceManager.GetString("CityName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter city..
         /// </summary>
-        internal static string CityPrompt {
+        public static string CityPrompt {
             get {
                 return ResourceManager.GetString("CityPrompt", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
-        internal static string CityShortName {
+        public static string CityShortName {
             get {
                 return ResourceManager.GetString("CityShortName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Geographic location.
         /// </summary>
-        internal static string CoordinatesName {
+        public static string CoordinatesName {
             get {
                 return ResourceManager.GetString("CoordinatesName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Coordinates.
         /// </summary>
-        internal static string CoordinatesShortName {
+        public static string CoordinatesShortName {
             get {
                 return ResourceManager.GetString("CoordinatesShortName", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Country code of the address country..
         /// </summary>
-        internal static string CountryCodeDescription {
+        public static string CountryCodeDescription {
             get {
                 return ResourceManager.GetString("CountryCodeDescription", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Country code.
         /// </summary>
-        internal static string CountryCodeName {
+        public static string CountryCodeName {
             get {
                 return ResourceManager.GetString("CountryCodeName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter a valid country code, according to ISO 3166-1 alpha 2..
         /// </summary>
-        internal static string CountryCodePrompt {
+        public static string CountryCodePrompt {
             get {
                 return ResourceManager.GetString("CountryCodePrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
-        internal static string CountryCodeShortName {
+        public static string CountryCodeShortName {
             get {
                 return ResourceManager.GetString("CountryCodeShortName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Post code corresponding address..
         /// </summary>
-        internal static string PostCodeDescription {
+        public static string PostCodeDescription {
             get {
                 return ResourceManager.GetString("PostCodeDescription", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Postal code.
         /// </summary>
-        internal static string PostCodeName {
+        public static string PostCodeName {
             get {
                 return ResourceManager.GetString("PostCodeName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter address post code..
         /// </summary>
-        internal static string PostCodePrompt {
+        public static string PostCodePrompt {
             get {
                 return ResourceManager.GetString("PostCodePrompt", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Post Code.
         /// </summary>
-        internal static string PostCodeShortName {
+        public static string PostCodeShortName {
             get {
                 return ResourceManager.GetString("PostCodeShortName", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Region in the country..
         /// </summary>
-        internal static string RegionDescription {
+        public static string RegionDescription {
             get {
                 return ResourceManager.GetString("RegionDescription", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to State/Region.
         /// </summary>
-        internal static string RegionName {
+        public static string RegionName {
             get {
                 return ResourceManager.GetString("RegionName", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter country region..
         /// </summary>
-        internal static string RegionPrompt {
+        public static string RegionPrompt {
             get {
                 return ResourceManager.GetString("RegionPrompt", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Region.
         /// </summary>
-        internal static string RegionShortName {
+        public static string RegionShortName {
             get {
                 return ResourceManager.GetString("RegionShortName", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Street.
         /// </summary>
-        internal static string StreetAddressDescription {
+        public static string StreetAddressDescription {
             get {
                 return ResourceManager.GetString("StreetAddressDescription", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Street address.
         /// </summary>
-        internal static string StreetAddressName {
+        public static string StreetAddressName {
             get {
                 return ResourceManager.GetString("StreetAddressName", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter street address..
         /// </summary>
-        internal static string StreetAddressPrompt {
+        public static string StreetAddressPrompt {
             get {
                 return ResourceManager.GetString("StreetAddressPrompt", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Skyware.Arenal.L10n {
         /// <summary>
         ///   Looks up a localized string similar to Street.
         /// </summary>
-        internal static string StreetAddressShortName {
+        public static string StreetAddressShortName {
             get {
                 return ResourceManager.GetString("StreetAddressShortName", resourceCulture);
             }

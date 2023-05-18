@@ -148,34 +148,34 @@
     <value>Доктор, с когото е свързана поръчката. Поръчител на поръчката.</value>
   </data>
   <data name="DoctorGroupName" xml:space="preserve">
-    <value>Доктор</value>
+    <value>Поръчващ лекар</value>
   </data>
   <data name="DoctorName" xml:space="preserve">
-    <value>Доктор</value>
+    <value>Лекар</value>
   </data>
   <data name="DoctorPrompt" xml:space="preserve">
-    <value>Моля, изберете доктор поръчител на поръчката.</value>
+    <value>Моля, изберете лекар-поръчител на поръчката.</value>
   </data>
   <data name="DoctorShortName" xml:space="preserve">
-    <value>Доктор</value>
+    <value>Лекар</value>
   </data>
   <data name="GeneralGroup" xml:space="preserve">
     <value>Общи</value>
   </data>
   <data name="LinkedReferralsDescription" xml:space="preserve">
-    <value />
+    <value>Свъразни с поръчката направления в НЗИС или друга система</value>
   </data>
   <data name="LinkedReferralsGroupName" xml:space="preserve">
-    <value>Допълнителни</value>
+    <value>Свързани направления</value>
   </data>
   <data name="LinkedReferralsName" xml:space="preserve">
-    <value />
+    <value>Направления</value>
   </data>
   <data name="LinkedReferralsPrompt" xml:space="preserve">
-    <value />
+    <value>Моля, добавете свързано направление</value>
   </data>
   <data name="LinkedReferralsShortName" xml:space="preserve">
-    <value />
+    <value>Направления</value>
   </data>
   <data name="LocalCreatedDescription" xml:space="preserve">
     <value>Дата и час на публикуване (местно време)</value>
@@ -313,10 +313,10 @@
     <value>Проби</value>
   </data>
   <data name="SamplesName" xml:space="preserve">
-    <value>Списъл с проби.</value>
+    <value>Списък с проби.</value>
   </data>
   <data name="SamplesPrompt" xml:space="preserve">
-    <value>Моля, добавете поне една проба.</value>
+    <value>Моля, добавете проба.</value>
   </data>
   <data name="SamplesShortName" xml:space="preserve">
     <value>Проби</value>
