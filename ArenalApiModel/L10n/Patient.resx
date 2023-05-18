@@ -117,85 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LocalTakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken (local).</value>
+  <data name="DateOfBirthDescription" xml:space="preserve">
+    <value>Date of birth of the patient. Optional field.</value>
   </data>
-  <data name="LocalTakenGroupName" xml:space="preserve">
-    <value>Taken</value>
+  <data name="DateOfBirthGroupName" xml:space="preserve">
+    <value>Birth date</value>
   </data>
-  <data name="LocalTakenName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="DateOfBirthName" xml:space="preserve">
+    <value>Date of birth</value>
   </data>
-  <data name="LocalTakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="DateOfBirthPrompt" xml:space="preserve">
+    <value>Please, select date ot birth.</value>
   </data>
-  <data name="NoteDescription" xml:space="preserve">
-    <value>Note to the sample, such as 'Sample may be contaminated, do not use for virology.'</value>
+  <data name="DateOfBirthShortName" xml:space="preserve">
+    <value>Date of birth</value>
   </data>
-  <data name="NoteGroupName" xml:space="preserve">
-    <value>Note</value>
+  <data name="ExactDoBDescription" xml:space="preserve">
+    <value>True if date of birth is exact value, false if is calculated from approximate age.</value>
   </data>
-  <data name="NoteName" xml:space="preserve">
-    <value>Note</value>
+  <data name="ExactDoBGroupName" xml:space="preserve">
+    <value>Birth date</value>
   </data>
-  <data name="NotePrompt" xml:space="preserve">
-    <value>Please, add note to the sample.</value>
+  <data name="ExactDoBName" xml:space="preserve">
+    <value>Is date of bith approximate</value>
   </data>
-  <data name="NoteShortName" xml:space="preserve">
-    <value>Note</value>
+  <data name="ExactDoBPrompt" xml:space="preserve">
+    <value>Please, select is date of birth approximate.</value>
   </data>
-  <data name="ProblemsDescription" xml:space="preserve">
-    <value>List of problems (Preferred coding system is 'org.hl7' with dictionary '0490').</value>
+  <data name="ExactDoBShortName" xml:space="preserve">
+    <value>Is date of bith approximate</value>
   </data>
-  <data name="ProblemsGroupName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="IsMaleDescription" xml:space="preserve">
+    <value>Gender of the patient.</value>
   </data>
-  <data name="ProblemsName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="IsMaleGroupName" xml:space="preserve">
+    <value>Gender</value>
   </data>
-  <data name="ProblemsShortName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="IsMaleName" xml:space="preserve">
+    <value>Gender</value>
   </data>
-  <data name="SampleIdDescription" xml:space="preserve">
-    <value>Identifier of the sample (barcode).</value>
+  <data name="IsMalePrompt" xml:space="preserve">
+    <value>Please, select gender.</value>
   </data>
-  <data name="SampleIdGroupName" xml:space="preserve">
-    <value>Identifier</value>
+  <data name="IsMaleShortName" xml:space="preserve">
+    <value>Gender</value>
   </data>
-  <data name="SampleIdName" xml:space="preserve">
-    <value>Identifier of the sample</value>
+  <data name="LocalDateOfBirthDescription" xml:space="preserve">
+    <value>Date of birth of the patient (local). Optional field.</value>
   </data>
-  <data name="SampleIdPrompt" xml:space="preserve">
-    <value>Please, add sample identifier.</value>
+  <data name="LocalDateOfBirthGroupName" xml:space="preserve">
+    <value>Birth date</value>
   </data>
-  <data name="SampleIdShortName" xml:space="preserve">
-    <value>Identifier</value>
+  <data name="LocalDateOfBirthName" xml:space="preserve">
+    <value>Date of birth (local)</value>
   </data>
-  <data name="SampleTypeDescription" xml:space="preserve">
-    <value>Primary identifier of the sample type.</value>
+  <data name="LocalDateOfBirthPrompt" xml:space="preserve">
+    <value>Please, select date ot birth (local).</value>
   </data>
-  <data name="SampleTypeName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="SampleTypePrompt" xml:space="preserve">
-    <value>Please, select the primary sample type.</value>
-  </data>
-  <data name="SampleTypeShortName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="TakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken. (optional)</value>
-  </data>
-  <data name="TakenGroupName" xml:space="preserve">
-    <value>Taken</value>
-  </data>
-  <data name="TakenName" xml:space="preserve">
-    <value>Taken date time</value>
-  </data>
-  <data name="TakenPrompt" xml:space="preserve">
-    <value>Please, add date and time when the sample was took.</value>
-  </data>
-  <data name="TakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="LocalDateOfBirthShortName" xml:space="preserve">
+    <value>Date of birth</value>
   </data>
 </root>

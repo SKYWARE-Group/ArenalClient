@@ -7,7 +7,7 @@ namespace Skyware.Arenal.Model;
 
 
 /// <summary>
-/// Base class for patients, doctors, etc.
+/// Base class for patients, PersonBases, etc.
 /// </summary>
 [DisplayColumn(nameof(FamilyName))]
 public abstract class PersonBase
@@ -37,30 +37,45 @@ public abstract class PersonBase
     /// <summary>
     /// List of <see cref="Identifier"/> (may be empty).
     /// </summary>
+    [Display(GroupName = nameof(L10n.PersonBase.IdentifiersGroupName),
+        ShortName = nameof(L10n.PersonBase.IdentifiersShortName),
+        Name = nameof(L10n.PersonBase.IdentifiersName),
+        Description = nameof(L10n.PersonBase.IdentifiersDescription),
+        Prompt = nameof(L10n.PersonBase.IdentifiersPrompt),
+        ResourceType = typeof(L10n.PersonBase))]
     public IList<Identifier> Identifiers { get; set; }
 
     /// <summary>
     /// Given (first) name of the person.
     /// </summary>
-    [Display(ShortName = "Name", Name = "Give name",
-        Description = "Given name of the person.", 
-        Prompt = "Please, enter given (first) name of the person.")]
+    [Display(GroupName = nameof(L10n.PersonBase.GivenNameGroupName),
+        ShortName = nameof(L10n.PersonBase.GivenNameShortName),
+        Name = nameof(L10n.PersonBase.GivenNameName),
+        Description = nameof(L10n.PersonBase.GivenNameDescription),
+        Prompt = nameof(L10n.PersonBase.GivenNamePrompt),
+        ResourceType = typeof(L10n.PersonBase))]
     public string GivenName { get; set; }
 
     /// <summary>
     /// Middle (second) name of the person.
     /// </summary>
-    [Display(ShortName = "Middle name", Name = "Middle name",
-        Description = "Given name of the person.",
-        Prompt = "Please, enter middle name of the person.")]
+    [Display(GroupName = nameof(L10n.PersonBase.MiddleNameGroupName),
+        ShortName = nameof(L10n.PersonBase.MiddleNameShortName),
+        Name = nameof(L10n.PersonBase.MiddleNameName),
+        Description = nameof(L10n.PersonBase.MiddleNameDescription),
+        Prompt = nameof(L10n.PersonBase.MiddleNamePrompt),
+        ResourceType = typeof(L10n.PersonBase))]
     public string MiddleName { get; set; }
 
     /// <summary>
     /// Family name (surname) of the person.
     /// </summary>
-    [Display(ShortName = "Family name", Name = "Family name",
-        Description = "Given name of the person.",
-        Prompt = "Please, enter family name of the person.")]
+    [Display(GroupName = nameof(L10n.PersonBase.FamilyNameGroupName),
+        ShortName = nameof(L10n.PersonBase.FamilyNameShortName),
+        Name = nameof(L10n.PersonBase.FamilyNameName),
+        Description = nameof(L10n.PersonBase.FamilyNameDescription),
+        Prompt = nameof(L10n.PersonBase.FamilyNamePrompt),
+        ResourceType = typeof(L10n.PersonBase))]
     public string FamilyName { get; set; }
 
     /// <summary>
@@ -75,9 +90,12 @@ public abstract class PersonBase
     /// <summary>
     /// List of phone numbers, emails, etc.
     /// </summary>
-    [Display(ShortName = "Contacts", Name = "Contacts",
-        Description = "List of contacts added to the person.",
-        Prompt = "Please, add contact to the list.")]
+    [Display(GroupName = nameof(L10n.PersonBase.ContactsGroupName),
+        ShortName = nameof(L10n.PersonBase.ContactsBaseShortName),
+        Name = nameof(L10n.PersonBase.ContactsName),
+        Description = nameof(L10n.PersonBase.ContactsDescription),
+        Prompt = nameof(L10n.PersonBase.ContactsPrompt),
+        ResourceType = typeof(L10n.PersonBase))]
     public IList<Contact> Contacts { get; set; }
 
 

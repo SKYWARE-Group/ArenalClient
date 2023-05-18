@@ -88,6 +88,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Organization.resx</DependentUpon>
     </Compile>
+    <Compile Update="L10n\Patient.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Patient.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\PersonBase.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PersonBase.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Problem.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Problem.resx</DependentUpon>
+    </Compile>
     <Compile Update="L10n\Sample.bg.Designer.cs">
       <DependentUpon>Sample.bg.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -107,6 +122,21 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Order.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\SampleShipment.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleShipment.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\SampleType.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleType.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\ServiceProblem.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceProblem.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -150,6 +180,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Organization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Patient.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Patient.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\PersonBase.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PersonBase.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Problem.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Problem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Sample.bg.resx">
       <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -165,6 +207,18 @@
     <EmbeddedResource Update="L10n\Order.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Order.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleShipment.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleShipment.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleType.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceProblem.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ServiceProblem.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

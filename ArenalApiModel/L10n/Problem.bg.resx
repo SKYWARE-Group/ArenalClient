@@ -117,85 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LocalTakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken (local).</value>
+  <data name="IdentifiersDescription" xml:space="preserve">
+    <value>Идентификатори към проблема.</value>
   </data>
-  <data name="LocalTakenGroupName" xml:space="preserve">
-    <value>Taken</value>
+  <data name="IdentifiersGroupName" xml:space="preserve">
+    <value>Идентификатори</value>
   </data>
-  <data name="LocalTakenName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="IdentifiersName" xml:space="preserve">
+    <value>Идентификатори</value>
   </data>
-  <data name="LocalTakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="IdentifiersPrompt" xml:space="preserve">
+    <value>Моля, попълнете идентификаторите на проблема.</value>
+  </data>
+  <data name="IdentifiersShortName" xml:space="preserve">
+    <value>Идентификатори</value>
   </data>
   <data name="NoteDescription" xml:space="preserve">
-    <value>Note to the sample, such as 'Sample may be contaminated, do not use for virology.'</value>
+    <value>Забележка към проблема.</value>
   </data>
   <data name="NoteGroupName" xml:space="preserve">
-    <value>Note</value>
+    <value>Забележка</value>
   </data>
   <data name="NoteName" xml:space="preserve">
-    <value>Note</value>
+    <value>Забележка</value>
   </data>
   <data name="NotePrompt" xml:space="preserve">
-    <value>Please, add note to the sample.</value>
+    <value>Моля, попълнете забележка към проблема.</value>
   </data>
   <data name="NoteShortName" xml:space="preserve">
-    <value>Note</value>
+    <value>Забележка</value>
   </data>
-  <data name="ProblemsDescription" xml:space="preserve">
-    <value>List of problems (Preferred coding system is 'org.hl7' with dictionary '0490').</value>
+  <data name="SeverityDescription" xml:space="preserve">
+    <value>Определя сложността на проблема.</value>
   </data>
-  <data name="ProblemsGroupName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="SeverityGroupName" xml:space="preserve">
+    <value>Проблем</value>
   </data>
-  <data name="ProblemsName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="SeverityName" xml:space="preserve">
+    <value>Сложност</value>
   </data>
-  <data name="ProblemsShortName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="SeverityPrompt" xml:space="preserve">
+    <value>Моля, въведете сложност на проблема.</value>
   </data>
-  <data name="SampleIdDescription" xml:space="preserve">
-    <value>Identifier of the sample (barcode).</value>
-  </data>
-  <data name="SampleIdGroupName" xml:space="preserve">
-    <value>Identifier</value>
-  </data>
-  <data name="SampleIdName" xml:space="preserve">
-    <value>Identifier of the sample</value>
-  </data>
-  <data name="SampleIdPrompt" xml:space="preserve">
-    <value>Please, add sample identifier.</value>
-  </data>
-  <data name="SampleIdShortName" xml:space="preserve">
-    <value>Identifier</value>
-  </data>
-  <data name="SampleTypeDescription" xml:space="preserve">
-    <value>Primary identifier of the sample type.</value>
-  </data>
-  <data name="SampleTypeName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="SampleTypePrompt" xml:space="preserve">
-    <value>Please, select the primary sample type.</value>
-  </data>
-  <data name="SampleTypeShortName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="TakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken. (optional)</value>
-  </data>
-  <data name="TakenGroupName" xml:space="preserve">
-    <value>Taken</value>
-  </data>
-  <data name="TakenName" xml:space="preserve">
-    <value>Taken date time</value>
-  </data>
-  <data name="TakenPrompt" xml:space="preserve">
-    <value>Please, add date and time when the sample was took.</value>
-  </data>
-  <data name="TakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="SeverityShortName" xml:space="preserve">
+    <value>Сложност</value>
   </data>
 </root>

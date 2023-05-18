@@ -117,85 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LocalTakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken (local).</value>
+  <data name="AdditiveIdDescription" xml:space="preserve">
+    <value>Identifier of additive.</value>
   </data>
-  <data name="LocalTakenGroupName" xml:space="preserve">
-    <value>Taken</value>
+  <data name="AdditiveIdName" xml:space="preserve">
+    <value>Additive Identifier</value>
   </data>
-  <data name="LocalTakenName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="AdditiveIdShortName" xml:space="preserve">
+    <value>Additive Identifier</value>
   </data>
-  <data name="LocalTakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
+  <data name="AlternateIdentifiersDescription" xml:space="preserve">
+    <value>Additional identifiers, different from identifier and additive identifier.</value>
   </data>
-  <data name="NoteDescription" xml:space="preserve">
-    <value>Note to the sample, such as 'Sample may be contaminated, do not use for virology.'</value>
+  <data name="AlternateIdentifiersName" xml:space="preserve">
+    <value>Additional identifiers</value>
   </data>
-  <data name="NoteGroupName" xml:space="preserve">
-    <value>Note</value>
+  <data name="AlternateIdentifiersPrompt" xml:space="preserve">
+    <value>Please, add additional identifiers.</value>
   </data>
-  <data name="NoteName" xml:space="preserve">
-    <value>Note</value>
+  <data name="AlternateIdentifiersShortName" xml:space="preserve">
+    <value>Additional identifiers</value>
   </data>
-  <data name="NotePrompt" xml:space="preserve">
-    <value>Please, add note to the sample.</value>
+  <data name="NameDescription" xml:space="preserve">
+    <value>Name of the sample type as it is known by the placer or provider.</value>
   </data>
-  <data name="NoteShortName" xml:space="preserve">
-    <value>Note</value>
+  <data name="NameName" xml:space="preserve">
+    <value>Sample type name</value>
   </data>
-  <data name="ProblemsDescription" xml:space="preserve">
-    <value>List of problems (Preferred coding system is 'org.hl7' with dictionary '0490').</value>
+  <data name="NamePrompt" xml:space="preserve">
+    <value>Please, add sample type name.</value>
   </data>
-  <data name="ProblemsGroupName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="NameShortName" xml:space="preserve">
+    <value>Name </value>
   </data>
-  <data name="ProblemsName" xml:space="preserve">
-    <value>Problems</value>
+  <data name="TypeIdDescription" xml:space="preserve">
+    <value>Identifier of the sample type.</value>
   </data>
-  <data name="ProblemsShortName" xml:space="preserve">
-    <value>Problems</value>
-  </data>
-  <data name="SampleIdDescription" xml:space="preserve">
-    <value>Identifier of the sample (barcode).</value>
-  </data>
-  <data name="SampleIdGroupName" xml:space="preserve">
+  <data name="TypeIdName" xml:space="preserve">
     <value>Identifier</value>
   </data>
-  <data name="SampleIdName" xml:space="preserve">
-    <value>Identifier of the sample</value>
+  <data name="TypeIdPrompt" xml:space="preserve">
+    <value>Please, enter sample type identifier.</value>
   </data>
-  <data name="SampleIdPrompt" xml:space="preserve">
-    <value>Please, add sample identifier.</value>
-  </data>
-  <data name="SampleIdShortName" xml:space="preserve">
+  <data name="TypeIdShortName" xml:space="preserve">
     <value>Identifier</value>
-  </data>
-  <data name="SampleTypeDescription" xml:space="preserve">
-    <value>Primary identifier of the sample type.</value>
-  </data>
-  <data name="SampleTypeName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="SampleTypePrompt" xml:space="preserve">
-    <value>Please, select the primary sample type.</value>
-  </data>
-  <data name="SampleTypeShortName" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
-  <data name="TakenDescription" xml:space="preserve">
-    <value>Date and time the sample has been taken. (optional)</value>
-  </data>
-  <data name="TakenGroupName" xml:space="preserve">
-    <value>Taken</value>
-  </data>
-  <data name="TakenName" xml:space="preserve">
-    <value>Taken date time</value>
-  </data>
-  <data name="TakenPrompt" xml:space="preserve">
-    <value>Please, add date and time when the sample was took.</value>
-  </data>
-  <data name="TakenShortName" xml:space="preserve">
-    <value>Taken date time</value>
   </data>
 </root>

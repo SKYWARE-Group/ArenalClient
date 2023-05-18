@@ -117,6 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LocalTakenDescription" xml:space="preserve">
+    <value>Дата и час на вземане на пробата.</value>
+  </data>
+  <data name="LocalTakenGroupName" xml:space="preserve">
+    <value>Вземане</value>
+  </data>
+  <data name="LocalTakenName" xml:space="preserve">
+    <value>Вземане</value>
+  </data>
+  <data name="LocalTakenShortName" xml:space="preserve">
+    <value>Вземане</value>
+  </data>
+  <data name="NoteDescription" xml:space="preserve">
+    <value>Забележка към пробата, напр. 'Пробата може да е замърсена, да не се използва за вирусология'.</value>
+  </data>
+  <data name="NoteGroupName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="NoteName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="NotePrompt" xml:space="preserve">
+    <value>Моля, попълнете забележка.</value>
+  </data>
+  <data name="NoteShortName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="ProblemsDescription" xml:space="preserve">
+    <value>Списък с проблеми/усложнения (препоръчително е да се използва 'hl7' системата).</value>
+  </data>
+  <data name="ProblemsGroupName" xml:space="preserve">
+    <value>Проблеми</value>
+  </data>
+  <data name="ProblemsName" xml:space="preserve">
+    <value>Проблеми</value>
+  </data>
+  <data name="ProblemsShortName" xml:space="preserve">
+    <value>Проблеми</value>
+  </data>
+  <data name="SampleIdDescription" xml:space="preserve">
+    <value>Идентификатор на пробата напр. баркод.</value>
+  </data>
+  <data name="SampleIdGroupName" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="SampleIdName" xml:space="preserve">
+    <value>Идентификатор на пробата.</value>
+  </data>
+  <data name="SampleIdPrompt" xml:space="preserve">
+    <value>Моля, въведете идентификатор.</value>
+  </data>
+  <data name="SampleIdShortName" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
   <data name="SampleTypeDescription" xml:space="preserve">
     <value>Главен идентификатор на вид проба.</value>
   </data>
@@ -128,5 +182,20 @@
   </data>
   <data name="SampleTypeShortName" xml:space="preserve">
     <value>Вид проба</value>
+  </data>
+  <data name="TakenDescription" xml:space="preserve">
+    <value>Дата и час на вземане на пробата, незадължително поле.</value>
+  </data>
+  <data name="TakenGroupName" xml:space="preserve">
+    <value>Вземане</value>
+  </data>
+  <data name="TakenName" xml:space="preserve">
+    <value>Вземане</value>
+  </data>
+  <data name="TakenPrompt" xml:space="preserve">
+    <value>Моля, въведете дата и час на вземане на пробата.</value>
+  </data>
+  <data name="TakenShortName" xml:space="preserve">
+    <value>Вземане</value>
   </data>
 </root>

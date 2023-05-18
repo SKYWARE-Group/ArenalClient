@@ -61,6 +61,168 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date and time the sample has been taken (local)..
+        /// </summary>
+        public static string LocalTakenDescription {
+            get {
+                return ResourceManager.GetString("LocalTakenDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken.
+        /// </summary>
+        public static string LocalTakenGroupName {
+            get {
+                return ResourceManager.GetString("LocalTakenGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken date time.
+        /// </summary>
+        public static string LocalTakenName {
+            get {
+                return ResourceManager.GetString("LocalTakenName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken date time.
+        /// </summary>
+        public static string LocalTakenShortName {
+            get {
+                return ResourceManager.GetString("LocalTakenShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note to the sample, such as &apos;Sample may be contaminated, do not use for virology.&apos;.
+        /// </summary>
+        public static string NoteDescription {
+            get {
+                return ResourceManager.GetString("NoteDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string NoteGroupName {
+            get {
+                return ResourceManager.GetString("NoteGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string NoteName {
+            get {
+                return ResourceManager.GetString("NoteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, add note to the sample..
+        /// </summary>
+        public static string NotePrompt {
+            get {
+                return ResourceManager.GetString("NotePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string NoteShortName {
+            get {
+                return ResourceManager.GetString("NoteShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of problems (Preferred coding system is &apos;org.hl7&apos; with dictionary &apos;0490&apos;)..
+        /// </summary>
+        public static string ProblemsDescription {
+            get {
+                return ResourceManager.GetString("ProblemsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problems.
+        /// </summary>
+        public static string ProblemsGroupName {
+            get {
+                return ResourceManager.GetString("ProblemsGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problems.
+        /// </summary>
+        public static string ProblemsName {
+            get {
+                return ResourceManager.GetString("ProblemsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Problems.
+        /// </summary>
+        public static string ProblemsShortName {
+            get {
+                return ResourceManager.GetString("ProblemsShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier of the sample (barcode)..
+        /// </summary>
+        public static string SampleIdDescription {
+            get {
+                return ResourceManager.GetString("SampleIdDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        public static string SampleIdGroupName {
+            get {
+                return ResourceManager.GetString("SampleIdGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier of the sample.
+        /// </summary>
+        public static string SampleIdName {
+            get {
+                return ResourceManager.GetString("SampleIdName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, add sample identifier..
+        /// </summary>
+        public static string SampleIdPrompt {
+            get {
+                return ResourceManager.GetString("SampleIdPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier.
+        /// </summary>
+        public static string SampleIdShortName {
+            get {
+                return ResourceManager.GetString("SampleIdShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Primary identifier of the sample type..
         /// </summary>
         public static string SampleTypeDescription {
@@ -93,6 +255,51 @@ namespace Skyware.Arenal.L10n {
         public static string SampleTypeShortName {
             get {
                 return ResourceManager.GetString("SampleTypeShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date and time the sample has been taken. (optional).
+        /// </summary>
+        public static string TakenDescription {
+            get {
+                return ResourceManager.GetString("TakenDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken.
+        /// </summary>
+        public static string TakenGroupName {
+            get {
+                return ResourceManager.GetString("TakenGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken date time.
+        /// </summary>
+        public static string TakenName {
+            get {
+                return ResourceManager.GetString("TakenName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, add date and time when the sample was took..
+        /// </summary>
+        public static string TakenPrompt {
+            get {
+                return ResourceManager.GetString("TakenPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Taken date time.
+        /// </summary>
+        public static string TakenShortName {
+            get {
+                return ResourceManager.GetString("TakenShortName", resourceCulture);
             }
         }
     }

@@ -28,36 +28,56 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample (barcode).
         /// </summary>
-        [Display(ShortName = "Barcode", Name = "Barcode",
-            Description = $"Barcode of the sample.")]
+        [Display(GroupName = nameof(L10n.Sample.SampleIdGroupName),
+            ShortName = nameof(L10n.Sample.SampleIdShortName),
+            Name = nameof(L10n.Sample.SampleIdName),
+            Description = nameof(L10n.Sample.SampleIdDescription),
+            Prompt = nameof(L10n.Sample.SampleIdPrompt),
+            ResourceType = typeof(L10n.Sample))]
         public Identifier SampleId { get; set; }
 
         /// <summary>
         /// Date and time the sample has been taken (UTC).
         /// Optional.
         /// </summary>
-        [Display(ShortName = "Taken", Name = "Taken date time",
-            Description = $"Date and time the sample has been taken.")]
+        [Display(GroupName = nameof(L10n.Sample.TakenGroupName),
+            ShortName = nameof(L10n.Sample.TakenShortName),
+            Name = nameof(L10n.Sample.TakenName),
+            Description = nameof(L10n.Sample.TakenDescription),
+            Prompt = nameof(L10n.Sample.TakenPrompt),
+            ResourceType = typeof(L10n.Sample))]
         public DateTime? Taken { get; set; }
 
         /// <summary>
         /// Date and time the order was created (Local date and time).
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.LocalTakenGroupName),
+            ShortName = nameof(L10n.Sample.LocalTakenShortName),
+            Name = nameof(L10n.Sample.LocalTakenName),
+            Description = nameof(L10n.Sample.LocalTakenDescription),
+            ResourceType = typeof(L10n.Sample))]
         public DateTime? LocalTaken => Taken?.ToLocalTime();
 
         /// <summary>
         /// Notes to the sample.
         /// </summary>
-        [Display(ShortName = "Note", Name = "Note",
-            Description = $"Note to the sample, such as 'Sample may be contaminated, do not use for virology.'")]
+        [Display(GroupName = nameof(L10n.Sample.NoteGroupName),
+            ShortName = nameof(L10n.Sample.NoteShortName),
+            Name = nameof(L10n.Sample.NoteName),
+            Description = nameof(L10n.Sample.NoteDescription),
+            Prompt = nameof(L10n.Sample.NotePrompt),
+            ResourceType = typeof(L10n.Sample))]
         public Note Note { get; set; }
 
         /// <summary>
         /// List of problems reported by the provider.
         /// Preferred coding system is 'org.hl7' with dictionary '0490'
         /// </summary>
-        [Display(ShortName = "Problems", Name = "Problems",
-            Description = $"List of problems (Preferred coding system is 'org.hl7' with dictionary '0490').")]
+        [Display(GroupName = nameof(L10n.Sample.ProblemsGroupName),
+            ShortName = nameof(L10n.Sample.ProblemsShortName),
+            Name = nameof(L10n.Sample.ProblemsName),
+            Description = nameof(L10n.Sample.ProblemsDescription),
+            ResourceType = typeof(L10n.Sample))]
         public IList<Problem> Problems { get; set; }
 
         /// <summary>
