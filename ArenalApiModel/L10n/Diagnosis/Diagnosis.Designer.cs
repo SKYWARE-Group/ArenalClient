@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Diagnosis {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Problem {
+    internal class Diagnosis {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Problem() {
+        internal Diagnosis() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Problem", typeof(Problem).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Diagnosis.Diagnosis", typeof(Diagnosis).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,137 +61,119 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifiers of the problem..
+        ///   Looks up a localized string similar to Please, set diagnosis name..
         /// </summary>
-        internal static string IdentifiersDescription {
+        internal static string NameDescription {
             get {
-                return ResourceManager.GetString("IdentifiersDescription", resourceCulture);
+                return ResourceManager.GetString("NameDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifiers.
+        ///   Looks up a localized string similar to Diagnosis.
         /// </summary>
-        internal static string IdentifiersGroupName {
+        internal static string NameGroupName {
             get {
-                return ResourceManager.GetString("IdentifiersGroupName", resourceCulture);
+                return ResourceManager.GetString("NameGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifiers.
+        ///   Looks up a localized string similar to Diagnosis name.
         /// </summary>
-        internal static string IdentifiersName {
+        internal static string NameName {
             get {
-                return ResourceManager.GetString("IdentifiersName", resourceCulture);
+                return ResourceManager.GetString("NameName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter identifiers of the problem..
+        ///   Looks up a localized string similar to The diagnosis name, according to local language..
         /// </summary>
-        internal static string IdentifiersPrompt {
+        internal static string NamePrompt {
             get {
-                return ResourceManager.GetString("IdentifiersPrompt", resourceCulture);
+                return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifiers.
+        ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string IdentifiersShortName {
+        internal static string NameShortName {
             get {
-                return ResourceManager.GetString("IdentifiersShortName", resourceCulture);
+                return ResourceManager.GetString("NameShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description of the problem..
+        ///   Looks up a localized string similar to The clarification/complication (asterisk) code..
         /// </summary>
-        internal static string NoteDescription {
+        internal static string OptionalCodeDescription {
             get {
-                return ResourceManager.GetString("NoteDescription", resourceCulture);
+                return ResourceManager.GetString("OptionalCodeDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string NoteGroupName {
+        internal static string OptionalCodeGroupName {
             get {
-                return ResourceManager.GetString("NoteGroupName", resourceCulture);
+                return ResourceManager.GetString("OptionalCodeGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string NoteName {
+        internal static string OptionalCodeName {
             get {
-                return ResourceManager.GetString("NoteName", resourceCulture);
+                return ResourceManager.GetString("OptionalCodeName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter description note..
+        ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string NotePrompt {
+        internal static string OptionalCodeShortName {
             get {
-                return ResourceManager.GetString("NotePrompt", resourceCulture);
+                return ResourceManager.GetString("OptionalCodeShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to The primary (dagger) code of a diagnosis..
         /// </summary>
-        internal static string NoteShortName {
+        internal static string PrimaryCodeDescription {
             get {
-                return ResourceManager.GetString("NoteShortName", resourceCulture);
+                return ResourceManager.GetString("PrimaryCodeDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specifies the severity of a problem..
+        ///   Looks up a localized string similar to Primary Code.
         /// </summary>
-        internal static string SeverityDescription {
+        internal static string PrimaryCodeGroupName {
             get {
-                return ResourceManager.GetString("SeverityDescription", resourceCulture);
+                return ResourceManager.GetString("PrimaryCodeGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Problem.
+        ///   Looks up a localized string similar to Primary Code.
         /// </summary>
-        internal static string SeverityGroupName {
+        internal static string PrimaryCodeName {
             get {
-                return ResourceManager.GetString("SeverityGroupName", resourceCulture);
+                return ResourceManager.GetString("PrimaryCodeName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Severity.
+        ///   Looks up a localized string similar to Code.
         /// </summary>
-        internal static string SeverityName {
+        internal static string PrimaryCodeShortName {
             get {
-                return ResourceManager.GetString("SeverityName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, select severity of the problem..
-        /// </summary>
-        internal static string SeverityPrompt {
-            get {
-                return ResourceManager.GetString("SeverityPrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Severity.
-        /// </summary>
-        internal static string SeverityShortName {
-            get {
-                return ResourceManager.GetString("SeverityShortName", resourceCulture);
+                return ResourceManager.GetString("PrimaryCodeShortName", resourceCulture);
             }
         }
     }

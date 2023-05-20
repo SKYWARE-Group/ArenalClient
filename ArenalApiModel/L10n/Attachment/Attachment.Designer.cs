@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Attachment {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Doctor {
+    internal class Attachment {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Doctor() {
+        internal Attachment() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Doctor", typeof(Doctor).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Attachment.Attachment", typeof(Attachment).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,83 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Doctor.
+        ///   Looks up a localized string similar to Name of the attached file..
         /// </summary>
-        internal static string DocotrGroupName {
+        internal static string AttachmentDescription {
             get {
-                return ResourceManager.GetString("DocotrGroupName", resourceCulture);
+                return ResourceManager.GetString("AttachmentDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
+        ///   Looks up a localized string similar to Attachment.
         /// </summary>
-        internal static string DoctorDescription {
+        internal static string AttachmentGroupName {
             get {
-                return ResourceManager.GetString("DoctorDescription", resourceCulture);
+                return ResourceManager.GetString("AttachmentGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Title.
+        ///   Looks up a localized string similar to File name.
         /// </summary>
-        internal static string DoctorName {
+        internal static string AttachmentName {
             get {
-                return ResourceManager.GetString("DoctorName", resourceCulture);
+                return ResourceManager.GetString("AttachmentName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Types of doctor titles, such as D-r, Prof. etc..
+        ///   Looks up a localized string similar to File.
         /// </summary>
-        internal static string DoctorPrompt {
+        internal static string AttachmentShortName {
             get {
-                return ResourceManager.GetString("DoctorPrompt", resourceCulture);
+                return ResourceManager.GetString("AttachmentShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, select title..
+        ///   Looks up a localized string similar to Note from the uploader of the file associated with the file..
         /// </summary>
-        internal static string DoctorShortName {
+        internal static string NoteDescription {
             get {
-                return ResourceManager.GetString("DoctorShortName", resourceCulture);
+                return ResourceManager.GetString("NoteDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        internal static string NoteGroupName {
+            get {
+                return ResourceManager.GetString("NoteGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        internal static string NoteName {
+            get {
+                return ResourceManager.GetString("NoteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, add note to the attached file..
+        /// </summary>
+        internal static string NotePrompt {
+            get {
+                return ResourceManager.GetString("NotePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        internal static string NoteShortName {
+            get {
+                return ResourceManager.GetString("NoteShortName", resourceCulture);
             }
         }
     }

@@ -24,23 +24,23 @@ public class Note
     /// <summary>
     /// Formating type, amongst <seealso cref="NoteTypes"/>.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Note.TypeGroupName),
-        ShortName = nameof(L10n.Note.TypeShortName),
-        Name = nameof(L10n.Note.TypeName),
-        Description = nameof(L10n.Note.TypeDescription),
-        Prompt = nameof(L10n.Note.TypePrompt),
-        ResourceType = typeof(L10n.Note))]
+    [Display(GroupName = nameof(L10n.Note.Note.TypeGroupName),
+        ShortName = nameof(L10n.Note.Note.TypeShortName),
+        Name = nameof(L10n.Note.Note.TypeName),
+        Description = nameof(L10n.Note.Note.TypeDescription),
+        Prompt = nameof(L10n.Note.Note.TypePrompt),
+        ResourceType = typeof(L10n.Note.Note))]
     public string Type { get; set; } = NoteTypes.PLAIN_TEXT;
 
     /// <summary>
     /// Value of the note. Length must be between <see cref="MIN_LEN"/> and <see cref="MAX_LEN"/>.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Note.ValueGroupName),
-        ShortName = nameof(L10n.Note.ValueShortName),
-        Name = nameof(L10n.Note.ValueName),
-        Description = nameof(L10n.Note.ValueDescription),
-        Prompt = nameof(L10n.Note.ValuePrompt),
-        ResourceType = typeof(L10n.Note))]
+    [Display(GroupName = nameof(L10n.Note.Note.ValueGroupName),
+        ShortName = nameof(L10n.Note.Note.ValueShortName),
+        Name = nameof(L10n.Note.Note.ValueName),
+        Description = nameof(L10n.Note.Note.ValueDescription),
+        Prompt = nameof(L10n.Note.Note.ValuePrompt),
+        ResourceType = typeof(L10n.Note.Note))]
     public string Value { get; set; }
 
     /// <summary>

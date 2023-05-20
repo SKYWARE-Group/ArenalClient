@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Service {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Service", typeof(Service).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Service.Service", typeof(Service).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

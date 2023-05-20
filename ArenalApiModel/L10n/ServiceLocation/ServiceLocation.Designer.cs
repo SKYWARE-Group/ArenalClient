@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.ServiceLocation {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class LinkedReferral {
+    internal class ServiceLocation {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LinkedReferral() {
+        internal ServiceLocation() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.LinkedReferral", typeof(LinkedReferral).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.ServiceLocation.ServiceLocation", typeof(ServiceLocation).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,146 +61,155 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date and time the referral will expire (UTC)..
+        ///   Looks up a localized string similar to Address of the location for the service..
         /// </summary>
-        internal static string ExpirationDescription {
+        internal static string AddressDescription {
             get {
-                return ResourceManager.GetString("ExpirationDescription", resourceCulture);
+                return ResourceManager.GetString("AddressDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expiration.
+        ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string ExpirationGroupName {
+        internal static string AddressName {
             get {
-                return ResourceManager.GetString("ExpirationGroupName", resourceCulture);
+                return ResourceManager.GetString("AddressName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date and time of expiration(UTC).
+        ///   Looks up a localized string similar to Please, add address of the location..
         /// </summary>
-        internal static string ExpirationName {
+        internal static string AddressPrompt {
             get {
-                return ResourceManager.GetString("ExpirationName", resourceCulture);
+                return ResourceManager.GetString("AddressPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter expiration time..
+        ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string ExpirationPrompt {
+        internal static string AddressShortName {
             get {
-                return ResourceManager.GetString("ExpirationPrompt", resourceCulture);
+                return ResourceManager.GetString("AddressShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expiration (UTC).
+        ///   Looks up a localized string similar to Contacts applicable with the service location..
         /// </summary>
-        internal static string ExpirationShortName {
+        internal static string ContactsDescription {
             get {
-                return ResourceManager.GetString("ExpirationShortName", resourceCulture);
+                return ResourceManager.GetString("ContactsDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifier in external system..
+        ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string IdentifierDescription {
+        internal static string ContactsName {
             get {
-                return ResourceManager.GetString("IdentifierDescription", resourceCulture);
+                return ResourceManager.GetString("ContactsName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifier.
+        ///   Looks up a localized string similar to Please, add contacts to the location like email of phone..
         /// </summary>
-        internal static string IdentifierGroupName {
+        internal static string ContactsPrompt {
             get {
-                return ResourceManager.GetString("IdentifierGroupName", resourceCulture);
+                return ResourceManager.GetString("ContactsPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifier.
+        ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string IdentifierName {
+        internal static string ContactsShortName {
             get {
-                return ResourceManager.GetString("IdentifierName", resourceCulture);
+                return ResourceManager.GetString("ContactsShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifier.
+        ///   Looks up a localized string similar to Id of the location according to the provider..
         /// </summary>
-        internal static string IdentifierShortName {
+        internal static string LocationIdDescription {
             get {
-                return ResourceManager.GetString("IdentifierShortName", resourceCulture);
+                return ResourceManager.GetString("LocationIdDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date and time the referral will expire (local)..
+        ///   Looks up a localized string similar to Location.
         /// </summary>
-        internal static string LocalExpirationDescription {
+        internal static string LocationIdName {
             get {
-                return ResourceManager.GetString("LocalExpirationDescription", resourceCulture);
+                return ResourceManager.GetString("LocationIdName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expiration.
+        ///   Looks up a localized string similar to Please, set id of the location..
         /// </summary>
-        internal static string LocalExpirationGroupName {
+        internal static string LocationIdPrompt {
             get {
-                return ResourceManager.GetString("LocalExpirationGroupName", resourceCulture);
+                return ResourceManager.GetString("LocationIdPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date and time of expiration(local).
+        ///   Looks up a localized string similar to Location.
         /// </summary>
-        internal static string LocalExpirationName {
+        internal static string LocationIdShortName {
             get {
-                return ResourceManager.GetString("LocalExpirationName", resourceCulture);
+                return ResourceManager.GetString("LocationIdShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter expiration time (local)..
+        ///   Looks up a localized string similar to Friendly name of the service location..
         /// </summary>
-        internal static string LocalExpirationPrompt {
+        internal static string NameDescription {
             get {
-                return ResourceManager.GetString("LocalExpirationPrompt", resourceCulture);
+                return ResourceManager.GetString("NameDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expiration (local).
+        ///   Looks up a localized string similar to Service Location.
         /// </summary>
-        internal static string LocalExpirationShortName {
+        internal static string NameName {
             get {
-                return ResourceManager.GetString("LocalExpirationShortName", resourceCulture);
+                return ResourceManager.GetString("NameName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note from the placer..
+        ///   Looks up a localized string similar to Please, add location name..
+        /// </summary>
+        internal static string NamePrompt {
+            get {
+                return ResourceManager.GetString("NamePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service Location.
+        /// </summary>
+        internal static string NameShortName {
+            get {
+                return ResourceManager.GetString("NameShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note to the location such as &apos;Call before visit&apos;..
         /// </summary>
         internal static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Note.
-        /// </summary>
-        internal static string NoteGroupName {
-            get {
-                return ResourceManager.GetString("NoteGroupName", resourceCulture);
             }
         }
         
@@ -214,7 +223,7 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter note..
+        ///   Looks up a localized string similar to Please, add note to the location..
         /// </summary>
         internal static string NotePrompt {
             get {

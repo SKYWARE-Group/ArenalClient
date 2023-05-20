@@ -23,24 +23,24 @@ public class Contact : IEquatable<Contact>
     /// Type of the contact, according to <see cref="ContactTypes"/>.
     /// Required.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Contact.ContactGroupName),
-        ShortName = nameof(L10n.Contact.ContactTypeShortName),
-        Name = nameof(L10n.Contact.ContactTypeName),
-        Description = nameof(L10n.Contact.ContactTypeDescription),
-        Prompt = nameof(L10n.Contact.ContactTypePrompt),
-        ResourceType = typeof(L10n.Contact))]
+    [Display(GroupName = nameof(L10n.Contact.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.Contact.ContactTypeShortName),
+        Name = nameof(L10n.Contact.Contact.ContactTypeName),
+        Description = nameof(L10n.Contact.Contact.ContactTypeDescription),
+        Prompt = nameof(L10n.Contact.Contact.ContactTypePrompt),
+        ResourceType = typeof(L10n.Contact.Contact))]
     public string Type { get; set; } = ContactTypes.PHONE;
 
     /// <summary>
     /// Value of the contact, such as 'john@doe.com', etc.
     /// Required.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Contact.ContactGroupName),
-        ShortName = nameof(L10n.Contact.ContactValueShortName),
-        Name = nameof(L10n.Contact.ContactValueName),
-        Description = nameof(L10n.Contact.ContactValueDescription),
-        Prompt = nameof(L10n.Contact.ContactValuePrompt),
-        ResourceType = typeof(L10n.Contact))]
+    [Display(GroupName = nameof(L10n.Contact.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.Contact.ContactValueShortName),
+        Name = nameof(L10n.Contact.Contact.ContactValueName),
+        Description = nameof(L10n.Contact.Contact.ContactValueDescription),
+        Prompt = nameof(L10n.Contact.Contact.ContactValuePrompt),
+        ResourceType = typeof(L10n.Contact.Contact))]
     public string Value { get; set; }
 
     /// <summary>

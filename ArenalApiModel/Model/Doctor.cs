@@ -14,12 +14,12 @@ public class Doctor : PersonBase
     /// <summary>
     /// Title, such as D-r, Prof., etc.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Doctor.DocotrGroupName),
-        ShortName = nameof(L10n.Doctor.DoctorShortName),
-        Name = nameof(L10n.Doctor.DoctorName),
-        Description = nameof(L10n.Doctor.DoctorDescription),
-        Prompt = nameof(L10n.Doctor.DoctorPrompt),
-        ResourceType = typeof(L10n.Doctor))]
+    [Display(GroupName = nameof(L10n.Doctor.Doctor.DocotrGroupName),
+        ShortName = nameof(L10n.Doctor.Doctor.DoctorShortName),
+        Name = nameof(L10n.Doctor.Doctor.DoctorName),
+        Description = nameof(L10n.Doctor.Doctor.DoctorDescription),
+        Prompt = nameof(L10n.Doctor.Doctor.DoctorPrompt),
+        ResourceType = typeof(L10n.Doctor.Doctor))]
     public string Title { get; set; }
 
 }

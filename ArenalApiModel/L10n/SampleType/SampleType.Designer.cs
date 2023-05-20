@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.SampleType {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Identifier {
+    internal class SampleType {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Identifier() {
+        internal SampleType() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Identifier", typeof(Identifier).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.SampleType.SampleType", typeof(SampleType).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,138 +61,137 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Authority/Realm/System of the identifier such as &apos;org.loinc&apos;, &apos;org.snomed&apos; etc.
-        ///Mandatory. Use &apos;local&apos; for your own identifiers..
+        ///   Looks up a localized string similar to Identifier of additive..
         /// </summary>
-        internal static string AuthorityDescription {
+        internal static string AdditiveIdDescription {
             get {
-                return ResourceManager.GetString("AuthorityDescription", resourceCulture);
+                return ResourceManager.GetString("AdditiveIdDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Authority.
+        ///   Looks up a localized string similar to Additive Identifier.
         /// </summary>
-        internal static string AuthorityGroupName {
+        internal static string AdditiveIdName {
             get {
-                return ResourceManager.GetString("AuthorityGroupName", resourceCulture);
+                return ResourceManager.GetString("AdditiveIdName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Authority/Realm/System.
+        ///   Looks up a localized string similar to Additive Identifier.
         /// </summary>
-        internal static string AuthorityName {
+        internal static string AdditiveIdShortName {
             get {
-                return ResourceManager.GetString("AuthorityName", resourceCulture);
+                return ResourceManager.GetString("AdditiveIdShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter authoriry..
+        ///   Looks up a localized string similar to Additional identifiers, different from identifier and additive identifier..
         /// </summary>
-        internal static string AuthorityPrompt {
+        internal static string AlternateIdentifiersDescription {
             get {
-                return ResourceManager.GetString("AuthorityPrompt", resourceCulture);
+                return ResourceManager.GetString("AlternateIdentifiersDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Authority.
+        ///   Looks up a localized string similar to Additional identifiers.
         /// </summary>
-        internal static string AuthorityShortName {
+        internal static string AlternateIdentifiersName {
             get {
-                return ResourceManager.GetString("AuthorityShortName", resourceCulture);
+                return ResourceManager.GetString("AlternateIdentifiersName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dictionary (value set) for given authority, such as HL7 table number, etc..
+        ///   Looks up a localized string similar to Please, add additional identifiers..
         /// </summary>
-        internal static string DictionaryDescription {
+        internal static string AlternateIdentifiersPrompt {
             get {
-                return ResourceManager.GetString("DictionaryDescription", resourceCulture);
+                return ResourceManager.GetString("AlternateIdentifiersPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dictionary.
+        ///   Looks up a localized string similar to Additional identifiers.
         /// </summary>
-        internal static string DictionaryGroupName {
+        internal static string AlternateIdentifiersShortName {
             get {
-                return ResourceManager.GetString("DictionaryGroupName", resourceCulture);
+                return ResourceManager.GetString("AlternateIdentifiersShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value set.
+        ///   Looks up a localized string similar to Name of the sample type as it is known by the placer or provider..
         /// </summary>
-        internal static string DictionaryName {
+        internal static string NameDescription {
             get {
-                return ResourceManager.GetString("DictionaryName", resourceCulture);
+                return ResourceManager.GetString("NameDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter values set name..
+        ///   Looks up a localized string similar to Sample type name.
         /// </summary>
-        internal static string DictionaryPrompt {
+        internal static string NameName {
             get {
-                return ResourceManager.GetString("DictionaryPrompt", resourceCulture);
+                return ResourceManager.GetString("NameName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value set.
+        ///   Looks up a localized string similar to Please, add sample type name..
         /// </summary>
-        internal static string DictionaryShortName {
+        internal static string NamePrompt {
             get {
-                return ResourceManager.GetString("DictionaryShortName", resourceCulture);
+                return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identifier value such as &apos;ABC-123&apos;, &apos;BLD&apos;, etc. Mandatory..
+        ///   Looks up a localized string similar to Name .
         /// </summary>
-        internal static string ValueDescription {
+        internal static string NameShortName {
             get {
-                return ResourceManager.GetString("ValueDescription", resourceCulture);
+                return ResourceManager.GetString("NameShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value.
+        ///   Looks up a localized string similar to Identifier of the sample type..
         /// </summary>
-        internal static string ValueGroupName {
+        internal static string TypeIdDescription {
             get {
-                return ResourceManager.GetString("ValueGroupName", resourceCulture);
+                return ResourceManager.GetString("TypeIdDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value.
+        ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string ValueName {
+        internal static string TypeIdName {
             get {
-                return ResourceManager.GetString("ValueName", resourceCulture);
+                return ResourceManager.GetString("TypeIdName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, enter value..
+        ///   Looks up a localized string similar to Please, enter sample type identifier..
         /// </summary>
-        internal static string ValuePrompt {
+        internal static string TypeIdPrompt {
             get {
-                return ResourceManager.GetString("ValuePrompt", resourceCulture);
+                return ResourceManager.GetString("TypeIdPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value.
+        ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string ValueShortName {
+        internal static string TypeIdShortName {
             get {
-                return ResourceManager.GetString("ValueShortName", resourceCulture);
+                return ResourceManager.GetString("TypeIdShortName", resourceCulture);
             }
         }
     }

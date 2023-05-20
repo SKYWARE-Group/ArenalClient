@@ -37,45 +37,45 @@ public abstract class PersonBase
     /// <summary>
     /// List of <see cref="Identifier"/> (may be empty).
     /// </summary>
-    [Display(GroupName = nameof(L10n.PersonBase.IdentifiersGroupName),
-        ShortName = nameof(L10n.PersonBase.IdentifiersShortName),
-        Name = nameof(L10n.PersonBase.IdentifiersName),
-        Description = nameof(L10n.PersonBase.IdentifiersDescription),
-        Prompt = nameof(L10n.PersonBase.IdentifiersPrompt),
-        ResourceType = typeof(L10n.PersonBase))]
+    [Display(GroupName = nameof(L10n.PersonBase.PersonBase.IdentifiersGroupName),
+        ShortName = nameof(L10n.PersonBase.PersonBase.IdentifiersShortName),
+        Name = nameof(L10n.PersonBase.PersonBase.IdentifiersName),
+        Description = nameof(L10n.PersonBase.PersonBase.IdentifiersDescription),
+        Prompt = nameof(L10n.PersonBase.PersonBase.IdentifiersPrompt),
+        ResourceType = typeof(L10n.PersonBase.PersonBase))]
     public IList<Identifier> Identifiers { get; set; }
 
     /// <summary>
     /// Given (first) name of the person.
     /// </summary>
-    [Display(GroupName = nameof(L10n.PersonBase.GivenNameGroupName),
-        ShortName = nameof(L10n.PersonBase.GivenNameShortName),
-        Name = nameof(L10n.PersonBase.GivenNameName),
-        Description = nameof(L10n.PersonBase.GivenNameDescription),
-        Prompt = nameof(L10n.PersonBase.GivenNamePrompt),
-        ResourceType = typeof(L10n.PersonBase))]
+    [Display(GroupName = nameof(L10n.PersonBase.PersonBase.GivenNameGroupName),
+        ShortName = nameof(L10n.PersonBase.PersonBase.GivenNameShortName),
+        Name = nameof(L10n.PersonBase.PersonBase.GivenNameName),
+        Description = nameof(L10n.PersonBase.PersonBase.GivenNameDescription),
+        Prompt = nameof(L10n.PersonBase.PersonBase.GivenNamePrompt),
+        ResourceType = typeof(L10n.PersonBase.PersonBase))]
     public string GivenName { get; set; }
 
     /// <summary>
     /// Middle (second) name of the person.
     /// </summary>
-    [Display(GroupName = nameof(L10n.PersonBase.MiddleNameGroupName),
-        ShortName = nameof(L10n.PersonBase.MiddleNameShortName),
-        Name = nameof(L10n.PersonBase.MiddleNameName),
-        Description = nameof(L10n.PersonBase.MiddleNameDescription),
-        Prompt = nameof(L10n.PersonBase.MiddleNamePrompt),
-        ResourceType = typeof(L10n.PersonBase))]
+    [Display(GroupName = nameof(L10n.PersonBase.PersonBase.MiddleNameGroupName),
+        ShortName = nameof(L10n.PersonBase.PersonBase.MiddleNameShortName),
+        Name = nameof(L10n.PersonBase.PersonBase.MiddleNameName),
+        Description = nameof(L10n.PersonBase.PersonBase.MiddleNameDescription),
+        Prompt = nameof(L10n.PersonBase.PersonBase.MiddleNamePrompt),
+        ResourceType = typeof(L10n.PersonBase.PersonBase))]
     public string MiddleName { get; set; }
 
     /// <summary>
     /// Family name (surname) of the person.
     /// </summary>
-    [Display(GroupName = nameof(L10n.PersonBase.FamilyNameGroupName),
-        ShortName = nameof(L10n.PersonBase.FamilyNameShortName),
-        Name = nameof(L10n.PersonBase.FamilyNameName),
-        Description = nameof(L10n.PersonBase.FamilyNameDescription),
-        Prompt = nameof(L10n.PersonBase.FamilyNamePrompt),
-        ResourceType = typeof(L10n.PersonBase))]
+    [Display(GroupName = nameof(L10n.PersonBase.PersonBase.FamilyNameGroupName),
+        ShortName = nameof(L10n.PersonBase.PersonBase.FamilyNameShortName),
+        Name = nameof(L10n.PersonBase.PersonBase.FamilyNameName),
+        Description = nameof(L10n.PersonBase.PersonBase.FamilyNameDescription),
+        Prompt = nameof(L10n.PersonBase.PersonBase.FamilyNamePrompt),
+        ResourceType = typeof(L10n.PersonBase.PersonBase))]
     public string FamilyName { get; set; }
 
     /// <summary>
@@ -90,12 +90,12 @@ public abstract class PersonBase
     /// <summary>
     /// List of phone numbers, emails, etc.
     /// </summary>
-    [Display(GroupName = nameof(L10n.PersonBase.ContactsGroupName),
-        ShortName = nameof(L10n.PersonBase.ContactsBaseShortName),
-        Name = nameof(L10n.PersonBase.ContactsName),
-        Description = nameof(L10n.PersonBase.ContactsDescription),
-        Prompt = nameof(L10n.PersonBase.ContactsPrompt),
-        ResourceType = typeof(L10n.PersonBase))]
+    [Display(GroupName = nameof(L10n.PersonBase.PersonBase.ContactsGroupName),
+        ShortName = nameof(L10n.PersonBase.PersonBase.ContactsBaseShortName),
+        Name = nameof(L10n.PersonBase.PersonBase.ContactsName),
+        Description = nameof(L10n.PersonBase.PersonBase.ContactsDescription),
+        Prompt = nameof(L10n.PersonBase.PersonBase.ContactsPrompt),
+        ResourceType = typeof(L10n.PersonBase.PersonBase))]
     public IList<Contact> Contacts { get; set; }
 
 

@@ -19,22 +19,22 @@ public class Attachment
     /// <summary>
     /// File name, such as 'Patient234.pdf'.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Attachment.AttachmentGroupName),
-        ShortName = nameof(L10n.Attachment.AttachmentShortName),
-        Name = nameof(L10n.Attachment.AttachmentName),
-        Description = nameof(L10n.Attachment.AttachmentDescription),
-        ResourceType = typeof(L10n.Attachment))]
+    [Display(GroupName = nameof(L10n.Attachment.Attachment.AttachmentGroupName),
+        ShortName = nameof(L10n.Attachment.Attachment.AttachmentShortName),
+        Name = nameof(L10n.Attachment.Attachment.AttachmentName),
+        Description = nameof(L10n.Attachment.Attachment.AttachmentDescription),
+        ResourceType = typeof(L10n.Attachment.Attachment))]
     public string Name { get; set; }
 
     /// <summary>
     /// Note from the placer.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Attachment.NoteGroupName),
-        ShortName = nameof(L10n.Attachment.NoteShortName),
-        Name = nameof(L10n.Attachment.NoteName),
-        Description = nameof(L10n.Attachment.NoteDescription),
-        Prompt = nameof(L10n.Attachment.NotePrompt),
-        ResourceType = typeof(L10n.Attachment))]
+    [Display(GroupName = nameof(L10n.Attachment.Attachment.NoteGroupName),
+        ShortName = nameof(L10n.Attachment.Attachment.NoteShortName),
+        Name = nameof(L10n.Attachment.Attachment.NoteName),
+        Description = nameof(L10n.Attachment.Attachment.NoteDescription),
+        Prompt = nameof(L10n.Attachment.Attachment.NotePrompt),
+        ResourceType = typeof(L10n.Attachment.Attachment))]
     public Note Note { get; set; }
 
     /// <summary>

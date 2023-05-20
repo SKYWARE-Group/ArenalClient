@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Doctor {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Contact {
+    internal class Doctor {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Contact() {
+        internal Doctor() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Contact", typeof(Contact).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Doctor.Doctor", typeof(Doctor).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,47 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact.
+        ///   Looks up a localized string similar to Doctor.
         /// </summary>
-        internal static string ContactGroupName {
+        internal static string DocotrGroupName {
             get {
-                return ResourceManager.GetString("ContactGroupName", resourceCulture);
+                return ResourceManager.GetString("DocotrGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type of contacts like email or phone etc..
+        ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string ContactTypeDescription {
+        internal static string DoctorDescription {
             get {
-                return ResourceManager.GetString("ContactTypeDescription", resourceCulture);
+                return ResourceManager.GetString("DoctorDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type of the provided contact.
+        ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string ContactTypeName {
+        internal static string DoctorName {
             get {
-                return ResourceManager.GetString("ContactTypeName", resourceCulture);
+                return ResourceManager.GetString("DoctorName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, select contact type..
+        ///   Looks up a localized string similar to Types of doctor titles, such as D-r, Prof. etc..
         /// </summary>
-        internal static string ContactTypePrompt {
+        internal static string DoctorPrompt {
             get {
-                return ResourceManager.GetString("ContactTypePrompt", resourceCulture);
+                return ResourceManager.GetString("DoctorPrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type.
+        ///   Looks up a localized string similar to Please, select title..
         /// </summary>
-        internal static string ContactTypeShortName {
+        internal static string DoctorShortName {
             get {
-                return ResourceManager.GetString("ContactTypeShortName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value of the contact according to the selected type. .
-        /// </summary>
-        internal static string ContactValueDescription {
-            get {
-                return ResourceManager.GetString("ContactValueDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value.
-        /// </summary>
-        internal static string ContactValueName {
-            get {
-                return ResourceManager.GetString("ContactValueName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, add value of the contact..
-        /// </summary>
-        internal static string ContactValuePrompt {
-            get {
-                return ResourceManager.GetString("ContactValuePrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value.
-        /// </summary>
-        internal static string ContactValueShortName {
-            get {
-                return ResourceManager.GetString("ContactValueShortName", resourceCulture);
+                return ResourceManager.GetString("DoctorShortName", resourceCulture);
             }
         }
     }

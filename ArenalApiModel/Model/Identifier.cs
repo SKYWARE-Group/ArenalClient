@@ -1,9 +1,8 @@
-﻿using FluentValidation.Results;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
+
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Skyware.Arenal.Model;
 
@@ -37,12 +36,12 @@ public class Identifier : IEquatable<Identifier>
     /// Mandatory. Use 'local' for your own identifiers.
     /// Up to <see cref="AUTHORITY_MAX_LEN"/> characters.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Identifier.AuthorityGroupName),
-        ShortName = nameof(L10n.Identifier.AuthorityShortName),
-        Name = nameof(L10n.Identifier.AuthorityName),
-        Description = nameof(L10n.Identifier.AuthorityDescription),
-        Prompt = nameof(L10n.Identifier.AuthorityPrompt),
-        ResourceType = typeof(L10n.Identifier))]
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.AuthorityGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.AuthorityShortName),
+        Name = nameof(L10n.Identifier.Identifier.AuthorityName),
+        Description = nameof(L10n.Identifier.Identifier.AuthorityDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.AuthorityPrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Authority { get; set; }
 
     /// <summary>
@@ -50,12 +49,12 @@ public class Identifier : IEquatable<Identifier>
     /// Optional.
     /// Up to <see cref="DICTIONARY_MAX_LEN"/> characters.
     /// </summary> 
-    [Display(GroupName = nameof(L10n.Identifier.DictionaryGroupName),
-        ShortName = nameof(L10n.Identifier.DictionaryShortName),
-        Name = nameof(L10n.Identifier.DictionaryName),
-        Description = nameof(L10n.Identifier.DictionaryDescription),
-        Prompt = nameof(L10n.Identifier.DictionaryPrompt),
-        ResourceType = typeof(L10n.Identifier))]
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.DictionaryGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.DictionaryShortName),
+        Name = nameof(L10n.Identifier.Identifier.DictionaryName),
+        Description = nameof(L10n.Identifier.Identifier.DictionaryDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.DictionaryPrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Dictionary { get; set; }
 
     /// <summary>
@@ -63,12 +62,12 @@ public class Identifier : IEquatable<Identifier>
     /// Mandatory.
     /// Up to <see cref="VALUE_MAX_LEN"/> characters.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Identifier.ValueGroupName),
-        ShortName = nameof(L10n.Identifier.ValueShortName),
-        Name = nameof(L10n.Identifier.ValueName),
-        Description = nameof(L10n.Identifier.ValueDescription),
-        Prompt = nameof(L10n.Identifier.ValuePrompt),
-        ResourceType = typeof(L10n.Identifier))]
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.ValueGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.ValueShortName),
+        Name = nameof(L10n.Identifier.Identifier.ValueName),
+        Description = nameof(L10n.Identifier.Identifier.ValueDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.ValuePrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Value { get; set; }
 
     /// <summary>

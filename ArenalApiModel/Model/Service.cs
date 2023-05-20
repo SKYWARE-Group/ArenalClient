@@ -44,63 +44,63 @@ public class Service : IEquatable<Service>
     /// <summary>
     /// Identifier of a ordered examination or service.
     /// </summary>
-    [Display(ShortName = nameof(L10n.Service.ServiceIdShortName),
-        Name = nameof(L10n.Service.ServiceIdName),
-        Description = nameof(L10n.Service.ServiceIdDescription),
-        Prompt = nameof(L10n.Service.ServiceIdPrompt),
-        ResourceType = typeof(L10n.Service))]
+    [Display(ShortName = nameof(L10n.Service.Service.ServiceIdShortName),
+        Name = nameof(L10n.Service.Service.ServiceIdName),
+        Description = nameof(L10n.Service.Service.ServiceIdDescription),
+        Prompt = nameof(L10n.Service.Service.ServiceIdPrompt),
+        ResourceType = typeof(L10n.Service.Service))]
     public Identifier ServiceId { get; set; }
 
     /// <summary>
     /// Additional identifiers, not defined in <see cref="ServiceId"/>.
     /// </summary>
-    [Display(ShortName = nameof(L10n.Service.AlternateIdentifiersShortName),
-        Name = nameof(L10n.Service.AlternateIdentifiersName),
-        Description = nameof(L10n.Service.AlternateIdentifiersDescription),
-        Prompt = nameof(L10n.Service.AlternateIdentifiersPrompt),
-        ResourceType = typeof(L10n.Service))]
+    [Display(ShortName = nameof(L10n.Service.Service.AlternateIdentifiersShortName),
+        Name = nameof(L10n.Service.Service.AlternateIdentifiersName),
+        Description = nameof(L10n.Service.Service.AlternateIdentifiersDescription),
+        Prompt = nameof(L10n.Service.Service.AlternateIdentifiersPrompt),
+        ResourceType = typeof(L10n.Service.Service))]
     public IList<Identifier> AlternateIdentifiers { get; set; }
 
     /// <summary>
     /// Name of the service, according to the placer (optional).
     /// </summary>
-    [Display(ShortName = nameof(L10n.Service.NameShortName),
-        Name = nameof(L10n.Service.NameName),
-        Description = nameof(L10n.Service.NameDescription),
-        Prompt = nameof(L10n.Service.NamePrompt),
-        ResourceType = typeof(L10n.Service))]
+    [Display(ShortName = nameof(L10n.Service.Service.NameShortName),
+        Name = nameof(L10n.Service.Service.NameName),
+        Description = nameof(L10n.Service.Service.NameDescription),
+        Prompt = nameof(L10n.Service.Service.NamePrompt),
+        ResourceType = typeof(L10n.Service.Service))]
     public string Name { get; set; }
 
     /// <summary>
     /// Notes from the placer.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Service.NoteGroupName),
-            ShortName = nameof(L10n.Service.NoteShortName),
-            Name = nameof(L10n.Service.NoteName),
-            Description = nameof(L10n.Service.NoteDescription),
-            Prompt = nameof(L10n.Service.NotePrompt),
-            ResourceType = typeof(L10n.Service))]
+    [Display(GroupName = nameof(L10n.Service.Service.NoteGroupName),
+            ShortName = nameof(L10n.Service.Service.NoteShortName),
+            Name = nameof(L10n.Service.Service.NoteName),
+            Description = nameof(L10n.Service.Service.NoteDescription),
+            Prompt = nameof(L10n.Service.Service.NotePrompt),
+            ResourceType = typeof(L10n.Service.Service))]
     public Note Note { get; set; }
 
     /// <summary>
     /// Ordering value, according to the provider's sorting.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Service.RankGroupName),
-            ShortName = nameof(L10n.Service.RankShortName),
-            Name = nameof(L10n.Service.RankName),
-            Description = nameof(L10n.Service.RankDescription),
-            Prompt = nameof(L10n.Service.RankPrompt),
-            ResourceType = typeof(L10n.Service))]
+    [Display(GroupName = nameof(L10n.Service.Service.RankGroupName),
+            ShortName = nameof(L10n.Service.Service.RankShortName),
+            Name = nameof(L10n.Service.Service.RankName),
+            Description = nameof(L10n.Service.Service.RankDescription),
+            Prompt = nameof(L10n.Service.Service.RankPrompt),
+            ResourceType = typeof(L10n.Service.Service))]
     public int? Rank { get; set; }
 
     /// <summary>
     /// List of problems reported by the provider.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Service.ProblemsGroupName),
-            ShortName = nameof(L10n.Service.ProblemsShortName),
-            Name = nameof(L10n.Service.ProblemsName),
-            Description = nameof(L10n.Service.ProblemsDescription),
-            ResourceType = typeof(L10n.Service))]
+    [Display(GroupName = nameof(L10n.Service.Service.ProblemsGroupName),
+            ShortName = nameof(L10n.Service.Service.ProblemsShortName),
+            Name = nameof(L10n.Service.Service.ProblemsName),
+            Description = nameof(L10n.Service.Service.ProblemsDescription),
+            ResourceType = typeof(L10n.Service.Service))]
     public IList<Problem> Problems { get; set; }
 
     /// <summary>

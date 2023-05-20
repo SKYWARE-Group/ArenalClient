@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Contact {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Note {
+    internal class Contact {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Note() {
+        internal Contact() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Note", typeof(Note).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Contact.Contact", typeof(Contact).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,83 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Formating type of the note like plain text, rtf, html etc..
+        ///   Looks up a localized string similar to Contact.
         /// </summary>
-        internal static string TypeDescription {
+        internal static string ContactGroupName {
             get {
-                return ResourceManager.GetString("TypeDescription", resourceCulture);
+                return ResourceManager.GetString("ContactGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of contacts like email or phone etc..
+        /// </summary>
+        internal static string ContactTypeDescription {
+            get {
+                return ResourceManager.GetString("ContactTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of the provided contact.
+        /// </summary>
+        internal static string ContactTypeName {
+            get {
+                return ResourceManager.GetString("ContactTypeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, select contact type..
+        /// </summary>
+        internal static string ContactTypePrompt {
+            get {
+                return ResourceManager.GetString("ContactTypePrompt", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
-        internal static string TypeGroupName {
+        internal static string ContactTypeShortName {
             get {
-                return ResourceManager.GetString("TypeGroupName", resourceCulture);
+                return ResourceManager.GetString("ContactTypeShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note formatting type..
+        ///   Looks up a localized string similar to Value of the contact according to the selected type. .
         /// </summary>
-        internal static string TypeName {
+        internal static string ContactValueDescription {
             get {
-                return ResourceManager.GetString("TypeName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please, enter formatting type..
-        /// </summary>
-        internal static string TypePrompt {
-            get {
-                return ResourceManager.GetString("TypePrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Note type.
-        /// </summary>
-        internal static string TypeShortName {
-            get {
-                return ResourceManager.GetString("TypeShortName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value of the note. Length must be between 2 and 1024 symbols..
-        /// </summary>
-        internal static string ValueDescription {
-            get {
-                return ResourceManager.GetString("ValueDescription", resourceCulture);
+                return ResourceManager.GetString("ContactValueDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValueGroupName {
+        internal static string ContactValueName {
             get {
-                return ResourceManager.GetString("ValueGroupName", resourceCulture);
+                return ResourceManager.GetString("ContactValueName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note value.
+        ///   Looks up a localized string similar to Please, add value of the contact..
         /// </summary>
-        internal static string ValueName {
+        internal static string ContactValuePrompt {
             get {
-                return ResourceManager.GetString("ValueName", resourceCulture);
+                return ResourceManager.GetString("ContactValuePrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, add value of the note..
+        ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValuePrompt {
+        internal static string ContactValueShortName {
             get {
-                return ResourceManager.GetString("ValuePrompt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Note value.
-        /// </summary>
-        internal static string ValueShortName {
-            get {
-                return ResourceManager.GetString("ValueShortName", resourceCulture);
+                return ResourceManager.GetString("ContactValueShortName", resourceCulture);
             }
         }
     }

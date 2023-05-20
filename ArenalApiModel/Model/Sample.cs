@@ -20,64 +20,64 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample type.
         /// </summary>
-        [Display(ShortName = nameof(L10n.Sample.SampleTypeShortName), Name = nameof(L10n.Sample.SampleTypeName),
-            Description = nameof(L10n.Sample.SampleTypeDescription), Prompt = nameof(L10n.Sample.SampleTypePrompt),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(ShortName = nameof(L10n.Sample.Sample.SampleTypeShortName), Name = nameof(L10n.Sample.Sample.SampleTypeName),
+            Description = nameof(L10n.Sample.Sample.SampleTypeDescription), Prompt = nameof(L10n.Sample.Sample.SampleTypePrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public SampleType SampleType { get; set; }
 
         /// <summary>
         /// Identifier of the sample (barcode).
         /// </summary>
-        [Display(GroupName = nameof(L10n.Sample.SampleIdGroupName),
-            ShortName = nameof(L10n.Sample.SampleIdShortName),
-            Name = nameof(L10n.Sample.SampleIdName),
-            Description = nameof(L10n.Sample.SampleIdDescription),
-            Prompt = nameof(L10n.Sample.SampleIdPrompt),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(GroupName = nameof(L10n.Sample.Sample.SampleIdGroupName),
+            ShortName = nameof(L10n.Sample.Sample.SampleIdShortName),
+            Name = nameof(L10n.Sample.Sample.SampleIdName),
+            Description = nameof(L10n.Sample.Sample.SampleIdDescription),
+            Prompt = nameof(L10n.Sample.Sample.SampleIdPrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public Identifier SampleId { get; set; }
 
         /// <summary>
         /// Date and time the sample has been taken (UTC).
         /// Optional.
         /// </summary>
-        [Display(GroupName = nameof(L10n.Sample.TakenGroupName),
-            ShortName = nameof(L10n.Sample.TakenShortName),
-            Name = nameof(L10n.Sample.TakenName),
-            Description = nameof(L10n.Sample.TakenDescription),
-            Prompt = nameof(L10n.Sample.TakenPrompt),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(GroupName = nameof(L10n.Sample.Sample.TakenGroupName),
+            ShortName = nameof(L10n.Sample.Sample.TakenShortName),
+            Name = nameof(L10n.Sample.Sample.TakenName),
+            Description = nameof(L10n.Sample.Sample.TakenDescription),
+            Prompt = nameof(L10n.Sample.Sample.TakenPrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public DateTime? Taken { get; set; }
 
         /// <summary>
         /// Date and time the order was created (Local date and time).
         /// </summary>
-        [Display(GroupName = nameof(L10n.Sample.LocalTakenGroupName),
-            ShortName = nameof(L10n.Sample.LocalTakenShortName),
-            Name = nameof(L10n.Sample.LocalTakenName),
-            Description = nameof(L10n.Sample.LocalTakenDescription),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(GroupName = nameof(L10n.Sample.Sample.LocalTakenGroupName),
+            ShortName = nameof(L10n.Sample.Sample.LocalTakenShortName),
+            Name = nameof(L10n.Sample.Sample.LocalTakenName),
+            Description = nameof(L10n.Sample.Sample.LocalTakenDescription),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public DateTime? LocalTaken => Taken?.ToLocalTime();
 
         /// <summary>
         /// Notes to the sample.
         /// </summary>
-        [Display(GroupName = nameof(L10n.Sample.NoteGroupName),
-            ShortName = nameof(L10n.Sample.NoteShortName),
-            Name = nameof(L10n.Sample.NoteName),
-            Description = nameof(L10n.Sample.NoteDescription),
-            Prompt = nameof(L10n.Sample.NotePrompt),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(GroupName = nameof(L10n.Sample.Sample.NoteGroupName),
+            ShortName = nameof(L10n.Sample.Sample.NoteShortName),
+            Name = nameof(L10n.Sample.Sample.NoteName),
+            Description = nameof(L10n.Sample.Sample.NoteDescription),
+            Prompt = nameof(L10n.Sample.Sample.NotePrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public Note Note { get; set; }
 
         /// <summary>
         /// List of problems reported by the provider.
         /// Preferred coding system is 'org.hl7' with dictionary '0490'
         /// </summary>
-        [Display(GroupName = nameof(L10n.Sample.ProblemsGroupName),
-            ShortName = nameof(L10n.Sample.ProblemsShortName),
-            Name = nameof(L10n.Sample.ProblemsName),
-            Description = nameof(L10n.Sample.ProblemsDescription),
-            ResourceType = typeof(L10n.Sample))]
+        [Display(GroupName = nameof(L10n.Sample.Sample.ProblemsGroupName),
+            ShortName = nameof(L10n.Sample.Sample.ProblemsShortName),
+            Name = nameof(L10n.Sample.Sample.ProblemsName),
+            Description = nameof(L10n.Sample.Sample.ProblemsDescription),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public IList<Problem> Problems { get; set; }
 
         /// <summary>

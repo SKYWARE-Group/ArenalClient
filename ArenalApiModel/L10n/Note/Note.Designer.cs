@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Skyware.Arenal.L10n {
+namespace Skyware.Arenal.L10n.Note {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Skyware.Arenal.L10n {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Attachment {
+    internal class Note {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Attachment() {
+        internal Note() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skyware.Arenal.L10n {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Attachment", typeof(Attachment).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Note.Note", typeof(Note).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,92 @@ namespace Skyware.Arenal.L10n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name of the attached file..
+        ///   Looks up a localized string similar to Formating type of the note like plain text, rtf, html etc..
         /// </summary>
-        internal static string AttachmentDescription {
+        internal static string TypeDescription {
             get {
-                return ResourceManager.GetString("AttachmentDescription", resourceCulture);
+                return ResourceManager.GetString("TypeDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attachment.
+        ///   Looks up a localized string similar to Type.
         /// </summary>
-        internal static string AttachmentGroupName {
+        internal static string TypeGroupName {
             get {
-                return ResourceManager.GetString("AttachmentGroupName", resourceCulture);
+                return ResourceManager.GetString("TypeGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File name.
+        ///   Looks up a localized string similar to Note formatting type..
         /// </summary>
-        internal static string AttachmentName {
+        internal static string TypeName {
             get {
-                return ResourceManager.GetString("AttachmentName", resourceCulture);
+                return ResourceManager.GetString("TypeName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File.
+        ///   Looks up a localized string similar to Please, enter formatting type..
         /// </summary>
-        internal static string AttachmentShortName {
+        internal static string TypePrompt {
             get {
-                return ResourceManager.GetString("AttachmentShortName", resourceCulture);
+                return ResourceManager.GetString("TypePrompt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note from the uploader of the file associated with the file..
+        ///   Looks up a localized string similar to Note type.
         /// </summary>
-        internal static string NoteDescription {
+        internal static string TypeShortName {
             get {
-                return ResourceManager.GetString("NoteDescription", resourceCulture);
+                return ResourceManager.GetString("TypeShortName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to Value of the note. Length must be between 2 and 1024 symbols..
         /// </summary>
-        internal static string NoteGroupName {
+        internal static string ValueDescription {
             get {
-                return ResourceManager.GetString("NoteGroupName", resourceCulture);
+                return ResourceManager.GetString("ValueDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string NoteName {
+        internal static string ValueGroupName {
             get {
-                return ResourceManager.GetString("NoteName", resourceCulture);
+                return ResourceManager.GetString("ValueGroupName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please, add note to the attached file..
+        ///   Looks up a localized string similar to Note value.
         /// </summary>
-        internal static string NotePrompt {
+        internal static string ValueName {
             get {
-                return ResourceManager.GetString("NotePrompt", resourceCulture);
+                return ResourceManager.GetString("ValueName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Note.
+        ///   Looks up a localized string similar to Please, add value of the note..
         /// </summary>
-        internal static string NoteShortName {
+        internal static string ValuePrompt {
             get {
-                return ResourceManager.GetString("NoteShortName", resourceCulture);
+                return ResourceManager.GetString("ValuePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note value.
+        /// </summary>
+        internal static string ValueShortName {
+            get {
+                return ResourceManager.GetString("ValueShortName", resourceCulture);
             }
         }
     }
