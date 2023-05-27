@@ -12,6 +12,12 @@ public class Dictionaries
     #region HL7
 
     /// <summary>
+    /// HL7 Body Parts (Table 0070)
+    /// </summary>
+    [DictionaryUsage(Authorities.HL7)]
+    public const string HL7_0070_SampleType = "0070";
+
+    /// <summary>
     /// HL7 Sample Types (Table 0487)
     /// </summary>
     [DictionaryUsage(Authorities.HL7)]

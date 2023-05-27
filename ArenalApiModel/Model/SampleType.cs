@@ -17,6 +17,7 @@ public class SampleType
 
     /// <summary>
     /// Identifier of the sample type.
+    /// Preferred coding system is HL7 table 0487.
     /// </summary>
     [Display(ShortName = nameof(L10n.SampleType.SampleType.TypeIdShortName),
         Name = nameof(L10n.SampleType.SampleType.TypeIdName),
@@ -26,13 +27,21 @@ public class SampleType
     public Identifier TypeId { get; set; }
 
     /// <summary>
-    /// Identifier of additive.
+    /// Identifier of an additive in the sample.
+    /// Preferred coding system is HL7 table 0371.
     /// </summary>
     [Display(ShortName = nameof(L10n.SampleType.SampleType.AdditiveIdShortName),
         Name = nameof(L10n.SampleType.SampleType.AdditiveIdName),
         Description = nameof(L10n.SampleType.SampleType.AdditiveIdDescription),
         ResourceType = typeof(L10n.SampleType.SampleType))]
     public Identifier AdditiveId { get; set; }
+
+    /// <summary>
+    /// Body part sample where taken from.
+    /// Preferred coding system is HL7 table 0070.
+    /// </summary>
+    //TODO: Display attribute here
+    public Identifier BodyPartId { get; set; }
 
     /// <summary>
     /// Additional identifiers, not defined in <see cref="TypeId"/> and <see cref="AdditiveId"/>.
@@ -54,6 +63,10 @@ public class SampleType
         ResourceType = typeof(L10n.SampleType.SampleType))]
     public string Name { get; set; }
 
+    /// <summary>
+    /// Validates a <see cref="Sample"/>
+    /// </summary>
+    /// <returns></returns>
     public ValidationResult Validate()
     {
         return (_validator ??= new SampleTypeValidator()).Validate(this);
