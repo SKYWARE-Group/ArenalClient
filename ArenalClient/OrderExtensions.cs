@@ -2,7 +2,7 @@
 using Skyware.Arenal.Filters;
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Model.Actions;
-using Skyware.Arenal.Model.DocumentGeneration;
+using Skyware.Arenal.Model.Forms;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -492,19 +492,18 @@ public static class OrderExtensions
     /// </summary>
     /// <param name="client"></param>
     /// <param name="reportType"></param>
-    /// <param name="data"></param>
+    /// <param name="base64data"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="NullReferenceException"></exception>
     /// <exception cref="Model.Exceptions.ArenalException"></exception>
     public static async Task<DocumentAnswer> GetFormAsync(
                 this HttpMessageInvoker client,
-                string reportType,
-                object data,
+                string reportType, string base64data,
                 CancellationToken cancellationToken = default)
     {
 
-        if (data == null) throw new NullReferenceException(nameof(data));
+        if (base64data == null) throw new NullReferenceException(nameof(base64data));
         if (string.IsNullOrEmpty(reportType)) throw new NullReferenceException(nameof(reportType));
 
         Url url = _BaseAddress
@@ -514,8 +513,8 @@ public static class OrderExtensions
         DocumentRequest docReq = new()
         {
             DocumentType = reportType,
-            DocumentFormat = "PDF",
-            Data = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(JsonSerializer.Serialize(data, _jOpts)))
+            DocumentFormat = "pdf",
+            Data = base64data
         };
 
         HttpRequestMessage request = new()

@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model.DocumentGeneration;
+﻿using System;
+
+namespace Skyware.Arenal.Model.Forms;
 
 
 /// <summary>
@@ -16,5 +18,10 @@ public class DocumentAnswer
     /// Base64 encoded data for generated document.
     /// </summary>
     public string Data { get; set; }
+
+    /// <summary>
+    /// Raw data (decoded)
+    /// </summary>
+    public byte[] GetRawData() => Convert.FromBase64String(Data);
 
 }

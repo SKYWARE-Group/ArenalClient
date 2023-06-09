@@ -1,17 +1,20 @@
-﻿using Flurl.Util;
+﻿using Flurl;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
-using Skyware.Arenal.Discovery;
 using Skyware.Arenal.Filters;
+using Skyware.Arenal.Forms.Bg;
 using Skyware.Arenal.Model;
-using Skyware.Arenal.Model.DocumentGeneration;
 using Skyware.Arenal.Model.Exceptions;
+using Skyware.Arenal.Model.Forms;
 using Skyware.Arenal.Tracking;
 using Spectre.Console;
 using Spectre.Console.Json;
 using System.Diagnostics;
+using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using System;
 
 namespace CliTestApp;
 
@@ -35,14 +38,14 @@ public class Program
             return;
         }
 
-        //await GetFormAsync();
-       await AnsiConsole
-          .Status()
-          .StartAsync($"Executing {nameof(DoOrdersSequence)}", async (ctx) =>
-          {
-              await DoOrdersSequence();
-          }
-       );
+        await GetFormAsync();
+        //await AnsiConsole
+        //   .Status()
+        //   .StartAsync($"Executing {nameof(DoOrdersSequence)}", async (ctx) =>
+        //   {
+        //       await DoOrdersSequence();
+        //   }
+        //);
 
         //await AnsiConsole
         //    .Status()
@@ -50,7 +53,7 @@ public class Program
         //    {
         //        await TakeAndReleseOrder();
         //    });
-        
+
         //await DoOrganizationsStuff();
         //await ChangeOrderStatusDemo();
 
@@ -439,7 +442,7 @@ public class Program
 
 
         // Update Order as publisher A
-        readOrderAsPubA.Patient = new Patient() { GivenName = "Миленов" };
+        readOrderAsPubA.Patient = new Skyware.Arenal.Model.Patient() { GivenName = "Миленов" };
         try
         {
             readOrderAsPubA = await pubAClient.UpdateOrdersAsync(readOrderAsPubA);
@@ -569,15 +572,47 @@ public class Program
 
     private static async Task GetFormAsync()
     {
-        Compendium comp = new()
+
+        LabReferral lr = new()
         {
-            ProviderId = "misho",
-            Services = new[]
+            Nrn = "23184A000A1F",
+            AmbulatoryNrn = "2316A7000AA1",
+            Issued = DateTime.Today.AddDays(-3),
+            SampleDate = DateTime.Today.AddDays(-2),
+            LabPracticeCode = "0302141842",
+            MainDiagnosis = "Z00.0",
+            Patient = new()
             {
-                new CompendiumEntry() { Value = "Glucose"},
-                new CompendiumEntry() { Value = "Albumin"},
-                new CompendiumEntry() { Value = "Cholesterol"},
-                new CompendiumEntry() { Value = "Phlebotomy"},
+                NationalIdentifier = "9912055612",
+                DateOfBirth = new DateTime(1999, 12, 5),
+                Rhif = "03",
+                HealthRegion = "12",
+                GivenName = "Мария",
+                MiddleName = "Василева",
+                FamilyName = "Борисова",
+                Address = new()
+                {
+                    Town = "Варна",
+                    Area = "Младост",
+                    Street = "Йонко Вапцаров",
+                    StreetNumber = "22"
+                }
+            },
+            Doctor = new()
+            {
+                PracticeCode = "0305111422",
+                Uin = "0400045236",
+                SpecialityCode = "00"
+            },
+            Examinations = new()
+            {
+                new ReferralItem()
+                {
+                    NhifCode = "01.01",
+                    StatisticsCode = "91910-04",
+                    SpecialtyCode = "14",
+                    Uin = "1600004145"
+                }
             }
         };
 
@@ -585,24 +620,26 @@ public class Program
         OrderExtensions.BaseAddress = "https://arenal-forms.azurewebsites.net/";
 
         Stopwatch s = new();
-
         s.Start();
-        DocumentAnswer ans = await client.GetFormAsync("bg.nhif.lab-referral", comp);
-        s.Stop();
 
+        DocumentAnswer? ans = await client.GetFormAsync("bg.nhif.referral.f4", lr.GetBase64Data());
+        
+        s.Stop();
         await Console.Out.WriteLineAsync($"Form is generated in {s.ElapsedMilliseconds}ms.");
 
-        byte[] pdfData = Convert.FromBase64String(ans.Data);
+        await SaveAndOpen(ans.GetRawData());
+    }
 
-
+    private static async Task SaveAndOpen(byte[]? pdfData) 
+    {
+        if (pdfData == null) return;
         string fn = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "arenal-jasper-demo.pdf");
         using var fs = new FileStream(fn, FileMode.Create, FileAccess.Write);
-        await fs.WriteAsync(pdfData, 0, pdfData.Length);
+        await fs.WriteAsync(pdfData);
         fs.Flush();
         fs.Close();
-
+        await Console.Out.WriteLineAsync($"File {fn} is saved, size is {pdfData.Length} bytes.");
         Process.Start(new ProcessStartInfo() { CreateNoWindow = true, FileName = "cmd.exe", Arguments = $"/C start {fn}" });
-
     }
 
     //private static async Task PublishFakeOrders(int numOfOrders, string providerId)

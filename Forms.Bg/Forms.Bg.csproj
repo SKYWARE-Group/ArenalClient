@@ -1,39 +1,29 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>10.0</LangVersion>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <RootNamespace>Skyware.Arenal.Client</RootNamespace>
-    <PackageId>Skyware.Arenal.Client</PackageId>
+    <RootNamespace>Skyware.Arenal.Forms.Bg</RootNamespace>
+    <PackageId>Skyware.Arenal.Forms.Bg</PackageId>
     <Authors>Mikhail Kalatchev</Authors>
-    <AssemblyName>Skyware.Arenal.Client</AssemblyName>
+    <AssemblyName>Skyware.Arenal.Forms.Bg</AssemblyName>
     <Company>SKYWARE Group</Company>
-    <Description>Arenal Web API Client</Description>
-    <Copyright>Copyright (C) 2016-2023, SKYWARE Group</Copyright>
+    <Description>Arenal Forms API data model (Bulgaria)</Description>
+    <Copyright>Copyright (C) 2023, SKYWARE Group</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Arenal Client</Title>
+    <Title>Arenal Forms Data Model (Bulgaria)</Title>
     <PackageProjectUrl>https://github.com/SKYWARE-Group/ArenalClient</PackageProjectUrl>
     <PackageIcon>Assets\logo-128-nuget.png</PackageIcon>
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
-    <PackageTags>Arenal;API;Client</PackageTags>
-    <Version>0.5.0</Version>
-    <UserSecretsId>a0e75208-856c-4bd0-b6a3-f3e9dda534b0</UserSecretsId>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants)</DefineConstants>
+    <PackageTags>Arenal;API;Model;Forms;Bulgaria</PackageTags>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Flurl" Version="3.0.7" />
-    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ArenalApiModel\Model.csproj" />
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
   </ItemGroup>
 
   <ItemGroup>

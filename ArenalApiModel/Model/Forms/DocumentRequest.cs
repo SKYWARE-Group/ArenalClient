@@ -1,4 +1,4 @@
-﻿namespace Skyware.Arenal.Model.DocumentGeneration;
+﻿namespace Skyware.Arenal.Model.Forms;
 
 
 /// <summary>
