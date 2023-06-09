@@ -16,17 +16,36 @@ public class ServiceValidator : AbstractValidator<Service>
     public ServiceValidator()
     {
 
-        //ServiceId
+        // ServiceId
         RuleFor(x => x.ServiceId)
             .Cascade(CascadeMode.Stop)
             .NotNull()
             .WithMessage($"The property {nameof(Service.ServiceId)} of a {nameof(Service)} is mandatory.")
             .SetValidator(new IdentifierValidator(), new string[] { nameof(Service), "default" });
 
+        // Every alternate identifier (if any)
+        RuleForEach(x => x.AlternateIdentifiers)
+            .SetValidator(new IdentifierValidator(), new string[] { nameof(Service), "default" });
+
+        // Alternate identifiers (if any)
+        RuleFor(x => x.AlternateIdentifiers)
+            .Must(i => i is null || i.Count < Service.ALTERNATE_IDENTIFIERS_MAX)
+            .WithMessage($"The number of {nameof(Service.AlternateIdentifiers)} must be less than {Service.ALTERNATE_IDENTIFIERS_MAX}.");
+
+        // Name
+        RuleFor(x => x.Name)
+            .MaximumLength(Service.NAME_MAX_LEN);
+
+        // Note (if presents)
+        When(x => x.Note is not null, () => {
+            RuleFor(x => x.Note)
+                .SetValidator(new NoteValidator());
+        });
+
     }
 
     /// <summary>
-    /// Validator depending on order status
+    /// Validator depending on order status.
     /// </summary>
     /// <param name="orderStatus"></param>
     public ServiceValidator(string orderStatus) : this()

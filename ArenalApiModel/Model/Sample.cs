@@ -1,8 +1,9 @@
-﻿using FluentValidation.Results;
-using FluentValidation;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Skyware.Arenal.Model
 {
@@ -19,33 +20,64 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Identifier of the sample type.
         /// </summary>
+        [Display(ShortName = nameof(L10n.Sample.Sample.SampleTypeShortName), Name = nameof(L10n.Sample.Sample.SampleTypeName),
+            Description = nameof(L10n.Sample.Sample.SampleTypeDescription), Prompt = nameof(L10n.Sample.Sample.SampleTypePrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public SampleType SampleType { get; set; }
 
         /// <summary>
         /// Identifier of the sample (barcode).
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.Sample.SampleIdGroupName),
+            ShortName = nameof(L10n.Sample.Sample.SampleIdShortName),
+            Name = nameof(L10n.Sample.Sample.SampleIdName),
+            Description = nameof(L10n.Sample.Sample.SampleIdDescription),
+            Prompt = nameof(L10n.Sample.Sample.SampleIdPrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public Identifier SampleId { get; set; }
 
         /// <summary>
         /// Date and time the sample has been taken (UTC).
         /// Optional.
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.Sample.TakenGroupName),
+            ShortName = nameof(L10n.Sample.Sample.TakenShortName),
+            Name = nameof(L10n.Sample.Sample.TakenName),
+            Description = nameof(L10n.Sample.Sample.TakenDescription),
+            Prompt = nameof(L10n.Sample.Sample.TakenPrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public DateTime? Taken { get; set; }
 
         /// <summary>
         /// Date and time the order was created (Local date and time).
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.Sample.LocalTakenGroupName),
+            ShortName = nameof(L10n.Sample.Sample.LocalTakenShortName),
+            Name = nameof(L10n.Sample.Sample.LocalTakenName),
+            Description = nameof(L10n.Sample.Sample.LocalTakenDescription),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public DateTime? LocalTaken => Taken?.ToLocalTime();
 
         /// <summary>
         /// Notes to the sample.
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.Sample.NoteGroupName),
+            ShortName = nameof(L10n.Sample.Sample.NoteShortName),
+            Name = nameof(L10n.Sample.Sample.NoteName),
+            Description = nameof(L10n.Sample.Sample.NoteDescription),
+            Prompt = nameof(L10n.Sample.Sample.NotePrompt),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public Note Note { get; set; }
 
         /// <summary>
         /// List of problems reported by the provider.
         /// Preferred coding system is 'org.hl7' with dictionary '0490'
         /// </summary>
+        [Display(GroupName = nameof(L10n.Sample.Sample.ProblemsGroupName),
+            ShortName = nameof(L10n.Sample.Sample.ProblemsShortName),
+            Name = nameof(L10n.Sample.Sample.ProblemsName),
+            Description = nameof(L10n.Sample.Sample.ProblemsDescription),
+            ResourceType = typeof(L10n.Sample.Sample))]
         public IList<Problem> Problems { get; set; }
 
         /// <summary>
@@ -80,8 +112,7 @@ namespace Skyware.Arenal.Model
         /// <param name="problem">A <see cref="Problem"/> to add</param>
         public Sample AddProblem(Problem problem)
         {
-            Problems ??= new List<Problem>();
-            Problems.Add(problem);
+            (Problems ??= new List<Problem>()).Add(problem);
             return this;
         }
 
@@ -92,8 +123,7 @@ namespace Skyware.Arenal.Model
         /// <param name="note">A note to the problem</param>
         public Sample AddProblem (string problemCode, string note = null) 
         {
-            Problems ??= new List<Problem>();
-            Problems.Add(new(new Identifier(Authorities.HL7, Dictionaries.HL7_0490_SampleRejectReasons, problemCode), note));
+            (Problems ??= new List<Problem>()).Add(new(new Identifier(Authorities.HL7, Dictionaries.HL7_0490_SampleRejectReasons, problemCode), note));
             return this;
         }
 

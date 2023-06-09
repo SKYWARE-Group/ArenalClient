@@ -19,7 +19,7 @@
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Model</PackageTags>
-    <Version>0.4.2</Version>
+    <Version>0.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,6 +39,205 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="L10n\Address\Address.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Address.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Attachment\Attachment.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Attachment.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Contact\Contact.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Contact.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Diagnosis\Diagnosis.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Diagnosis.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Doctor\Doctor.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Doctor.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Identifier\Identifier.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Identifier.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\LinkedReferral\LinkedReferral.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LinkedReferral.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Note\Note.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Note.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Organization\Organization.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Organization.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Patient\Patient.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Patient.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\PersonBase\PersonBase.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PersonBase.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Problem\Problem.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Problem.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Sample\Sample.bg.Designer.cs">
+      <DependentUpon>Sample.bg.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="L10n\Sample\Sample.Designer.cs">
+      <DependentUpon>Sample.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="L10n\Order\Order.bg.Designer.cs">
+      <DependentUpon>Order.bg.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="L10n\Order\Order.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Order.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\SampleShipment\SampleShipment.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleShipment.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\SampleType\SampleType.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleType.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\Service\Service.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Service.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\ServiceLocation\ServiceLocation.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceLocation.resx</DependentUpon>
+    </Compile>
+    <Compile Update="L10n\ServiceProblem\ServiceProblem.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServiceProblem.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="L10n\Address\Address.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Address\Address.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Address.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Attachment\Attachment.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Attachment.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Contact\Contact.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Contact.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Diagnosis\Diagnosis.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Diagnosis.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Doctor\Doctor.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Doctor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Identifier\Identifier.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Identifier.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\LinkedReferral\LinkedReferral.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LinkedReferral.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Note\Note.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Note.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Organization\Organization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Organization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Patient\Patient.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Patient.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\PersonBase\PersonBase.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PersonBase.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Problem\Problem.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Problem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Sample\Sample.bg.resx">
+      <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Sample\Sample.resx">
+      <LastGenOutput>Sample.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Order\Order.bg.resx">
+      <LastGenOutput>Order.bg.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Order\Order.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Order.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleShipment\SampleShipment.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleShipment.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleType\SampleType.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleType.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Service\Service.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Service.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceLocation\ServiceLocation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ServiceLocation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceProblem\ServiceProblem.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ServiceProblem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

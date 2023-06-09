@@ -1,22 +1,46 @@
-﻿namespace Skyware.Arenal.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
 /// Represent a contact info, such as email, phone number, etc.
 /// </summary>
-public class Contact
+[DisplayColumn(nameof(Type))]
+public class Contact : IEquatable<Contact>
 {
+
+    /// <summary>
+    /// Maximum length of <see cref="Value"/> field.
+    /// </summary>
+    public const int VALUE_MAX_LEN = 80;
 
     /// <summary>
     /// Type of the contact, according to <see cref="ContactTypes"/>.
     /// Required.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Contact.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.Contact.ContactTypeShortName),
+        Name = nameof(L10n.Contact.Contact.ContactTypeName),
+        Description = nameof(L10n.Contact.Contact.ContactTypeDescription),
+        Prompt = nameof(L10n.Contact.Contact.ContactTypePrompt),
+        ResourceType = typeof(L10n.Contact.Contact))]
     public string Type { get; set; } = ContactTypes.PHONE;
 
     /// <summary>
     /// Value of the contact, such as 'john@doe.com', etc.
     /// Required.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Contact.Contact.ContactGroupName),
+        ShortName = nameof(L10n.Contact.Contact.ContactValueShortName),
+        Name = nameof(L10n.Contact.Contact.ContactValueName),
+        Description = nameof(L10n.Contact.Contact.ContactValueDescription),
+        Prompt = nameof(L10n.Contact.Contact.ContactValuePrompt),
+        ResourceType = typeof(L10n.Contact.Contact))]
     public string Value { get; set; }
 
     /// <summary>
@@ -43,5 +67,22 @@ public class Contact
         Type = type;
         Value = value;
     }
+
+    /// <summary>
+    /// Compares 2 objects of type <see cref="Contact"/> for equality 
+    /// for the objects to be equal you need do have same Type and same Value
+    /// </summary>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    public bool Equals(Contact other)
+    {
+        if (other == null) return false;
+
+        return string.Equals(Type, other.Type, StringComparison.OrdinalIgnoreCase)
+            && string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <inheritdoc/>
+    public override int GetHashCode() => $"{Type.EmptyIfNull().ToLower()}{Value.EmptyIfNull().ToLower()}".GetHashCode();
 
 }

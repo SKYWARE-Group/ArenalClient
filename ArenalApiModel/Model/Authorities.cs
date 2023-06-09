@@ -16,34 +16,34 @@ public class Authorities
 
     #region Bulgaria
 
-/// <summary>
+    /// <summary>
     /// Bulgarian Medical Association (УИН)
     /// </summary>
-    [AuthorityUsage(typeof(Doctor))]
+    [AuthorityUsage(typeof(Doctor), true)]
     public const string BG_BMA = "bg.bma";
 
     /// <summary>
     /// Bulgarian National Identifiers Registry (ЕГН)
     /// </summary>
-    [AuthorityUsage(typeof(Patient))]
+    [AuthorityUsage(typeof(Patient), true, "pg.pin")]
     public const string BG_GRAO = "bg.grao";
 
     /// <summary>
     /// Bulgarian Ministry Of Internal (ЛНЧ)
     /// </summary>
-    [AuthorityUsage(typeof(Patient))]
+    [AuthorityUsage(typeof(Patient), true, "pg.pin")]
     public const string BG_MI = "bg.mi";
 
     /// <summary>
     /// Bulgarian Health Information System (НЗИС, разни)
     /// </summary>
-    [AuthorityUsage(new Type[] { typeof(Service), typeof(Patient) })]
+    [AuthorityUsage(new Type[] { typeof(Service), typeof(Patient) }, true)]
     public const string BG_HIS = "bg.his";
 
     /// <summary>
     /// Bulgarian National Health Insurance Fund (НЗОК, разни)
     /// </summary>
-    [AuthorityUsage(new Type[] { typeof(Service) })]
+    [AuthorityUsage(new Type[] { typeof(Service) }, true)]
     public const string BG_HIF = "bg.nhif";
 
     #endregion 

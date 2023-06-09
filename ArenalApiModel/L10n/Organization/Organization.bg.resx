@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AresBaseUrlDescription" xml:space="preserve">
+    <value>URL на организацията за Ares сървър.(Ако е празно азначава че организацията няма Ares сървър).</value>
+  </data>
+  <data name="AresBaseUrlGroupName" xml:space="preserve">
+    <value>Ares</value>
+  </data>
+  <data name="AresBaseUrlName" xml:space="preserve">
+    <value>Ares</value>
+  </data>
+  <data name="AresBaseUrlPrompt" xml:space="preserve">
+    <value>Моля, въведете URL на Ares сървър-а.</value>
+  </data>
+  <data name="AresBaseUrlShortName" xml:space="preserve">
+    <value>Ares</value>
+  </data>
+  <data name="HeadOfficeDescription" xml:space="preserve">
+    <value>Основен адрес на организацията (за изпращане на пратки и.т.)</value>
+  </data>
+  <data name="HeadOfficeGroupName" xml:space="preserve">
+    <value>Основен адрес</value>
+  </data>
+  <data name="HeadOfficeName" xml:space="preserve">
+    <value>Основен адрес</value>
+  </data>
+  <data name="HeadOfficePrompt" xml:space="preserve">
+    <value>Моля, въведете основен офис.</value>
+  </data>
+  <data name="HeadOfficeShortName" xml:space="preserve">
+    <value>Основен адрес</value>
+  </data>
+  <data name="IdentifiersDescription" xml:space="preserve">
+    <value>Списък с идентификатори (полето може да е празно).</value>
+  </data>
+  <data name="IdentifiersGroupName" xml:space="preserve">
+    <value>Идентификатори</value>
+  </data>
+  <data name="IdentifiersName" xml:space="preserve">
+    <value>Списък с идентификатори</value>
+  </data>
+  <data name="IdentifiersShortName" xml:space="preserve">
+    <value>Идентификатори</value>
+  </data>
+  <data name="LargeLogoUrlDescription" xml:space="preserve">
+    <value>Голямо лого на организацията с размери 256x256, 512x512 и т.н.</value>
+  </data>
+  <data name="LargeLogoUrlGroupName" xml:space="preserve">
+    <value>Лого</value>
+  </data>
+  <data name="LargeLogoUrlName" xml:space="preserve">
+    <value>Голямо лого</value>
+  </data>
+  <data name="LargeLogoUrlPrompt" xml:space="preserve">
+    <value>Моля, въведете URL за голямо лого.</value>
+  </data>
+  <data name="LargeLogoUrlShortName" xml:space="preserve">
+    <value>Голямо лого</value>
+  </data>
+  <data name="MediumLogoUrlDescription" xml:space="preserve">
+    <value>Средно лого на организацията с размери 64x64, 128x64 и т.н.</value>
+  </data>
+  <data name="MediumLogoUrlGroupName" xml:space="preserve">
+    <value>Лого</value>
+  </data>
+  <data name="MediumLogoUrlName" xml:space="preserve">
+    <value>Средно лого</value>
+  </data>
+  <data name="MediumLogoUrlPrompt" xml:space="preserve">
+    <value>Моля, въведете URL за средно лого.</value>
+  </data>
+  <data name="MediumLogoUrlShortName" xml:space="preserve">
+    <value>Средно лого</value>
+  </data>
+  <data name="NameDescription" xml:space="preserve">
+    <value>Официално наименование на организацията като например 'Precisio Medical Laboratories Inc.'</value>
+  </data>
+  <data name="NameGroupName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="NameName" xml:space="preserve">
+    <value>Пълно наименование</value>
+  </data>
+  <data name="NamePrompt" xml:space="preserve">
+    <value>Моля, въведете наименованието на организацията.</value>
+  </data>
+  <data name="NameShortName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="RegisteredAddressDescription" xml:space="preserve">
+    <value>Адрес на регистрация на организацията.</value>
+  </data>
+  <data name="RegisteredAddressGroupName" xml:space="preserve">
+    <value>Адрес на регистрация</value>
+  </data>
+  <data name="RegisteredAddressName" xml:space="preserve">
+    <value>Адрес на регистрация</value>
+  </data>
+  <data name="RegisteredAddressPrompt" xml:space="preserve">
+    <value>Моля, въведете адрес на организацията.</value>
+  </data>
+  <data name="RegisteredAddressShortName" xml:space="preserve">
+    <value>Адрес на регистрация</value>
+  </data>
+  <data name="RolesDescription" xml:space="preserve">
+    <value>Роли установени от Arenal.</value>
+  </data>
+  <data name="RolesGroupName" xml:space="preserve">
+    <value>Роли</value>
+  </data>
+  <data name="RolesName" xml:space="preserve">
+    <value>Роли</value>
+  </data>
+  <data name="RolesShortName" xml:space="preserve">
+    <value>Роли</value>
+  </data>
+  <data name="ShortNameDescription" xml:space="preserve">
+    <value>Кратко наименование на организацията като 'Precisio'.</value>
+  </data>
+  <data name="ShortNameGroupName" xml:space="preserve">
+    <value>Кратко наименование</value>
+  </data>
+  <data name="ShortNameName" xml:space="preserve">
+    <value>Кратко наименование</value>
+  </data>
+  <data name="ShortNamePrompt" xml:space="preserve">
+    <value>Моля, въведете кратко наименование.</value>
+  </data>
+  <data name="ShortNameShortName" xml:space="preserve">
+    <value>Кратко наименование</value>
+  </data>
+  <data name="SmallLogoUrlDescription" xml:space="preserve">
+    <value>Малко лого на организацията с размери 16х16, 32х32 и т.н.</value>
+  </data>
+  <data name="SmallLogoUrlGroupName" xml:space="preserve">
+    <value>Лого</value>
+  </data>
+  <data name="SmallLogoUrlName" xml:space="preserve">
+    <value>Малко лого</value>
+  </data>
+  <data name="SmallLogoUrlPrompt" xml:space="preserve">
+    <value>Моля, въведете URL за малко лого.</value>
+  </data>
+  <data name="SmallLogoUrlShortName" xml:space="preserve">
+    <value>Малко лого</value>
+  </data>
+  <data name="WebHookBaseUrlDescription" xml:space="preserve">
+    <value>Web hook адрес за получаване на известия от Arenal сървъра.</value>
+  </data>
+  <data name="WebHookBaseUrlGroupName" xml:space="preserve">
+    <value>Web hook</value>
+  </data>
+  <data name="WebHookBaseUrlName" xml:space="preserve">
+    <value>Web hook URL</value>
+  </data>
+  <data name="WebHookBaseUrlPrompt" xml:space="preserve">
+    <value>Моля, въведете Web hook адрес.</value>
+  </data>
+  <data name="WebHookBaseUrlShortName" xml:space="preserve">
+    <value>Web hook</value>
+  </data>
+</root>

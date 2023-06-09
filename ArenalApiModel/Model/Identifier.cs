@@ -1,6 +1,8 @@
-﻿using FluentValidation.Results;
-using Skyware.Arenal.Validation;
+﻿using Skyware.Arenal.Validation;
 using System;
+using System.ComponentModel.DataAnnotations;
+
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace Skyware.Arenal.Model;
 
@@ -10,24 +12,62 @@ namespace Skyware.Arenal.Model;
 /// </summary>
 public class Identifier : IEquatable<Identifier>
 {
+
+    /// <summary>
+    /// Maximum length of <see cref="Authority"/> field.
+    /// </summary>
+    public const int AUTHORITY_MAX_LEN = 20;
+
+    /// <summary>
+    /// Maximum length of <see cref="Dictionary"/> field.
+    /// </summary>
+    public const int DICTIONARY_MAX_LEN = 20;
+
+    /// <summary>
+    /// Maximum length of <see cref="Value"/> field.
+    /// </summary>
+    public const int VALUE_MAX_LEN = 40;
+
+
     private static IdentifierValidator _validator;
 
     /// <summary>
     /// Authority/Realm/System of the identifier such as 'org.loinc', 'org.snomed' etc.
     /// Mandatory. Use 'local' for your own identifiers.
+    /// Up to <see cref="AUTHORITY_MAX_LEN"/> characters.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.AuthorityGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.AuthorityShortName),
+        Name = nameof(L10n.Identifier.Identifier.AuthorityName),
+        Description = nameof(L10n.Identifier.Identifier.AuthorityDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.AuthorityPrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Authority { get; set; }
 
     /// <summary>
     /// Dictionary (value set) for given authority, such as HL7 table number, etc.
     /// Optional.
-    /// </summary>
+    /// Up to <see cref="DICTIONARY_MAX_LEN"/> characters.
+    /// </summary> 
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.DictionaryGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.DictionaryShortName),
+        Name = nameof(L10n.Identifier.Identifier.DictionaryName),
+        Description = nameof(L10n.Identifier.Identifier.DictionaryDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.DictionaryPrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Dictionary { get; set; }
 
     /// <summary>
     /// Identifier value such as 'ABC-123', 'BLD', etc. 
     /// Mandatory.
+    /// Up to <see cref="VALUE_MAX_LEN"/> characters.
     /// </summary>
+    [Display(GroupName = nameof(L10n.Identifier.Identifier.ValueGroupName),
+        ShortName = nameof(L10n.Identifier.Identifier.ValueShortName),
+        Name = nameof(L10n.Identifier.Identifier.ValueName),
+        Description = nameof(L10n.Identifier.Identifier.ValueDescription),
+        Prompt = nameof(L10n.Identifier.Identifier.ValuePrompt),
+        ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Value { get; set; }
 
     /// <summary>
@@ -73,12 +113,13 @@ public class Identifier : IEquatable<Identifier>
     /// <inheritdoc/>
     public static bool operator !=(Identifier a, Identifier b) => (a is null && b is not null) || !(a?.GetHashCode().Equals(b?.GetHashCode()) ?? false);
 
-    /// <<inheritdoc/>
-    public override bool Equals(object obj)
-    {
-        return this == (Identifier)obj;
-    }
+    /// <inheritdoc/>
+    public override bool Equals(object obj) => this == (Identifier)obj;
 
+    /// <summary>
+    /// Validates the object against business rules.
+    /// </summary>
+    /// <returns></returns>
     public ValidationResult Validate()
     {
         return (_validator ??= new IdentifierValidator()).Validate(this);

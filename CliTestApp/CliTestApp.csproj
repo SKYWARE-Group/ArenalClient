@@ -13,12 +13,13 @@
     <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
-    <PackageReference Include="Spectre.Console" Version="0.46.0" />
-    <PackageReference Include="Spectre.Console.Json" Version="0.46.0" />
+    <PackageReference Include="Spectre.Console" Version="0.47.0" />
+    <PackageReference Include="Spectre.Console.Json" Version="0.47.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ArenalClient\WebClient.csproj" />
+    <ProjectReference Include="..\Forms.Bg\Forms.Bg.csproj" />
   </ItemGroup>
 
   <ItemGroup>

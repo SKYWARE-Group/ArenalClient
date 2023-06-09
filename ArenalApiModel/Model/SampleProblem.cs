@@ -15,6 +15,7 @@ namespace Skyware.Arenal.Model
         /// <summary>
         /// Reference to a <see cref="Identifier"/> of a <see cref="Sample"/>
         /// </summary>
+        
         public string SampleId { get; set; }
 
         /// <summary>

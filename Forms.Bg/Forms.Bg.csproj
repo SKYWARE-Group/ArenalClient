@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>10.0</LangVersion>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <RootNamespace>Skyware.Arenal.Forms.Bg</RootNamespace>
+    <PackageId>Skyware.Arenal.Forms.Bg</PackageId>
+    <Authors>Mikhail Kalatchev</Authors>
+    <AssemblyName>Skyware.Arenal.Forms.Bg</AssemblyName>
+    <Company>SKYWARE Group</Company>
+    <Description>Arenal Forms API data model (Bulgaria)</Description>
+    <Copyright>Copyright (C) 2023, SKYWARE Group</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Arenal Forms Data Model (Bulgaria)</Title>
+    <PackageProjectUrl>https://github.com/SKYWARE-Group/ArenalClient</PackageProjectUrl>
+    <PackageIcon>Assets\logo-128-nuget.png</PackageIcon>
+    <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
+    <PackageTags>Arenal;API;Model;Forms;Bulgaria</PackageTags>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\logo-128-nuget.png">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Update="Assets\model-nuget-readme.md">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>

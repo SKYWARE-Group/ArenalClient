@@ -15,23 +15,39 @@ public class AuthorityUsageAttribute : Attribute
     /// Single type usage
     /// </summary>
     /// <param name="target"></param>
-    public AuthorityUsageAttribute(Type target)
+    /// <param name="singleOccurrence"></param>
+    /// <param name="exclusiveGroup"></param>
+    public AuthorityUsageAttribute(Type target, bool singleOccurrence = false, string exclusiveGroup = null)
     {
         AllowedUsage = new Type[] { target };
+        SingleOccurrence = singleOccurrence;
     }
 
     /// <summary>
     /// Multiple types usage
     /// </summary>
     /// <param name="allowedTypes"></param>
-    public AuthorityUsageAttribute(Type[] allowedTypes)
+    /// <param name="singleOccurrence"></param>
+    /// <param name="exclusiveGroup"></param>
+    public AuthorityUsageAttribute(Type[] allowedTypes, bool singleOccurrence = false, string exclusiveGroup = null)
     {
         AllowedUsage = allowedTypes;
+        SingleOccurrence = singleOccurrence;
     }
 
     /// <summary>
     /// Get allowed types
     /// </summary>
     public IEnumerable<Type> AllowedUsage { get; } = new Type[] { };
+
+    /// <summary>
+    /// If true, only one identifier withs authority is allowed for given object
+    /// </summary>
+    public bool SingleOccurrence { get; } = false;
+
+    /// <summary>
+    /// If set, <see cref="Identifier"/> in this group must appear only once within a list.
+    /// </summary>
+    public string ExclusiveGroup { get; }
 
 }

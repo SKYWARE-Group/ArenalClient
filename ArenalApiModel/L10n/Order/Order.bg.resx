@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AttachmentsDescription" xml:space="preserve">
+    <value>Допълнения към поръчката напр. файлове, снимки и т.н.</value>
+  </data>
+  <data name="AttachmentsGroupName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
+  <data name="AttachmentsName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
+  <data name="AttachmentsPrompt" xml:space="preserve">
+    <value>Моля, добавете съпътстващите файлове.</value>
+  </data>
+  <data name="AttachmentsShortName" xml:space="preserve">
+    <value>Допълнения</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Създадена </value>
+  </data>
+  <data name="CreatedDescription" xml:space="preserve">
+    <value>Дата и час на публикуване на поръчката в Аренал от страна на поръчителя.</value>
+  </data>
+  <data name="CreatedName" xml:space="preserve">
+    <value>Дата и час на публикуване.</value>
+  </data>
+  <data name="CreatedShortName" xml:space="preserve">
+    <value>Създадена</value>
+  </data>
+  <data name="DoctorDescription" xml:space="preserve">
+    <value>Доктор, с когото е свързана поръчката. Поръчител на поръчката.</value>
+  </data>
+  <data name="DoctorGroupName" xml:space="preserve">
+    <value>Поръчващ лекар</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>Лекар</value>
+  </data>
+  <data name="DoctorPrompt" xml:space="preserve">
+    <value>Моля, изберете лекар-поръчител на поръчката.</value>
+  </data>
+  <data name="DoctorShortName" xml:space="preserve">
+    <value>Лекар</value>
+  </data>
+  <data name="GeneralGroup" xml:space="preserve">
+    <value>Общи</value>
+  </data>
+  <data name="LinkedReferralsDescription" xml:space="preserve">
+    <value>Свъразни с поръчката направления в НЗИС или друга система</value>
+  </data>
+  <data name="LinkedReferralsGroupName" xml:space="preserve">
+    <value>Свързани направления</value>
+  </data>
+  <data name="LinkedReferralsName" xml:space="preserve">
+    <value>Направления</value>
+  </data>
+  <data name="LinkedReferralsPrompt" xml:space="preserve">
+    <value>Моля, добавете свързано направление</value>
+  </data>
+  <data name="LinkedReferralsShortName" xml:space="preserve">
+    <value>Направления</value>
+  </data>
+  <data name="LocalCreatedDescription" xml:space="preserve">
+    <value>Дата и час на публикуване (местно време)</value>
+  </data>
+  <data name="LocalCreatedName" xml:space="preserve">
+    <value>Дата и час на публикуване (местно време)</value>
+  </data>
+  <data name="LocalModifiedDescription" xml:space="preserve">
+    <value>Дата и час на последната промяна в поръчката (местно време).</value>
+  </data>
+  <data name="LocalModifiedName" xml:space="preserve">
+    <value>Дата и час на последна промяна (местно време).</value>
+  </data>
+  <data name="LocalTakenOrRejectedDescription" xml:space="preserve">
+    <value>Дата и час, когато поръчката е приета или отказана от прана на доставчика (местно време).</value>
+  </data>
+  <data name="LocalTakenOrRejectedName" xml:space="preserve">
+    <value>Дата и час на приемане или отказ (местно време)</value>
+  </data>
+  <data name="LocalTakenOrRejectedShortName" xml:space="preserve">
+    <value>Приета или отказана (местно време)</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Промяна</value>
+  </data>
+  <data name="ModifiedDescription" xml:space="preserve">
+    <value>Дата и час на последната промяна в поръчката.</value>
+  </data>
+  <data name="ModifiedName" xml:space="preserve">
+    <value>Дата и час на последна промяна</value>
+  </data>
+  <data name="OrdererGroup" xml:space="preserve">
+    <value>Поръчител</value>
+  </data>
+  <data name="PatientDescription" xml:space="preserve">
+    <value>Пациент, свързан с поръчката, обект на изследване.</value>
+  </data>
+  <data name="PatientGroupName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PatientName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PatientPrompt" xml:space="preserve">
+    <value>Моля, изберете пациент.</value>
+  </data>
+  <data name="PatientShortName" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PlacerIdDescription" xml:space="preserve">
+    <value>Идентифицира поръчващата страна чрез нейния Аренал Ид.</value>
+  </data>
+  <data name="PlacerIdName" xml:space="preserve">
+    <value>Аренал Ид на поръчител</value>
+  </data>
+  <data name="PlacerIdPrompt" xml:space="preserve">
+    <value>Моля, изберете поръчител.</value>
+  </data>
+  <data name="PlacerIdShortName" xml:space="preserve">
+    <value>Ид на поръчител</value>
+  </data>
+  <data name="PlacerNoteDescription" xml:space="preserve">
+    <value>Забележка от поръчителя на поръчката.</value>
+  </data>
+  <data name="PlacerNoteGroup" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="PlacerNoteName" xml:space="preserve">
+    <value>Забележка от поръчител</value>
+  </data>
+  <data name="PlacerNotePrompt" xml:space="preserve">
+    <value>Моля, попълнете забележка, oт поръчител.</value>
+  </data>
+  <data name="PlacerNoteShortName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="PlacerOrderDescription" xml:space="preserve">
+    <value>Идентификатор от поръчителя на поръчката (незадължителен). Генериран от страна по поръчителя на поръчката.</value>
+  </data>
+  <data name="PlacerOrderName" xml:space="preserve">
+    <value>Ид на поръчката, от страна на поръчителя.</value>
+  </data>
+  <data name="PlacerOrderPrompt" xml:space="preserve">
+    <value>Моля, изберете валиден идентификатор поръчката от страна на поръчителя.</value>
+  </data>
+  <data name="PlacerOrderShortName" xml:space="preserve">
+    <value>Идентификатор (поръчител).</value>
+  </data>
+  <data name="ProviderGroup" xml:space="preserve">
+    <value>Доставчик</value>
+  </data>
+  <data name="ProviderIdDescription" xml:space="preserve">
+    <value>Аренал Ид на доставчика на услугата, предназначен на тази поръчка (в зависимост от работния процес).</value>
+  </data>
+  <data name="ProviderIdName" xml:space="preserve">
+    <value>Аренал Ид на доставчик</value>
+  </data>
+  <data name="ProviderIdPrompt" xml:space="preserve">
+    <value>Моля, изберете доставчик.</value>
+  </data>
+  <data name="ProviderIdShortName" xml:space="preserve">
+    <value>Ид на доставчик</value>
+  </data>
+  <data name="ProviderNoteDescription" xml:space="preserve">
+    <value>Забележка от доставчика на поръчката.</value>
+  </data>
+  <data name="ProviderNoteGroup" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="ProviderNoteName" xml:space="preserve">
+    <value>Забележка от доставчик</value>
+  </data>
+  <data name="ProviderNotePrompt" xml:space="preserve">
+    <value>Моля, попълнете забележка от доставчик.</value>
+  </data>
+  <data name="ProviderNoteShortName" xml:space="preserve">
+    <value>Забележка</value>
+  </data>
+  <data name="ProviderOrderDescription" xml:space="preserve">
+    <value>Идентификатор от изпълнителя на поръчката (незадължителен). Генериран от страна по изпълнителя на поръчката.</value>
+  </data>
+  <data name="ProviderOrderName" xml:space="preserve">
+    <value>Идентификатор генериран от доставчика.</value>
+  </data>
+  <data name="ProviderOrderPrompt" xml:space="preserve">
+    <value>Моля, изберете валиден идентификатор поръчката от страна на доставчика.</value>
+  </data>
+  <data name="ProviderOrderShortName" xml:space="preserve">
+    <value>Идентификатор (доставчик).</value>
+  </data>
+  <data name="SamplesDescription" xml:space="preserve">
+    <value>Списък с проби за изследване. Задължително е да съдържа поне една проба.</value>
+  </data>
+  <data name="SamplesGroupName" xml:space="preserve">
+    <value>Проби</value>
+  </data>
+  <data name="SamplesName" xml:space="preserve">
+    <value>Списък с проби.</value>
+  </data>
+  <data name="SamplesPrompt" xml:space="preserve">
+    <value>Моля, добавете проба.</value>
+  </data>
+  <data name="SamplesShortName" xml:space="preserve">
+    <value>Проби</value>
+  </data>
+  <data name="ServicesDescription" xml:space="preserve">
+    <value>Списък с поръчани услуги/изследвания. Трябва да съдържа поне едно изследване.</value>
+  </data>
+  <data name="ServicesGroupName" xml:space="preserve">
+    <value>Услуги</value>
+  </data>
+  <data name="ServicesName" xml:space="preserve">
+    <value>Списък с поръчани услуги/изследвания</value>
+  </data>
+  <data name="ServicesPrompt" xml:space="preserve">
+    <value>Моля, добавете поне една услуга или изследване.</value>
+  </data>
+  <data name="ServicesShortName" xml:space="preserve">
+    <value>Услуги/Изследвания</value>
+  </data>
+  <data name="StatusDescription" xml:space="preserve">
+    <value>Статус на поръчката например (Свободна, Отказана и др.)</value>
+  </data>
+  <data name="StatusName" xml:space="preserve">
+    <value>Статус на поръчката</value>
+  </data>
+  <data name="StatusPrompt" xml:space="preserve">
+    <value>Моля, изберете статус на поръчката.</value>
+  </data>
+  <data name="StatusShortName" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="TakenOrRejectedDescription" xml:space="preserve">
+    <value>Дата и час, когато поръчката е приета или отказана от прана на доставчика (координирано универсално време).</value>
+  </data>
+  <data name="TakenOrRejectedName" xml:space="preserve">
+    <value>Дата и час на приемане или отказ</value>
+  </data>
+  <data name="TakenOrRejectedShortName" xml:space="preserve">
+    <value>Приета или отказана</value>
+  </data>
+  <data name="VersionDescription" xml:space="preserve">
+    <value>Цяло число, което се инкрементира всеки път когато има промяна в поръчката, започва от 0, само за четене.</value>
+  </data>
+  <data name="VersionName" xml:space="preserve">
+    <value>Версия на поръчката</value>
+  </data>
+  <data name="VersionShortName" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="WorkflowDescription" xml:space="preserve">
+    <value>Определя правилата за Поръчка според работния процес. Вижте документацията за поддържаните работни процеси.</value>
+  </data>
+  <data name="WorkflowName" xml:space="preserve">
+    <value>Работен процес</value>
+  </data>
+  <data name="WorkflowPrompt" xml:space="preserve">
+    <value>Моля, изберете валиден работен процес.</value>
+  </data>
+  <data name="WorkflowShortName" xml:space="preserve">
+    <value>Работен процес</value>
+  </data>
+</root>
