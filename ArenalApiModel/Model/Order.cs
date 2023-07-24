@@ -243,6 +243,7 @@ public class Order : EntityBase
     {
         Workflow = workflow;
         Patient = patient;
+        PlacerId = placerId;
         if (services is not null) Services = services;
         if (samples is not null) Samples = samples;
         if (!string.IsNullOrWhiteSpace(providerId)) ProviderId = providerId;
