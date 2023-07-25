@@ -39,4 +39,16 @@ public class OrderStatuses
     /// </summary>
     public const string REJECTED = "rj";
 
+    /// <summary>
+    /// Statuses in which the <see cref="Order"/> is locked for the placer party.
+    /// Applied only for workflows, assuming two parties.
+    /// </summary>
+    public static string[] LOCKED_FOR_PLACER_STATUSES = { 
+        IN_PROGRESS, 
+        IN_PROGRESS_WITH_PROBLEMS, 
+        COMPLETE, 
+        COMPLETE_WITH_PROBLEMS, 
+        REJECTED 
+    };
+
 }

@@ -1,4 +1,5 @@
-﻿using Flurl;
+﻿//Ignore Spelling: cfg Precisio
+
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
 using Skyware.Arenal.Client;
@@ -11,10 +12,7 @@ using Skyware.Arenal.Tracking;
 using Spectre.Console;
 using Spectre.Console.Json;
 using System.Diagnostics;
-using System.Net.Http.Json;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System;
 
 namespace CliTestApp;
 
@@ -78,16 +76,6 @@ public class Program
             UserName = cfg[$"OpenIdProvider:{credSet}Username"],
             Password = cfg[$"OpenIdProvider:{credSet}Password"]
         });
-        //switch (credSet)
-        //{
-        //    case "PubA":
-        //        req.UserName = cfg["OpenIdProvider:Username"];
-        //        req.Password = cfg["OpenIdProvider:Password"];
-        //        break;
-        //    default: 
-        //        throw new ArgumentOutOfRangeException(nameof(credSet), "Credentials set isn't resolved.");
-        //}
-        //return await client.RequestPasswordTokenAsync(req);
     }
 
     /// <summary>
@@ -623,14 +611,14 @@ public class Program
         s.Start();
 
         DocumentAnswer? ans = await client.GetFormAsync("bg.nhif.referral.f4", lr.GetBase64Data());
-        
+
         s.Stop();
         await Console.Out.WriteLineAsync($"Form is generated in {s.ElapsedMilliseconds}ms.");
 
         await SaveAndOpen(ans.GetRawData());
     }
 
-    private static async Task SaveAndOpen(byte[]? pdfData) 
+    private static async Task SaveAndOpen(byte[]? pdfData)
     {
         if (pdfData == null) return;
         string fn = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "arenal-jasper-demo.pdf");

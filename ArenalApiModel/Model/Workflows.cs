@@ -24,4 +24,19 @@ public class Workflows
     /// </summary>
     public const string LAB_PSO = "lab-pso";
 
+    /// <summary>
+    /// Order workflows which are placer and provider are the same party.
+    /// </summary>
+    public static string[] SELF_ORDERS = { 
+        LAB_MCP, 
+        LAB_PSO 
+    };
+
+    /// <summary>
+    /// Order where two parties are involved - placer and provider.
+    /// </summary>
+    public static string[] TWO_PARTIES_ORDERS = { 
+        LAB_SCO 
+    };
+
 }

@@ -132,18 +132,18 @@ public class Order : EntityBase
     /// <summary>
     /// Order status, according to <see cref="OrderStatuses"/>.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Order.Order.GeneralGroup), 
+    [Display(GroupName = nameof(L10n.Order.Order.GeneralGroup),
         ShortName = nameof(L10n.Order.Order.StatusShortName),
         Name = nameof(L10n.Order.Order.StatusName),
         Description = nameof(L10n.Order.Order.StatusDescription),
-        Prompt = nameof(L10n.Order.Order.StatusPrompt), 
+        Prompt = nameof(L10n.Order.Order.StatusPrompt),
         ResourceType = typeof(L10n.Order.Order))]
-    public string Status { get; set; } = OrderStatuses.AVAILABLE; 
+    public string Status { get; set; } = OrderStatuses.AVAILABLE;
 
     /// <summary>
     /// Notes from the placer.
     /// </summary>
-    [Display(GroupName = nameof(L10n.Order.Order.PlacerNoteGroup), 
+    [Display(GroupName = nameof(L10n.Order.Order.PlacerNoteGroup),
         ShortName = nameof(L10n.Order.Order.PlacerNoteShortName),
         Name = nameof(L10n.Order.Order.PlacerNoteName),
         Description = nameof(L10n.Order.Order.PlacerNoteDescription),
@@ -251,7 +251,7 @@ public class Order : EntityBase
     /// <summary>
     /// End date/time until the order is valid (mandatory when <see cref="PublicAccessEnabled"/> is true).
     /// </summary>
-    public DateTime? Expiration { get; set; } = DateTime.UtcNow.AddDays(DEFAULT_EXPIRATION_DAYS);
+    public DateTime? Expiration { get; set; }
 
     /// <summary>
     /// Default constructor.
