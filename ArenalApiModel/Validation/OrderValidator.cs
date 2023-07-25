@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Skyware.Arenal.Model;
+using System;
 using System.Linq;
 
 namespace Skyware.Arenal.Validation;
@@ -21,7 +22,15 @@ public class OrderValidator : AbstractValidator<Order>
     /// </summary>
     private static readonly string[] WORKFLOWS_W_PROVIDERS = new[] { Workflows.LAB_SCO };
 
-    private static readonly string[] WORKFLOWS_SELF = new[] { Workflows.LAB_MCP };
+    /// <summary>
+    /// Orders that has no provider party
+    /// </summary>
+    private static readonly string[] WORKFLOWS_SELF = new[] { Workflows.LAB_MCP, Workflows.LAB_PSO };
+
+    /// <summary>
+    /// Workflows where end user price is mandatory
+    /// </summary>
+    private static readonly string[] WORKFLOWS_W_PRICES = new[] { Workflows.LAB_PSO };
 
     /// <summary>
     /// Default constructor.
@@ -105,6 +114,20 @@ public class OrderValidator : AbstractValidator<Order>
             .WithMessage($"{nameof(Order)} must have a non-null {nameof(Order.Patient)}.")
             .SetValidator(new PatientValidator());
 
+        // Expiration
+        When(x => x.Workflow == Workflows.LAB_PSO, () =>
+            { 
+                RuleFor(x => x.Expiration)
+                .Must(x => x.HasValue)
+                .WithMessage($"In workflow '{Workflows.LAB_PSO}', field '{nameof(Order.Expiration)}' is mandatory."); 
+            });
+        When(x => x.Expiration.HasValue, () =>
+            {
+                RuleFor(x => x.Expiration)
+                    .Must(x => x.Value > DateTime.UtcNow && x.Value < DateTime.UtcNow.AddDays(Order.MAX_EXPIRATION_DAYS));
+            });
+
+
         // LinkedReferrals
         RuleFor(x => x.LinkedReferrals)
             .Cascade(CascadeMode.Stop)
@@ -122,9 +145,16 @@ public class OrderValidator : AbstractValidator<Order>
             .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
         RuleForEach(x => x.Services)
             .SetValidator(z => new ServiceValidator(z.Status));
+        When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_PRICES.Any(w => w.Equals(o.Workflow, StringComparison.InvariantCultureIgnoreCase)), () =>
+        {
+            RuleFor(ord => ord.Services)
+                .Cascade(CascadeMode.Stop)
+                .Must(x => x.Any(s => s.EndUserPrice.HasValue))
+                .WithMessage(x => $"In workflow '{x.Workflow}' all {nameof(Order.Services)} must have a non-null {nameof(Service.EndUserPrice)}.");
+        });
 
         // Samples (conditional)
-        When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(o.Workflow, System.StringComparison.InvariantCultureIgnoreCase)), () =>
+        When(o => !string.IsNullOrWhiteSpace(o.Workflow) && WORKFLOWS_W_SAMPLES.Any(w => w.Equals(o.Workflow, StringComparison.InvariantCultureIgnoreCase)), () =>
         {
             RuleFor(ord => ord.Samples)
                 .Cascade(CascadeMode.Stop)
@@ -137,7 +167,7 @@ public class OrderValidator : AbstractValidator<Order>
         {
             RuleFor(x => x.Samples)
                 .Must(s => s.GroupBy(z => z.SampleId).Any(c => c.Count() == 1))
-                .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Services)}.");
+                .WithMessage($"{nameof(Order)} must contain unique set of {nameof(Order.Samples)}.");
         });
     }
 

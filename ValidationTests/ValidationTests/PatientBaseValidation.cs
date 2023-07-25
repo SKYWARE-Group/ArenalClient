@@ -1,11 +1,5 @@
 ﻿using FluentValidation.Results;
 using Skyware.Arenal.Model;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelTests.ValidationTests
 {
@@ -128,7 +122,7 @@ namespace ModelTests.ValidationTests
         [Test]
         public void ValidPhoneContact()
         {
-            Patient patient = new("first","second");
+            Patient patient = new("first", "second");
             patient.AddEmail("0899504782")
                    .AddEmail("0899504783");
 

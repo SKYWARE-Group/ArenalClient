@@ -34,11 +34,12 @@ public class Service : IEquatable<Service>
     /// <summary>
     /// Instantiates a Service for laboratory examination, coded with Loinc.
     /// </summary>
-    public Service(string loincCode, string name = null, string note = null) : this()
+    public Service(string loincCode, string name = null, string note = null, decimal? endUserPrice = null) : this()
     {
         if (!string.IsNullOrWhiteSpace(loincCode)) ServiceId = new Identifier(Authorities.LOINC, null, loincCode);
         Name = name;
         if (!string.IsNullOrWhiteSpace(note)) Note = new Note(note);
+        EndUserPrice = endUserPrice;
     }
 
     /// <summary>
@@ -92,6 +93,11 @@ public class Service : IEquatable<Service>
             Prompt = nameof(L10n.Service.Service.RankPrompt),
             ResourceType = typeof(L10n.Service.Service))]
     public int? Rank { get; set; }
+
+    /// <summary>
+    /// Used when end-user pays for the order.
+    /// </summary>
+    public decimal? EndUserPrice { get; set; }
 
     /// <summary>
     /// List of problems reported by the provider.

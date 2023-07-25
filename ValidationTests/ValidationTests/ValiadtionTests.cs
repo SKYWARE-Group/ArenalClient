@@ -1,4 +1,6 @@
-﻿using FluentValidation.Results;
+﻿//Ignore Spelling: pso mcp svc 
+
+using FluentValidation.Results;
 using Skyware.Arenal;
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Validation;
@@ -169,7 +171,7 @@ public class Tests
     ///   Publisher adds service problem
     /// </remarks>
     [Test]
-    public void LabToLab_Order_ProviderFieleds()
+    public void LabToLab_Order_ProviderFields()
     {
 
         Order order = new Patient(null, "Doe")
@@ -323,6 +325,67 @@ public class Tests
         ValidationResult validationResult = order.Validate();
         Assert.That(validationResult.IsValid, Is.True);
     }
+
+    /// <summary>
+    /// LAB_PSO: Wrong is:
+    ///     No expiration
+    /// </summary>
+    [Test]
+    public void LabToPat_Pso_Order_No_Exp()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_PSO, "AD-G-1", null)
+            .AddService("14749-6", "Glucose", "Some text here", 2.2m);
+        order.PublicAccessEnabled = true;
+        order.Expiration = null;
+
+        ValidationResult validationResult = order.Validate();
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Expiration));
+        });
+    }
+
+    /// <summary>
+    /// LAB_PSO: Wrong is:
+    ///     No end user price
+    /// </summary>
+    [Test]
+    public void LabToPat_Pso_Order_No_Price()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_PSO, "AD-G-1", null)
+            .AddService("14749-6", "Glucose", "Some text here");
+        order.PublicAccessEnabled = true;
+        order.Expiration = DateTime.UtcNow.AddHours(36);
+
+        ValidationResult validationResult = order.Validate();
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.IsValid, Is.False);
+            Assert.That(validationResult.Errors.First().PropertyName == nameof(Order.Services));
+            Assert.That(validationResult.Errors.First().ErrorMessage.Contains(nameof(Service.EndUserPrice)));
+        });
+    }
+
+    /// <summary>
+    /// LAB_PSO: Valid order
+    /// </summary>
+    [Test]
+    public void LabToPat_Pso_Order_Ok()
+    {
+        Order order = new Patient("John", "Doe")
+            .CreateOrder(Workflows.LAB_PSO, "AD-G-1", null)
+            .AddService("14749-6", "Glucose", "Some text here", 2.2m);
+        order.PublicAccessEnabled = true;
+        order.Expiration = DateTime.UtcNow.AddHours(36);
+
+        ValidationResult validationResult = order.Validate();
+        Assert.That(validationResult.IsValid, Is.True);
+    }
+
+
 
     #endregion
 
