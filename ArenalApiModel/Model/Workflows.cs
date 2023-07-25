@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model;
+﻿//Ignore Spelling: sco mcp pso 
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>
@@ -8,14 +10,18 @@ public class Workflows
 {
 
     /// <summary>
-    /// Laboratory specimen-centric orders.
+    /// Specimen Centric Orders.
     /// </summary>
     public const string LAB_SCO = "lab-sco";
 
     /// <summary>
-    /// Mobile collection point for laboratories.
+    /// Mobile Collection Point.
     /// </summary>
     public const string LAB_MCP = "lab-mcp";
 
+    /// <summary>
+    /// Post Sale Order (Lab to patient web/mobile sale).
+    /// </summary>
+    public const string LAB_PSO = "lab-pso";
 
 }

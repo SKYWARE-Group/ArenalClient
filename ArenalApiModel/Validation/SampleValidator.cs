@@ -34,7 +34,7 @@ public class SampleValidator : AbstractValidator<Sample>
 
         //Taken (if set)
         When(x => x.Taken.HasValue, () => RuleFor(x => x.Taken)
-            .Must(d => d.Value <= DateTime.Now)
+            .Must(d => d.Value <= DateTime.UtcNow)
             .WithMessage($"{nameof(Sample.Taken)} must be before current date.")
         );
 

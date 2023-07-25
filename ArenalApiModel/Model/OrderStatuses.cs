@@ -1,4 +1,6 @@
-﻿namespace Skyware.Arenal.Model;
+﻿//Ignore Spelling: ip pa ok pp rj
+
+namespace Skyware.Arenal.Model;
 
 
 /// <summary>

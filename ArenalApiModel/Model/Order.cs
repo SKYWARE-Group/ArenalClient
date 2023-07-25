@@ -22,6 +22,16 @@ public class Order : EntityBase
     /// </summary>
     public const int MAX_LINKED_REFERRALS = 15;
 
+    /// <summary>
+    /// Default order expiration, days.
+    /// </summary>
+    public const int DEFAULT_EXPIRATION_DAYS = 15;
+
+    /// <summary>
+    /// Maximum order expiration, days.
+    /// </summary>
+    public const int MAX_EXPIRATION_DAYS = 45;
+
     private static OrderValidator _validator;
 
     /// <summary>
@@ -226,6 +236,24 @@ public class Order : EntityBase
     public IList<Attachment> Attachments { get; set; }
 
     /// <summary>
+    /// When true, order is exposed via publicly available API without
+    /// authentication by short code in URL (self-contained security).
+    /// Public access will be enabled only until <see cref="Expiration"/> time.
+    /// </summary>
+    public bool PublicAccessEnabled { get; set; } = false;
+
+    /// <summary>
+    /// Arenal generated short code when <see cref="PublicAccessEnabled"/>.
+    /// When publishing, the provided value will be ignored.
+    /// </summary>
+    public string ShortCode { get; set; }
+
+    /// <summary>
+    /// End date/time until the order is valid (mandatory when <see cref="PublicAccessEnabled"/> is true).
+    /// </summary>
+    public DateTime? Expiration { get; set; } = DateTime.UtcNow.AddDays(DEFAULT_EXPIRATION_DAYS);
+
+    /// <summary>
     /// Default constructor.
     /// </summary>
     public Order() : base() { }
@@ -303,10 +331,11 @@ public class Order : EntityBase
     /// <param name="serviceCode">LOINC code for service to add</param>
     /// <param name="name">Name of the service to add</param>
     /// <param name="note">A note to the service</param>
-    public Order AddService(string serviceCode, string name = null, string note = null)
+    /// <param name="endUserPrice">End user price (in lab to pat workflows)</param>
+    public Order AddService(string serviceCode, string name = null, string note = null, decimal? endUserPrice = null)
     {
         Services ??= new List<Service>();
-        Services.Add(new Service(serviceCode, name, note));
+        Services.Add(new Service(serviceCode, name, note, endUserPrice));
         return this;
     }
 

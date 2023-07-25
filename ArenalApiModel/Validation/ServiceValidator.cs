@@ -42,6 +42,13 @@ public class ServiceValidator : AbstractValidator<Service>
                 .SetValidator(new NoteValidator());
         });
 
+        // EndUserPrice (if presents)
+        When(x => x.EndUserPrice is not null, () => {
+            RuleFor(x => x.EndUserPrice)
+                .Must(x => x >= 0)
+                .WithMessage($"The {nameof(Service.EndUserPrice)} must be equal or greater than zero.");
+        });
+
     }
 
     /// <summary>
