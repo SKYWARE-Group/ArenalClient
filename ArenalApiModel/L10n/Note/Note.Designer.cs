@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Note {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Note {
+    public class Note {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Note {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Note.Note", typeof(Note).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Note {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Formating type of the note like plain text, rtf, html etc..
         /// </summary>
-        internal static string TypeDescription {
+        public static string TypeDescription {
             get {
                 return ResourceManager.GetString("TypeDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
-        internal static string TypeGroupName {
+        public static string TypeGroupName {
             get {
                 return ResourceManager.GetString("TypeGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Note formatting type..
         /// </summary>
-        internal static string TypeName {
+        public static string TypeName {
             get {
                 return ResourceManager.GetString("TypeName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter formatting type..
         /// </summary>
-        internal static string TypePrompt {
+        public static string TypePrompt {
             get {
                 return ResourceManager.GetString("TypePrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Note type.
         /// </summary>
-        internal static string TypeShortName {
+        public static string TypeShortName {
             get {
                 return ResourceManager.GetString("TypeShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Value of the note. Length must be between 2 and 1024 symbols..
         /// </summary>
-        internal static string ValueDescription {
+        public static string ValueDescription {
             get {
                 return ResourceManager.GetString("ValueDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValueGroupName {
+        public static string ValueGroupName {
             get {
                 return ResourceManager.GetString("ValueGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Note value.
         /// </summary>
-        internal static string ValueName {
+        public static string ValueName {
             get {
                 return ResourceManager.GetString("ValueName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Please, add value of the note..
         /// </summary>
-        internal static string ValuePrompt {
+        public static string ValuePrompt {
             get {
                 return ResourceManager.GetString("ValuePrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.Note {
         /// <summary>
         ///   Looks up a localized string similar to Note value.
         /// </summary>
-        internal static string ValueShortName {
+        public static string ValueShortName {
             get {
                 return ResourceManager.GetString("ValueShortName", resourceCulture);
             }

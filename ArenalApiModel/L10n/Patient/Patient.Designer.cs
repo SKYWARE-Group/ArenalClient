@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Patient {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Patient {
+    public class Patient {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Patient {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Patient.Patient", typeof(Patient).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Patient {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth of the patient. Optional field..
         /// </summary>
-        internal static string DateOfBirthDescription {
+        public static string DateOfBirthDescription {
             get {
                 return ResourceManager.GetString("DateOfBirthDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Birth date.
         /// </summary>
-        internal static string DateOfBirthGroupName {
+        public static string DateOfBirthGroupName {
             get {
                 return ResourceManager.GetString("DateOfBirthGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
-        internal static string DateOfBirthName {
+        public static string DateOfBirthName {
             get {
                 return ResourceManager.GetString("DateOfBirthName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Please, select date ot birth..
         /// </summary>
-        internal static string DateOfBirthPrompt {
+        public static string DateOfBirthPrompt {
             get {
                 return ResourceManager.GetString("DateOfBirthPrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
-        internal static string DateOfBirthShortName {
+        public static string DateOfBirthShortName {
             get {
                 return ResourceManager.GetString("DateOfBirthShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to True if date of birth is exact value, false if is calculated from approximate age..
         /// </summary>
-        internal static string ExactDoBDescription {
+        public static string ExactDoBDescription {
             get {
                 return ResourceManager.GetString("ExactDoBDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Birth date.
         /// </summary>
-        internal static string ExactDoBGroupName {
+        public static string ExactDoBGroupName {
             get {
                 return ResourceManager.GetString("ExactDoBGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Is date of bith approximate.
         /// </summary>
-        internal static string ExactDoBName {
+        public static string ExactDoBName {
             get {
                 return ResourceManager.GetString("ExactDoBName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Please, select is date of birth approximate..
         /// </summary>
-        internal static string ExactDoBPrompt {
+        public static string ExactDoBPrompt {
             get {
                 return ResourceManager.GetString("ExactDoBPrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Is date of bith approximate.
         /// </summary>
-        internal static string ExactDoBShortName {
+        public static string ExactDoBShortName {
             get {
                 return ResourceManager.GetString("ExactDoBShortName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Gender of the patient..
         /// </summary>
-        internal static string IsMaleDescription {
+        public static string IsMaleDescription {
             get {
                 return ResourceManager.GetString("IsMaleDescription", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
-        internal static string IsMaleGroupName {
+        public static string IsMaleGroupName {
             get {
                 return ResourceManager.GetString("IsMaleGroupName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
-        internal static string IsMaleName {
+        public static string IsMaleName {
             get {
                 return ResourceManager.GetString("IsMaleName", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Please, select gender..
         /// </summary>
-        internal static string IsMalePrompt {
+        public static string IsMalePrompt {
             get {
                 return ResourceManager.GetString("IsMalePrompt", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Gender.
         /// </summary>
-        internal static string IsMaleShortName {
+        public static string IsMaleShortName {
             get {
                 return ResourceManager.GetString("IsMaleShortName", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth of the patient (local). Optional field..
         /// </summary>
-        internal static string LocalDateOfBirthDescription {
+        public static string LocalDateOfBirthDescription {
             get {
                 return ResourceManager.GetString("LocalDateOfBirthDescription", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Birth date.
         /// </summary>
-        internal static string LocalDateOfBirthGroupName {
+        public static string LocalDateOfBirthGroupName {
             get {
                 return ResourceManager.GetString("LocalDateOfBirthGroupName", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth (local).
         /// </summary>
-        internal static string LocalDateOfBirthName {
+        public static string LocalDateOfBirthName {
             get {
                 return ResourceManager.GetString("LocalDateOfBirthName", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Please, select date ot birth (local)..
         /// </summary>
-        internal static string LocalDateOfBirthPrompt {
+        public static string LocalDateOfBirthPrompt {
             get {
                 return ResourceManager.GetString("LocalDateOfBirthPrompt", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Skyware.Arenal.L10n.Patient {
         /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
-        internal static string LocalDateOfBirthShortName {
+        public static string LocalDateOfBirthShortName {
             get {
                 return ResourceManager.GetString("LocalDateOfBirthShortName", resourceCulture);
             }

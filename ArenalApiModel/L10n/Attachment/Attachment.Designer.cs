@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Attachment {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Attachment {
+    public class Attachment {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Attachment.Attachment", typeof(Attachment).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Name of the attached file..
         /// </summary>
-        internal static string AttachmentDescription {
+        public static string AttachmentDescription {
             get {
                 return ResourceManager.GetString("AttachmentDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Attachment.
         /// </summary>
-        internal static string AttachmentGroupName {
+        public static string AttachmentGroupName {
             get {
                 return ResourceManager.GetString("AttachmentGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to File name.
         /// </summary>
-        internal static string AttachmentName {
+        public static string AttachmentName {
             get {
                 return ResourceManager.GetString("AttachmentName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to File.
         /// </summary>
-        internal static string AttachmentShortName {
+        public static string AttachmentShortName {
             get {
                 return ResourceManager.GetString("AttachmentShortName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Note from the uploader of the file associated with the file..
         /// </summary>
-        internal static string NoteDescription {
+        public static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteGroupName {
+        public static string NoteGroupName {
             get {
                 return ResourceManager.GetString("NoteGroupName", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteName {
+        public static string NoteName {
             get {
                 return ResourceManager.GetString("NoteName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Please, add note to the attached file..
         /// </summary>
-        internal static string NotePrompt {
+        public static string NotePrompt {
             get {
                 return ResourceManager.GetString("NotePrompt", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Attachment {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteShortName {
+        public static string NoteShortName {
             get {
                 return ResourceManager.GetString("NoteShortName", resourceCulture);
             }

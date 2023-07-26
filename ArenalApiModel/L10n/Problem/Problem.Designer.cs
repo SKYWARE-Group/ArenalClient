@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Problem {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Problem {
+    public class Problem {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Problem {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Problem.Problem", typeof(Problem).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Problem {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers of the problem..
         /// </summary>
-        internal static string IdentifiersDescription {
+        public static string IdentifiersDescription {
             get {
                 return ResourceManager.GetString("IdentifiersDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersGroupName {
+        public static string IdentifiersGroupName {
             get {
                 return ResourceManager.GetString("IdentifiersGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersName {
+        public static string IdentifiersName {
             get {
                 return ResourceManager.GetString("IdentifiersName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter identifiers of the problem..
         /// </summary>
-        internal static string IdentifiersPrompt {
+        public static string IdentifiersPrompt {
             get {
                 return ResourceManager.GetString("IdentifiersPrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersShortName {
+        public static string IdentifiersShortName {
             get {
                 return ResourceManager.GetString("IdentifiersShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Description of the problem..
         /// </summary>
-        internal static string NoteDescription {
+        public static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteGroupName {
+        public static string NoteGroupName {
             get {
                 return ResourceManager.GetString("NoteGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteName {
+        public static string NoteName {
             get {
                 return ResourceManager.GetString("NoteName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter description note..
         /// </summary>
-        internal static string NotePrompt {
+        public static string NotePrompt {
             get {
                 return ResourceManager.GetString("NotePrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteShortName {
+        public static string NoteShortName {
             get {
                 return ResourceManager.GetString("NoteShortName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the severity of a problem..
         /// </summary>
-        internal static string SeverityDescription {
+        public static string SeverityDescription {
             get {
                 return ResourceManager.GetString("SeverityDescription", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Problem.
         /// </summary>
-        internal static string SeverityGroupName {
+        public static string SeverityGroupName {
             get {
                 return ResourceManager.GetString("SeverityGroupName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Severity.
         /// </summary>
-        internal static string SeverityName {
+        public static string SeverityName {
             get {
                 return ResourceManager.GetString("SeverityName", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Please, select severity of the problem..
         /// </summary>
-        internal static string SeverityPrompt {
+        public static string SeverityPrompt {
             get {
                 return ResourceManager.GetString("SeverityPrompt", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.Problem {
         /// <summary>
         ///   Looks up a localized string similar to Severity.
         /// </summary>
-        internal static string SeverityShortName {
+        public static string SeverityShortName {
             get {
                 return ResourceManager.GetString("SeverityShortName", resourceCulture);
             }

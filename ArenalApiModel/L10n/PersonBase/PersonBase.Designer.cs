@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class PersonBase {
+    public class PersonBase {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.PersonBase.PersonBase", typeof(PersonBase).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string ContactsBaseShortName {
+        public static string ContactsBaseShortName {
             get {
                 return ResourceManager.GetString("ContactsBaseShortName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to List of contacts added to the person..
         /// </summary>
-        internal static string ContactsDescription {
+        public static string ContactsDescription {
             get {
                 return ResourceManager.GetString("ContactsDescription", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string ContactsGroupName {
+        public static string ContactsGroupName {
             get {
                 return ResourceManager.GetString("ContactsGroupName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to List of contacts.
         /// </summary>
-        internal static string ContactsName {
+        public static string ContactsName {
             get {
                 return ResourceManager.GetString("ContactsName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Please, add contact to the list..
         /// </summary>
-        internal static string ContactsPrompt {
+        public static string ContactsPrompt {
             get {
                 return ResourceManager.GetString("ContactsPrompt", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Family name (surname) of the person..
         /// </summary>
-        internal static string FamilyNameDescription {
+        public static string FamilyNameDescription {
             get {
                 return ResourceManager.GetString("FamilyNameDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Names.
         /// </summary>
-        internal static string FamilyNameGroupName {
+        public static string FamilyNameGroupName {
             get {
                 return ResourceManager.GetString("FamilyNameGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Family name.
         /// </summary>
-        internal static string FamilyNameName {
+        public static string FamilyNameName {
             get {
                 return ResourceManager.GetString("FamilyNameName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter family name of the person..
         /// </summary>
-        internal static string FamilyNamePrompt {
+        public static string FamilyNamePrompt {
             get {
                 return ResourceManager.GetString("FamilyNamePrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Family name.
         /// </summary>
-        internal static string FamilyNameShortName {
+        public static string FamilyNameShortName {
             get {
                 return ResourceManager.GetString("FamilyNameShortName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Given (first) name of the person..
         /// </summary>
-        internal static string GivenNameDescription {
+        public static string GivenNameDescription {
             get {
                 return ResourceManager.GetString("GivenNameDescription", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Names.
         /// </summary>
-        internal static string GivenNameGroupName {
+        public static string GivenNameGroupName {
             get {
                 return ResourceManager.GetString("GivenNameGroupName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Given name.
         /// </summary>
-        internal static string GivenNameName {
+        public static string GivenNameName {
             get {
                 return ResourceManager.GetString("GivenNameName", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter given (first) name of the person..
         /// </summary>
-        internal static string GivenNamePrompt {
+        public static string GivenNamePrompt {
             get {
                 return ResourceManager.GetString("GivenNamePrompt", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Given name.
         /// </summary>
-        internal static string GivenNameShortName {
+        public static string GivenNameShortName {
             get {
                 return ResourceManager.GetString("GivenNameShortName", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers (may be empty)..
         /// </summary>
-        internal static string IdentifiersDescription {
+        public static string IdentifiersDescription {
             get {
                 return ResourceManager.GetString("IdentifiersDescription", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersGroupName {
+        public static string IdentifiersGroupName {
             get {
                 return ResourceManager.GetString("IdentifiersGroupName", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersName {
+        public static string IdentifiersName {
             get {
                 return ResourceManager.GetString("IdentifiersName", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Please, add identifiers..
         /// </summary>
-        internal static string IdentifiersPrompt {
+        public static string IdentifiersPrompt {
             get {
                 return ResourceManager.GetString("IdentifiersPrompt", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersShortName {
+        public static string IdentifiersShortName {
             get {
                 return ResourceManager.GetString("IdentifiersShortName", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Middle (second) name of the person..
         /// </summary>
-        internal static string MiddleNameDescription {
+        public static string MiddleNameDescription {
             get {
                 return ResourceManager.GetString("MiddleNameDescription", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Names.
         /// </summary>
-        internal static string MiddleNameGroupName {
+        public static string MiddleNameGroupName {
             get {
                 return ResourceManager.GetString("MiddleNameGroupName", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Middle name.
         /// </summary>
-        internal static string MiddleNameName {
+        public static string MiddleNameName {
             get {
                 return ResourceManager.GetString("MiddleNameName", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter middle name of the person..
         /// </summary>
-        internal static string MiddleNamePrompt {
+        public static string MiddleNamePrompt {
             get {
                 return ResourceManager.GetString("MiddleNamePrompt", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Skyware.Arenal.L10n.PersonBase {
         /// <summary>
         ///   Looks up a localized string similar to Middle name.
         /// </summary>
-        internal static string MiddleNameShortName {
+        public static string MiddleNameShortName {
             get {
                 return ResourceManager.GetString("MiddleNameShortName", resourceCulture);
             }

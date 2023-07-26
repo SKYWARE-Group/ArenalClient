@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Contact {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Contact {
+    public class Contact {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Contact {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Contact.Contact", typeof(Contact).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Contact {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
-        internal static string ContactGroupName {
+        public static string ContactGroupName {
             get {
                 return ResourceManager.GetString("ContactGroupName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Type of contacts like email or phone etc..
         /// </summary>
-        internal static string ContactTypeDescription {
+        public static string ContactTypeDescription {
             get {
                 return ResourceManager.GetString("ContactTypeDescription", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Type of the provided contact.
         /// </summary>
-        internal static string ContactTypeName {
+        public static string ContactTypeName {
             get {
                 return ResourceManager.GetString("ContactTypeName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Please, select contact type..
         /// </summary>
-        internal static string ContactTypePrompt {
+        public static string ContactTypePrompt {
             get {
                 return ResourceManager.GetString("ContactTypePrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
-        internal static string ContactTypeShortName {
+        public static string ContactTypeShortName {
             get {
                 return ResourceManager.GetString("ContactTypeShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Value of the contact according to the selected type. .
         /// </summary>
-        internal static string ContactValueDescription {
+        public static string ContactValueDescription {
             get {
                 return ResourceManager.GetString("ContactValueDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ContactValueName {
+        public static string ContactValueName {
             get {
                 return ResourceManager.GetString("ContactValueName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Please, add value of the contact..
         /// </summary>
-        internal static string ContactValuePrompt {
+        public static string ContactValuePrompt {
             get {
                 return ResourceManager.GetString("ContactValuePrompt", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Contact {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ContactValueShortName {
+        public static string ContactValueShortName {
             get {
                 return ResourceManager.GetString("ContactValueShortName", resourceCulture);
             }
