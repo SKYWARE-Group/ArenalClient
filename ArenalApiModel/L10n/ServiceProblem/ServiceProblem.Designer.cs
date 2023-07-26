@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ServiceProblem {
+    public class ServiceProblem {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.ServiceProblem.ServiceProblem", typeof(ServiceProblem).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Problem associated with the provided service..
         /// </summary>
-        internal static string ProblemDescription {
+        public static string ProblemDescription {
             get {
                 return ResourceManager.GetString("ProblemDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Problem.
         /// </summary>
-        internal static string ProblemGroup {
+        public static string ProblemGroup {
             get {
                 return ResourceManager.GetString("ProblemGroup", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Problem.
         /// </summary>
-        internal static string ProblemName {
+        public static string ProblemName {
             get {
                 return ResourceManager.GetString("ProblemName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Problem.
         /// </summary>
-        internal static string ProblemShortName {
+        public static string ProblemShortName {
             get {
                 return ResourceManager.GetString("ProblemShortName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Reference to the service associated with the problem..
         /// </summary>
-        internal static string ServiceIdDescription {
+        public static string ServiceIdDescription {
             get {
                 return ResourceManager.GetString("ServiceIdDescription", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Service.
         /// </summary>
-        internal static string ServiceIdGroup {
+        public static string ServiceIdGroup {
             get {
                 return ResourceManager.GetString("ServiceIdGroup", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Service.
         /// </summary>
-        internal static string ServiceIdName {
+        public static string ServiceIdName {
             get {
                 return ResourceManager.GetString("ServiceIdName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.ServiceProblem {
         /// <summary>
         ///   Looks up a localized string similar to Service.
         /// </summary>
-        internal static string ServiceIdShortName {
+        public static string ServiceIdShortName {
             get {
                 return ResourceManager.GetString("ServiceIdShortName", resourceCulture);
             }

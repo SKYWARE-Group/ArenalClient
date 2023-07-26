@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ServiceLocation {
+    public class ServiceLocation {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.ServiceLocation.ServiceLocation", typeof(ServiceLocation).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Address of the location for the service..
         /// </summary>
-        internal static string AddressDescription {
+        public static string AddressDescription {
             get {
                 return ResourceManager.GetString("AddressDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string AddressName {
+        public static string AddressName {
             get {
                 return ResourceManager.GetString("AddressName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Please, add address of the location..
         /// </summary>
-        internal static string AddressPrompt {
+        public static string AddressPrompt {
             get {
                 return ResourceManager.GetString("AddressPrompt", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string AddressShortName {
+        public static string AddressShortName {
             get {
                 return ResourceManager.GetString("AddressShortName", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Contacts applicable with the service location..
         /// </summary>
-        internal static string ContactsDescription {
+        public static string ContactsDescription {
             get {
                 return ResourceManager.GetString("ContactsDescription", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string ContactsName {
+        public static string ContactsName {
             get {
                 return ResourceManager.GetString("ContactsName", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Please, add contacts to the location like email of phone..
         /// </summary>
-        internal static string ContactsPrompt {
+        public static string ContactsPrompt {
             get {
                 return ResourceManager.GetString("ContactsPrompt", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
-        internal static string ContactsShortName {
+        public static string ContactsShortName {
             get {
                 return ResourceManager.GetString("ContactsShortName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Id of the location according to the provider..
         /// </summary>
-        internal static string LocationIdDescription {
+        public static string LocationIdDescription {
             get {
                 return ResourceManager.GetString("LocationIdDescription", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
-        internal static string LocationIdName {
+        public static string LocationIdName {
             get {
                 return ResourceManager.GetString("LocationIdName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Please, set id of the location..
         /// </summary>
-        internal static string LocationIdPrompt {
+        public static string LocationIdPrompt {
             get {
                 return ResourceManager.GetString("LocationIdPrompt", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
-        internal static string LocationIdShortName {
+        public static string LocationIdShortName {
             get {
                 return ResourceManager.GetString("LocationIdShortName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Friendly name of the service location..
         /// </summary>
-        internal static string NameDescription {
+        public static string NameDescription {
             get {
                 return ResourceManager.GetString("NameDescription", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Service Location.
         /// </summary>
-        internal static string NameName {
+        public static string NameName {
             get {
                 return ResourceManager.GetString("NameName", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Please, add location name..
         /// </summary>
-        internal static string NamePrompt {
+        public static string NamePrompt {
             get {
                 return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Service Location.
         /// </summary>
-        internal static string NameShortName {
+        public static string NameShortName {
             get {
                 return ResourceManager.GetString("NameShortName", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Note to the location such as &apos;Call before visit&apos;..
         /// </summary>
-        internal static string NoteDescription {
+        public static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteName {
+        public static string NoteName {
             get {
                 return ResourceManager.GetString("NoteName", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Please, add note to the location..
         /// </summary>
-        internal static string NotePrompt {
+        public static string NotePrompt {
             get {
                 return ResourceManager.GetString("NotePrompt", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Skyware.Arenal.L10n.ServiceLocation {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteShortName {
+        public static string NoteShortName {
             get {
                 return ResourceManager.GetString("NoteShortName", resourceCulture);
             }

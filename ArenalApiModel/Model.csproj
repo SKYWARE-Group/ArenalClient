@@ -19,7 +19,7 @@
     <PackageReadmeFile>Assets\model-nuget-readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Model</PackageTags>
-    <Version>0.7.0</Version>
+    <Version>0.7.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -158,49 +158,88 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Address.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Attachment\Attachment.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Attachment\Attachment.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Attachment.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Contact\Contact.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Contact\Contact.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Contact.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Diagnosis\Diagnosis.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Diagnosis\Diagnosis.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Diagnosis.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Doctor\Doctor.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Doctor\Doctor.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Doctor.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Identifier\Identifier.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Identifier\Identifier.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Identifier.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\LinkedReferral\LinkedReferral.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\LinkedReferral\LinkedReferral.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LinkedReferral.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Note\Note.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Note\Note.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Note.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Organization\Organization.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Organization\Organization.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Organization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Patient\Patient.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Patient\Patient.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Patient.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\PersonBase\PersonBase.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\PersonBase\PersonBase.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PersonBase.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Problem\Problem.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Problem\Problem.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Problem.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleShipment\SampleShipment.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\SampleType\SampleType.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\Sample\Sample.bg.resx">
       <LastGenOutput>Sample.bg.Designer.cs</LastGenOutput>
@@ -219,23 +258,32 @@
       <LastGenOutput>Order.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\SampleShipment\SampleShipment.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SampleShipment.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\SampleType\SampleType.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SampleType.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceLocation\ServiceLocation.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\ServiceProblem\ServiceProblem.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="L10n\Service\Service.bg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="L10n\Service\Service.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Service.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\ServiceLocation\ServiceLocation.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ServiceLocation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="L10n\ServiceProblem\ServiceProblem.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ServiceProblem.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

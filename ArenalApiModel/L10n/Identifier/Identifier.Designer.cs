@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Identifier {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Identifier {
+    public class Identifier {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Identifier.Identifier", typeof(Identifier).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +64,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         ///   Looks up a localized string similar to Authority/Realm/System of the identifier such as &apos;org.loinc&apos;, &apos;org.snomed&apos; etc.
         ///Mandatory. Use &apos;local&apos; for your own identifiers..
         /// </summary>
-        internal static string AuthorityDescription {
+        public static string AuthorityDescription {
             get {
                 return ResourceManager.GetString("AuthorityDescription", resourceCulture);
             }
@@ -73,7 +73,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Authority.
         /// </summary>
-        internal static string AuthorityGroupName {
+        public static string AuthorityGroupName {
             get {
                 return ResourceManager.GetString("AuthorityGroupName", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Authority/Realm/System.
         /// </summary>
-        internal static string AuthorityName {
+        public static string AuthorityName {
             get {
                 return ResourceManager.GetString("AuthorityName", resourceCulture);
             }
@@ -91,7 +91,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter authoriry..
         /// </summary>
-        internal static string AuthorityPrompt {
+        public static string AuthorityPrompt {
             get {
                 return ResourceManager.GetString("AuthorityPrompt", resourceCulture);
             }
@@ -100,7 +100,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Authority.
         /// </summary>
-        internal static string AuthorityShortName {
+        public static string AuthorityShortName {
             get {
                 return ResourceManager.GetString("AuthorityShortName", resourceCulture);
             }
@@ -109,7 +109,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Dictionary (value set) for given authority, such as HL7 table number, etc..
         /// </summary>
-        internal static string DictionaryDescription {
+        public static string DictionaryDescription {
             get {
                 return ResourceManager.GetString("DictionaryDescription", resourceCulture);
             }
@@ -118,7 +118,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Dictionary.
         /// </summary>
-        internal static string DictionaryGroupName {
+        public static string DictionaryGroupName {
             get {
                 return ResourceManager.GetString("DictionaryGroupName", resourceCulture);
             }
@@ -127,7 +127,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Value set.
         /// </summary>
-        internal static string DictionaryName {
+        public static string DictionaryName {
             get {
                 return ResourceManager.GetString("DictionaryName", resourceCulture);
             }
@@ -136,7 +136,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter values set name..
         /// </summary>
-        internal static string DictionaryPrompt {
+        public static string DictionaryPrompt {
             get {
                 return ResourceManager.GetString("DictionaryPrompt", resourceCulture);
             }
@@ -145,7 +145,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Value set.
         /// </summary>
-        internal static string DictionaryShortName {
+        public static string DictionaryShortName {
             get {
                 return ResourceManager.GetString("DictionaryShortName", resourceCulture);
             }
@@ -154,7 +154,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Identifier value such as &apos;ABC-123&apos;, &apos;BLD&apos;, etc. Mandatory..
         /// </summary>
-        internal static string ValueDescription {
+        public static string ValueDescription {
             get {
                 return ResourceManager.GetString("ValueDescription", resourceCulture);
             }
@@ -163,7 +163,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValueGroupName {
+        public static string ValueGroupName {
             get {
                 return ResourceManager.GetString("ValueGroupName", resourceCulture);
             }
@@ -172,7 +172,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValueName {
+        public static string ValueName {
             get {
                 return ResourceManager.GetString("ValueName", resourceCulture);
             }
@@ -181,7 +181,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter value..
         /// </summary>
-        internal static string ValuePrompt {
+        public static string ValuePrompt {
             get {
                 return ResourceManager.GetString("ValuePrompt", resourceCulture);
             }
@@ -190,7 +190,7 @@ namespace Skyware.Arenal.L10n.Identifier {
         /// <summary>
         ///   Looks up a localized string similar to Value.
         /// </summary>
-        internal static string ValueShortName {
+        public static string ValueShortName {
             get {
                 return ResourceManager.GetString("ValueShortName", resourceCulture);
             }

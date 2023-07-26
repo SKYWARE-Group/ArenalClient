@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Doctor {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Doctor {
+    public class Doctor {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Doctor.Doctor", typeof(Doctor).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         /// <summary>
         ///   Looks up a localized string similar to Doctor.
         /// </summary>
-        internal static string DocotrGroupName {
+        public static string DocotrGroupName {
             get {
                 return ResourceManager.GetString("DocotrGroupName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string DoctorDescription {
+        public static string DoctorDescription {
             get {
                 return ResourceManager.GetString("DoctorDescription", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
-        internal static string DoctorName {
+        public static string DoctorName {
             get {
                 return ResourceManager.GetString("DoctorName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         /// <summary>
         ///   Looks up a localized string similar to Types of doctor titles, such as D-r, Prof. etc..
         /// </summary>
-        internal static string DoctorPrompt {
+        public static string DoctorPrompt {
             get {
                 return ResourceManager.GetString("DoctorPrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Doctor {
         /// <summary>
         ///   Looks up a localized string similar to Please, select title..
         /// </summary>
-        internal static string DoctorShortName {
+        public static string DoctorShortName {
             get {
                 return ResourceManager.GetString("DoctorShortName", resourceCulture);
             }

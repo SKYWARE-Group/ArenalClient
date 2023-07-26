@@ -20,7 +20,7 @@ public class LinkedReferral
         Name = nameof(L10n.LinkedReferral.LinkedReferral.IdentifierName),
         Description = nameof(L10n.LinkedReferral.LinkedReferral.IdentifierDescription),
         ResourceType = typeof(L10n.LinkedReferral.LinkedReferral))]
-    public LinkedReferral Identifier { get; set; }
+    public Identifier Identifier { get; set; }
 
     /// <summary>
     /// Date and time the referral will expire (UTC).

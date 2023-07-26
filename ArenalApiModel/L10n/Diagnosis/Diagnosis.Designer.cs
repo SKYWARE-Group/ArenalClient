@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Diagnosis {
+    public class Diagnosis {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Diagnosis.Diagnosis", typeof(Diagnosis).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Please, set diagnosis name..
         /// </summary>
-        internal static string NameDescription {
+        public static string NameDescription {
             get {
                 return ResourceManager.GetString("NameDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Diagnosis.
         /// </summary>
-        internal static string NameGroupName {
+        public static string NameGroupName {
             get {
                 return ResourceManager.GetString("NameGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Diagnosis name.
         /// </summary>
-        internal static string NameName {
+        public static string NameName {
             get {
                 return ResourceManager.GetString("NameName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to The diagnosis name, according to local language..
         /// </summary>
-        internal static string NamePrompt {
+        public static string NamePrompt {
             get {
                 return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string NameShortName {
+        public static string NameShortName {
             get {
                 return ResourceManager.GetString("NameShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to The clarification/complication (asterisk) code..
         /// </summary>
-        internal static string OptionalCodeDescription {
+        public static string OptionalCodeDescription {
             get {
                 return ResourceManager.GetString("OptionalCodeDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string OptionalCodeGroupName {
+        public static string OptionalCodeGroupName {
             get {
                 return ResourceManager.GetString("OptionalCodeGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string OptionalCodeName {
+        public static string OptionalCodeName {
             get {
                 return ResourceManager.GetString("OptionalCodeName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Optional Code.
         /// </summary>
-        internal static string OptionalCodeShortName {
+        public static string OptionalCodeShortName {
             get {
                 return ResourceManager.GetString("OptionalCodeShortName", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to The primary (dagger) code of a diagnosis..
         /// </summary>
-        internal static string PrimaryCodeDescription {
+        public static string PrimaryCodeDescription {
             get {
                 return ResourceManager.GetString("PrimaryCodeDescription", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Primary Code.
         /// </summary>
-        internal static string PrimaryCodeGroupName {
+        public static string PrimaryCodeGroupName {
             get {
                 return ResourceManager.GetString("PrimaryCodeGroupName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Primary Code.
         /// </summary>
-        internal static string PrimaryCodeName {
+        public static string PrimaryCodeName {
             get {
                 return ResourceManager.GetString("PrimaryCodeName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.Diagnosis {
         /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
-        internal static string PrimaryCodeShortName {
+        public static string PrimaryCodeShortName {
             get {
                 return ResourceManager.GetString("PrimaryCodeShortName", resourceCulture);
             }

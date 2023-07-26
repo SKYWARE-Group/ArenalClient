@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.Organization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Organization {
+    public class Organization {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.Organization {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.Organization.Organization", typeof(Organization).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.Organization {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Base URL of the organization&apos;s ARES server (Null or empty value means no ARES is implemented)..
         /// </summary>
-        internal static string AresBaseUrlDescription {
+        public static string AresBaseUrlDescription {
             get {
                 return ResourceManager.GetString("AresBaseUrlDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Ares.
         /// </summary>
-        internal static string AresBaseUrlGroupName {
+        public static string AresBaseUrlGroupName {
             get {
                 return ResourceManager.GetString("AresBaseUrlGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Ares.
         /// </summary>
-        internal static string AresBaseUrlName {
+        public static string AresBaseUrlName {
             get {
                 return ResourceManager.GetString("AresBaseUrlName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter ARES base URL..
         /// </summary>
-        internal static string AresBaseUrlPrompt {
+        public static string AresBaseUrlPrompt {
             get {
                 return ResourceManager.GetString("AresBaseUrlPrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Ares.
         /// </summary>
-        internal static string AresBaseUrlShortName {
+        public static string AresBaseUrlShortName {
             get {
                 return ResourceManager.GetString("AresBaseUrlShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Head office address of the organization, (used for mailing, shipping, etc.)..
         /// </summary>
-        internal static string HeadOfficeDescription {
+        public static string HeadOfficeDescription {
             get {
                 return ResourceManager.GetString("HeadOfficeDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Head Address.
         /// </summary>
-        internal static string HeadOfficeGroupName {
+        public static string HeadOfficeGroupName {
             get {
                 return ResourceManager.GetString("HeadOfficeGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Head office address.
         /// </summary>
-        internal static string HeadOfficeName {
+        public static string HeadOfficeName {
             get {
                 return ResourceManager.GetString("HeadOfficeName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter organization address..
         /// </summary>
-        internal static string HeadOfficePrompt {
+        public static string HeadOfficePrompt {
             get {
                 return ResourceManager.GetString("HeadOfficePrompt", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Head Office.
         /// </summary>
-        internal static string HeadOfficeShortName {
+        public static string HeadOfficeShortName {
             get {
                 return ResourceManager.GetString("HeadOfficeShortName", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to List of identifiers. (may be empty).
         /// </summary>
-        internal static string IdentifiersDescription {
+        public static string IdentifiersDescription {
             get {
                 return ResourceManager.GetString("IdentifiersDescription", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersGroupName {
+        public static string IdentifiersGroupName {
             get {
                 return ResourceManager.GetString("IdentifiersGroupName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to List of identifiers..
         /// </summary>
-        internal static string IdentifiersName {
+        public static string IdentifiersName {
             get {
                 return ResourceManager.GetString("IdentifiersName", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersShortName {
+        public static string IdentifiersShortName {
             get {
                 return ResourceManager.GetString("IdentifiersShortName", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to URL of the large logo of the organization like 256x256, 512x512, etc..
         /// </summary>
-        internal static string LargeLogoUrlDescription {
+        public static string LargeLogoUrlDescription {
             get {
                 return ResourceManager.GetString("LargeLogoUrlDescription", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Logo.
         /// </summary>
-        internal static string LargeLogoUrlGroupName {
+        public static string LargeLogoUrlGroupName {
             get {
                 return ResourceManager.GetString("LargeLogoUrlGroupName", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Large logo URL.
         /// </summary>
-        internal static string LargeLogoUrlName {
+        public static string LargeLogoUrlName {
             get {
                 return ResourceManager.GetString("LargeLogoUrlName", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter URL of the large logo of the organization..
         /// </summary>
-        internal static string LargeLogoUrlPrompt {
+        public static string LargeLogoUrlPrompt {
             get {
                 return ResourceManager.GetString("LargeLogoUrlPrompt", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Large logo.
         /// </summary>
-        internal static string LargeLogoUrlShortName {
+        public static string LargeLogoUrlShortName {
             get {
                 return ResourceManager.GetString("LargeLogoUrlShortName", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to URL of the medium logo of the organization like 64x64, 128x64, etc..
         /// </summary>
-        internal static string MediumLogoUrlDescription {
+        public static string MediumLogoUrlDescription {
             get {
                 return ResourceManager.GetString("MediumLogoUrlDescription", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Logo.
         /// </summary>
-        internal static string MediumLogoUrlGroupName {
+        public static string MediumLogoUrlGroupName {
             get {
                 return ResourceManager.GetString("MediumLogoUrlGroupName", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Medium logo URL.
         /// </summary>
-        internal static string MediumLogoUrlName {
+        public static string MediumLogoUrlName {
             get {
                 return ResourceManager.GetString("MediumLogoUrlName", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter URL of the medium logo of the organization..
         /// </summary>
-        internal static string MediumLogoUrlPrompt {
+        public static string MediumLogoUrlPrompt {
             get {
                 return ResourceManager.GetString("MediumLogoUrlPrompt", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Medium logo.
         /// </summary>
-        internal static string MediumLogoUrlShortName {
+        public static string MediumLogoUrlShortName {
             get {
                 return ResourceManager.GetString("MediumLogoUrlShortName", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Official name of the organization such as &apos;Precisio Medical Laboratories Inc.&apos;..
         /// </summary>
-        internal static string NameDescription {
+        public static string NameDescription {
             get {
                 return ResourceManager.GetString("NameDescription", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string NameGroupName {
+        public static string NameGroupName {
             get {
                 return ResourceManager.GetString("NameGroupName", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Organization name .
         /// </summary>
-        internal static string NameName {
+        public static string NameName {
             get {
                 return ResourceManager.GetString("NameName", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter organization full name..
         /// </summary>
-        internal static string NamePrompt {
+        public static string NamePrompt {
             get {
                 return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        internal static string NameShortName {
+        public static string NameShortName {
             get {
                 return ResourceManager.GetString("NameShortName", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Registered office address of the organization, (used for billing)..
         /// </summary>
-        internal static string RegisteredAddressDescription {
+        public static string RegisteredAddressDescription {
             get {
                 return ResourceManager.GetString("RegisteredAddressDescription", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Registered Address.
         /// </summary>
-        internal static string RegisteredAddressGroupName {
+        public static string RegisteredAddressGroupName {
             get {
                 return ResourceManager.GetString("RegisteredAddressGroupName", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Registered Address.
         /// </summary>
-        internal static string RegisteredAddressName {
+        public static string RegisteredAddressName {
             get {
                 return ResourceManager.GetString("RegisteredAddressName", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter organization billing address..
         /// </summary>
-        internal static string RegisteredAddressPrompt {
+        public static string RegisteredAddressPrompt {
             get {
                 return ResourceManager.GetString("RegisteredAddressPrompt", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Registered Address.
         /// </summary>
-        internal static string RegisteredAddressShortName {
+        public static string RegisteredAddressShortName {
             get {
                 return ResourceManager.GetString("RegisteredAddressShortName", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Roles assigned to the organization by Arenal..
         /// </summary>
-        internal static string RolesDescription {
+        public static string RolesDescription {
             get {
                 return ResourceManager.GetString("RolesDescription", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Roles.
         /// </summary>
-        internal static string RolesGroupName {
+        public static string RolesGroupName {
             get {
                 return ResourceManager.GetString("RolesGroupName", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Roles.
         /// </summary>
-        internal static string RolesName {
+        public static string RolesName {
             get {
                 return ResourceManager.GetString("RolesName", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Roles.
         /// </summary>
-        internal static string RolesShortName {
+        public static string RolesShortName {
             get {
                 return ResourceManager.GetString("RolesShortName", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Short name of the provider or brand name, e.g. &apos;Precisio&apos;..
         /// </summary>
-        internal static string ShortNameDescription {
+        public static string ShortNameDescription {
             get {
                 return ResourceManager.GetString("ShortNameDescription", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Short name.
         /// </summary>
-        internal static string ShortNameGroupName {
+        public static string ShortNameGroupName {
             get {
                 return ResourceManager.GetString("ShortNameGroupName", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Short name.
         /// </summary>
-        internal static string ShortNameName {
+        public static string ShortNameName {
             get {
                 return ResourceManager.GetString("ShortNameName", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter short name or brand..
         /// </summary>
-        internal static string ShortNamePrompt {
+        public static string ShortNamePrompt {
             get {
                 return ResourceManager.GetString("ShortNamePrompt", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Short name.
         /// </summary>
-        internal static string ShortNameShortName {
+        public static string ShortNameShortName {
             get {
                 return ResourceManager.GetString("ShortNameShortName", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to URL of the small logo of the organization like 16x16, 32x32 etc..
         /// </summary>
-        internal static string SmallLogoUrlDescription {
+        public static string SmallLogoUrlDescription {
             get {
                 return ResourceManager.GetString("SmallLogoUrlDescription", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Logo.
         /// </summary>
-        internal static string SmallLogoUrlGroupName {
+        public static string SmallLogoUrlGroupName {
             get {
                 return ResourceManager.GetString("SmallLogoUrlGroupName", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Small Logo URL.
         /// </summary>
-        internal static string SmallLogoUrlName {
+        public static string SmallLogoUrlName {
             get {
                 return ResourceManager.GetString("SmallLogoUrlName", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter URL of the small logo of the organization..
         /// </summary>
-        internal static string SmallLogoUrlPrompt {
+        public static string SmallLogoUrlPrompt {
             get {
                 return ResourceManager.GetString("SmallLogoUrlPrompt", resourceCulture);
             }
@@ -486,7 +486,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Small Logo.
         /// </summary>
-        internal static string SmallLogoUrlShortName {
+        public static string SmallLogoUrlShortName {
             get {
                 return ResourceManager.GetString("SmallLogoUrlShortName", resourceCulture);
             }
@@ -495,7 +495,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Web hook address to receive notifications from Arenal..
         /// </summary>
-        internal static string WebHookBaseUrlDescription {
+        public static string WebHookBaseUrlDescription {
             get {
                 return ResourceManager.GetString("WebHookBaseUrlDescription", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Web hook.
         /// </summary>
-        internal static string WebHookBaseUrlGroupName {
+        public static string WebHookBaseUrlGroupName {
             get {
                 return ResourceManager.GetString("WebHookBaseUrlGroupName", resourceCulture);
             }
@@ -513,7 +513,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Web hook URL.
         /// </summary>
-        internal static string WebHookBaseUrlName {
+        public static string WebHookBaseUrlName {
             get {
                 return ResourceManager.GetString("WebHookBaseUrlName", resourceCulture);
             }
@@ -522,7 +522,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Please, add web hook address..
         /// </summary>
-        internal static string WebHookBaseUrlPrompt {
+        public static string WebHookBaseUrlPrompt {
             get {
                 return ResourceManager.GetString("WebHookBaseUrlPrompt", resourceCulture);
             }
@@ -531,7 +531,7 @@ namespace Skyware.Arenal.L10n.Organization {
         /// <summary>
         ///   Looks up a localized string similar to Web hook.
         /// </summary>
-        internal static string WebHookBaseUrlShortName {
+        public static string WebHookBaseUrlShortName {
             get {
                 return ResourceManager.GetString("WebHookBaseUrlShortName", resourceCulture);
             }

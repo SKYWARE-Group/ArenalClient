@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class LinkedReferral {
+    public class LinkedReferral {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.LinkedReferral.LinkedReferral", typeof(LinkedReferral).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Date and time the referral will expire (UTC)..
         /// </summary>
-        internal static string ExpirationDescription {
+        public static string ExpirationDescription {
             get {
                 return ResourceManager.GetString("ExpirationDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Expiration.
         /// </summary>
-        internal static string ExpirationGroupName {
+        public static string ExpirationGroupName {
             get {
                 return ResourceManager.GetString("ExpirationGroupName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Date and time of expiration(UTC).
         /// </summary>
-        internal static string ExpirationName {
+        public static string ExpirationName {
             get {
                 return ResourceManager.GetString("ExpirationName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter expiration time..
         /// </summary>
-        internal static string ExpirationPrompt {
+        public static string ExpirationPrompt {
             get {
                 return ResourceManager.GetString("ExpirationPrompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Expiration (UTC).
         /// </summary>
-        internal static string ExpirationShortName {
+        public static string ExpirationShortName {
             get {
                 return ResourceManager.GetString("ExpirationShortName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Identifier in external system..
         /// </summary>
-        internal static string IdentifierDescription {
+        public static string IdentifierDescription {
             get {
                 return ResourceManager.GetString("IdentifierDescription", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string IdentifierGroupName {
+        public static string IdentifierGroupName {
             get {
                 return ResourceManager.GetString("IdentifierGroupName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string IdentifierName {
+        public static string IdentifierName {
             get {
                 return ResourceManager.GetString("IdentifierName", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string IdentifierShortName {
+        public static string IdentifierShortName {
             get {
                 return ResourceManager.GetString("IdentifierShortName", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Date and time the referral will expire (local)..
         /// </summary>
-        internal static string LocalExpirationDescription {
+        public static string LocalExpirationDescription {
             get {
                 return ResourceManager.GetString("LocalExpirationDescription", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Expiration.
         /// </summary>
-        internal static string LocalExpirationGroupName {
+        public static string LocalExpirationGroupName {
             get {
                 return ResourceManager.GetString("LocalExpirationGroupName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Date and time of expiration(local).
         /// </summary>
-        internal static string LocalExpirationName {
+        public static string LocalExpirationName {
             get {
                 return ResourceManager.GetString("LocalExpirationName", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter expiration time (local)..
         /// </summary>
-        internal static string LocalExpirationPrompt {
+        public static string LocalExpirationPrompt {
             get {
                 return ResourceManager.GetString("LocalExpirationPrompt", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Expiration (local).
         /// </summary>
-        internal static string LocalExpirationShortName {
+        public static string LocalExpirationShortName {
             get {
                 return ResourceManager.GetString("LocalExpirationShortName", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Note from the placer..
         /// </summary>
-        internal static string NoteDescription {
+        public static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteGroupName {
+        public static string NoteGroupName {
             get {
                 return ResourceManager.GetString("NoteGroupName", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteName {
+        public static string NoteName {
             get {
                 return ResourceManager.GetString("NoteName", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter note..
         /// </summary>
-        internal static string NotePrompt {
+        public static string NotePrompt {
             get {
                 return ResourceManager.GetString("NotePrompt", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Skyware.Arenal.L10n.LinkedReferral {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteShortName {
+        public static string NoteShortName {
             get {
                 return ResourceManager.GetString("NoteShortName", resourceCulture);
             }

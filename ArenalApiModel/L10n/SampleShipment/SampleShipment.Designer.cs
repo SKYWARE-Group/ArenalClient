@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SampleShipment {
+    public class SampleShipment {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.SampleShipment.SampleShipment", typeof(SampleShipment).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +64,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         ///   Looks up a localized string similar to List of identifiers associated with the shipment.(may be empty)
         ///Examples: Carrier (tracker) ServiceId, Sender&apos;s ServiceId, etc..
         /// </summary>
-        internal static string IdentifiersDescription {
+        public static string IdentifiersDescription {
             get {
                 return ResourceManager.GetString("IdentifiersDescription", resourceCulture);
             }
@@ -73,7 +73,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersName {
+        public static string IdentifiersName {
             get {
                 return ResourceManager.GetString("IdentifiersName", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Please, add identifier..
         /// </summary>
-        internal static string IdentifiersPrompt {
+        public static string IdentifiersPrompt {
             get {
                 return ResourceManager.GetString("IdentifiersPrompt", resourceCulture);
             }
@@ -91,7 +91,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Identifiers.
         /// </summary>
-        internal static string IdentifiersShortName {
+        public static string IdentifiersShortName {
             get {
                 return ResourceManager.GetString("IdentifiersShortName", resourceCulture);
             }
@@ -100,7 +100,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Notes from the placer of the order..
         /// </summary>
-        internal static string NoteDescription {
+        public static string NoteDescription {
             get {
                 return ResourceManager.GetString("NoteDescription", resourceCulture);
             }
@@ -109,7 +109,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteName {
+        public static string NoteName {
             get {
                 return ResourceManager.GetString("NoteName", resourceCulture);
             }
@@ -118,7 +118,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Please add notes to the shipment..
         /// </summary>
-        internal static string NotePrompt {
+        public static string NotePrompt {
             get {
                 return ResourceManager.GetString("NotePrompt", resourceCulture);
             }
@@ -127,7 +127,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
-        internal static string NoteShortName {
+        public static string NoteShortName {
             get {
                 return ResourceManager.GetString("NoteShortName", resourceCulture);
             }
@@ -136,7 +136,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to ArenalId of the ordering party..
         /// </summary>
-        internal static string PlacerIdDescription {
+        public static string PlacerIdDescription {
             get {
                 return ResourceManager.GetString("PlacerIdDescription", resourceCulture);
             }
@@ -145,7 +145,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Placer.
         /// </summary>
-        internal static string PlacerIdName {
+        public static string PlacerIdName {
             get {
                 return ResourceManager.GetString("PlacerIdName", resourceCulture);
             }
@@ -154,7 +154,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Placer.
         /// </summary>
-        internal static string PlacerIdShortName {
+        public static string PlacerIdShortName {
             get {
                 return ResourceManager.GetString("PlacerIdShortName", resourceCulture);
             }
@@ -163,7 +163,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to ArenalId of a provider to whom the shipment is assigned..
         /// </summary>
-        internal static string ProviderIdDescription {
+        public static string ProviderIdDescription {
             get {
                 return ResourceManager.GetString("ProviderIdDescription", resourceCulture);
             }
@@ -172,7 +172,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Provider.
         /// </summary>
-        internal static string ProviderIdName {
+        public static string ProviderIdName {
             get {
                 return ResourceManager.GetString("ProviderIdName", resourceCulture);
             }
@@ -181,7 +181,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Provider.
         /// </summary>
-        internal static string ProviderIdShortName {
+        public static string ProviderIdShortName {
             get {
                 return ResourceManager.GetString("ProviderIdShortName", resourceCulture);
             }
@@ -190,7 +190,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Date and time the shipment is sent..
         /// </summary>
-        internal static string SentDescription {
+        public static string SentDescription {
             get {
                 return ResourceManager.GetString("SentDescription", resourceCulture);
             }
@@ -199,7 +199,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Sent.
         /// </summary>
-        internal static string SentName {
+        public static string SentName {
             get {
                 return ResourceManager.GetString("SentName", resourceCulture);
             }
@@ -208,7 +208,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Please, add date and time when the shipment is sent..
         /// </summary>
-        internal static string SentPrompt {
+        public static string SentPrompt {
             get {
                 return ResourceManager.GetString("SentPrompt", resourceCulture);
             }
@@ -217,7 +217,7 @@ namespace Skyware.Arenal.L10n.SampleShipment {
         /// <summary>
         ///   Looks up a localized string similar to Sent.
         /// </summary>
-        internal static string SentShortName {
+        public static string SentShortName {
             get {
                 return ResourceManager.GetString("SentShortName", resourceCulture);
             }

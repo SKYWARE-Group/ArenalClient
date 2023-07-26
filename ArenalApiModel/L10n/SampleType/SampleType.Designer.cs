@@ -22,7 +22,7 @@ namespace Skyware.Arenal.L10n.SampleType {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SampleType {
+    public class SampleType {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Skyware.Arenal.L10n.SampleType.SampleType", typeof(SampleType).Assembly);
@@ -51,7 +51,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Identifier of additive..
         /// </summary>
-        internal static string AdditiveIdDescription {
+        public static string AdditiveIdDescription {
             get {
                 return ResourceManager.GetString("AdditiveIdDescription", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Additive Identifier.
         /// </summary>
-        internal static string AdditiveIdName {
+        public static string AdditiveIdName {
             get {
                 return ResourceManager.GetString("AdditiveIdName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Additive Identifier.
         /// </summary>
-        internal static string AdditiveIdShortName {
+        public static string AdditiveIdShortName {
             get {
                 return ResourceManager.GetString("AdditiveIdShortName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Additional identifiers, different from identifier and additive identifier..
         /// </summary>
-        internal static string AlternateIdentifiersDescription {
+        public static string AlternateIdentifiersDescription {
             get {
                 return ResourceManager.GetString("AlternateIdentifiersDescription", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Additional identifiers.
         /// </summary>
-        internal static string AlternateIdentifiersName {
+        public static string AlternateIdentifiersName {
             get {
                 return ResourceManager.GetString("AlternateIdentifiersName", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Please, add additional identifiers..
         /// </summary>
-        internal static string AlternateIdentifiersPrompt {
+        public static string AlternateIdentifiersPrompt {
             get {
                 return ResourceManager.GetString("AlternateIdentifiersPrompt", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Additional identifiers.
         /// </summary>
-        internal static string AlternateIdentifiersShortName {
+        public static string AlternateIdentifiersShortName {
             get {
                 return ResourceManager.GetString("AlternateIdentifiersShortName", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Name of the sample type as it is known by the placer or provider..
         /// </summary>
-        internal static string NameDescription {
+        public static string NameDescription {
             get {
                 return ResourceManager.GetString("NameDescription", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Sample type name.
         /// </summary>
-        internal static string NameName {
+        public static string NameName {
             get {
                 return ResourceManager.GetString("NameName", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Please, add sample type name..
         /// </summary>
-        internal static string NamePrompt {
+        public static string NamePrompt {
             get {
                 return ResourceManager.GetString("NamePrompt", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Name .
         /// </summary>
-        internal static string NameShortName {
+        public static string NameShortName {
             get {
                 return ResourceManager.GetString("NameShortName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Identifier of the sample type..
         /// </summary>
-        internal static string TypeIdDescription {
+        public static string TypeIdDescription {
             get {
                 return ResourceManager.GetString("TypeIdDescription", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string TypeIdName {
+        public static string TypeIdName {
             get {
                 return ResourceManager.GetString("TypeIdName", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Please, enter sample type identifier..
         /// </summary>
-        internal static string TypeIdPrompt {
+        public static string TypeIdPrompt {
             get {
                 return ResourceManager.GetString("TypeIdPrompt", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Skyware.Arenal.L10n.SampleType {
         /// <summary>
         ///   Looks up a localized string similar to Identifier.
         /// </summary>
-        internal static string TypeIdShortName {
+        public static string TypeIdShortName {
             get {
                 return ResourceManager.GetString("TypeIdShortName", resourceCulture);
             }
