@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <Version>0.4.2</Version>
     <UserSecretsId>7f1204f8-a6e0-4b04-8595-436b229e2cfd</UserSecretsId>
+    <Configurations>Debug;Release;TESTING</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,17 @@
+﻿{
+  "APIBaseAddress": "https://localhost:7291/",
+  "OpenIdProvider": {
+    "Address": "https://kc-dev.skyware-group.com/realms/arenal-dev/protocol/openid-connect/token",
+    "ClientId": "api-client",
+    "ClientSecret": null,
+    "Scope": "api-scope",
+    "Publisher": {
+      "Username": null,
+      "Password": null
+    },
+    "Laboratory": {
+      "Username": null,
+      "Password": null
+    }
+  }
+}

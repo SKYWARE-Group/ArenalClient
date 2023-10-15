@@ -20,6 +20,7 @@
     <RepositoryUrl>https://github.com/SKYWARE-Group/ArenalClient</RepositoryUrl>
     <PackageTags>Arenal;API;Model;Forms;Bulgaria</PackageTags>
     <Version>0.1.0</Version>
+    <Configurations>Debug;Release;TESTING</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

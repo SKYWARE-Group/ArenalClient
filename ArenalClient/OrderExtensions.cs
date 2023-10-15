@@ -29,8 +29,10 @@ public static class OrderExtensions
     public const string ARENAL_BASE = "https://localhost:7291/";
 #elif ARENAL_FORMS
     public const string ARENAL_BASE = "https://arenal-forms.azurewebsites.net/";
+#elif TESTING
+    public static string ARENAL_BASE = "https://localhost:7291/";
 #else
-    public const string ARENAL_BASE = "https://arenal2.azurewebsites.net/";
+    public static string ARENAL_BASE = "https://arenal2.azurewebsites.net/";
 #endif
 
     private static string _BaseAddress = ARENAL_BASE;
