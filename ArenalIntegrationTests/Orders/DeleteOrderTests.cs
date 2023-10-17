@@ -18,10 +18,11 @@ namespace ArenalIntegrationTests.Orders
 
             Assert.IsNotNull(orderResult);
 
-            var ex = Assert.ThrowsAsync<ArenalException>(new AsyncTestDelegate(async () => await _publisher.DeleteOrdersAsync(orderResult)));
+            await _publisher.DeleteOrdersAsync(orderResult);
+
+            var ex = Assert.ThrowsAsync<ArenalException>(new AsyncTestDelegate(async () => await _laboratory.DeleteOrdersAsync(orderResult)));
             Assert.IsNotNull(ex);
-            // It is locked
-            Assert.IsTrue(ex.HttpStatusCode == (int)HttpStatusCode.BadRequest);
+            Assert.IsTrue(ex.HttpStatusCode == (int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -32,7 +33,7 @@ namespace ArenalIntegrationTests.Orders
 
             Assert.IsNotNull(orderResult);
 
-            var ex = Assert.ThrowsAsync<ArenalException>(new AsyncTestDelegate(async () => await _laboratory.DeleteOrdersAsync(orderResult)));
+            var ex = Assert.ThrowsAsync<ArenalException>(async () => await _laboratory.DeleteOrdersAsync(orderResult));
             Assert.IsNotNull(ex);
             Assert.IsTrue(ex.HttpStatusCode == (int)HttpStatusCode.NotFound);
         }
