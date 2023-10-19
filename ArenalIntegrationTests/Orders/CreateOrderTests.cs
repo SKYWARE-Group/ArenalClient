@@ -39,6 +39,24 @@ namespace ArenalIntegrationTests.Orders
         }
 
         [Test]
+        public async Task CreateOrder_Diff_Status_ByPublisher()
+        {
+            Order order = FakeOrders.Generate(_publisherId, _laboratoryId);
+            order.Status = OrderStatuses.IN_PROGRESS;
+            Order orderResult = await _publisher.CreateOrdersAsync(order);
+
+            Assert.IsNotNull(orderResult);
+            Assert.IsTrue(orderResult.Status == OrderStatuses.AVAILABLE);
+            Assert.IsTrue(orderResult.Version == 0);
+
+            Order orderGetResult = await _laboratory.GetOrderAsync(orderResult.ArenalId);
+
+            Assert.IsNotNull(orderGetResult);
+            Assert.IsTrue(orderGetResult.Status == OrderStatuses.AVAILABLE);
+            Assert.IsTrue(orderGetResult.Version == 0);
+        }
+
+        [Test]
         public async Task CreateOrder_Diff_Created_ByPublisher()
         {
             Order order = FakeOrders.Generate(_publisherId, _laboratoryId);

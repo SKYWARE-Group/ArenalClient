@@ -1,10 +1,7 @@
 ﻿using Flurl.Util;
-using IdentityModel;
 using IdentityModel.Client;
 using Microsoft.Extensions.Configuration;
-using Skyware.Arenal.Client;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Security.Claims;
 
 namespace ArenalIntegrationTests
