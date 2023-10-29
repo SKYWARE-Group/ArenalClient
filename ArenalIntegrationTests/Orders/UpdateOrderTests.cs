@@ -3,7 +3,7 @@ using Skyware.Arenal.Model.Actions;
 
 namespace ArenalIntegrationTests.Orders
 {
-    internal class UpdateOrderTests : BaseTestSetup
+    internal class UpdateOrderTests : SingleRoleBaseTestSetup
     {
 
         [Test]

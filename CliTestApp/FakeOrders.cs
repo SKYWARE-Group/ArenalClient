@@ -304,7 +304,7 @@ public static class FakeOrders
             Workflows.LAB_SCO, placerId,
             patient,
             productsToOrder.Select(p => new Service(p.Code, p.Name)).ToArray(),
-            samplesToOrder.Select(s => new Sample(s.Key, null, $"SXA{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}", DateTime.Now.AddMinutes(-1 * rnd.Next(1, 50)))).ToArray(),
+            samplesToOrder.Select(s => new Sample(s.Key, null, $"SXA{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}", DateTime.UtcNow.AddMinutes(-1 * rnd.Next(1, 50)))).ToArray(),
             provierId);
     }
 

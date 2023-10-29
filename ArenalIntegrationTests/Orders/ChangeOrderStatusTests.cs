@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ArenalIntegrationTests.Orders
 {
     [TestFixture]
-    internal class ChangeOrderStatusTests : BaseTestSetup
+    internal class ChangeOrderStatusTests : SingleRoleBaseTestSetup
     {
         [TestCase(OrderStatuses.COMPLETE)]
         [TestCase(OrderStatuses.COMPLETE_WITH_PROBLEMS)]
@@ -94,7 +94,7 @@ namespace ArenalIntegrationTests.Orders
             Order statusChangedOrder = await _laboratory.ChangeOrderStatusAsync(orderResult,
                 new Skyware.Arenal.Model.Actions.OrderStatusRequest() { NewStatus = from });
 
-            Assert.ThrowsAsync<ArenalException>(async () => await _publisher.ChangeOrderStatusAsync(orderResult,
+            Assert.ThrowsAsync<ArenalException>(async () => await _publisher.ChangeOrderStatusAsync(statusChangedOrder,
                 new Skyware.Arenal.Model.Actions.OrderStatusRequest() { NewStatus = to }));
         }
 

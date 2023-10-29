@@ -3,7 +3,7 @@
 namespace ArenalIntegrationTests.Orders
 {
     [TestFixture]
-    internal class CreateOrderTests : BaseTestSetup
+    internal class CreateOrderTests : SingleRoleBaseTestSetup
     {
         [Test]
         public async Task CreateOrder_ByPublisher()

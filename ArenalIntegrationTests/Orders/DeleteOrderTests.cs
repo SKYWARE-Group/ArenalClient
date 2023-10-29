@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ArenalIntegrationTests.Orders
 {
-    internal class DeleteOrderTests : BaseTestSetup
+    internal class DeleteOrderTests : SingleRoleBaseTestSetup
     {
         [Test]
         public async Task DeleteOrder_ByPublisher()

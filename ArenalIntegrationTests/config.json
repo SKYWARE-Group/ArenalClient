@@ -12,6 +12,10 @@
     "Laboratory": {
       "Username": null,
       "Password": null
+    },
+    "DoubleRole": {
+      "Username": null,
+      "Password": null
     }
   }
 }
