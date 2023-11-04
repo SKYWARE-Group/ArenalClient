@@ -21,9 +21,14 @@
     <PackageTags>Arenal;API;Client</PackageTags>
     <Version>0.5.0</Version>
     <UserSecretsId>a0e75208-856c-4bd0-b6a3-f3e9dda534b0</UserSecretsId>
+    <Configurations>Debug;Release;TESTING</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='TESTING|AnyCPU'">
     <DefineConstants>$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
