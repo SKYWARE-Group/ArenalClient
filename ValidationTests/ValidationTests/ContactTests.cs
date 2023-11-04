@@ -13,8 +13,8 @@ namespace ModelTests.ValidationTests
         [TestCase("test00-tst@gmail.com")]
         public void Valid_Email_Assumption(string email)
         {
-            Contact contact = new Contact(ContactTypes.EMAIL, email);
-            ContactValidator sut = new ContactValidator();
+            Contact contact = new(ContactTypes.EMAIL, email);
+            ContactValidator sut = new();
 
             Assert.IsTrue(sut.Validate(contact).IsValid);
         }
@@ -31,8 +31,8 @@ namespace ModelTests.ValidationTests
         [TestCase("test00-tst@test00-tst")]
         public void InValid_Email_Assumption(string email)
         {
-            Contact contact = new Contact(ContactTypes.EMAIL, email);
-            ContactValidator sut = new ContactValidator();
+            Contact contact = new(ContactTypes.EMAIL, email);
+            ContactValidator sut = new();
 
             Assert.IsFalse(sut.Validate(contact).IsValid);
         }
@@ -55,8 +55,8 @@ namespace ModelTests.ValidationTests
         [TestCase("00359895641785")]
         public void Valid_Phone_Assumption(string phone)
         {
-            Contact contact = new Contact(ContactTypes.PHONE, phone);
-            ContactValidator sut = new ContactValidator();
+            Contact contact = new(ContactTypes.PHONE, phone);
+            ContactValidator sut = new();
 
             Assert.IsTrue(sut.Validate(contact).IsValid);
         }
@@ -72,7 +72,7 @@ namespace ModelTests.ValidationTests
         [TestCase("0025748965544002574896554400257489655440025748965544002574896554400257489655440025748965544002574896554400257489655440025748965544002574896554400257489655440025748965544")]
         public void InValid_Phone_Assumption(string phone)
         {
-            Contact contact = new Contact(ContactTypes.PHONE, phone);
+            Contact contact = new(ContactTypes.PHONE, phone);
             ContactValidator sut = new ContactValidator();
 
             Assert.IsFalse(sut.Validate(contact).IsValid);

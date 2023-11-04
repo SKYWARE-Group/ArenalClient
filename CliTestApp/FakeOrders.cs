@@ -1,10 +1,14 @@
-﻿using Skyware.Arenal.Model;
+﻿//Ignore Spelling: Tg Мюлеров невронспецифична
+
+using Skyware.Arenal.Model;
 
 namespace CliTestApp;
 
-
 public static class FakeOrders
 {
+
+    private static readonly Random _Rnd = new();
+
 
     public class Product
     {
@@ -259,53 +263,61 @@ public static class FakeOrders
 
     #endregion
 
-    public static Order Generate(string placerId, string provierId)
+    public static Order Generate(string workflow, string placerId, string providerId, bool withSamples = true)
     {
-        Random rnd = new();
 
-        int rGender = rnd.Next(0, 100);
+        int rGender = _Rnd.Next(0, 100);
         Patient patient = new();
         if (rGender > 50)
         {
             //Male
-            patient.GivenName = MALE_NAMES[rnd.Next(0, MALE_NAMES.Length - 1)];
-            patient.FamilyName = MALE_SURNAMES[rnd.Next(0, MALE_SURNAMES.Length - 1)];
-            if (rnd.Next(0, 5) > 0) patient.MiddleName = MALE_SURNAMES[rnd.Next(0, MALE_SURNAMES.Length - 1)];
+            patient.GivenName = MALE_NAMES[_Rnd.Next(0, MALE_NAMES.Length - 1)];
+            patient.FamilyName = MALE_SURNAMES[_Rnd.Next(0, MALE_SURNAMES.Length - 1)];
+            if (_Rnd.Next(0, 5) > 0) patient.MiddleName = MALE_SURNAMES[_Rnd.Next(0, MALE_SURNAMES.Length - 1)];
             patient.IsMale = true;
         }
         else
         {
             //Female
-            patient.GivenName = FEMALE_NAMES[rnd.Next(0, FEMALE_NAMES.Length - 1)];
-            patient.FamilyName = FEMALE_SURNAMES[rnd.Next(0, FEMALE_SURNAMES.Length - 1)];
-            if (rnd.Next(0, 5) > 0) patient.MiddleName = FEMALE_SURNAMES[rnd.Next(0, FEMALE_SURNAMES.Length - 1)];
+            patient.GivenName = FEMALE_NAMES[_Rnd.Next(0, FEMALE_NAMES.Length - 1)];
+            patient.FamilyName = FEMALE_SURNAMES[_Rnd.Next(0, FEMALE_SURNAMES.Length - 1)];
+            if (_Rnd.Next(0, 5) > 0) patient.MiddleName = FEMALE_SURNAMES[_Rnd.Next(0, FEMALE_SURNAMES.Length - 1)];
             patient.IsMale = false;
         }
-        patient.DateOfBirth = DateTime.Now.AddYears(-1 * rnd.Next(15, 60)).AddMonths(-1 * rnd.Next(0, 8)).AddDays(-1 * rnd.Next(0, 25));
+        patient.DateOfBirth = DateTime.Now.AddYears(-1 * _Rnd.Next(15, 60)).AddMonths(-1 * _Rnd.Next(0, 8)).AddDays(-1 * _Rnd.Next(0, 25));
         patient.ExactDoB = false;
 
-        int rNumProds = rnd.Next(1, 10);
+        int rNumProds = _Rnd.Next(1, 10);
         List<Product> productsToOrder = new();
         for (int i = 0; i < rNumProds; i++)
         {
-            productsToOrder.Add(PRODUCTS[rnd.Next(0, PRODUCTS.Length)]);
+            productsToOrder.Add(PRODUCTS[_Rnd.Next(0, PRODUCTS.Length)]);
         }
         productsToOrder = productsToOrder.Distinct().ToList();
 
-        KeyValuePair<string, string>[] samplesToOrder;
 
-        samplesToOrder = productsToOrder
-            .Select(p => p.SampleCode)
-            .Distinct()
-            .Select(x => new KeyValuePair<string, string>(x, productsToOrder.First(z => z.SampleCode == x).SampleName))
-            .ToArray();
+        Sample[]? orderSamples = null;
+        if (withSamples)
+        {
+            KeyValuePair<string, string>[] samplesToOrder;
+
+            samplesToOrder = productsToOrder
+                .Select(p => p.SampleCode)
+                .Distinct()
+                .Select(x => new KeyValuePair<string, string>(x, productsToOrder.First(z => z.SampleCode == x).SampleName))
+                .ToArray();
+
+            orderSamples = samplesToOrder
+                .Select(s => new Sample(s.Key, null, $"SXA{_Rnd.Next(1, 9)}{_Rnd.Next(1, 9)}{_Rnd.Next(1, 9)}", DateTime.Now.AddMinutes(-1 * _Rnd.Next(1, 50))))
+                .ToArray();
+        }
 
         return new Order(
-            Workflows.LAB_SCO, placerId,
+            workflow, placerId,
             patient,
             productsToOrder.Select(p => new Service(p.Code, p.Name)).ToArray(),
-            samplesToOrder.Select(s => new Sample(s.Key, null, $"SXA{rnd.Next(1, 9)}{rnd.Next(1, 9)}{rnd.Next(1, 9)}", DateTime.Now.AddMinutes(-1 * rnd.Next(1, 50)))).ToArray(),
-            provierId);
+            orderSamples,
+            Workflows.TWO_PARTIES_ORDERS.Any(x => x == workflow) ? providerId : null);
     }
 
     public static Order GetFixedDemoOrder(string placerId, string? providerId)

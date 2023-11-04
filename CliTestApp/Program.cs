@@ -18,17 +18,16 @@ namespace CliTestApp;
 
 public class Program
 {
-    //Holds session-wide JWT
     private static IConfiguration? _config = null;
 
     public static async Task Main(string[] args)
     {
-        AnsiConsole.Write(new Rule("[bold green]Arenal tests[/]") { Justification = Justify.Left });
+        AnsiConsole.Write(new FigletText("Arenal").LeftJustified().Color(Color.Green));
         AnsiConsole.WriteLine();
         try
         {
             BuildConfig();
-            AnsiConsole.MarkupLine("Configuration: [green]OK[/]");
+            AnsiConsole.MarkupLine("[gray]Configuration: OK[/]");
         }
         catch (Exception ex)
         {
@@ -36,7 +35,17 @@ public class Program
             return;
         }
 
-        await GetFormAsync();
+        var sequenceName = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("Please, select the test to run:")
+                .AddChoices(new[] {
+                    "Post Sale Orders", "Lab to Lab test",
+                }));
+
+
+
+
+        //await GetFormAsync();
         //await AnsiConsole
         //   .Status()
         //   .StartAsync($"Executing {nameof(DoOrdersSequence)}", async (ctx) =>
@@ -605,7 +614,7 @@ public class Program
         };
 
         using HttpClient client = new();
-        OrderExtensions.BaseAddress = "https://arenal-forms.azurewebsites.net/";
+        HttpClientExtensions.BaseAddress = "https://arenal-forms.azurewebsites.net/";
 
         Stopwatch s = new();
         s.Start();

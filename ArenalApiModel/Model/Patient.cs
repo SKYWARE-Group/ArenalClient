@@ -75,13 +75,13 @@ public class Patient : PersonBase
     /// <summary>
     /// Shorthand constructor.
     /// </summary>
-    /// <param name="givenNme"></param>
+    /// <param name="givenName"></param>
     /// <param name="familyName"></param>
     /// <param name="isMale"></param>
     /// <param name="born"></param>
-    public Patient(string givenNme, string familyName, bool? isMale = null, DateTime? born = null) : this()
+    public Patient(string givenName, string familyName, bool? isMale = null, DateTime? born = null) : this()
     {
-        GivenName = givenNme;
+        GivenName = givenName;
         FamilyName = familyName;
         IsMale = isMale;
         if (born is not null) DateOfBirth = born;
@@ -90,11 +90,12 @@ public class Patient : PersonBase
     /// <summary>
     /// Creates new <see cref="Order"/> and set this instance as a <see cref="Order.Patient.Patient"/>.
     /// </summary>
-    /// <param name="wokrflow"></param>
+    /// <param name="workflow"></param>
+    /// <param name="placerId"></param>
     /// <param name="providerId"></param>
     /// <returns></returns>
-    public Order CreateOrder(string wokrflow, string placerId, string providerId) =>
-        new() { Workflow = wokrflow, PlacerId = placerId, ProviderId = providerId, Patient = this };
+    public Order CreateOrder(string workflow, string placerId, string providerId) =>
+        new() { Workflow = workflow, PlacerId = placerId, ProviderId = providerId, Patient = this };
 
 
     /// <summary>

@@ -1,10 +1,11 @@
-﻿using Flurl;
+﻿// Ignore Spelling: pdf
+
+using Flurl;
 using Skyware.Arenal.Filters;
 using Skyware.Arenal.Model;
 using Skyware.Arenal.Model.Actions;
 using Skyware.Arenal.Model.Forms;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -13,11 +14,10 @@ using System.Threading.Tasks;
 
 namespace Skyware.Arenal.Client;
 
-
 /// <summary>
-/// HttpClient extensions for accessing Orders
+/// <see cref="HttpClient"/> extensions for dealing with Arenal.
 /// </summary>
-public static class OrderExtensions
+public static class HttpClientExtensions
 {
 
     #region Constant and static variables
@@ -33,20 +33,26 @@ public static class OrderExtensions
     public const string ARENAL_BASE = "https://arenal2.azurewebsites.net/";
 #endif
 
-    private static string _BaseAddress = ARENAL_BASE;
 
     /// <summary>
     /// Gets or set base Arenal URL.
     /// </summary>
-    public static string BaseAddress { get => _BaseAddress; set => _BaseAddress = value; }
+    public static string BaseAddress { get; set; } = ARENAL_BASE;
 
 
-    private static readonly JsonSerializerOptions _jOpts = new JsonSerializerOptions()
+    private static readonly JsonSerializerOptions _jOpts = new()
     {
         DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
         PropertyNameCaseInsensitive = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
+
+    private static void AddHeaders(this HttpRequestMessage request)
+    {
+        request.Headers.Add("Accept", "application/json");
+        request.Headers.Add("Content-Type", "application/json");
+        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+    }
 
     #endregion
 
@@ -69,9 +75,9 @@ public static class OrderExtensions
         Filter filter = null, int? offset = null, int? limit = null,
         CancellationToken cancellationToken = default)
     {
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders");
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS);
 
         if (filter is not null) url.SetQueryParam("where", filter.ToString()); //SetQueryParam makes html escape
         if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
@@ -82,8 +88,7 @@ public static class OrderExtensions
         {
             RequestUri = url.ToUri()
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -115,9 +120,9 @@ public static class OrderExtensions
     {
         if (string.IsNullOrEmpty(orderId)) throw new ArgumentNullException(nameof(orderId));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders")
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS)
             .AppendPathSegment(orderId);
 
 
@@ -125,8 +130,7 @@ public static class OrderExtensions
         {
             RequestUri = url.ToUri()
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -157,9 +161,9 @@ public static class OrderExtensions
         CancellationToken cancellationToken = default)
     {
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders");
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS);
 
 
         HttpRequestMessage request = new()
@@ -168,8 +172,7 @@ public static class OrderExtensions
             RequestUri = url.ToUri(),
             Content = JsonContent.Create(order, typeof(Order), options: _jOpts)
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.IsSuccessStatusCode)
@@ -205,9 +208,9 @@ public static class OrderExtensions
         if (order is null) throw new NullReferenceException(nameof(order));
         if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders")
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS)
             .AppendPathSegment(order.ArenalId);
 
         HttpRequestMessage request = new()
@@ -215,8 +218,7 @@ public static class OrderExtensions
             Method = HttpMethod.Delete,
             RequestUri = url.ToUri()
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.StatusCode != System.Net.HttpStatusCode.OK)
@@ -246,9 +248,9 @@ public static class OrderExtensions
         if (order is null) throw new NullReferenceException(nameof(order));
         if (string.IsNullOrEmpty(order.ArenalId)) throw new NullReferenceException(nameof(order.ArenalId));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders")
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS)
             .AppendPathSegment(order.ArenalId);
 
         HttpRequestMessage request = new()
@@ -257,8 +259,7 @@ public static class OrderExtensions
             RequestUri = url.ToUri(),
             Content = JsonContent.Create(order, typeof(Order), options: _jOpts)
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.IsSuccessStatusCode)
@@ -279,7 +280,7 @@ public static class OrderExtensions
     /// Updates order status
     /// </summary>
     /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
-    /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+    /// <param name="orderId"></param>
     /// <param name="statusRequest"><see cref="Model.Actions.OrderStatusRequest"/> description of the action.</param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
     /// <returns></returns>
@@ -295,11 +296,11 @@ public static class OrderExtensions
         if (statusRequest is null) throw new NullReferenceException(nameof(statusRequest));
         if (string.IsNullOrEmpty(orderId)) throw new NullReferenceException(nameof(orderId));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("orders")
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.ORDERS)
             .AppendPathSegment(orderId)
-            .AppendPathSegment("status");
+            .AppendPathSegment(PathSegments.STATUS);
 
         HttpRequestMessage request = new()
         {
@@ -307,8 +308,7 @@ public static class OrderExtensions
             RequestUri = url.ToUri(),
             Content = JsonContent.Create(statusRequest, typeof(OrderStatusRequest), options: _jOpts)
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.IsSuccessStatusCode)
@@ -349,6 +349,7 @@ public static class OrderExtensions
     /// </summary>
     /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
     /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+    /// <param name="providerNote"></param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
     /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
     /// <exception cref="ArgumentNullException">The request or content was null.</exception>
@@ -359,7 +360,7 @@ public static class OrderExtensions
         string providerNote = null,
         CancellationToken cancellationToken = default)
     {
-        OrderStatusRequest statusRequest = new OrderStatusRequest()
+        OrderStatusRequest statusRequest = new()
         {
             NewStatus = OrderStatuses.IN_PROGRESS,
             ProviderNote = new Note() { Value = providerNote }
@@ -372,6 +373,7 @@ public static class OrderExtensions
     /// </summary>
     /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
     /// <param name="order"><see cref="Model.Order"/> order to change status.</param>
+    /// <param name="providerNote"></param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
     /// <exception cref="Model.Exceptions.ArenalException">Arenal returned an error.</exception>
     /// <exception cref="ArgumentNullException">The request or content was null.</exception>
@@ -382,7 +384,7 @@ public static class OrderExtensions
         string providerNote = null,
         CancellationToken cancellationToken = default)
     {
-        OrderStatusRequest statusRequest = new OrderStatusRequest()
+        OrderStatusRequest statusRequest = new()
         {
             NewStatus = OrderStatuses.AVAILABLE,
             ProviderNote = new Note() { Value = providerNote }
@@ -397,8 +399,8 @@ public static class OrderExtensions
     /// <summary>
     /// Retrieves providers
     /// </summary>
-    /// <param name="client"><see cref="HttpClient"/> to deal with.</param>
-    /// <param name="filter"></param>
+    /// <param name="client"><see cref="HttpClient"/> to deal with</param>
+    /// <param name="filter">AQL where clause</param>
     /// <param name="offset"></param>
     /// <param name="limit"></param>
     /// <param name="cancellationToken"><see cref="CancellationToken"/></param>
@@ -410,11 +412,11 @@ public static class OrderExtensions
         Filter filter = null, int? offset = null, int? limit = null,
         CancellationToken cancellationToken = default)
     {
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("providers");
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.PROVIDERS);
 
-        if (filter is not null) url.SetQueryParam("where", filter.ToString());//SetQueryParam makes html escape
+        if (filter is not null) url.SetQueryParam("where", filter.ToString()); //SetQueryParam makes html escape
         if (offset is not null && offset > 0) url.SetQueryParam("offset", offset.ToString());
         if (limit is not null && limit > 0) url.SetQueryParam("limit", limit.ToString());
 
@@ -423,8 +425,7 @@ public static class OrderExtensions
         {
             RequestUri = url.ToUri()
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -456,9 +457,9 @@ public static class OrderExtensions
     {
         if (string.IsNullOrEmpty(providerId)) throw new ArgumentNullException(nameof(providerId));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("providers")
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.PROVIDERS)
             .AppendPathSegment(providerId);
 
 
@@ -466,8 +467,7 @@ public static class OrderExtensions
         {
             RequestUri = url.ToUri()
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -506,9 +506,9 @@ public static class OrderExtensions
         if (base64data == null) throw new NullReferenceException(nameof(base64data));
         if (string.IsNullOrEmpty(reportType)) throw new NullReferenceException(nameof(reportType));
 
-        Url url = _BaseAddress
-            .AppendPathSegment("api")
-            .AppendPathSegment("forms");
+        Url url = BaseAddress
+            .AppendPathSegment(PathSegments.API_BASE)
+            .AppendPathSegment(PathSegments.FORMS);
 
         DocumentRequest docReq = new()
         {
@@ -523,8 +523,7 @@ public static class OrderExtensions
             RequestUri = url.ToUri(),
             Content = JsonContent.Create(docReq, typeof(DocumentRequest), options: _jOpts)
         };
-        request.Headers.Add("Accept", "application/json");
-        request.Headers.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue() { NoCache = true };
+        request.AddHeaders();
 
         HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
         if (response.IsSuccessStatusCode)
