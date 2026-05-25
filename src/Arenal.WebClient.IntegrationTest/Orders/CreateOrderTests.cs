@@ -1,7 +1,6 @@
 ﻿using Skyware.Arenal.ApiModel.Demo;
 using Skyware.Arenal.ApiModel.Model;
 using Skyware.Arenal.ApiModel.Model.Exceptions;
-using Skyware.Arenal.WebClient;
 
 namespace ArenalIntegrationTests.Orders;
 
@@ -78,7 +77,7 @@ internal class CreateOrderTests : SingleRoleBaseTestSetup
         Assert.That(orderGetResult.Created.HasValue, Is.True);
         Assert.That(orderGetResult.Created.Value, Is.Not.EqualTo(order.Created));
     }
-    
+
     [Test]
     public async Task CreateOrder_Diff_TakenOrRejected_ByPublisher()
     {

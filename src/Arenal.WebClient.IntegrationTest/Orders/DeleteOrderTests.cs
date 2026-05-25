@@ -1,7 +1,6 @@
 ﻿using Skyware.Arenal.ApiModel.Demo;
 using Skyware.Arenal.ApiModel.Model;
 using Skyware.Arenal.ApiModel.Model.Exceptions;
-using Skyware.Arenal.WebClient;
 
 namespace ArenalIntegrationTests.Orders;
 

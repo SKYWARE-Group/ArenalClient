@@ -39,6 +39,4 @@ public class OrderStatusRequest
     /// </remarks>
     public IEnumerable<ServiceProblem> ServiceProblems { get; set; }
 
-
-
 }

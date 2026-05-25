@@ -121,7 +121,7 @@
     <value>Адрес</value>
   </data>
   <data name="CityName" xml:space="preserve">
-    <value>Град2</value>
+    <value>Град</value>
   </data>
   <data name="CityPrompt" xml:space="preserve">
     <value>Моля, попълнете град.</value>

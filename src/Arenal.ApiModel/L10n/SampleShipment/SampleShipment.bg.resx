@@ -165,6 +165,9 @@
   <data name="SentName" xml:space="preserve">
     <value>Дата и час на изпращане</value>
   </data>
+  <data name="SentPrompt" xml:space="preserve">
+    <value>Моля, добавете дата и час на изпращане на пратката.</value>
+  </data>
   <data name="SentShortName" xml:space="preserve">
     <value>Дата и час на изпращане</value>
   </data>

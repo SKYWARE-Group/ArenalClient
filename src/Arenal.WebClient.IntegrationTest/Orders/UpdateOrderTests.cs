@@ -2,7 +2,6 @@
 using Skyware.Arenal.ApiModel.Model;
 using Skyware.Arenal.ApiModel.Model.Actions;
 using Skyware.Arenal.ApiModel.Model.Exceptions;
-using Skyware.Arenal.WebClient;
 
 namespace ArenalIntegrationTests.Orders;
 
@@ -244,7 +243,7 @@ internal class UpdateOrderTests : SingleRoleBaseTestSetup
 
         Order changedStateOrder = await _laboratory.ChangeOrderStatusAsync(orderGetResult, new OrderStatusRequest() { NewStatus = OrderStatuses.IN_PROGRESS });
         Assert.That(changedStateOrder.Version, Is.EqualTo(0));
-        
+
         DateTime? origCreated = changedStateOrder.Created;
         changedStateOrder.Created = DateTime.Now.AddDays(-31);
         Order orderUpdateResult = await _laboratory.UpdateOrdersAsync(changedStateOrder);

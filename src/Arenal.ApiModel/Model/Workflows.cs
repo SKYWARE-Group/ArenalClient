@@ -12,7 +12,7 @@ public class Workflows
     public const string LAB_SCO = "lab-sco";
 
     /// <summary>
-    /// Mobile Collection Point.
+    /// Mobile Collection Point Orders.
     /// </summary>
     public const string LAB_MCP = "lab-mcp";
 
@@ -22,7 +22,7 @@ public class Workflows
     public const string LAB_PSO = "lab-pso";
 
     /// <summary>
-    /// Order workflows which are placer and provider are the same party.
+    /// Order workflows where the placer and the provider are the same party.
     /// </summary>
     public static string[] SELF_ORDERS = { 
         LAB_MCP, 
@@ -30,7 +30,7 @@ public class Workflows
     };
 
     /// <summary>
-    /// Order where two parties are involved - placer and provider.
+    /// Order where two parties are involved - placer and provider and samples are defined.
     /// </summary>
     public static string[] TWO_PARTIES_ORDERS = { 
         LAB_SCO 

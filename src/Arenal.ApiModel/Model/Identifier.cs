@@ -33,6 +33,30 @@ public class Identifier : IEquatable<Identifier>
     private static IdentifierValidator _validator;
 
     /// <summary>
+    /// Default constructor.
+    /// </summary>
+    public Identifier() { }
+
+    /// <summary>
+    /// Creates an instance with local authority and no dictionary.
+    /// </summary>
+    public Identifier(string value) : this()
+    {
+        Authority = Authorities.LOCAL;
+        Value = value;
+    }
+
+    /// <summary>
+    /// Creates an object with authority and dictionary.
+    /// </summary>
+    public Identifier(string authority, string dictionary, string value) : this()
+    {
+        Authority = authority;
+        Dictionary = dictionary;
+        Value = value;
+    }
+
+    /// <summary>
     /// Authority/Realm/System of the identifier such as 'org.loinc', 'org.snomed' etc.
     /// Mandatory. Use 'local' for your own identifiers.
     /// Up to <see cref="AUTHORITY_MAX_LEN"/> characters.
@@ -70,30 +94,6 @@ public class Identifier : IEquatable<Identifier>
         Prompt = nameof(L10n.Identifier.Identifier.ValuePrompt),
         ResourceType = typeof(L10n.Identifier.Identifier))]
     public string Value { get; set; }
-
-    /// <summary>
-    /// Default constructor.
-    /// </summary>
-    public Identifier() { }
-
-    /// <summary>
-    /// Creates an instance with local authority and no dictionary.
-    /// </summary>
-    public Identifier(string value) : this()
-    {
-        Authority = Authorities.LOCAL;
-        Value = value;
-    }
-
-    /// <summary>
-    /// Creates an object with authority and dictionary.
-    /// </summary>
-    public Identifier(string authority, string dictionary, string value) : this()
-    {
-        Authority = authority;
-        Dictionary = dictionary;
-        Value = value;
-    }
 
     /// <summary>
     /// Check if two identifiers are semantically equal.

@@ -222,5 +222,14 @@ namespace Skyware.Arenal.ApiModel.L10n.SampleShipment {
                 return ResourceManager.GetString("SentShortName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, add date and time of the sending..
+        /// </summary>
+        public static string SentTypePrompt {
+            get {
+                return ResourceManager.GetString("SentTypePrompt", resourceCulture);
+            }
+        }
     }
 }

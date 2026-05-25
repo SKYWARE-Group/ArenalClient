@@ -172,4 +172,7 @@ Examples: Carrier (tracker) ServiceId, Sender's ServiceId, etc.</value>
   <data name="SentShortName" xml:space="preserve">
     <value>Sent</value>
   </data>
+  <data name="SentTypePrompt" xml:space="preserve">
+    <value>Please, add date and time of the sending.</value>
+  </data>
 </root>

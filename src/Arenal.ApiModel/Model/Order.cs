@@ -35,6 +35,30 @@ public class Order : EntityBase
     private static OrderValidator _validator;
 
     /// <summary>
+    /// Default constructor.
+    /// </summary>
+    public Order() : base() { }
+
+    /// <summary>
+    /// Instantiates minimal valid order.
+    /// </summary>
+    /// <param name="workflow"></param>
+    /// <param name="placerId"></param>
+    /// <param name="patient"></param>
+    /// <param name="services"></param>
+    /// <param name="samples"></param>
+    /// <param name="providerId"></param>
+    public Order(string workflow, string placerId, Patient patient, IList<Service> services = null, IList<Sample> samples = null, string providerId = null) : this()
+    {
+        Workflow = workflow;
+        Patient = patient;
+        PlacerId = placerId;
+        if (services is not null) Services = services;
+        if (samples is not null) Samples = samples;
+        if (!string.IsNullOrWhiteSpace(providerId)) ProviderId = providerId;
+    }
+
+    /// <summary>
     /// Identifies Arenal workflow.
     /// </summary>
     [Display(GroupName = nameof(L10n.Order.Order.GeneralGroup), 
@@ -271,30 +295,6 @@ public class Order : EntityBase
     public DateTime? Expiration { get; set; }
 
     /// <summary>
-    /// Default constructor.
-    /// </summary>
-    public Order() : base() { }
-
-    /// <summary>
-    /// Instantiates minimal valid order.
-    /// </summary>
-    /// <param name="workflow"></param>
-    /// <param name="placerId"></param>
-    /// <param name="patient"></param>
-    /// <param name="services"></param>
-    /// <param name="samples"></param>
-    /// <param name="providerId"></param>
-    public Order(string workflow, string placerId, Patient patient, IList<Service> services = null, IList<Sample> samples = null, string providerId = null) : this()
-    {
-        Workflow = workflow;
-        Patient = patient;
-        PlacerId = placerId;
-        if (services is not null) Services = services;
-        if (samples is not null) Samples = samples;
-        if (!string.IsNullOrWhiteSpace(providerId)) ProviderId = providerId;
-    }
-
-    /// <summary>
     /// Convenience method for setting <see cref="Order.Patient"/> property.
     /// </summary>
     /// <param name="patient"></param>
@@ -311,7 +311,7 @@ public class Order : EntityBase
     /// <param name="sample">A <see cref="Sample"/> to add</param>
     public Order AddSample(Sample sample)
     {
-        Samples ??= new List<Sample>();
+        Samples ??= [];
         Samples.Add(sample);
         return this;
     }
@@ -326,7 +326,7 @@ public class Order : EntityBase
     /// <param name="additiveCode"></param>
     public Order AddSample(string sampleTypeCode, string additiveCode, string barcode, DateTime? taken = null, string note = null)
     {
-        Samples ??= new List<Sample>();
+        Samples ??= [];
         Samples.Add(new Sample(sampleTypeCode, additiveCode, barcode, taken, note));
         return this;
     }
@@ -337,7 +337,7 @@ public class Order : EntityBase
     /// <param name="service">A <see cref="Service"/> to add</param>
     public Order AddService(Service service)
     {
-        Services ??= new List<Service>();
+        Services ??= [];
         Services.Add(service);
         return this;
     }
@@ -351,7 +351,7 @@ public class Order : EntityBase
     /// <param name="endUserPrice">End user price (in lab to pat workflows)</param>
     public Order AddService(string serviceCode, string name = null, string note = null, decimal? endUserPrice = null)
     {
-        Services ??= new List<Service>();
+        Services ??= [];
         Services.Add(new Service(serviceCode, name, note, endUserPrice));
         return this;
     }
