@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<OutputType>Exe</OutputType>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<RootNamespace>Skyware.Arenal.ApiModel.Demo</RootNamespace>
+		<AssemblyName>Skyware.Arenal.ApiModel.Demo</AssemblyName>
+		<Title>Arenal API Data Model Demo</Title>
+		<Company>SKYWARE Group</Company>
+		<Version>0.7.2</Version>
+		
+		<Version>0.4.2</Version>
+		<UserSecretsId>7f1204f8-a6e0-4b04-8595-436b229e2cfd</UserSecretsId>
+		<Configurations>Debug;Release;TESTING</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Duende.IdentityModel.OidcClient" Version="7.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.8" />
+		<PackageReference Include="Spectre.Console" Version="0.55.2" />
+		<PackageReference Include="Spectre.Console.Json" Version="0.55.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Arenal.Forms.Bg\Arenal.Forms.Bg.csproj" />
+		<ProjectReference Include="..\Arenal.WebClient\Arenal.WebClient.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

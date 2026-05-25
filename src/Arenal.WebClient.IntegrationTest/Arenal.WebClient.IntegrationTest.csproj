@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+		<UserSecretsId>9d987763-63b4-4700-b900-0dbe9ef8ae7d</UserSecretsId>
+		<Configurations>Debug;Release;TESTING</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="config.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Duende.IdentityModel" Version="8.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.8" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
+		<PackageReference Include="NUnit" Version="4.6.1" />
+		<PackageReference Include="NUnit3TestAdapter" Version="6.2.0" />
+		<PackageReference Include="NUnit.Analyzers" Version="4.13.0" />
+		<PackageReference Include="coverlet.collector" Version="10.0.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.18.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="config.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="ArenalForms\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Arenal.ApiModel.CliApp\Arenal.ApiModel.CliApp.csproj" />
+		<ProjectReference Include="..\Arenal.WebClient.Demo\Arenal.WebClient.Demo.csproj" />
+		<ProjectReference Include="..\Arenal.WebClient\Arenal.WebClient.csproj" />
+	</ItemGroup>
+
+</Project>

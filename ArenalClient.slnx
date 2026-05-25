@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    <BuildType Name="TESTING" />
+  </Configurations>
+  <Project Path="src/Arenal.ApiModel.CliApp/Arenal.ApiModel.CliApp.csproj" />
+  <Project Path="src/Arenal.ApiModel.Test/Arenal.ApiModel.Test.csproj" />
+  <Project Path="src/Arenal.ApiModel/Arenal.ApiModel.csproj" />
+  <Project Path="src/Arenal.Forms.Bg/Arenal.Forms.Bg.csproj" />
+  <Project Path="src/Arenal.WebClient.Demo/Arenal.WebClient.Demo.csproj" />
+  <Project Path="src/Arenal.WebClient.IntegrationTest/Arenal.WebClient.IntegrationTest.csproj" />
+  <Project Path="src/Arenal.WebClient/Arenal.WebClient.csproj" />
+</Solution>

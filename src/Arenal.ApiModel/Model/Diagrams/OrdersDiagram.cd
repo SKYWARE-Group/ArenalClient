@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Skyware.Arenal.Model.Order">
+    <Position X="2.25" Y="1.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Patient" Type="Skyware.Arenal.Model.Patient" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.25" Y="2.175" />
+        <Point X="4.625" Y="2.175" />
+        <Point X="4.625" Y="1.045" />
+        <Point X="7.75" Y="1.045" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>oIgIAAQEBCCIABEABBACIBAIAAAAABQgAQABECAAKII=</HashCode>
+      <FileName>Model\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Doctor" />
+      <Property Name="Patient" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Services" />
+      <Property Name="Samples" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Skyware.Arenal.Model.Patient">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACQAAAICAAAAAAAAAAQhAAACAAAAAAAIAE=</HashCode>
+      <FileName>Model\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skyware.Arenal.Model.Service">
+    <Position X="6.25" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAGAAAACAAAAAgAAAAAQAAIAgEMAAAAAAQAEQIAA=</HashCode>
+      <FileName>Model\Service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Skyware.Arenal.Model.Sample">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAEAAAAUAAAAgAQAEAIAQ=</HashCode>
+      <FileName>Model\Sample.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skyware.Arenal.Model.Doctor">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Skyware.Arenal.Model.PersonBase">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAACAAgAEgAAAIAAAAAUAAAAAAAAAAAAAAAAAAIAEAA=</HashCode>
+      <FileName>Model\PersonBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
