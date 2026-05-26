@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal PR Review"
+  short_description: "Review Arenal PRs against source tasks and process rules."
+  default_prompt: "Review this Arenal PR against its source task."

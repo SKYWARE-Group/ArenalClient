@@ -1,0 +1,5 @@
+# Windsurf Instructions
+
+All repository-specific agent instructions live in [docs/agents](docs/agents/).
+
+Before planning or changing code, read [docs/agents/README.md](docs/agents/README.md) and follow the referenced documents there. If this file conflicts with anything under `docs/agents`, the instructions in `docs/agents` are authoritative.

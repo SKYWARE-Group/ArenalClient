@@ -22,6 +22,11 @@ public class Organization : EntityBase
     public IEnumerable<Identifier> Identifiers { get; set; }
 
     /// <summary>
+    /// API key metadata and non-plaintext verification material owned by the organization.
+    /// </summary>
+    public IEnumerable<OrganizationApiKey> ApiKeys { get; set; } = System.Array.Empty<OrganizationApiKey>();
+
+    /// <summary>
     /// Official name of the organization such as 'Precisio Medical Laboratories Inc.'.
     /// </summary>
     [Display(GroupName = nameof(L10n.Organization.Organization.NameGroupName),
