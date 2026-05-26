@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal Intent Router"
+  short_description: "Route Arenal intents into Change Requests or ADRs."
+  default_prompt: "Route this intent into an Arenal Change Request or ADR."

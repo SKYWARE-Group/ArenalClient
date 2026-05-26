@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal CR To Task"
+  short_description: "Create Arenal CR tasks from approved Change Requests."
+  default_prompt: "Create a CR Task from this approved Arenal Change Request."

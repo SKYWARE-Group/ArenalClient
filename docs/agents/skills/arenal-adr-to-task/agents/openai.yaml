@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal ADR To Task"
+  short_description: "Create Arenal ADR tasks from approved ADRs."
+  default_prompt: "Create an ADR Task from this approved Arenal ADR."

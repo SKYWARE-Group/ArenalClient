@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal Task To PR"
+  short_description: "Implement approved Arenal tasks and prepare PR notes."
+  default_prompt: "Implement this approved Arenal task and prepare PR notes."

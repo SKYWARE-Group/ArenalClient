@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arenal Issue To CR"
+  short_description: "Draft Arenal change requests from concrete issues."
+  default_prompt: "Turn this issue into an Arenal Change Request."
